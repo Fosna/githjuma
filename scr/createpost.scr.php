@@ -17,7 +17,7 @@
 
     $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments) values ('$title','$description', '$image_name', '$image', '$grouppost', '$comments' )";
         if ($conn->query($sql)){
-          header("Location: ../post.php");
+          header("Location: ../group.php");
         }
         else {
           echo "Error".$sql."<br>" . $conn->error;

@@ -1,6 +1,6 @@
 <?php require 'header.php'; ?>
   <link rel="stylesheet" href="style/creategroup.style.css">
-  <h1>Create group</h1>
+  <h1>Create post</h1>
   <form class="" action="scr/createpost.scr.php" method="post" enctype="multipart/form-data">
 
 
