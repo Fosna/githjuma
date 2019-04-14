@@ -8,11 +8,8 @@
     <?php require 'scr/dbh.scr.php'; ?>
     <?php session_start();
     $groupmes = $_SESSION['groupname'];
-    echo $_SESSION['groupname'];?>
-
+    ?>
     <?php
-
-
     $sql = "SELECT * FROM hjuma_messages WHERE groupmes='$groupmes'";
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
@@ -24,10 +21,6 @@
             if ($sender_name != $_SESSION['username']){
 
   ?>
-
-
-
-
     <div class="gray-col">
       <a href="profile" class ="sender"><?php echo $sender_name; ?></a>
       <?php echo $message; ?>
