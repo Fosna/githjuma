@@ -4,8 +4,6 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: auto;
     height: 1000px;
-
-
 }
 ::-webkit-scrollbar {
   width: 3px;
@@ -45,7 +43,7 @@ h2 {
   text-align: center;
   border: none;
   padding: 15px;
-  width: 325px;
+  width: 105px;
   outline: none;
   border-radius: 22px;
 }
@@ -100,7 +98,6 @@ input[type=text] {
 
 }
 
-
 .container-side {
   clear: both;
   transition: 0.3s;
@@ -114,16 +111,13 @@ input[type=text] {
 }
 .container-side:hover{
   width: 10%;
-
-
 }
-
-
 .container-message{
-  height: 60%;
+  overflow: scroll;
   margin-left: auto;
   margin-right: auto;
-  width: 52%;
+  padding: 5px;
+  width: 35%;
   background: none;
   border-radius: 10px;
   border: 2px solid #848383;
@@ -134,7 +128,6 @@ input[type=text] {
   float: right;
   clear: both;
 }
-
 .sender{
   font-size: 20px;
   float: right;

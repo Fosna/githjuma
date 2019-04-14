@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <?php require 'header.php'; ?>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style/group.style.css">
-    <link rel="stylesheet" href="style/posts.style.css">
-    <title></title>
-  </head>
-  <body>
-    <form class="" action="createpost" method="post">
-      <button class="createpost" type="submit" name="button">Create post</button>
-    </form>
-
-
-
-    </div>
+<?php require 'header.php'; ?>
+<link rel="stylesheet" href="style/group.style.css">
+<link rel="stylesheet" href="style/posts.style.css">
+<form class="" action="createpost" method="post">
+  <button class="createpost" type="submit" name="button">Create post</button>
+</form>
 <?php
   require 'scr/dbh.scr.php';
   $grouppost = $_SESSION['groupname'];
@@ -34,7 +23,7 @@
 
             </div>
 
-    
+
 
 <?php
         }
