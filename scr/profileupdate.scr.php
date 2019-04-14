@@ -11,7 +11,7 @@
     $image_size = getimagesize($_FILES['avatar']['tmp_name']);
     $owner = $_SESSION['username'];
 
-        $sql1 = "UPDATE hjuma_users SET profileimage='$image'";
+      $sql = "UPDATE hjuma_users SET profileimage='$image'";
       if ($conn->query($sql)){
         header("Location: ../account");
       }

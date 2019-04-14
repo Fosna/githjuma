@@ -11,9 +11,7 @@
     <form class="" action="createpost" method="post">
       <button class="createpost" type="submit" name="button">Create post</button>
     </form>
-    <form class="" action="groupmessage" method="post">
-      <button type="submit" name="button">Message</button>
-    </form>
+
 
 
     </div>
@@ -25,15 +23,19 @@
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
 ?>
-          <div class="containerpost">
-            <h2 class="title"><?php echo  $row['title']; ?></h2>
-            <h6 class="description"><?php echo $row['description']; ?></h6>
-            <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>'; ?>
-            <form class="" action="commentpost" method="post">
-                <button type="submit" name="button">Comment</button>
-            </form>
 
-          </div>
+            <div class="containerpost">
+              <h2 class="title"><?php echo  $row['title']; ?></h2>
+              <h6 class="description"><?php echo $row['description']; ?></h6>
+              <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>'; ?>
+              <form class="" action="commentpost" method="post">
+                  <button type="submit" name="button">Comment</button>
+              </form>
+
+            </div>
+
+    
+
 <?php
         }
       }
@@ -41,6 +43,6 @@
 ?>
 
 
-
+<?php require 'groupmessage.php'; ?>
   </body>
 </html>

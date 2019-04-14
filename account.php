@@ -1,6 +1,6 @@
 <?php require 'header.php'; ?>
     <link rel="stylesheet" href="style/grouptab.style.css">
-    <link rel="stylesheet" href="style/account.style.css">
+
     <h1>My account</h1>
     <?php
         if (isset($_SESSION['username'])) {
@@ -31,9 +31,23 @@
           }
         }
     ?>
+    <?php
+    $sql = "SELECT * FROM hjuma_users WHERE username='$owner';";
+    if($result = mysqli_query($conn, $sql)){
+      if(mysqli_num_rows($result) > 0){
+          while($row = mysqli_fetch_array($result)){
+
+     ?>
+     <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>'; ?>
+
+     <?php
+             }
+           }
+         }
+     ?>
     <form class="" action="scr/profileupdate.scr.php" method="post">
     <input type="file" name="avatar" value="">
     <button type="submit" name="profileupdate-submit"></button>
-                   
+
     </form>
 <?php require 'footer.php'; ?>

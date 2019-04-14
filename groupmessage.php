@@ -1,9 +1,7 @@
 <?php require 'header.php'; ?>
     <link rel="stylesheet" href="style/group.style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <form class="" action="group" method="post">
-      <button type="submit" name="button">Posts</button>
-    </form>
+
     <?php
       if (!isset($_SESSION['id'])) {
         header("Location: main");
@@ -17,6 +15,7 @@
     ?>
 
            <?php } ?>
+           
               <div class="container-message" id="container-message">
                 <div class="title">
                 </div>
@@ -27,7 +26,7 @@
                 </div>
                 </div>
     <?php
-            
+
           }
         }
       }

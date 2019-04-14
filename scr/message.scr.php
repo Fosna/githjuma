@@ -12,7 +12,7 @@
     $date = date("Y-m-d g:i:sa");
     $sql = "INSERT INTO hjuma_messages (sender_name, groupmes, message, date_time) values ('$sender_name', '$groupmes', '$message', '$date' )";
       if ($conn->query($sql)){
-        header ("location: ../groupmessage.php");
+        header ("location: ../group.php");
       }
       else {
         echo "Error".$sql."<br>" . $conn->error;
