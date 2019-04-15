@@ -16,7 +16,7 @@
     $image_size = getimagesize($_FILES['avatar']['tmp_name']);
     $owner = $_SESSION['username'];
 
-    $sql = "INSERT INTO hjuma_groups (name, description, category, privacy, maxmembers, owner, avatarname, avatar) values ('$name','$description','$category', '$privacy','$maxmembers', '$owner', '$image_name', '$image')";
+    $sql = "INSERT INTO hjuma_groups (name, description, category, privacy, maxmembers, owner, avatarname, avatar) VALUES ('$name','$description','$category', '$privacy','$maxmembers', '$owner', '$image_name', '$image')";
       if ($conn->query($sql)){
         $sql = "SELECT * FROM hjuma_users";
         if($result = mysqli_query($conn, $sql)){

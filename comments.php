@@ -1,9 +1,10 @@
+<?php require 'header.php';?>
 <link rel="stylesheet" href="style/posttab.style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
   require 'scr/dbh.scr.php';
-  $groupname = $_SESSION['groupname'];
-  $sql = "SELECT * FROM hjuma_posts WHERE grouppost = '$groupname'";
+  $postname = mysqli_real_escape_string($conn, $_POST['postname']);
+  $grouppost = $_SESSION['groupname'];
+  $sql = "SELECT * FROM hjuma_posts WHERE title = '$postname'";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
@@ -16,10 +17,6 @@
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
               }
             ?>
-            <form class="" action="comments" method="post">
-                <input type="hidden" name="postname" value="<?php echo $row['title'];?>"/>
-                <button type="submit" name="button">Comment</button>
-            </form>
             <!-- ak smo mi naprtavili post mi ga samo mozemo izbrisat -->
             <!-- <div class="more"> -->
             <!-- <button onclick="more()" class="morebtn">...</button> -->
@@ -29,8 +26,29 @@
                   <!-- <button class="dropbtns" type="submit" name="leavegroup-submit">Delete</button> -->
                 <!-- </form> -->
               <!-- </div> -->
+
+          </div>
+          <div class="comment">
+            <form class="" action="scr/comments.scr.php" method="post">
+              <input name="comment" placeholder="Type comment here..." value="" />
+              <button class="commentbtn" type="submit" name="comment-submit">Comment</button>
+            </form>
           </div>
 <?php
+          $sql1 = "SELECT * FROM hjuma_comments WHERE post = '$postname'";
+          if($result1 = mysqli_query($conn, $sql1)){
+            if(mysqli_num_rows($result1) > 0){
+                while($row1 = mysqli_fetch_array($result1)){
+?>
+                    <div class="comments-container">
+                        <h3 class="commenter"><?php echo $row1['commenter']; ?></h3>
+                        <h2 class="comment"><?php echo $row1['comment']; ?></h2>
+                        <h4 class="commenter"><?php echo $row1['date_time']; ?></h4>
+                    </div>
+<?php
+                }
+            }
+          }
         }
       }
     }
