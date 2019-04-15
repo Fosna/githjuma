@@ -163,7 +163,7 @@ float: left;
 .messagename{
   position: absolute;
 	right: 20px;
-	bottom: 380px;
+	bottom: 390px;
   position:fixed;
   z-index:150;
   _position:absolute;

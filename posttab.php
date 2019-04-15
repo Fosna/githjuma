@@ -20,7 +20,7 @@
             </form>
             <!-- ak smo mi naprtavili post mi ga samo mozemo izbrisat -->
             <!-- <div class="more"> -->
-            <!-- <button onclick="more()" class="morebtn">...</button> --> -->
+            <!-- <button onclick="more()" class="morebtn">...</button> -->
                 <!-- <form action="scr/leavegroup.scr.php" method="post"> -->
                   <!-- <input type="hidden" name="groupname" value="<?php //echo $row['name'];?>" /> -->
                   <!-- <input type="hidden" name="membercount" value="-1" /> -->

@@ -40,7 +40,6 @@
           }
         }
 ?>
-
   </body>
   <script type="text/javascript">
   var myDiv = document.getElementById("container-message");

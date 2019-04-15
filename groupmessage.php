@@ -44,7 +44,7 @@
 $(document).ready(function(){
   setInterval(function(){
     $('#container-message').load('message.php')
-  }, 35);
+  }, 305);
 });
 
 </script>
