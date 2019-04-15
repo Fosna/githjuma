@@ -32,22 +32,17 @@
             $group = "group5";
             }
             else {
-              echo "diaiudsiuadhiuasd";
               header("Location: ../main");
             }
-
           }
         }
       }
-    if (!isset($_SESSION['id'])) {
+      if (!isset($_SESSION['id'])) {
 
-      header("Location: ../login");
-    }
-    else{
-      $_SESSION['group'] = $group;
-      header("Location: ../group");
-
-
-
-        }
+        header("Location: ../login");
+      }
+      else{
+        $_SESSION['group'] = $group;
+        header("Location: ../group");
+          }
     }

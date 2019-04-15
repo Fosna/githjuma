@@ -19,9 +19,8 @@
 
 
 .containerpost{
-  margin-left: 35px;
-  width: 50%;
-  height: 30%;
+  margin-left: 25px;
+  width: 40%;
   background: white;
   margin-left: 5px;
   margin-right: auto;
@@ -33,29 +32,52 @@
   clear: both;
 }
 #descriptionfont{
-  font-size: 20px;
-  max-width: 320px;
+  font-size: 18px;
+  max-width: 280px;
 }
 .title{
-  font-size: 40px;
+  font-size: 28px;
+  max-width: 500px;
   float: left;
   margin: auto;
 }
 .description{
   float: left;
-  margin: auto;
+  margin-top: 50px;
   clear: both;
-  font-size: 150px;
   word-wrap: break-word;
 }
 .avatar{
   margin-top: -200px;
-  max-height: 170px;
-  height: auto;
+  max-height: 130px;
   margin-left: 55%;
 }
 .comment{
   float: left;
+  clear:both;
+}
+.commentbtn{
+  float: right;
+  text-decoration: none;
+  text-align: center;
+  width: auto;
+  font-size: 15px;
+  font-weight: bold;
+  background: none;
+  color: black;
+  border: 2px solid #1ab2ff;
+  outline: none;
+  border-radius: 15px;
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.commentbtn:hover{
+  background: #1ab2ff;
+  border: 2px solid #1ab2ff;
+  color: white;
 }
 @media only screen and (max-width: 600px) {
   .containerpost{

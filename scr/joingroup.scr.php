@@ -32,10 +32,8 @@
             $group = "group5";
             }
             else {
-              echo "diaiudsiuadhiuasd";
               header("Location: ../main");
             }
-
           }
         }
       }

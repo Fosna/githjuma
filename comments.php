@@ -1,9 +1,14 @@
 <?php require 'header.php';?>
+<link rel="stylesheet" href="style/comments.style.css">
 <link rel="stylesheet" href="style/posttab.style.css">
+<a href="group">group</a>
 <?php
   require 'scr/dbh.scr.php';
-  $postname = mysqli_real_escape_string($conn, $_POST['postname']);
-  $grouppost = $_SESSION['groupname'];
+  if (isset($_POST['comment-redirect'])) {
+    $postname = mysqli_real_escape_string($conn, $_POST['postname']);
+  }else {
+    $postname = $_SESSION['postname'];
+  }
   $sql = "SELECT * FROM hjuma_posts WHERE title = '$postname'";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -28,12 +33,15 @@
               <!-- </div> -->
 
           </div>
-          <div class="comment">
+          <br>
+          <div class="commentbox">
             <form class="" action="scr/comments.scr.php" method="post">
-              <input name="comment" placeholder="Type comment here..." value="" />
+              <input type="hidden" name="postname" value="<?php echo $row['title'];?>"/>
+              <input class="commentinput" name="comment" autocomplete="off" placeholder="Type comment here..." value="" />
               <button class="commentbtn" type="submit" name="comment-submit">Comment</button>
             </form>
           </div>
+          <br>
 <?php
           $sql1 = "SELECT * FROM hjuma_comments WHERE post = '$postname'";
           if($result1 = mysqli_query($conn, $sql1)){
@@ -42,7 +50,7 @@
 ?>
                     <div class="comments-container">
                         <h3 class="commenter"><?php echo $row1['commenter']; ?></h3>
-                        <h2 class="comment"><?php echo $row1['comment']; ?></h2>
+                        <h6 class="comment"><?php echo $row1['comment']; ?></h6>
                         <h4 class="commenter"><?php echo $row1['date_time']; ?></h4>
                     </div>
 <?php
@@ -70,3 +78,4 @@ if (!event.target.matches('.morebtn')) {
 }
 }
 </script>
+<?php require 'footer.php'; ?>

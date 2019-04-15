@@ -2,8 +2,6 @@
   <link rel="stylesheet" href="style/creategroup.style.css">
   <h1>Create post</h1>
   <form class="" action="scr/createpost.scr.php" method="post" enctype="multipart/form-data">
-
-
     <label for="name"><b>Title:</b></label>
     <input class="groupinput" type="text" autocomplete="off"  placeholder="Name" name="title" value="">
     <label for="description"><b>Description</b></label>

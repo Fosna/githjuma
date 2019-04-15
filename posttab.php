@@ -10,15 +10,15 @@
 ?>
           <div class="containerpost">
             <h2 class="title"><?php echo  $row['title']; ?></h2>
-            <h6 class="description"><?php echo $row['description']; ?></h6>
+            <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
             <?php
               if($row['image'] != ""){
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
               }
             ?>
             <form class="" action="comments" method="post">
-                <input type="hidden" name="postname" value="<?php echo $row['title'];?>"/>
-                <button type="submit" name="button">Comment</button>
+                  <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
             </form>
             <!-- ak smo mi naprtavili post mi ga samo mozemo izbrisat -->
             <!-- <div class="more"> -->

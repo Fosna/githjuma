@@ -13,6 +13,7 @@
       header("Location: ../login");
     }
     else{
+      $_SESSION['postname'] = $postname;
       $sql1 = "INSERT INTO hjuma_comments (post, commenter, comment, date_time) VALUES ('$postname', '$commenter', '$comment', '$date');";
         if ($conn->query($sql1)){
             header("Location: ../comments");
