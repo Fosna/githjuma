@@ -14,8 +14,9 @@
     $image_name =addslashes($_FILES['avatar']['tmp_name']);
     $image_size = getimagesize($_FILES['avatar']['tmp_name']);
     $grouppost = $_SESSION['groupname'];
+    $postowner = $_SESSION['username'];
 
-    $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments) values ('$title','$description', '$image_name', '$image', '$grouppost', '$comments' )";
+    $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments, owner) VALUES ('$title','$description', '$image_name', '$image', '$grouppost', '$comments' , '$postowner')";
         if ($conn->query($sql)){
           header("Location: ../group.php");
         }

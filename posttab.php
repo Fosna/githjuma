@@ -9,6 +9,7 @@
         while($row = mysqli_fetch_array($result)){
 ?>
           <div class="containerpost">
+            <h2 class="postowner"><?php echo  $row['owner'];?></h2>
             <h2 class="title"><?php echo  $row['title']; ?></h2>
             <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
             <?php
@@ -20,15 +21,16 @@
                   <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
                 <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
             </form>
-            <!-- ak smo mi naprtavili post mi ga samo mozemo izbrisat -->
-            <!-- <div class="more"> -->
-            <!-- <button onclick="more()" class="morebtn">...</button> -->
-                <!-- <form action="scr/leavegroup.scr.php" method="post"> -->
-                  <!-- <input type="hidden" name="groupname" value="<?php //echo $row['name'];?>" /> -->
-                  <!-- <input type="hidden" name="membercount" value="-1" /> -->
-                  <!-- <button class="dropbtns" type="submit" name="leavegroup-submit">Delete</button> -->
-                <!-- </form> -->
-              <!-- </div> -->
+            <?php if ($row['owner'] == $_SESSION['username']): ?>
+              <link rel="stylesheet" href="style/posttab.style.css">
+              <div class="more">
+              <button onclick="more()" class="morebtn">...</button>
+                  <form action="scr/deletepost.scr.php" method="post">
+                    <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                    <button class="dropbtns" type="submit" name="deletepost-submit">Delete</button>
+                  </form>
+                </div>
+            <?php endif; ?>
           </div>
 <?php
         }

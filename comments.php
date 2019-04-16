@@ -9,12 +9,13 @@
   }else {
     $postname = $_SESSION['postname'];
   }
-  $sql = "SELECT * FROM hjuma_posts WHERE title = '$postname'";
+  $sql = "SELECT * FROM hjuma_posts WHERE title = '$postname';";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
 ?>
           <div class="containerpost">
+            <h2 class="postowner"><?php echo  $row['owner'];?></h2>
             <h2 class="title"><?php echo  $row['title']; ?></h2>
             <h6 class="description"><?php echo $row['description']; ?></h6>
             <?php
@@ -22,16 +23,6 @@
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
               }
             ?>
-            <!-- ak smo mi naprtavili post mi ga samo mozemo izbrisat -->
-            <!-- <div class="more"> -->
-            <!-- <button onclick="more()" class="morebtn">...</button> -->
-                <!-- <form action="scr/leavegroup.scr.php" method="post"> -->
-                  <!-- <input type="hidden" name="groupname" value="<?php //echo $row['name'];?>" /> -->
-                  <!-- <input type="hidden" name="membercount" value="-1" /> -->
-                  <!-- <button class="dropbtns" type="submit" name="leavegroup-submit">Delete</button> -->
-                <!-- </form> -->
-              <!-- </div> -->
-
           </div>
           <br>
           <div class="commentbox">
@@ -43,15 +34,26 @@
           </div>
           <br>
 <?php
-          $sql1 = "SELECT * FROM hjuma_comments WHERE post = '$postname'";
+          $groupname = $_SESSION['groupname'];
+          $sql1 = "SELECT * FROM hjuma_comments WHERE grouppost = '$groupname' AND post = '$postname'";
           if($result1 = mysqli_query($conn, $sql1)){
             if(mysqli_num_rows($result1) > 0){
                 while($row1 = mysqli_fetch_array($result1)){
 ?>
                     <div class="comments-container">
-                        <h3 class="commenter"><?php echo $row1['commenter']; ?></h3>
-                        <h6 class="comment"><?php echo $row1['comment']; ?></h6>
-                        <h4 class="commenter"><?php echo $row1['date_time']; ?></h4>
+                        <h2 class="commenter"><?php echo $row1['commenter']; ?></h2>
+                        <h4 class="comment"><?php echo $row1['comment']; ?></h4>
+                        <h6 class="commenter"><?php echo $row1['date_time']; ?></h6>
+                        <?php if ($row1['commenter'] == $_SESSION['username']){ ?>
+                          <div class="more">
+                          <button onclick="more()" class="morebtn">...</button>
+                              <form action="scr/deletecomment.scr.php" method="post">
+                                <input type="hidden" name="commenter" value="<?php echo $row1['commenter'];?>" />
+                                <input type="hidden" name="date_time" value="<?php echo $row1['date_time'];?>" />
+                                <button class="dropbtns" type="submit" name="deletecomment-submit">Delete</button>
+                              </form>
+                            </div>
+                        <?php } ?>
                     </div>
 <?php
                 }
