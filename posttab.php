@@ -21,7 +21,7 @@
                   <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
                 <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
             </form>
-            <?php if ($row['owner'] == $_SESSION['username']): ?>
+            <?php if ($row['owner'] == $_SESSION['username']){ ?>
               <link rel="stylesheet" href="style/posttab.style.css">
               <div class="more">
               <button onclick="more()" class="morebtn">...</button>
@@ -30,7 +30,7 @@
                     <button class="dropbtns" type="submit" name="deletepost-submit">Delete</button>
                   </form>
                 </div>
-            <?php endif; ?>
+            <?php } ?>
           </div>
 <?php
         }
