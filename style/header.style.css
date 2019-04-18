@@ -153,6 +153,48 @@ nav {
   transition: 0.25s;
   cursor: pointer;
 }
+.iconHeader{
+
+
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 20px;
+
+
+
+}
+.profileimageHeader{
+  width: auto;
+  height: 120%;
+  margin-top: -1.5px;
+  margin-left: -30px;
+}
+.native_iconHeader{
+
+
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 20px;
+
+
+
+}
+.native_profileimageHeader{
+  width: auto;
+  height: 120%;
+  margin-top: -2px;
+  margin-left: -5px;
+}
 .dropbtn:hover, .dropbtn:focus {
   background: #2A3135;
   border: 2px solid #2A3135;

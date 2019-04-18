@@ -19,6 +19,10 @@
 
                 if($row['profileimage']==""){
       ?>
+      <div class="icon">
+        <img class="native_profileimage" src="pics/icon.png"/>
+      </div>
+
 
       <?php     }
       else {?>

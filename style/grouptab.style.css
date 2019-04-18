@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Asap');
 .container{
   width: 40%;
-  background: #C3DCEC;
+  background-image: linear-gradient(to bottom, #808080, #787a86, #69758c, #527292, #2a7096);
   margin-left: auto;
   margin-right: auto;
   border: 0.3mm solid black;
@@ -31,6 +31,7 @@
   margin-left: auto;
 	margin-right: auto;
 	display: block;
+  border-radius: 7.5px;
 }
 .join{
  float: right;

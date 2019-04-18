@@ -74,7 +74,7 @@ body {
 }
 .title{
   font-size: 30px;
-  margin: 0;
+  margin: 13px;
 }
 .description{
   font-size: 13px;
@@ -86,8 +86,9 @@ body {
 .avatar{
   float: right;
   margin-right: 10%;
-  margin-top: -1%;
+  margin-top: -3%;
   height: 250px;
+  border-radius: 7.5px;
 }
 .commentinput{
   position: absolute;

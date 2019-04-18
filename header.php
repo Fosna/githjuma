@@ -41,9 +41,20 @@
                   ?>
                 </div>
               </div>
+              <?php
+                require 'scr/dbh.scr.php';
+                $owner = $_SESSION["username"];
+                $sql = "SELECT * FROM hjuma_users WHERE username='$owner';";
+                if($result = mysqli_query($conn, $sql)){
+                  if(mysqli_num_rows($result) > 0){
+                      while($row = mysqli_fetch_array($result)){
 
+                        if($row['profileimage']==""){
+              ?>
               <div class="dropdown">
-              <button onclick="dropdown()" class="dropbtn">Profile</button>
+                <div class="native_iconHeader">
+                    <img class="native_profileimageHeader" onclick="dropdown()" src="pics/icon.png">
+                </div>
                 <div id="profile-dropdown" class="dropdown-content">
                   <div class="username"><?php echo $_SESSION['username']; ?></div>
                   <form class="" action="account" method="post">
@@ -54,6 +65,42 @@
                   </form>
                 </div>
               </div>
+
+
+
+              </div>
+
+
+              <?php     }
+              else {?>
+                <div class="dropdown">
+                  <div class="iconHeader">
+                      <?php echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';  ?>
+                  </div>
+                  <div id="profile-dropdown" class="dropdown-content">
+                    <div class="username"><?php echo $_SESSION['username']; ?></div>
+                    <form class="" action="account" method="post">
+                      <button class="dropbtns" id="myacc" type="submit">My account</button>
+                    </form>
+                    <form action="scr/logout.scr.php" method="post">
+                      <button class="dropbtns" type="submit" name="logout-submit">Log out</button>
+                    </form>
+                  </div>
+                </div>
+
+
+
+                </div>
+
+                <?php
+                        }
+                      }
+                    }
+                  }
+              ?>
+
+
+
           <?php
             }
             else {

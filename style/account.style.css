@@ -17,6 +17,9 @@ body{
   text-align: center;
   font-size: 50px;
 }
+.iconHeader{
+  display: none;
+}
 
 .icon{
 
@@ -35,6 +38,10 @@ body{
   width: auto;
   height: 100%;
   margin-left: -50px;
+}
+.native_profileimage{
+  width: auto;
+  height: 100%;
 }
 .imageupload{
   margin-left: auto;
