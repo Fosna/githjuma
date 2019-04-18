@@ -12,6 +12,10 @@
             <h2 class="postowner" style="display: none;"><?php echo  $row['owner'];?></h2>
             <h2 class="title"><?php echo  $row['title']; ?></h2>
             <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
+            <form class="" action="comments" method="post">
+                  <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
+            </form>
             <?php
               if($row['image'] != ""){
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
@@ -28,10 +32,7 @@
                     <button class="deletebtn" type="submit" name="deletepost-submit">Delete</button>
                   </form>
                 </div>
-                <form class="" action="comments" method="post">
-                      <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
-                    <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
-                </form>
+
               </div>
             <?php } ?>
           </div>
