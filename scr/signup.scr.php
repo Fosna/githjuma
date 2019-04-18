@@ -34,7 +34,7 @@
       $sql = "SELECT username FROM hjuma_users WHERE username=?";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)){
-        header("Location: ../hjuma?sqlerror");
+        header("Location: ../signup?sqlerror");
       }
       else {
         mysqli_stmt_bind_param($stmt, "s", $username);
@@ -42,14 +42,14 @@
         mysqli_stmt_store_result($stmt);
         $result = mysqli_stmt_num_rows($stmt);
         if ($result > 0) {
-          header("Location: ../hjuma?error=usernametaken&email=".$email);
+          header("Location: ../signup?error=usernametaken&email=".$email);
           exit();
         }
         else {
           $sql = "INSERT INTO hjuma_users (username, email, password) VALUES (?, ?, ?)";
           $stmt = mysqli_stmt_init($conn);
           if (!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../hjuma?sqlerror");
+            header("Location: ../signup?sqlerror");
           }
           else {
             $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
@@ -66,6 +66,6 @@
     mysqli_close($conn);
   }
   else {
-    header("Location: ../signup.php");
+    header("Location: ../signup");
     exit();
   }

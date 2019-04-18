@@ -7,7 +7,7 @@
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
-          if($row['avatar'] == ""){
+            $id = $row['name'];
 ?>
             <div class="container" >
               <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
@@ -15,18 +15,11 @@
               <h2 class="category"><?php echo $row['category']; ?></h2>
               <h2 class="description"><?php echo $row['description']; ?></h2>
               <h2 class="maxmembers"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
-            <?php
-           }
-
-            else{ ?>
-            <div class="container" >
-              <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
-              <h2 class="name"><?php echo $row['name'];?></h2>
-              <h2 class="category"><?php echo $row['category']; ?></h2>
-              <h2 class="description"><?php echo $row['description']; ?></h2>
-              <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
-              <h2 class="maxmembers" style="display: none;"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
-              <?php  }?>
+<?php
+            if($row['avatar'] != ""){
+              echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
+            }
+?>
 <?php
             $sql2 = "SELECT * FROM hjuma_users WHERE username='$owner'";
             if($result2 = mysqli_query($conn, $sql2)){
@@ -50,18 +43,16 @@
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <button class="join" type="submit" name="entergroup-submit">ENTER</button>
                         </form>
-                        <div class="more">
-                        <button onclick="more()" class="morebtn">...</button>
-                            <form action="scr/leavegroup.scr.php" method="post">
-                              <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
-                              <input type="hidden" name="membercount" value="-1" />
-                              <button class="dropbtns" type="submit" name="leavegroup-submit">Leave group</button>
-                            </form>
-                          </div>
+                        <form action="scr/leavegroup.scr.php" method="post">
+                          <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
+                          <input type="hidden" name="membercount" value="-1" />
+                          <button class="dropbtn" type="submit" name="leavegroup-submit">Leave group</button>
+                        </form>
+
 <?php
                       }
                       else{
-  ?>
+?>
                         <form action="scr/joingroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
@@ -81,7 +72,7 @@
 ?>
 <script type="text/javascript">
   function more() {
-  document.getElementById("more-dropdown").classList.toggle("show");
+  document.getElementById("<?php echo $id;?>").classList.toggle("show");
   }
   window.onclick = function(event) {
   if (!event.target.matches('.morebtn')) {

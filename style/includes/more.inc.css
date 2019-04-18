@@ -1,7 +1,6 @@
 .more {
-  margin-right: 10px;
-  float: right;
-  position: relative;
+  margin: 10px;
+  position: absolute;
   display: inline-block;
 }
 .morebtn {
@@ -11,11 +10,11 @@
   border: none;
   padding: 1px 1px;
   outline: none;
-  color: #2A3135;
+  color: black;
   transition: 0.25s;
   cursor: pointer;
 }
-.deletebtn{
+.dropbtn{
   font-weight: bold;
   background: none;
   font-size: 15px;
@@ -24,16 +23,19 @@
   outline: none;
   color: #2A3135;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 7.5px;
   transition: 0.25s;
   cursor: pointer;
+  width: 125px;
 }
 .morebtn:hover, .dropbtn:focus {
 }
 .more-content {
   display: none;
   position: absolute;
-  left: -130%;
+  border: none;
+  border-radius: 20px;
+  right: -5px;
   border: none;
   background-color: white;
 }

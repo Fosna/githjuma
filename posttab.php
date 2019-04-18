@@ -23,17 +23,10 @@
             ?>
 
             <?php if ($row['owner'] == $_SESSION['username']){ ?>
-              <link rel="stylesheet" href="style/includes/more.inc.css">
-              <div class="more">
-                <button onclick="more()" class="morebtn">...</button>
-                <div id="more-dropdown" class="more-content">
-                  <form action="scr/deletepost.scr.php" method="post">
-                    <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
-                    <button class="deletebtn" type="submit" name="deletepost-submit">Delete</button>
-                  </form>
-                </div>
-
-              </div>
+                    <form action="scr/deletepost.scr.php" method="post">
+                      <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                      <button class="dropbtns" type="submit" name="deletepost-submit">Delete</button>
+                    </form>
             <?php } ?>
           </div>
 <?php
