@@ -2,6 +2,7 @@
 require 'header.php';
 ?>
 <link rel="stylesheet" href="style/main.style.css">
+
 <div class="logedin">
   <?php
     error_reporting(0);
@@ -14,7 +15,7 @@ require 'header.php';
        <button type="submit" class="search" name="submit-search">Search</button>
       </form>
       <a class="groupgumb" href="login">Create group</a>
-      
+
 
       </div>
       <div class="modalzasearchkjtijaznamkj">

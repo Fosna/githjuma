@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="style/grouptab.style.css">
+
 <?php
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];
@@ -24,7 +25,7 @@
               <h2 class="category"><?php echo $row['category']; ?></h2>
               <h2 class="description"><?php echo $row['description']; ?></h2>
               <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
-              <h2 class="maxmembers"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
+              <h2 class="maxmembers" style="display: none;"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
               <?php  }?>
 <?php
             $sql2 = "SELECT * FROM hjuma_users WHERE username='$owner'";
@@ -64,7 +65,7 @@
                         <form action="scr/joingroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
-                          <button class="join" type="submit" name="joingroup-submit">JOIN</button>
+                          <button class="join"  type="submit" name="joingroup-submit">JOIN</button>
                         </form>
 <?php
                       }

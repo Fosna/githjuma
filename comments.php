@@ -1,7 +1,5 @@
 <?php require 'header.php';?>
 <link rel="stylesheet" href="style/comments.style.css">
-<link rel="stylesheet" href="style/posttab.style.css">
-<a href="group">group</a>
 <?php
   require 'scr/dbh.scr.php';
   if (isset($_POST['comment-redirect'])) {
@@ -43,14 +41,14 @@
                     <div class="comments-container">
                         <h2 class="commenter"><?php echo $row1['commenter']; ?></h2>
                         <h4 class="comment"><?php echo $row1['comment']; ?></h4>
-                        <h6 class="commenter"><?php echo $row1['date_time']; ?></h6>
+                        <h6 class="time"><?php echo $row1['date_time']; ?></h6>
                         <?php if ($row1['commenter'] == $_SESSION['username']){ ?>
                           <div class="more">
-                          <button onclick="more()" class="morebtn">...</button>
+                          <button onclick="more()" class="morebtn" style="display:none;">...</button>
                               <form action="scr/deletecomment.scr.php" method="post">
                                 <input type="hidden" name="commenter" value="<?php echo $row1['commenter'];?>" />
                                 <input type="hidden" name="date_time" value="<?php echo $row1['date_time'];?>" />
-                                <button class="dropbtns" type="submit" name="deletecomment-submit">Delete</button>
+                                <button style="display:none;" class="dropbtns" type="submit" name="deletecomment-submit">Delete</button>
                               </form>
                             </div>
                         <?php } ?>

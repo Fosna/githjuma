@@ -1,30 +1,55 @@
 <?php require 'header.php'; ?>
     <link rel="stylesheet" href="style/grouptab.style.css">
     <link rel="stylesheet" href="style/account.style.css">
-    <?php
-        if (isset($_SESSION['username'])) {
-          echo '<div id="username">'.$_SESSION['username'].'</div>';
-        }
-    ?>
-    <?php
-    $sql = "SELECT * FROM hjuma_users WHERE username='$owner';";
-    if($result = mysqli_query($conn, $sql)){
-      if(mysqli_num_rows($result) > 0){
-          while($row = mysqli_fetch_array($result)){
+    <div class="namecontainer">
+      <?php
+          if (isset($_SESSION['username'])) {
+            echo '<div id="username">'.$_SESSION['username'].'</div>';
 
-     ?>
-     <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>'; ?>
 
-     <?php
-             }
-           }
-         }
-     ?>
-    <form class="" action="scr/profileupdate.scr.php" method="post">
-    <input type="file" name="avatar" value="">
-    <button type="submit" name="profileupdate-submit"></button>
+          }
+      ?>
+      <?php
+        require 'scr/dbh.scr.php';
+        $owner = $_SESSION["username"];
+        $sql = "SELECT * FROM hjuma_users WHERE username='$owner';";
+        if($result = mysqli_query($conn, $sql)){
+          if(mysqli_num_rows($result) > 0){
+              while($row = mysqli_fetch_array($result)){
 
-    </form>
+                if($row['profileimage']==""){
+      ?>
+
+      <?php     }
+      else {?>
+
+        <div class="icon">
+          <?php echo '<img class="profileimage" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';  ?>
+
+        </div>
+
+        <?php
+                }
+                echo '<div class="email">'.$row['email'].'</div>';
+              }
+            }
+          }
+      ?>
+
+
+      <div class="imageupload">
+        <form class="" action="scr/accountupdate.scr.php" method="post" enctype="multipart/form-data">
+            <input type="file" class="file" name="avatar" value="">
+        <button type="submit" class="uploadfile" name="accountupdate-submit">Upload</button>
+
+        </form>
+      </div>
+
+
+
+    </div>
+
+
 
     <?php
       require 'scr/dbh.scr.php';
@@ -49,6 +74,6 @@
           }
         }
     ?>
-    
+
 
 <?php require 'footer.php'; ?>

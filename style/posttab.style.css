@@ -30,9 +30,11 @@
   margin-top: 20px;
   float: left;
   clear: both;
+  overflow: hidden;
+  clear: both;
 }
 #descriptionfont{
-  font-size: 18px;
+  font-size: 17px;
   max-width: 280px;
 }
 .title{
@@ -43,25 +45,19 @@
 }
 .description{
   float: left;
-  margin-top: 50px;
   clear: both;
   word-wrap: break-word;
 }
 .avatar{
-  margin-top: -200px;
-  max-height: 130px;
-  margin-left: 55%;
-}
-.comment{
-  float: left;
-  clear:both;
-}
-.commentbtn{
   float: right;
+}
+
+.commentbtn{
+  margin-top  : 10px;
   text-decoration: none;
   text-align: center;
   width: auto;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
   background: none;
   color: black;
@@ -96,11 +92,11 @@
   }
   #descriptionfont{
     font-size: 10px;
-    max-width: 150px;
+    max-width: 130px;
   }
   .title{
     font-size: 20px;
-    max-width: 100px;
+    max-width: 140px;
     word-wrap: break-word;
     float: left;
     margin: auto;

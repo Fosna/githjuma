@@ -9,7 +9,7 @@
         while($row = mysqli_fetch_array($result)){
 ?>
           <div class="containerpost">
-            <h2 class="postowner"><?php echo  $row['owner'];?></h2>
+            <h2 class="postowner" style="display: none;"><?php echo  $row['owner'];?></h2>
             <h2 class="title"><?php echo  $row['title']; ?></h2>
             <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
             <?php
@@ -17,10 +17,7 @@
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
               }
             ?>
-            <form class="" action="comments" method="post">
-                  <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
-                <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
-            </form>
+
             <?php if ($row['owner'] == $_SESSION['username']){ ?>
               <link rel="stylesheet" href="style/includes/more.inc.css">
               <div class="more">
@@ -31,6 +28,10 @@
                     <button class="deletebtn" type="submit" name="deletepost-submit">Delete</button>
                   </form>
                 </div>
+                <form class="" action="comments" method="post">
+                      <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                    <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
+                </form>
               </div>
             <?php } ?>
           </div>

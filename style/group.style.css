@@ -99,19 +99,21 @@ input[type=text] {
 }
 
 .container-side {
-  clear: both;
-  transition: 0.3s;
-  width: 9%;
-  padding: 6;
-  margin-top: 1px;
-  border-radius: 4px;
-  background:#717070;
-  float: left;
-  transition: 0.20s;
+  display: block;
+  float: right;
+  border: 0.3mm solid black;
+  margin-top: -40px;
+  border-radius: 5px;
+  background: none;
+  background:#1ab2ff;
+  width: 10%;
+  transition:0.3s;
+
 }
 .container-side:hover{
-  width: 10%;
+  width: 11%;
 }
+
 .container-message{
   position: absolute;
 	right: 20px;
@@ -139,23 +141,23 @@ input[type=text] {
   font-size: 20px;
 }
 .gray-col{
-  background: #CFCFCF;
+  background: #8ED7FC;
   border: 2px solid black;
   border-radius: 5px;
   padding: 1px;
   margin: 10px auto;
 float: left;
-  width: 30%;
+  width: 70%;
   word-wrap: break-word;
   clear: both;
 }
 .white-col{
-  background: #CFCFCF;
+  background: #1ab2ff;
   border: 2px solid black;
   border-radius: 5px;
   padding: 1px;
   margin: 10px auto;
-  width: 30%;
+  width: 70%;
   float: right;
   word-wrap: break-word;
   clear: both;
@@ -321,4 +323,339 @@ float: left;
   font-size: 70px;
   margin-top: 0px;
   color: white;
+}
+@media only screen and (max-width: 600px) {
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  body {
+      background-color: #2A3135;
+      font-family: 'Roboto', sans-serif;
+      margin: auto;
+      height: 1000px;
+  }
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #848383;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+  }
+  h2 {
+    margin-left: 45px;
+    text-align: left;
+    color: black;
+    font-size: 25px;
+  }
+  .messagebox {
+    background: white;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: none;
+    padding: 15px;
+    width: 105px;
+    outline: none;
+    border-radius: 22px;
+  }
+  .left{
+    height: 20%;
+    background: black;
+    width: 60%;
+    float: left;
+    clear: both;
+  }
+  .error {
+    width: 500px;
+    font-size: 17px;
+    margin: 15px;
+    font-weight: bold;
+    color: red;
+  }
+  #username{
+    text-align: center;
+    font-size: 40px;
+    display: block;
+    background-image: linear-gradient(to right top, #808080, #787a86, #69758c, #527292, #2a7096);
+    border-radius: 10px;
+    width: 500px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  input[type=text] {
+
+    background: white;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border-radius: 20px;
+
+    padding: 10px 10px;
+    width: 60%;
+    outline: none;
+    border-radius: 25px;
+    overflow: auto;
+
+  }
+  .right{
+    width: 50%;
+    height: 500px;
+    background: none;
+    float: right;
+    overflow: hidden;
+  }
+  .left{
+
+  }
+
+  .container-side {
+    display: block;
+    float: right;
+    clear: both;
+    border: 0.3mm solid black;
+    margin-top: -40px;
+    border-radius: 5px;
+    background: none;
+    background:#1ab2ff;
+    width: 50%;
+    font-size: 10px;
+    transition:0.3s;
+
+  }
+  .container-side:hover{
+    width: 11%;
+  }
+
+  .container-message{
+    position: absolute;
+  	right: 1px;
+  	bottom: 0px;
+  	background: white;
+  	border-radius: 5px 5px 0px 0px;
+    height: 355px;
+  	width: 50%;
+  	overflow: auto;
+  	margin-bottom: 45px;
+    bottom:45px;
+    position:fixed;
+    z-index:150;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+    height:50%;
+  }
+  .sender{
+    font-size: 20px;
+    float: right;
+  }
+  .left-col{
+    position: relative;
+    font-size: 20px;
+  }
+  .gray-col{
+    background: #CFCFCF;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 10px auto;
+  float: left;
+    width: 90%;
+    word-wrap: break-word;
+    clear: both;
+  }
+  .white-col{
+    background: #CFCFCF;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 10px auto;
+    width: 90%;
+    float: right;
+    word-wrap: break-word;
+    clear: both;
+  }
+  .messagename{
+    position: absolute;
+  	right: 20px;
+  	bottom: 390px;
+    position:fixed;
+    z-index:150;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+    height: 70px;
+    width: 80%;
+    border-radius: 5px;
+    background:#1ab2ff;
+    display: none;
+  }
+  .messagename h1{
+    font-size: 25px;
+    margin-top: 2px;
+    display: none;
+  }
+  .iconmes{
+    clear: both;
+    height: 13%;
+    float: right;
+    margin-right: 10px;
+  }
+  .iconforum{
+    clear: both;
+    height: 13%;
+    float: right;
+    margin-right: 10px;
+  }
+  .date{
+    font-size: 8px;
+  }
+  .owner{
+    font-size: 16px;
+  }
+
+  .container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,1,5,10);
+  }
+  .name{
+    font-size: 19px;
+    text-align: center;
+    margin-top: -1px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .category{
+    font-size: 15px;
+    text-align: center;
+  }
+  .join{
+    float: right;
+    margin-top: -50px;
+    text-decoration: none;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    background: none;
+    color: black;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 23px;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .test{
+    display:none;
+  }
+  .groupgumb{
+    display:none;
+  }
+  .join:hover{
+    background: black;
+    border: 2px solid #black;
+    color: white;
+  }
+  .description{
+    text-align: center;
+    font-size: 10px;
+  }
+  .maxmembers{
+    float: left;
+    margin-top: -20px;
+    font-size: 15px;
+  }
+  .createpostbtn {
+    font-weight: bold;
+    background: none;
+    display: block;
+    margin-top: 20px;
+    margin-left: 15px;
+    background: #1ab2ff;
+    border: 2px solid #1ab2ff;
+    padding: 10px 10px;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .createpostbtn:hover {
+    background: #0088cc;
+    border: 2px solid #0088cc;
+  }
+  .bottom{
+    position: absolute;
+  	right: 1px;
+  	bottom: 0px;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 50%;
+    font-size: 10px;
+    border-radius: 5px;
+    background:#1ab2ff;
+    bottom:0;
+    position:fixed;
+    z-index:150;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+    height: 95px;
+
+  }
+  .messagebox{
+    width: 55%;
+    height: 15%;
+    word-wrap: break-word;
+  }
+  .searching{
+    display: none;
+  }
+  .send{
+    float: right;
+    margin-right: 20px;
+    margin-top: -75px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    height: 50%;
+    background: none;
+    color: black;
+    transition: 0.20s;
+  }
+  .send:hover {
+    background: none;
+    color: white;
+  }
+  .groupname{
+    text-align: center;
+    margin-right: 130px;
+    font-size: 70px;
+    margin-top: 0px;
+    color: white;
+  }
+
+
 }

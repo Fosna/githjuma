@@ -59,18 +59,19 @@ button[type="submit"]{
 button[type="submit"]:hover {
   background: #0075B4;
 }
-.content {
-  background-color: #191919;
-  margin: 5% auto 15% auto;
-  width: 500px;
-  height: 375px;
-  padding-top: 5px;
-  background: #191919;
-  text-align: center;
-  color: white;
-  font-weight: 500;
-  border-radius: 10px;
-}
+
+  .content {
+    background-color: #191919;
+    margin: 5% auto 15% auto;
+    width: 500px;
+    height: 375px;
+    padding-top: 5px;
+    background: #191919;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+  }
 .alogin{
   text-align: center;
   font-size: 25px;
