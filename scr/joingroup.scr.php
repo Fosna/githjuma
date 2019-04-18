@@ -44,12 +44,24 @@
     else{
       $_SESSION['group'] = $group;
       $sql1 = "UPDATE hjuma_users SET $group='$groupname' WHERE username='$user';";
-      $sql2 = "UPDATE hjuma_groups SET membercount='$membercount' + 1 WHERE name='$groupmembers';";
-        if ($conn->query($sql1)){
-          if ($conn->query($sql2)){
-            header("Location: ../group");
+      $sql = "SELECT * FROM hjuma_groups WHERE name='$groupname'";
+      if($result = mysqli_query($conn, $sql)){
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+              $membercount = $row['membercount'];
+              if ($row['membercount'] == $row['maxmembers']) {
+                header("Location: ../main?error=groupfull");
+              }else {
+                $sql2 = "UPDATE hjuma_groups SET membercount='$membercount' + 1 WHERE name='$groupmembers';";
+                  if ($conn->query($sql1)){
+                    if ($conn->query($sql2)){
+                      header("Location: ../group");
+                    }
+                  $conn->close();
+                  }
+              }
+            }
           }
-        $conn->close();
         }
-      }
     }
+  }

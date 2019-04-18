@@ -2,7 +2,7 @@
 require 'header.php';
 ?>
 <link rel="stylesheet" href="style/main.style.css">
-
+<link rel="stylesheet" href="style/includes/error.inc.css">
 <div class="logedin">
   <?php
     error_reporting(0);
@@ -35,6 +35,12 @@ require 'header.php';
     <?php
     }
     else{
+    }
+    if (isset($_GET['error'])) {
+      $error = $_GET['error'];
+      if ($error == "groupfull") {
+        echo '<div class="error">Group full!</div>';
+      }
     }
   ?>
 </div>
