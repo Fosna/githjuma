@@ -44,6 +44,6 @@ elseif (isset($_POST['login-submit'])) {
   }
 }
 else {
-  header("Location: ../hjuma");
+  header("Location: ../main");
   exit();
 }

@@ -7,27 +7,27 @@
     $passwordRp = mysqli_real_escape_string($conn, $_POST['password-rp']);
 
     if (empty($username) || empty($email) || empty($password) || empty($passwordRp)){
-      header("Location: ../hjuma?error=empty&username=".$username."&email=".$email);
+      header("Location: ../main?error=empty&username=".$username."&email=".$email);
       exit();
     }
     else if ((empty($username) || empty($email) || empty($password) || empty($passwordRp)) && (!filter_var($email, FILTER_VALIDATE_EMAIL))){
-      header("Location: ../hjuma?error=emptyandmail&username=".$username);
+      header("Location: ../main?error=emptyandmail&username=".$username);
       exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-      header("Location: ../hjuma?error=invalidusernameandmail");
+      header("Location: ../main?error=invalidusernameandmail");
       exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      header("Location: ../hjuma?error=invalidemail&username=".$username);
+      header("Location: ../main?error=invalidemail&username=".$username);
       exit();
     }
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-      header("Location: ../hjuma?error=invalidusername&email=".$email);
+      header("Location: ../main?error=invalidusername&email=".$email);
       exit();
     }
     else if ($password !== $passwordRp){
-      header("Location: ../hjuma?error=passwordcheck&username=".$username."&email=".$email);
+      header("Location: ../main?error=passwordcheck&username=".$username."&email=".$email);
       exit();
     }
     else {

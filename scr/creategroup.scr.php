@@ -69,7 +69,12 @@
               else{
                 $_SESSION['group'] = $group;
                 $sql1 = "UPDATE hjuma_users SET $group='$name' WHERE username='$owner';";
-                $sql2 = "UPDATE hjuma_groups SET membercount='$membercount' + 1 WHERE name='$groupmembers';";
+                $sql = "SELECT * FROM hjuma_groups WHERE name='$name'";
+                if($result = mysqli_query($conn, $sql)){
+                  if(mysqli_num_rows($result) > 0){
+                      while($row = mysqli_fetch_array($result)){
+                        $membercount = $row['membercount'];
+                $sql2 = "UPDATE hjuma_groups SET membercount='$membercount' + 1 WHERE name='$name';";
                   if ($conn->query($sql1)){
                     if ($conn->query($sql2)){
                       header("Location: ../main");
@@ -78,6 +83,9 @@
                   }
                 }
               }
+            }
+          }
+        }
           }
       }
     }
