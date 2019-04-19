@@ -68,6 +68,8 @@
   cursor: pointer;
   display: block;
   padding: 5px;
+  float: left;
+  clear: both;
   transition: 0.25s;
   cursor: pointer;
 }
