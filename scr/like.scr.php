@@ -5,7 +5,9 @@
   else{
     require 'dbh.scr.php';
     session_start();
+    $user = $_SESSION['username'];
     $postowner = $_SESSION['postowner'];
+    $post = $_SESSION['post'];
     $sql = "SELECT * FROM hjuma_users WHERE username='$postowner'";
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
@@ -13,9 +15,12 @@
             $currentlikes = $row['likes'];
 
     $sql1 = "UPDATE hjuma_users SET likes = '$currentlikes'+1 WHERE username = '$postowner';";
+      $sql2 = "INSERT INTO hjuma_likes (user, post, ownerpost) values ('$user','$post','$postowner')";
       if ($conn->query($sql1)){
+        if ($conn->query($sql2)){
         header("Location: ../group");
       }
+    }
       else {
         echo "Error".$sql1."<br>" . $conn->error;
       }
