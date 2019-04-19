@@ -109,7 +109,7 @@
             <button type="submit" class="loginb">Log in</button>
           </form>
           <form action="signup" method="post">
-            <button type="submit" class="loginb">Sign up</button>
+            <button type="submit" class="signupb">Sign up</button>
           </form>
 
           <?php
@@ -117,7 +117,7 @@
           ?>
       </nav>
     </header>
-    
+
     <script type="text/javascript">
       function dropdown() {
       document.getElementById("profile-dropdown").classList.toggle("show");

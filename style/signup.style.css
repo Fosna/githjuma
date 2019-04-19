@@ -1,22 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-::-webkit-scrollbar {
-  width: 3px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: none;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #848383;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 body {
     background: #2A3135;
     font-family: 'Roboto', sans-serif;
@@ -29,6 +11,9 @@ h1 {
   text-align: center;
   color: white;
   font-size: 30px;
+}
+.loginb{
+  display: none;
 }
 input[type=text], input[type=password] {
   border: 0;
