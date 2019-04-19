@@ -117,7 +117,7 @@
           ?>
       </nav>
     </header>
-    <div class="space"></div>
+    
     <script type="text/javascript">
       function dropdown() {
       document.getElementById("profile-dropdown").classList.toggle("show");

@@ -100,9 +100,10 @@ input[type=text] {
 
 .container-side {
   display: block;
+  margin-right: 3px;
   float: right;
   border: 0.3mm solid black;
-  margin-top: -40px;
+  margin-top: 71px;
   border-radius: 5px;
   background: none;
   background:#1ab2ff;
@@ -111,7 +112,8 @@ input[type=text] {
 
 }
 .container-side:hover{
-  width: 11%;
+  background: #1294D5;
+  width: 10.5%;
 }
 
 .container-message{
@@ -258,7 +260,9 @@ float: left;
   font-weight: bold;
   background: none;
   display: block;
-  margin-top: 20px;
+  float: left;
+  clear: both;
+  margin-top: 80px;
   margin-left: 15px;
   background: #1ab2ff;
   border: 2px solid #1ab2ff;

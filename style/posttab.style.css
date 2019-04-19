@@ -50,6 +50,7 @@
 }
 .avatar{
   float: right;
+  height: 200px;
 }
 
 .commentbtn{

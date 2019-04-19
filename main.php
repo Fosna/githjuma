@@ -44,7 +44,7 @@ require 'header.php';
     }
   ?>
 </div>
-<h1>Most popular groups</h1>
+<h1 class="">Most popular groups</h1>
 <?php
 require 'grouptab.php';
 require 'footer.php';

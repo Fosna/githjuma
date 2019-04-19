@@ -8,6 +8,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   border-radius: 6px;
+  margin-top: 100px;
   background: none;
   width: 500px;
   height: 500px;
@@ -36,7 +37,7 @@ body{
 }
 .profileimage{
   width: auto;
-  height: 130%;
+  max-height: 130%;
   margin-left: -30px;
 }
 .native_profileimage{

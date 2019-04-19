@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-::-webkit-scrollbar {
-  width: 3px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: none;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #848383;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 body {
   background-color: #2A3135;
   font-family: 'Roboto', sans-serif;
@@ -24,6 +7,7 @@ body {
 }
 h1 {
   font-weight: bold;
+  margin-top: 100px;
   text-align: center;
 }
 .welcome{
