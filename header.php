@@ -105,10 +105,10 @@
             }
             else {
           ?>
-          <form action="login" method="post">
+          <form action="login" method="post" class="loginform">
             <button type="submit" class="loginb">Log in</button>
           </form>
-          <form action="signup" method="post">
+          <form action="signup" method="post" class="signupform">
             <button type="submit" class="signupb">Sign up</button>
           </form>
 

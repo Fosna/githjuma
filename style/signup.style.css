@@ -15,6 +15,9 @@ h1 {
 .loginb{
   display: none;
 }
+.signupform{
+  display: none;
+}
 input[type=text], input[type=password] {
   border: 0;
   background: white;
@@ -28,7 +31,7 @@ input[type=text], input[type=password] {
   border-radius: 4px;
 }
 
-button[type="submit"]{
+.submit{
   border: 0;
   background: #009BFF;
   display: block;
@@ -41,7 +44,7 @@ button[type="submit"]{
   border-radius: 20px;
   cursor: pointer;
 }
-button[type="submit"]:hover {
+.submit:hover {
   background: #0075B4;
 }
 

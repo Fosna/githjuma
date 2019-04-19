@@ -20,7 +20,7 @@
               else {
              ?>
              <form class="" action="scr/entergroup.scr.php" method="post">
-               <button type="submit" name="entergroup-submit" class="container-side" value="<?php echo $row['group1'];?>">
+               <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group1'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group1'];?>" />
                  <h2 class="name"><?php echo $row['group1']; ?></h2>
 
@@ -34,7 +34,7 @@
               else {
              ?>
              <form class="" action="scr/entergroup.scr.php" method="post">
-               <button type="submit" name="entergroup-submit" class="container-side" value="<?php echo $row['group2'];?>">
+               <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group2'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group2'];?>" />
                  <h2 class="name"><?php echo $row['group2']; ?></h2>
 
@@ -48,7 +48,7 @@
               else {
              ?>
              <form class="" action="scr/entergroup.scr.php" method="post">
-               <button type="submit" name="entergroup-submit" class="container-side" value="<?php echo $row['group3'];?>">
+               <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group3'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group3'];?>" />
                  <h2 class="name"><?php echo $row['group3']; ?></h2>
 
@@ -61,7 +61,7 @@
               else {
              ?>
              <form class="" action="scr/entergroup.scr.php" method="post">
-               <button type="submit" name="entergroup-submit" class="container-side" value="<?php echo $row['group4'];?>">
+               <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group4'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group4'];?>" />
                  <h2 class="name"><?php echo $row['group4']; ?></h2>
 
@@ -74,7 +74,7 @@
               else {
              ?>
              <form class="" action="scr/entergroup.scr.php" method="post">
-               <button type="submit" name="entergroup-submit" class="container-side" value="<?php echo $row['group5'];?>">
+               <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group5'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group5'];?>" />
                  <h2 class="name"><?php echo $row['group5']; ?></h2>
 

@@ -22,15 +22,15 @@
 
   ?>
     <div class="gray-col">
-      <a href="profile" class ="sender"><?php echo $sender_name; ?></a>
-      <?php echo $message; ?>
+      <a href="profile" class ="senderleft"><?php echo $sender_name; ?></a>
+      <h1 class= "messageleft"><?php echo $message; ?></h1>
       <h6 class="date"><?php echo $date; ?><h6>
     </div>
   <?php      }
   else{ ?>
     <div class="white-col">
-      <a href="account" class ="sender"><?php echo $sender_name; ?></a>
-      <?php echo $message; ?>
+      <a href="account" class ="senderright"><?php echo $sender_name; ?></a>
+      <h1 class= "messageright"><?php echo $message; ?></h1>
       <h6 class="date"><?php echo $date; ?><h6>
     </div>
 

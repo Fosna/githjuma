@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style/signup.style.css">
   </head>
   <body>
+    <?php require "header.php"; ?>
 
       <form class="content" action="scr/signup.scr.php" method="post">
 
@@ -29,7 +30,7 @@
         ?>
         <input type="password" name="password" autocomplete="off" placeholder="Lozinka" size="30" value="" required/>
         <input type="password" name="password-rp" autocomplete="off" placeholder="Potvrda lozinke" size="30" value="" required/>
-        <button type="submit" name="signup-submit" autocomplete="off" value="Submit">Registracija</button>
+        <button type="submit" name="signup-submit" class="submit" autocomplete="off" value="Submit">Registracija</button>
         </div>
       </form>
       <div class="alogin">

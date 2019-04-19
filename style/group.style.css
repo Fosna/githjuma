@@ -87,24 +87,31 @@ input[type=text] {
   overflow: auto;
 
 }
-.right{
-  width: 50%;
-  height: 500px;
+.groupbtn{
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px auto;
   background: none;
-  float: right;
-  overflow: hidden;
+  padding: 10px 10px;
+  border: 2px solid #2A3135;
+  padding: 10px 10px;
+  outline: none;
+  position: absolute;
+  margin-top: 5px;
+  color: #2A3135;
+  border-radius: 5px;
+  transition: 0.25s;
+  cursor: pointer;
+  font-size: 15px;
 }
-.left{
-
-}
-
 .container-side {
   display: block;
   margin-right: 3px;
   float: right;
   border: 0.3mm solid black;
   margin-top: 71px;
-  border-radius: 5px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   background: none;
   background:#1ab2ff;
   width: 10%;
@@ -114,6 +121,16 @@ input[type=text] {
 .container-side:hover{
   background: #1294D5;
   width: 10.5%;
+}
+.messageright{
+  font-size: 20px;
+  text-align: left;
+  max-width: 260px;
+}
+.messageleft{
+  font-size: 20px;
+  text-align: right;
+  max-width: 260px;
 }
 
 .container-message{
@@ -134,9 +151,13 @@ input[type=text] {
       (document.documentElement.clientHeight-this.offsetHeight)));
   height:50%;
 }
-.sender{
+.senderright{
   font-size: 20px;
   float: right;
+}
+.senderleft{
+  font-size: 20px;
+  float:left;
 }
 .left-col{
   position: relative;
@@ -147,8 +168,10 @@ input[type=text] {
   border: 2px solid black;
   border-radius: 5px;
   padding: 1px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   margin: 10px auto;
-float: left;
+  float: left;
   width: 70%;
   word-wrap: break-word;
   clear: both;
@@ -157,6 +180,8 @@ float: left;
   background: #1ab2ff;
   border: 2px solid black;
   border-radius: 5px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
   padding: 1px;
   margin: 10px auto;
   width: 70%;
@@ -429,19 +454,23 @@ float: left;
   .left{
 
   }
-
+#container-side{
+  font-size: 10px;
+}
   .container-side {
+
     display: block;
+    margin-right: 3px;
     float: right;
-    clear: both;
     border: 0.3mm solid black;
-    margin-top: -40px;
-    border-radius: 5px;
+    margin-top: 71px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     background: none;
     background:#1ab2ff;
-    width: 50%;
-    font-size: 10px;
+    width: 16%;
     transition:0.3s;
+    word-wrap: break-word;
 
   }
   .container-side:hover{
@@ -591,16 +620,19 @@ float: left;
     font-size: 15px;
   }
   .createpostbtn {
-    font-weight: bold;
+    width: 70px;
+    word-wrap: break-word;
     background: none;
     display: block;
-    margin-top: 20px;
-    margin-left: 15px;
+    margin-top: 70px;
+    margin-left: 1px;
     background: #1ab2ff;
     border: 2px solid #1ab2ff;
     padding: 10px 10px;
     outline: none;
     color: white;
+    float: left;
+    clear: both;
     border-radius: 5px;
     transition: 0.25s;
     cursor: pointer;
