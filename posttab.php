@@ -9,7 +9,6 @@
         while($row = mysqli_fetch_array($result)){
           session_start();
           $_SESSION['postowner'] = $row['owner'];
-
 ?>
           <div class="containerpost">
             <h2 class="postowner" ><?php echo  $_SESSION['postowner'];?></h2>
@@ -36,12 +35,17 @@
                       <button class="dropbtns" type="submit" name="deletepost-submit">Delete</button>
                     </form>
             <?php }
-            else {?>
-              <form class="" action="scr/like.scr.php" method="post">
-                <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
-                <button type="submit" name="like-submit">Like</button>
-              </form>
-          <?php  } ?>
+                  else {
+                    if ($_SESSION['username'] != $_SESSION['liker']) {
+            ?>
+                      <form class="" action="scr/like.scr.php" method="post">
+                        <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                        <button type="submit" name="like-submit">Like</button>
+                      </form>
+            <?php
+                     }
+                  }
+           ?>
           </div>
 <?php
         }

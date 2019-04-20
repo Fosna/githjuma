@@ -15,18 +15,25 @@
       if(mysqli_num_rows($result) > 0){
           while($row = mysqli_fetch_array($result)){
             $currentlikes = $row['likes'];
-
-    $sql1 = "UPDATE hjuma_users SET likes = '$currentlikes'+1 WHERE username = '$postowner';";
-      $sql2 = "INSERT INTO hjuma_likes (user, post, ownerpost) values ('$user','$post','$postowner')";
-      if ($conn->query($sql1)){
-        if ($conn->query($sql2)){
-        header("Location: ../group");
-      }
-    }
-      else {
-        echo "Error".$sql1."<br>" . $conn->error;
-      }
-      $conn->close();
+            $sql1 = "UPDATE hjuma_users SET likes = '$currentlikes'+1 WHERE username = '$postowner';";
+              $sql2 = "INSERT INTO hjuma_likes (user, post, ownerpost) values ('$user','$post','$postowner')";
+              if ($conn->query($sql1)){
+                if ($conn->query($sql2)){
+                  $sql3 = "SELECT * FROM hjuma_likes WHERE user='$user'";
+                  if($result3 = mysqli_query($conn, $sql3)){
+                    if(mysqli_num_rows($result3) > 0){
+                        while($row3 = mysqli_fetch_array($result3)){
+                          $_SESSION['liker'] = $row3['user'];
+                          header("Location: ../group");
+                        }
+                    }
+                  }
+                }
+              }
+              else {
+                echo "Error".$sql1."<br>" . $conn->error;
+              }
+              $conn->close();
       }
     }
   }
