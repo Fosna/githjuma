@@ -12,7 +12,7 @@ else{
   }
   else{
     $sql = "DELETE FROM hjuma_comments WHERE grouppost = '$postname';";
-    $sql1 = "DELETE FROM hjuma_posts WHERE title = '$postname';";
+    $sql1 = "DELETE FROM hjuma_posts WHERE title = '$postname' AND owner = '$owner';";
       if ($conn->query($sql)){
         if ($conn->query($sql1)){
           header("Location: ../group");

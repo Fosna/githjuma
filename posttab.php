@@ -12,19 +12,11 @@
           $_SESSION['title'] = $row['title'];
 ?>
           <div class="containerpost">
-            <h2 class="postowner" ><?php echo  $_SESSION['postowner'];?></h2>
+            <h2 class="postowner" style="display: none;" ><?php echo  $_SESSION['postowner'];?></h2>
 
             <h2 class="title"><?php echo  $row['title']; ?></h2>
             <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
-            <?php if ($row['comments'] =="dont allow") {}
-              else{
-              ?>
-            <form class="" action="comments" method="post">
-                  <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
-                <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
-            </form>
             <?php
-          }
               if($row['image'] != ""){
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
               }
@@ -38,7 +30,6 @@
             <?php }
                   else {
                     if ($_SESSION['username'] != $_SESSION['liker']) {
-
             ?>
                       <form class="" action="scr/like.scr.php" method="post">
                         <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
@@ -48,6 +39,15 @@
                      }
                   }
            ?>
+           <?php if ($row['comments'] =="dont allow") {}
+             else{
+             ?>
+           <form class="" action="comments" method="post">
+                 <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+               <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
+           </form>
+           <?php
+         }?>
           </div>
 <?php
         }

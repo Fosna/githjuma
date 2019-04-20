@@ -45,16 +45,20 @@
 }
 .description{
   float: left;
-  clear: both;
+    clear: both;
   word-wrap: break-word;
 }
 .avatar{
   float: right;
   height: 200px;
+  margin-top: -0%;
+}
+.dropbtns{
+  float:right;
+  clear: both;
 }
 
 .commentbtn{
-  margin-top  : 10px;
   text-decoration: none;
   text-align: center;
   width: auto;
