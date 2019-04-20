@@ -9,7 +9,6 @@
         while($row = mysqli_fetch_array($result)){
           session_start();
           $_SESSION['postowner'] = $row['owner'];
-          $_SESSION['post'] = $row['title'];
 ?>
           <div class="containerpost">
             <h2 class="postowner" ><?php echo  $_SESSION['postowner'];?></h2>
