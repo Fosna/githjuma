@@ -3,15 +3,17 @@
 <?php
   require 'scr/dbh.scr.php';
   $groupname = $_SESSION['groupname'];
-  $sql = "SELECT * FROM hjuma_posts WHERE grouppost = '$groupname'";
+  $sql = "SELECT * FROM hjuma_posts  WHERE grouppost = '$groupname'";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
           session_start();
           $_SESSION['postowner'] = $row['owner'];
+
 ?>
           <div class="containerpost">
             <h2 class="postowner" ><?php echo  $_SESSION['postowner'];?></h2>
+
             <h2 class="title"><?php echo  $row['title']; ?></h2>
             <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
             <?php if ($row['comments'] =="dont allow") {}
@@ -36,6 +38,7 @@
             <?php }
             else {?>
               <form class="" action="scr/like.scr.php" method="post">
+                <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
                 <button type="submit" name="like-submit">Like</button>
               </form>
           <?php  } ?>
