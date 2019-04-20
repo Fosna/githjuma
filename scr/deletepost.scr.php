@@ -6,6 +6,7 @@ else{
   require 'dbh.scr.php';
   session_start();
   $postname = mysqli_real_escape_string($conn, $_POST['postname']);
+  $owner = $_SESSION['username'];
 
   if (!isset($_SESSION['id'])) {
     header("Location: ../login");
