@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
   require 'scr/dbh.scr.php';
+  $user = $_SESSION['username'];
   $groupname = $_SESSION['groupname'];
   $sql = "SELECT * FROM hjuma_posts  WHERE grouppost = '$groupname'";
   if($result = mysqli_query($conn, $sql)){
@@ -10,6 +11,7 @@
           session_start();
           $_SESSION['postowner'] = $row['owner'];
           $_SESSION['title'] = $row['title'];
+          $postname = $row['title'];
 ?>
           <div class="containerpost">
             <h2 class="postowner" style="display: none;" ><?php echo  $_SESSION['postowner'];?></h2>
@@ -37,16 +39,23 @@
                     </form>
             <?php }
                   else {
-                    if ($_SESSION['username'] != $_SESSION['liker']) {
-
+                    $sql1 = "SELECT * FROM hjuma_likes WHERE user='$user' AND post='$postname'";
+                    if($result1 = mysqli_query($conn, $sql1)){
+                      if(mysqli_num_rows($result1) > 0){
+                          while($row1 = mysqli_fetch_array($result1)){
+                            $liker = $row1['user'];
+                          }
+                      }
+                    }
+                  if ($_SESSION['username'] != $liker) {
             ?>
                       <form class="" action="scr/like.scr.php" method="post">
                         <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
                         <button type="submit" name="like-submit">Like</button>
                       </form>
-            <?php
-                     }
+             <?php
                   }
+                }
            ?>
           </div>
 <?php
