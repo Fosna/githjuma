@@ -19,11 +19,12 @@
               $sql2 = "INSERT INTO hjuma_likes (user, post, ownerpost) values ('$user','$post','$postowner')";
               if ($conn->query($sql1)){
                 if ($conn->query($sql2)){
-                  $sql3 = "SELECT * FROM hjuma_likes WHERE user='$user'";
+                  $sql3 = "SELECT * FROM hjuma_likes WHERE user='$user' AND post = '$post'";
                   if($result3 = mysqli_query($conn, $sql3)){
                     if(mysqli_num_rows($result3) > 0){
                         while($row3 = mysqli_fetch_array($result3)){
                           $_SESSION['liker'] = $row3['user'];
+                          $_SESSION['likedpost'] = $row3['post'];
                           header("Location: ../group");
                         }
                     }

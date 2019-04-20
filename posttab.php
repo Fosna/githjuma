@@ -9,6 +9,7 @@
         while($row = mysqli_fetch_array($result)){
           session_start();
           $_SESSION['postowner'] = $row['owner'];
+          $_SESSION['title'] = $row['title'];
 ?>
           <div class="containerpost">
             <h2 class="postowner" ><?php echo  $_SESSION['postowner'];?></h2>
@@ -37,6 +38,7 @@
             <?php }
                   else {
                     if ($_SESSION['username'] != $_SESSION['liker']) {
+
             ?>
                       <form class="" action="scr/like.scr.php" method="post">
                         <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
