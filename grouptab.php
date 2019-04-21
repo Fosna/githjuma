@@ -16,7 +16,7 @@
               <h2 class="name"><?php echo $row['name'];?></h2>
               <h2 class="category"><?php echo $row['category']; ?></h2>
 
-              <h2  class="description"><?php echo $row['description']; ?></h2>
+            <h2  class="description"><?php echo substr($row['description'],0,90); ?></h2>
               <h2 class="maxmembers"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
 <?php
             if($row['avatar'] != ""){
