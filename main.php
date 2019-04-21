@@ -10,10 +10,7 @@ require 'header.php';
   ?>
       <link rel="stylesheet" href="style/hjuma.style.css">
       <h1 class="head">Discuse in real time</h1>
-      <form class="" action="scr/search.scr.php" method="post">
-       <input type="text" placeholder="Search for groups..." name="search" value="">
-       <button type="submit" class="search" name="submit-search">Search</button>
-      </form>
+      <?php require 'seearch.php'; ?>
       <a class="groupgumb" href="login">Create group</a>
 
 

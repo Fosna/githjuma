@@ -32,7 +32,7 @@
     }
   }
 ?>
-<form class="" action="scr/message.scr.php" method="post">
+<form class="" id="#messagebox" action="scr/message.scr.php" method="post" onsubmit="return messageSend();">
   <div class="bottom">
     <input type="text" autocomplete="off" name="message" class="messagebox" ></input>
 
@@ -41,12 +41,23 @@
 </form>
 <script src="scr/jquery.js" charset="utf-8"></script>
 <script type="text/javascript">
+function messageSend(){
+  $.ajax({
+    type:'POST',
+    url:'message.php',
+    data:$('#messagebox').serialize(),
+    success:function(response){
+      $('#success').html(response);
+    }
+  });
+  var form = document.getElementById('messagebox').reset();
+  return false;
+}
 $(document).ready(function(){
   setInterval(function(){
     $('#container-message').load('message.php')
   }, 305);
 });
-
 </script>
   </body>
 </html>

@@ -17,29 +17,7 @@
           ?>
               <div class="float-left">
                 <a class="groupbtn" href="creategroup">Create group</a>
-
-                <form class="searching" action="scr/search.scr.php" method="post">
-                  <input class="search"type="text" placeholder="Search for groups..." name="search" autocomplete="off"  value="">
-                  <button type="submit" class="searchbtn" name="submit-search">Search</button>
-                </form>
-                <div class="search-modal">
-                  <?php
-                    if (isset($_SESSION['groupnamesearch'])) {
-                  ?>
-                  <div class="searchbox">
-                    <div class="groupname"><?php echo $_SESSION['groupnamesearch']; ?></div>
-                    <form action="scr/joingroup.scr.php" method="post">
-                      <input type="hidden" name="groupname" value="<?php echo $_SESSION['groupnamesearch'];?>" />
-                      <input type="hidden" name="membercount" value="1" />
-                      <button class="joinsearch" type="submit" name="joingroup-submit">JOIN</button>
-                    </form>
-
-                  </div>
-
-                  <?php
-                    }
-                  ?>
-                </div>
+                <?php require 'search.php'; ?>
               </div>
               <?php
                 require 'scr/dbh.scr.php';
@@ -69,10 +47,7 @@
                 </div>
               </div>
 
-
-
               </div>
-
 
               <?php     }
               else {?>
