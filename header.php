@@ -60,6 +60,9 @@
                   <form class="" action="account" method="post">
                     <button class="dropbtns" id="myacc" type="submit">My account</button>
                   </form>
+                  <form class="" action="mygroups" method="post">
+                    <button class="dropbtns" id="myacc" type="submit">My groups</button>
+                  </form>
                   <form action="scr/logout.scr.php" method="post">
                     <button class="dropbtns" type="submit" name="logout-submit">Log out</button>
                   </form>
@@ -81,6 +84,9 @@
                     <div class="username"><?php echo $_SESSION['username']; ?></div>
                     <form class="" action="account" method="post">
                       <button class="dropbtns" id="myacc" type="submit">My account</button>
+                    </form>
+                    <form class="" action="mygroup" method="post">
+                      <button class="dropbtns" type="submit">My groups</button>
                     </form>
                     <form action="scr/logout.scr.php" method="post">
                       <button class="dropbtns" type="submit" name="logout-submit">Log out</button>

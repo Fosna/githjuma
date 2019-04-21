@@ -1,5 +1,8 @@
 <?php require 'header.php'; ?>
   <link rel="stylesheet" href="style/createpost.style.css">
+  <div class="space">
+
+  </div>
   <div class="box">
     <h1>Create post</h1>
     <form class="" action="scr/createpost.scr.php" method="post" enctype="multipart/form-data">

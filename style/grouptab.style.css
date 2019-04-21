@@ -19,6 +19,20 @@
   text-align: center;
   font-size: 9px;
 }
+.aboutgroupBtn{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  border: 0.4mm solid black;
+  background: none;
+  transition: 0.25s;
+  border-radius: 10px;
+}
+.aboutgroupBtn:hover{
+  font-size: 20px;
+}
+
 .description{
   margin-top: 30px;
   font-size: 18px;

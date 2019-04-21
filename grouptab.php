@@ -4,22 +4,30 @@
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];
   $sql = "SELECT * FROM hjuma_groups";
+  session_start();
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
             $id = $row['name'];
+
 ?>
             <div class="container" >
               <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
               <h2 class="name"><?php echo $row['name'];?></h2>
               <h2 class="category"><?php echo $row['category']; ?></h2>
-              <h2 class="description"><?php echo $row['description']; ?></h2>
+
+              <h2  class="description"><?php echo $row['description']; ?></h2>
               <h2 class="maxmembers"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
 <?php
             if($row['avatar'] != ""){
               echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
             }
 ?>
+            <form  action="aboutgroup.php" method="post">
+              <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
+              <input type="hidden" name="membercount" value="1" />
+              <button class="aboutgroupBtn"type="submit" name="button">About group</button>
+            </form>
 <?php
             $sql2 = "SELECT * FROM hjuma_users WHERE username='$owner'";
             if($result2 = mysqli_query($conn, $sql2)){

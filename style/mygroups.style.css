@@ -23,6 +23,21 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.mygroups{
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 40%;
+  height: 200px;
+  background-image: linear-gradient(to bottom, #808080, #787a86, #69758c, #527292, #2a7096);
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.3mm solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'Asap', sans-serif;
+}
 h1 {
   margin-left: auto;
   margin-right: auto;
@@ -47,7 +62,6 @@ h1 {
   margin-top: -1.5px;
   margin-left: -5px;
 }
-
 .iconMessageleft{
   display: inline-block;
   position: relative;
@@ -274,7 +288,7 @@ input[type=text] {
   box-shadow: 0 8px 16px 0 rgba(0,1,5,10);
 }
 .name{
-  font-size: 19px;
+  font-size: 49px;
   text-align: center;
   margin-top: -1px;
 
@@ -346,6 +360,7 @@ input[type=text] {
   background: #0088cc;
   border: 2px solid #0088cc;
 }
+
 .bottom{
   position: absolute;
 	right: 20px;
