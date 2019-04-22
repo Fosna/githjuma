@@ -68,9 +68,6 @@
                     </form>
                   </div>
                 </div>
-
-
-
                 </div>
 
                 <?php
@@ -79,9 +76,6 @@
                     }
                   }
               ?>
-
-
-
           <?php
             }
             else {
@@ -98,13 +92,12 @@
           ?>
       </nav>
     </header>
-
     <script type="text/javascript">
       function dropdown() {
       document.getElementById("profile-dropdown").classList.toggle("show");
       }
       window.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
+      if (!event.target.matches('.dropbtns')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {

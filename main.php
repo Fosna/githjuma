@@ -27,7 +27,7 @@ require 'header.php';
   <form class="" action="scr/categorychoose.scr.php" method="post" enctype="multipart/form-data">
     <label for="category"></label>
     <select class="select" name="category">
-      <option value="" disabled selected>Select category</option>
+      <option selected="selected" value="" class="default">Select category</option>
       <option value="Movies">Movies</option>
       <option value="Politics">Category</option>
       <option value="Video game">Video game</option>

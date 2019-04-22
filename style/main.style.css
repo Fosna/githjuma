@@ -18,6 +18,9 @@ h1 {
 .groupname2 {
 
 }
+.default{
+  display: none;
+}
 .select{
   display: block;
   margin-left: auto;
