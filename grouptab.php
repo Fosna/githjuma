@@ -4,9 +4,9 @@
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];
   if ($category == "") {
-    $sql = "SELECT * FROM hjuma_groups";
+    $sql = "SELECT * FROM hjuma_groups ORDER BY membercount DESC";
   }else {
-    $sql = "SELECT * FROM hjuma_groups WHERE category='$category'";
+    $sql = "SELECT * FROM hjuma_groups WHERE category='$category' ORDER BY membercount DESC";
   }
   session_start();
   if($result = mysqli_query($conn, $sql)){
