@@ -30,7 +30,23 @@
 
               <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
               <hr>
+              <?php if($row['owner'] == $_SESSION['username']){ ?>
+                <form action="scr/entergroup.scr.php" method="post">
+                  <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
+                  <button class="join" type="submit" name="entergroup-submit">ENTER</button>
+                </form>
+
             <?php
+              }
+              else {?>
+                <form action="scr/joingroup.scr.php" method="post">
+                  <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
+                  <input type="hidden" name="membercount" value="1" />
+                  <button class="searchjoin" type="submit" name="joingroup-submit">JOIN</button>
+                </form>
+
+      <?php
+             }
             }
            }
           }
@@ -44,13 +60,12 @@
     if(mysqli_num_rows($result1) > 0){
         while($row1 = mysqli_fetch_array($result1)){
           ?>
-
           <div class="users">
             <h2 class="username"><?php echo $row1['username'] ?></h2>
             <h2 class="online">online</h2>
-
           </div>
         <?php
+
        }
       }
      }

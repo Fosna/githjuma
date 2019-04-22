@@ -13,10 +13,10 @@
                       echo "<p>" . $row["name"] . "</p>";
                       echo "<br>";
 ?>
-                      <form action="scr/joingroup.scr.php" method="post">
+                      <form action="aboutgroup.php" method="post">
                         <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                         <input type="hidden" name="membercount" value="1" />
-                        <button class="searchjoin" type="submit" name="joingroup-submit">JOIN</button>
+                        <button class="searchjoin" type="submit" name="joingroup-submit">MORE</button>
                       </form>
 <?php
                       echo "</div>";
