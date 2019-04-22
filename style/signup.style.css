@@ -31,18 +31,16 @@ input[type=text], input[type=password] {
   margin-top: 40px;
   box-shadow: 10px;
   border-radius: 4px;
-  transition: 0.50s;
+  transition: 0.25s;
 }
 input[type=password]:focus{
   width: 500px;
-  height: 17px;
-  font-size: 10px;
+
   text-align: left;
 }
 input[type=text]:focus{
   width: 500px;
-  height: 17px;
-  font-size: 10px;
+
   text-align: left;
 }
 

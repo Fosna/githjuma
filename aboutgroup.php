@@ -11,6 +11,7 @@
     <?php
     $sql = "SELECT * FROM hjuma_groups WHERE name = '$groupname'";
     session_start();
+    $user = $_SESSION['username'];
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
           while($row = mysqli_fetch_array($result)){
@@ -21,9 +22,14 @@
 
             <?php if ($row['avatar'] != "") {?>
                 <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
-            <?php } ?>
+            <?php }
+            $sql2 = "SELECT * FROM hjuma_users WHERE username ='$user'";
+            session_start();
+            if($result2 = mysqli_query($conn, $sql2)){
+              if(mysqli_num_rows($result2) > 0){
+                  while($row2 = mysqli_fetch_array($result2)){ ?>
             <hr>
-            <?php if($row['owner'] == $_SESSION['username']){ ?>
+            <?php if($row['owner'] == $_SESSION['username'] or $row2['group1']==$groupname  or $row2['group2']==$groupname  or $row2['group3']==$groupname  or $row2['group4']==$groupname or $row2['group5']==$groupname){ ?>
               <form action="scr/entergroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                 <button class="join" type="submit" name="entergroup-submit">ENTER</button>
@@ -31,15 +37,18 @@
 
           <?php
             }
-            else {?>
+
+            elseif($row['owner'] != $_SESSION['username'] or $row2['group1']!=$groupname  or $row2['group2']!=$groupname  or $row2['group3']!=$groupname  or $row2['group4']!=$groupname or $row2['group5']!=$groupname) {?>
               <form action="scr/joingroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                 <input type="hidden" name="membercount" value="1" />
                 <button class="searchjoin" type="submit" name="joingroup-submit">JOIN</button>
               </form>
 
-    <?php
-           }
+    <?php         }
+                }
+              }
+            }
           }
          }
         }
