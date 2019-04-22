@@ -10,7 +10,7 @@ require 'header.php';
   ?>
       <link rel="stylesheet" href="style/hjuma.style.css">
       <h1 class="head">Discuse in real time</h1>
-      <?php require 'seearch.php'; ?>
+      <?php require 'search.php'; ?>
       <a class="groupgumb" href="login">Create group</a>
 
 

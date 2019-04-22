@@ -13,7 +13,9 @@ body {
 ::-webkit-scrollbar-track {
   background: none;
 }
-
+.search-box{
+  display: none;
+}
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #848383;

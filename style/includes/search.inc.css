@@ -40,16 +40,17 @@ body{
 .result{
   position: absolute;
   z-index: 999;
-  top: 110%;
+  top: 60%;
   left: 0;
-  text-align: left;
-  box-sizing: border-box;
-  width: 100%;
+  clear: both;
+  overflow: hidden;
 }
 .result p{
-  padding: 4px 148px;
+  overflow: hidden;
+  float: left;
+  clear: both;
+  padding: 20px 98px;
   border-top: none;
-  margin-top: 10px;
   font-size: 17.5px;
   border-bottom: 2px solid black;
   border-radius: 5px;
@@ -57,12 +58,15 @@ body{
   background: white;
 }
 .searchjoin{
+  margin-top: -50px;
   float: right;
+  clear: both;
   background: white;
   border: 1px solid black;
   outline: none;
   color: #2A3135;
   border-radius: 2.5px;
   transition: 0.25s;
+  margin-right: 20px;
   cursor: pointer;
 }
