@@ -18,3 +18,16 @@ h1 {
 .groupname2 {
 
 }
+.select{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  width: 190px;
+}
+.categorysubmit{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+}

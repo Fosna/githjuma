@@ -39,7 +39,7 @@ require 'header.php';
       <option value="Technology">Technology</option>
       <option value="Sport">Sport</option>
     </select>
-    <button type="submit" name="category-submit">Choose</button>
+    <button class="categorysubmit" type="submit" name="category-submit">Choose</button>
     <!-- kasnije bez gumba sa ajaxom -->
   </form>
 </div>
@@ -49,7 +49,7 @@ require 'header.php';
   }
 ?>
 
-<h1 class="">Most popular groups</h1>
+<h1 style=" margin-top:10px;">Most popular groups</h1>
 <?php
 require 'grouptab.php';
 require 'footer.php';
