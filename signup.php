@@ -31,10 +31,11 @@
         <input type="password" name="password" autocomplete="off" placeholder="Lozinka" size="30" value="" required/>
         <input type="password" name="password-rp" autocomplete="off" placeholder="Potvrda lozinke" size="30" value="" required/>
         <button type="submit" name="signup-submit" class="submit" autocomplete="off" value="Submit">Registracija</button>
+        <a class="forgotenPassword" href="#">Forgoten password?</a>
         </div>
       </form>
       <div class="alogin">
-        <a href="login">Log in</a>
+
       </div>
 <?php
 require 'footer.php';

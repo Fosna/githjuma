@@ -26,9 +26,24 @@ input[type=text], input[type=password] {
   text-align: center;
   border: none;
   padding: 10px 10px;
-  width: 300px;
+  width: 530px;
   outline: none;
+  margin-top: 40px;
+  box-shadow: 10px;
   border-radius: 4px;
+  transition: 0.50s;
+}
+input[type=password]:focus{
+  width: 500px;
+  height: 17px;
+  font-size: 10px;
+  text-align: left;
+}
+input[type=text]:focus{
+  width: 500px;
+  height: 17px;
+  font-size: 10px;
+  text-align: left;
 }
 
 .submit{
@@ -38,21 +53,35 @@ input[type=text], input[type=password] {
   margin: 20px auto;
   text-align: center;
   padding: 10px 10px;
-  width: 100px;
+  width: 300px;
+  margin-top: 8%;
   outline: none;
   color: white;
   border-radius: 20px;
   cursor: pointer;
+  transition: 0.25s;
 }
 .submit:hover {
   background: #0075B4;
+  width: 330px;
+}
+.forgotenPassword{
+  float: left;
+  margin-top: 10%;
+  margin-left: 20px;
+  color: white;
+  transition: 0.30s;
+}
+.forgotenPassword:hover{
+  color:blue;
+  font-size: 20px;
 }
 
   .content {
     background-color: #191919;
-    margin: 5% auto 15% auto;
-    width: 500px;
-    height: 375px;
+    margin: 10% auto 15% auto;
+    width: 700px;
+    height: 575px;
     padding-top: 5px;
     background: #191919;
     text-align: center;

@@ -9,6 +9,7 @@
     <input type="text" name="username" placeholder="Korisničko ime" value="" required>
     <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
     <button type="submit" class="submit" name="login-submit">Prijava</button>
+    <a class="forgotenPassword" href="#">Forgoten password?</a>
   </div>
 
 </form>
