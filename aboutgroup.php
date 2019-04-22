@@ -28,7 +28,9 @@
               <h6><?php echo $row['owner']; ?></h6>
               <h3><?php echo $row['description']; ?></h3>
 
-              <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
+              <?php if ($row['avatar'] != "") {?>
+                  <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
+              <?php } ?>
               <hr>
               <?php if($row['owner'] == $_SESSION['username']){ ?>
                 <form action="scr/entergroup.scr.php" method="post">

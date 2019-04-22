@@ -3,7 +3,11 @@
 <?php
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];
-  $sql = "SELECT * FROM hjuma_groups WHERE category='$category'";
+  if ($category == "") {
+    $sql = "SELECT * FROM hjuma_groups";
+  }else {
+    $sql = "SELECT * FROM hjuma_groups WHERE category='$category'";
+  }
   session_start();
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
