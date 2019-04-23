@@ -32,7 +32,7 @@
             <?php if($row['owner'] == $_SESSION['username'] or $row2['group1']==$groupname  or $row2['group2']==$groupname  or $row2['group3']==$groupname  or $row2['group4']==$groupname or $row2['group5']==$groupname){ ?>
               <form action="scr/entergroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
-                <button class="join" type="submit" name="entergroup-submit">ENTER</button>
+                <button class="searchjoin" type="submit" name="entergroup-submit">ENTER</button>
               </form>
 
           <?php
@@ -63,8 +63,11 @@
         while($row1 = mysqli_fetch_array($result1)){
           ?>
           <div class="users">
-            <h2 class="username"><?php echo $row1['username'] ?></h2>
-            <h2 class="online">online</h2>
+            <form class="" action="profile" method="post">
+              <button type="submit" class="username" name="button"><?php echo $row1['username']; ?></button>
+              <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
+            </form>
+
           </div>
         <?php
 

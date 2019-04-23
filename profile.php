@@ -4,7 +4,8 @@
     <div class="namecontainer">
       <?php
         require 'scr/dbh.scr.php';
-        $user = $_SESSION['sender_name'];
+        $user = mysqli_real_escape_string($conn, $_POST['username']);
+
       ?>
       <h1 class="username"><?php echo $user; ?></h1>
       <?php

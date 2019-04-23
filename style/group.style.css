@@ -109,6 +109,22 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
+.profilebtn_left{
+  border-radius: 20px;
+  margin-left: 0px;
+  border: 0.4mm solid black;
+  background: none;
+  color: black;
+}
+.profilebtn_right{
+  border-radius: 20px;
+  margin-left: 0px;
+  border: 0.4mm solid black;
+  background: none;
+  float: right;
+  margin-top: -30px;
+  color: black;
+}
 input[type=text] {
 
   background: white;

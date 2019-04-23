@@ -41,9 +41,13 @@
               </div>
 
             <?php  } ?>
-      <a href="profile" class ="senderleft"><?php echo $sender_name; ?></a>
+
       <h1 class= "messageleft"><?php echo $message; ?></h1>
       <h6 class="dateleft"><?php echo $date; ?><h6>
+      <form class="" action="profile" method="post">
+        <button type="submit" class="profilebtn_left" name="button"><?php echo $sender_name; ?></button>
+        <input type="hidden"  name="username" value="<?php echo $sender_name  ?>">
+      </form>
     </div>
     <?php
           }
@@ -67,9 +71,11 @@
       <img class="native_profileimageHeader" onclick="dropdown()" src="pics/icon.png">
       </div>
     <?php } ?>
-      <a href="account" class ="senderright"><?php echo $sender_name; ?></a>
       <h1 class= "messageright"><?php echo $message; ?></h1>
       <h6 class="date"><?php echo $date; ?><h6>
+      <form class="" action="account" method="post">
+        <button type="submit" class="profilebtn_right" name="button"><?php echo $_SESSION['username']; ?></button>
+      </form>
     </div>
     <?php
           }
