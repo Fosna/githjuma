@@ -1,5 +1,6 @@
 <?php
 require 'header.php';
+$user = $_SESSION['username'];
 ?>
 <link rel="stylesheet" href="style/main.style.css">
 <link rel="stylesheet" href="style/includes/error.inc.css">
@@ -47,9 +48,88 @@ require 'header.php';
   if (isset($_GET['category'])) {
     $category = $_GET['category'];
   }
+  $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
+  if($result = mysqli_query($conn, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
 ?>
+<div class="sidegroups">
+       <?php
+        if ($row['group1']==""){}
+          else {
+         ?>
+         <form class="" action="scr/entergroup.scr.php" method="post">
+           <button type="submit" name="entergroup-submit"  class="mygroups" value="<?php echo $row['group1'];?>">
+             <input type="hidden" name="groupname" value="<?php echo $row['group1'];?>" />
+             <h2 class="name" id="name"><?php echo $row['group1']; ?></h2>
 
-<h1 style=" margin-top:10px;">Most popular groups</h1>
+           </button>
+
+         </form>
+       <?php } ?>
+
+       <?php
+        if ($row['group2']==""){}
+          else {
+         ?>
+         <form class="" action="scr/entergroup.scr.php" method="post">
+           <button type="submit" name="entergroup-submit"  class="mygroups" value="<?php echo $row['group2'];?>">
+             <input type="hidden" name="groupname" value="<?php echo $row['group2'];?>" />
+             <h2 class="name" id="name"><?php echo $row['group2']; ?></h2>
+
+           </button>
+
+         </form>
+
+       <?php } ?>
+       <?php
+        if ($row['group3']==""){}
+          else {
+         ?>
+         <form class="" action="scr/entergroup.scr.php" method="post">
+           <button type="submit" name="entergroup-submit" class="mygroups" value="<?php echo $row['group3'];?>">
+             <input type="hidden" name="groupname" value="<?php echo $row['group3'];?>" />
+             <h2 class="name" id="name"><?php echo $row['group3']; ?></h2>
+
+           </button>
+
+         </form>
+       <?php } ?>
+       <?php
+        if ($row['group4']==""){}
+          else {
+         ?>
+         <form class="" action="scr/entergroup.scr.php" method="post">
+           <button type="submit" name="entergroup-submit" class="mygroups" value="<?php echo $row['group4'];?>">
+             <input type="hidden" name="groupname" value="<?php echo $row['group4'];?>" />
+             <h2 class="name" id="name"><?php echo $row['group4']; ?></h2>
+
+           </button>
+
+         </form>
+       <?php } ?>
+       <?php
+        if ($row['group5']==""){}
+          else {
+         ?>
+         <form class="" action="scr/entergroup.scr.php" method="post">
+           <button type="submit" name="entergroup-submit" class="mygroups" value="<?php echo $row['group5'];?>">
+             <input type="hidden" name="groupname" value="<?php echo $row['group5'];?>" />
+             <h2 class="name" id="name"><?php echo $row['group5']; ?></h2>
+
+           </button>
+
+         </form>
+       <?php } ?>
+
+</div>
+         <?php
+            }
+          }
+        }
+
+  ?>
+
 <?php
 require 'grouptab.php';
 require 'footer.php';

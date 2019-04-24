@@ -34,3 +34,23 @@ h1 {
   margin-left: auto;
   border-radius: 20px;
 }
+.sidegroups{
+  float: left;
+  font-size: 20px;
+  margin-top: 13%;
+}
+#name{
+  font-size: 30px;
+}
+.mygroups{
+  border-radius: 10px;
+  border: 0.3mm solid black;
+  background: #52B0E6;
+  width: 160px;
+  margin-top: 10px;
+  word-wrap: break-word;
+  transition: 0.18s;
+}
+.mygroups:hover{
+   width: 180px;
+}
