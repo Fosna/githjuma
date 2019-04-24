@@ -1,87 +1,7 @@
 <?php require 'header.php'; ?>
     <link rel="stylesheet" href="style/grouptab.style.css">
     <link rel="stylesheet" href="style/account.style.css">
-    <style media="screen">
-    body {font-family: Arial, Helvetica, sans-serif;}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-width: 100%;
-padding: 12px 20px;
-margin: 8px 0;
-display: inline-block;
-border: 1px solid #ccc;
-box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-
-/* The Modal (background) */
-.modal {
-display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
-z-index: 1; /* Sit on top */
-left: 0;
-top: 0;
-width: 100%; /* Full width */
-height: 100%; /* Full height */
-overflow: auto; /* Enable scroll if needed */
-background-color: rgb(0,0,0); /* Fallback color */
-background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-background-color: #fefefe;
-margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-border: 1px solid #888;
-width: 40%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-position: absolute;
-right: 25px;
-top: 0;
-color: #000;
-font-size: 35px;
-font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-color: red;
-cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
--webkit-animation: animatezoom 0.6s;
-animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-from {-webkit-transform: scale(0)}
-to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-from {transform: scale(0)}
-to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-span.psw {
-   display: block;
-   float: none;
-}
-.cancelbtn {
-   width: 100%;
-}
-}
-    </style>
     <div class="namecontainer">
       <?php
           if (isset($_SESSION['username'])) {
@@ -90,29 +10,15 @@ span.psw {
 
           }
       ?>
-      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change name</button>
-<!--
-  <div id="id01" class="modal">
 
-    <form class="modal-content animate" action="scr/passwordconfirm.scr.php">
-      <div class="imgcontainer">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      </div>
 
-      <div class="container2"> -->
-        <form class="" action="scr/passwordconfirm.scr.php" method="post">
-          <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
-          <button type="submit" class="submit" name="passwordconfirm-submit">Prijava</button>
+
+        <form class="" style="margin-top:40px;" action="scr/passwordconfirm.scr.php" method="post">
+          Confrim password: <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
+          <button type="submit" class="submit" name="passwordconfirm-submit">Change name</button>
         </form>
 
-      <!-- </div>
 
-      <div class="container2" style="background-color:#f1f1f1">
-
-
-      </div>
-    </form>
-  </div> -->
 
       <?php
         require 'scr/dbh.scr.php';
