@@ -86,6 +86,7 @@
           <form action="signup" method="post" class="signupform">
             <button type="submit" class="signupb">Sign up</button>
           </form>
+            <?php require 'search.php'; ?>
 
           <?php
             }

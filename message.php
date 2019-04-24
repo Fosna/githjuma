@@ -8,7 +8,17 @@
     <?php require 'scr/dbh.scr.php'; ?>
     <?php session_start();
     $groupmes = $_SESSION['groupname'];
-    ?>
+    $sql3 = "SELECT * FROM hjuma_groups WHERE name='$groupmes'";
+    if($result3 = mysqli_query($conn, $sql3)){
+      if(mysqli_num_rows($result3) > 0){
+          while($row3 = mysqli_fetch_array($result3)){
+            $owner = $row3['owner'];
+
+          }
+        }
+      }
+      ?>
+
     <?php
     $sql = "SELECT * FROM hjuma_messages WHERE groupmes='$groupmes'";
     if($result = mysqli_query($conn, $sql)){
@@ -41,6 +51,14 @@
               </div>
 
             <?php  } ?>
+            <?php if($_SESSION['username'] == $owner){ ?>
+              <form class="" action="scr/deletemessage.scr.php" method="post">
+                <input type="hidden" name="message" value="<?php echo $message; ?>">
+                <input type="hidden" name="sender" value="<?php echo $sender_name; ?>">
+                <input type="hidden" name="time" value="<?php echo $date; ?>">
+                <button class="deletemessage_left" type="submit" name="deletemessage-submit">Delete</button>
+              </form>
+            <?php } ?>
 
       <h1 class= "messageleft"><?php echo $message; ?></h1>
       <h6 class="dateleft"><?php echo $date; ?><h6>
@@ -70,6 +88,14 @@
       <div class="iconMessage">
       <img class="native_profileimageHeader" onclick="dropdown()" src="pics/icon.png">
       </div>
+    <?php } ?>
+    <?php if($_SESSION['username'] == $owner){ ?>
+      <form class="" action="scr/deletemessage.scr.php" method="post">
+        <input type="hidden" name="message" value="<?php echo $message; ?>">
+        <input type="hidden" name="sender" value="<?php echo $sender_name; ?>">
+        <input type="hidden" name="time" value="<?php echo $date; ?>">
+        <button class="deletemessage_right" type="submit" name="deletemessage-submit">Delete</button>
+      </form>
     <?php } ?>
       <h1 class= "messageright"><?php echo $message; ?></h1>
       <h6 class="date"><?php echo $date; ?><h6>

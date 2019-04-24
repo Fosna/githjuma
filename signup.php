@@ -6,7 +6,6 @@
   </head>
   <body>
     <?php require "header.php"; ?>
-
       <form class="content" action="scr/signup.scr.php" method="post">
 
         <h1>Registracija</h1>

@@ -15,7 +15,11 @@ h1 {
 .loginb{
   display: none;
 }
+
 .signupform{
+  display: none;
+}
+.search-box{
   display: none;
 }
 input[type=text], input[type=password] {
@@ -43,6 +47,7 @@ input[type=text]:focus{
 
   text-align: left;
 }
+
 
 .submit{
   border: 0;

@@ -1,6 +1,5 @@
 <?php
 require 'header.php';
-$user = $_SESSION['username'];
 ?>
 <link rel="stylesheet" href="style/main.style.css">
 <link rel="stylesheet" href="style/includes/error.inc.css">
@@ -11,8 +10,12 @@ $user = $_SESSION['username'];
   ?>
       <link rel="stylesheet" href="style/hjuma.style.css">
       <h1 class="head">Discuse in real time</h1>
-      <?php require 'search.php'; ?>
-      <a class="groupgumb" href="login">Create group</a>
+      <div class="creategroup_container">
+        <form class="" action="login" method="post">
+          <h2 class="text_continer">Create group, talk, meet, discuss, make friends!</h2>
+          <button type="submit" class="creategroup_login" name="button">Create group</button>
+        </form>
+      </div>
     <?php
     }
     else{
@@ -30,7 +33,7 @@ $user = $_SESSION['username'];
     <select class="select" name="category">
       <option selected="selected" value="" class="default">Select category</option>
       <option value="Movies">Movies</option>
-      <option value="Politics">Category</option>
+      <option value="Politics">Politics</option>
       <option value="Video game">Video game</option>
       <option value="Life">Life</option>
       <option value="Nature">Nature</option>
@@ -48,6 +51,7 @@ $user = $_SESSION['username'];
   if (isset($_GET['category'])) {
     $category = $_GET['category'];
   }
+  $user = $_SESSION['username'];
   $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){

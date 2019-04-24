@@ -45,12 +45,13 @@
 }
 .description{
   float: left;
-    clear: both;
+  clear: both;
   word-wrap: break-word;
 }
 .avatar{
   float: right;
   height: 200px;
+  clear: both;
   margin-top: -0%;
 }
 .dropbtns{

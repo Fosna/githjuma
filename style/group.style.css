@@ -32,6 +32,24 @@ h1 {
   color: black;
   font-size: 50px;
 }
+.deletemessage_right{
+  float:  right;
+  margin-top: 20px;
+  margin-right: 10px;
+  border: 0.2mm solid black;
+  background: none;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+.deletemessage_left{
+  float:  left;
+  margin-top: 20px;
+  margin-right: 200px;
+  border: 0.2mm solid black;
+  background: none;
+  border-radius: 10px;
+  margin-left: 20px;
+}
 .iconMessage{
   display: inline-block;
   position: relative;
@@ -111,15 +129,18 @@ h2 {
 }
 .profilebtn_left{
   border-radius: 20px;
-  margin-left: 0px;
-  border: 0.4mm solid black;
+  margin-left: 6px;
+  font-size: 16px;
+  border: none;
   background: none;
   color: black;
+
 }
 .profilebtn_right{
   border-radius: 20px;
-  margin-left: 0px;
-  border: 0.4mm solid black;
+  margin-right: 6px;
+  border: none;
+  font-size: 16px;
   background: none;
   float: right;
   margin-top: -30px;

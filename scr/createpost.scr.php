@@ -14,12 +14,13 @@
     $image_size = getimagesize($_FILES['avatar']['tmp_name']);
     $grouppost = $_SESSION['groupname'];
     $postowner = $_SESSION['username'];
+    $date = date("Y-m-d g:i:sa");
     if (empty($title) || empty($description)){
       header("Location: ../createpost?error=empty");
       exit();
     }
     else {
-      $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments, owner) VALUES ('$title','$description', '$image_name', '$image', '$grouppost', '$comments' , '$postowner')";
+      $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments, owner, date_time) VALUES ('$title','$description', '$image_name', '$image', '$grouppost', '$comments' , '$postowner', '$date')";
           if ($conn->query($sql)){
             header("Location: ../group");
             $conn->close();

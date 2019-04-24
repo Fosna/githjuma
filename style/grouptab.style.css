@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Asap');
 .container{
+  display: block;
   width: 40%;
   background-image: linear-gradient(to bottom, #808080, #787a86, #69758c, #527292, #2a7096);
   margin-left: auto;
@@ -7,7 +8,7 @@
   border: 0.3mm solid black;
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 30px;
+  margin-top: 80px;
   margin-left:30%;
   font-family: 'Asap', sans-serif;
 }
@@ -19,6 +20,10 @@
 .category{
   text-align: center;
   font-size: 9px;
+}
+.maxmembers{
+  font-size: 15px;
+  margin-top: auto;
 }
 .aboutgroupBtn{
   display: block;

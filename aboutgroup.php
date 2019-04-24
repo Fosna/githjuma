@@ -72,7 +72,7 @@
               </form>
               <?php if($owner == $_SESSION['username']){ ?>
                 <form class="" action="scr/kickmember.scr.php" method="post">
-                  <button style="float: right;" type="submit" name="kick-submit">Kick</button>
+                  <button style="float: right;" type="submit" class="kickbtn" name="kick-submit">Kick</button>
                   <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
                   <input type="hidden"  name="groupname" value="<?php echo $groupname  ?>">
                 </form>

@@ -32,7 +32,7 @@
     }
   }
 ?>
-<form class="" id="#messagebox" action="scr/message.scr.php" method="post" onsubmit="return messageSend();">
+<form class="" id="#messagebox" action="scr/message.scr.php" method="post" onsubmit="return messageSend();" onsubmit="return formSubmit();">
   <div class="bottom">
     <input type="text" autocomplete="off" name="message" class="messagebox" ></input>
 
@@ -40,6 +40,9 @@
   </div>
 </form>
 <script src="scr/jquery.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+</script>
 <script type="text/javascript">
 function messageSend(){
   $.ajax({
@@ -56,7 +59,7 @@ function messageSend(){
 $(document).ready(function(){
   setInterval(function(){
     $('#container-message').load('message.php')
-  }, 305);
+  }, 505);
 });
 </script>
   </body>

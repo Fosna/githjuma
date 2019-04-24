@@ -16,6 +16,9 @@ h1 {
 .loginform{
   display: none;
 }
+.search-box{
+  display: none;
+}
 input[type=text], input[type=password] {
   border: 0;
   background: white;
