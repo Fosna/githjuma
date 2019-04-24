@@ -12,9 +12,11 @@
     $sql = "SELECT * FROM hjuma_groups WHERE name = '$groupname'";
     session_start();
     $user = $_SESSION['username'];
+
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
           while($row = mysqli_fetch_array($result)){
+            $owner = $row['owner'];
             ?>
             <h4 class="members"><?php echo $row['membercount'],"/",$row['maxmembers']; ?></h4>
             <h6><?php echo $row['owner']; ?></h6>
@@ -61,12 +63,21 @@
   if($result1 = mysqli_query($conn, $sql1)){
     if(mysqli_num_rows($result1) > 0){
         while($row1 = mysqli_fetch_array($result1)){
+
           ?>
           <div class="users">
             <form class="" action="profile" method="post">
               <button type="submit" class="username" name="button"><?php echo $row1['username']; ?></button>
               <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
-            </form>
+              </form>
+              <?php if($owner == $_SESSION['username']){ ?>
+                <form class="" action="scr/kickmember.scr.php" method="post">
+                  <button style="float: right;" type="submit" name="kick-submit">Kick</button>
+                  <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
+                  <input type="hidden"  name="groupname" value="<?php echo $groupname  ?>">
+                </form>
+              <?php } ?>
+
 
           </div>
         <?php

@@ -50,7 +50,7 @@
                         }
                       }
                       if (($row['name'] == $group1) || ($row['name'] == $group2) || ($row['name'] == $group3) || ($row['name'] == $group4) || ($row['name'] == $group5)) {
-                        
+
 ?>
                         <form action="scr/entergroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
