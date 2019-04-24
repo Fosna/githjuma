@@ -54,9 +54,12 @@
   clear: both;
   margin-top: -0%;
 }
-.dropbtns{
+.deletebtn{
   float:right;
   clear: both;
+  border: 0.3mm solid black;
+  border-radius: 10px;
+  width: 70px;
 }
 
 .commentbtn{
