@@ -91,29 +91,28 @@ span.psw {
           }
       ?>
       <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change name</button>
-
+<!--
   <div id="id01" class="modal">
 
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate" action="scr/passwordconfirm.scr.php">
       <div class="imgcontainer">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
       </div>
 
-      <div class="container2">
+      <div class="container2"> -->
         <form class="" action="scr/passwordconfirm.scr.php" method="post">
-          Confrim password: <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
+          <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
           <button type="submit" class="submit" name="passwordconfirm-submit">Prijava</button>
         </form>
 
-      </div>
+      <!-- </div>
 
       <div class="container2" style="background-color:#f1f1f1">
 
 
       </div>
     </form>
-  </div>
+  </div> -->
 
       <?php
         require 'scr/dbh.scr.php';
