@@ -38,6 +38,14 @@ h1 {
   float: left;
   font-size: 20px;
   margin-top: 13%;
+
+  position:fixed;
+  z-index:150;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+  height: 95px;
+
 }
 #name{
   font-size: 30px;

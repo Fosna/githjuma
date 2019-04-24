@@ -31,7 +31,7 @@
               if(mysqli_num_rows($result2) > 0){
                   while($row2 = mysqli_fetch_array($result2)){ ?>
             <hr>
-            <?php if($row['owner'] == $_SESSION['username'] or $row2['group1']==$groupname  or $row2['group2']==$groupname  or $row2['group3']==$groupname  or $row2['group4']==$groupname or $row2['group5']==$groupname){ ?>
+            <?php if($row2['group1']==$groupname  or $row2['group2']==$groupname  or $row2['group3']==$groupname  or $row2['group4']==$groupname or $row2['group5']==$groupname){ ?>
               <form action="scr/entergroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                 <button class="searchjoin" type="submit" name="entergroup-submit">ENTER</button>
