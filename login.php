@@ -1,6 +1,7 @@
 <?php require'header.php'; ?>
 <title>Hjuma</title>
 <link rel="stylesheet" href="style/login.style.css">
+<link rel="stylesheet" href="style/includes/error.inc.css">
 <form class="content" action="scr/login.scr.php" method="post">
 
   <h1>Prijava</h1>
@@ -17,22 +18,22 @@
   if (isset($_GET['error'])) {
     $error = $_GET['error'];
     if ($error == "invalidusernameandmail") {
-      echo '<div class="error">Korisničko ime i E-mail je pogrešno!</div>';
+      echo '<div class="error">Username and password are incorrect!</div>';
     }
     elseif ($error == "invalidemail") {
-      echo '<div class="error">E-mail je pogrešan!</div>';
+      echo '<div class="error">E-mail is incorrect!</div>';
     }
     elseif ($error == "invalidusername") {
-      echo '<div class="error">Slova su nevažeća!</div>';
+      echo '<div class="error">Use different characters!</div>';
     }
     elseif ($error == "passwordcheck") {
-      echo '<div class="error">Lozinke se ne poklapaju!</div>';
+      echo '<div class="error">Passwords are not matching!</div>';
     }
     elseif ($error == "pwd") {
-      echo '<div class="error">Lozinka je pogrešna!</div>';
+      echo '<div class="error">Password is incorrect!</div>';
     }
     elseif ($error == "nouser") {
-      echo '<div class="error">Takav korisnik ne postoji!</div>';
+      echo '<div class="error">There is no user like that!</div>';
     }
   }
 ?>

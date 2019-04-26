@@ -1,25 +1,18 @@
 <?php require 'header.php'; ?>
     <link rel="stylesheet" href="style/grouptab.style.css">
     <link rel="stylesheet" href="style/account.style.css">
-
+    <link rel="stylesheet" href="style/includes/error.inc.css">
+    
     <div class="namecontainer">
       <?php
           if (isset($_SESSION['username'])) {
             echo '<div id="username">'.$_SESSION['username'].'</div>';
-
-
           }
       ?>
-
-
-
         <form class="" style="margin-top:40px;" action="scr/passwordconfirm.scr.php" method="post">
-          Confrim password: <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
+          Confirm password: <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
           <button type="submit" class="submit" name="passwordconfirm-submit">Change name</button>
         </form>
-
-
-
       <?php
         require 'scr/dbh.scr.php';
         $owner = $_SESSION["username"];
@@ -50,8 +43,6 @@
             }
           }
       ?>
-
-
       <div class="imageupload">
         <form class="" action="scr/accountupdate.scr.php" method="post" enctype="multipart/form-data">
             <input type="file" class="file" name="avatar" value="">
@@ -60,11 +51,7 @@
         </form>
       </div>
 
-
-
     </div>
-
-
 
     <?php
       require 'scr/dbh.scr.php';
@@ -88,15 +75,18 @@
             }
           }
         }
+        if (isset($_GET['error'])) {
+          $error = $_GET['error'];
+          if ($error == "pwd") {
+            echo '<div class="error">Password incorrect!</div>';
+          }
+        }
     ?>
-
 
 <?php require 'footer.php'; ?>
 <script>
-// Get the modal
 var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
