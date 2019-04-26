@@ -10,6 +10,7 @@
       }else{
       require 'scr/dbh.scr.php';
       $user = $_SESSION["username"];
+      $groupname = $_SESSION['groupname'];
       $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
       if($result = mysqli_query($conn, $sql)){
         if(mysqli_num_rows($result) > 0){
@@ -51,9 +52,7 @@
                <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group3'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group3'];?>" />
                  <h2 class="name"><?php echo $row['group3']; ?></h2>
-
                </button>
-
              </form>
            <?php } ?>
            <?php
@@ -64,9 +63,7 @@
                <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group4'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group4'];?>" />
                  <h2 class="name"><?php echo $row['group4']; ?></h2>
-
                </button>
-
              </form>
            <?php } ?>
            <?php
@@ -89,8 +86,24 @@
             }
           }
       ?>
+
+
       <?php require 'posttab.php'; ?>
       <?php require 'groupmessage.php'; ?>
+      <?php
+      $sql = "SELECT * FROM hjuma_groups WHERE name='$groupname' ";
+      if($result = mysqli_query($conn, $sql)){
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+              if($row['owner'] == $_SESSION['username']){?>
+                <form class="" action="adminsettings.php" method="post">
+                  <button class="settingsbtn" type="submit" name="button">Settings</button>
+                </form>
+                <?php
+              }
+            }
+          }
+        } ?>
   </body>
 
 </html>

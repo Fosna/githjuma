@@ -6,7 +6,7 @@ body {
     height: 1000px;
 }
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 14px;
 }
 
 /* Track */
@@ -40,6 +40,26 @@ h1 {
   background: none;
   border-radius: 10px;
   margin-left: 20px;
+}
+.settingsbtn{
+  color: white;
+  background: #1ab2ff;
+  border: 2px solid #1ab2ff;
+  border-top-right-radius: 20px;
+  display: block;
+  bottom:0;
+  position:fixed;
+  z-index:150;
+  transition: 0.25s;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+  height: 95px;
+  margin-right: 300px;
+}
+.settingsbtn:hover{
+  background: #0088cc;
+  border: 2px solid #0088cc;
 }
 .deletemessage_left{
   float:  left;
