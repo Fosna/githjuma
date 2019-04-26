@@ -11,25 +11,20 @@ else{
     header("Location: ../changename?error=empty");
     exit();
   }
-  else {
-    $sql = "SELECT username FROM hjuma_users WHERE username=?";
-    $stmt = mysqli_stmt_init($conn);
-    if (mysqli_stmt_prepare($stmt, $sql)){
-      mysqli_stmt_bind_param($stmt, "s", $username);
-      mysqli_stmt_execute($stmt);
-      mysqli_stmt_store_result($stmt);
-      $result = mysqli_stmt_num_rows($stmt);
-      if ($result > 0) {
-        header("Location: ../changename?error=usernametaken");
-        exit();
-      }
       else {
-        $sql1 = "UPDATE hjuma_users SET username='$newname' WHERE username='$username';";
-          if ($conn->query($sql1)){
-              header("Location: ../login");
-              $conn->close();
+        $sql = "SELECT * FROM hjuma_users";
+        if($result = mysqli_query($conn, $sql)){
+          if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+            if ($row['username'] != $newname) {
+              $sql1 = "UPDATE hjuma_users SET username='$newname' WHERE username='$username';";
+                if ($conn->query($sql1)){
+                    header("Location: ../login");
+                    $conn->close();
+                }
+            }
           }
+        }
       }
     }
   }
-}
