@@ -1,4 +1,3 @@
-
 .search-box{
   float: left;
 }
@@ -16,5 +15,22 @@
   width: auto;
   height: 120%;
   margin-top: -1.5px;
+  margin-left: -5px;
+}
+.native_iconHeader{
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.native_profileimageHeader{
+  width: auto;
+  height: 120%;
+  margin-top: -2px;
   margin-left: -5px;
 }
