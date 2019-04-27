@@ -1,15 +1,19 @@
 <?php require'header.php'; ?>
 <title>Hjuma</title>
-<link rel="stylesheet" href="style/login.style.css">
+<link rel="stylesheet" href="style/login_signup.style.css">
 <link rel="stylesheet" href="style/includes/error.inc.css">
 <form class="content" action="scr/login.scr.php" method="post">
-
-  <h1>Prijava</h1>
-
   <div class="container">
-    <input type="text" name="username" placeholder="Korisničko ime" value="" required>
-    <input type="password" name="password" autocomplete="off" placeholder="Lozinka" value="" required>
-    <button type="submit" class="submit" name="login-submit">Prijava</button>
+  <h1 style="text-align: center; padding: 60px;">Login</h1>
+
+
+     <div class="form-group">
+    <input type="text" name="username"  class="form-control" placeholder="Username" value="" required>
+  </div>
+   <div class="form-group">
+    <input type="password" name="password"  class="form-control" autocomplete="off" placeholder="Password" value="" required>
+  </div>
+    <button type="submit" class="btn btn-primary" name="login-submit">Login</button>
     <a class="forgotenPassword" href="#">Forgoten password?</a>
   </div>
 

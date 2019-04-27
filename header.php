@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="main">Hjuma</a>
 <?php
             error_reporting(0);
@@ -36,7 +36,8 @@
                       while($row = mysqli_fetch_array($result)){
 ?>
                           <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                            <button class="btn pull-right"  type="button" id="menu1" data-toggle="dropdown">
+
 <?php
                                if($row['profileimage'] == ""){
 ?>                               <div class="iconHeader">
@@ -44,8 +45,8 @@
                                  </div>
 <?php
                                }else {
-                                 echo '<div class="native_iconHeader">';
-                                 echo '<img class="native_profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
+                                 echo '<div class="iconHeader">';
+                                 echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
                                  echo '</div>';
                                }
 ?>
@@ -95,11 +96,11 @@
             else {
           ?>
           <?php require 'search.php'; ?>
-          <form action="login" method="post">
-            <button class="btn btn-link navbar-btn" type="submit">Log in</button>
+          <form action="login" class="ml-auto" method="post">
+            <button class="btn btn-primary " style="margin-left: 10px;"   type="submit">Log in</button>
           </form>
           <form action="signup" method="post">
-            <button class="btn btn-dark navbar-btn" type="submit">Sign up</button>
+            <button class="btn btn-primary " style="margin-left: 10px;"  type="submit">Sign up</button>
           </form>
 
           <?php
