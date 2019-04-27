@@ -51,7 +51,6 @@
                         }
                       }
                       if (($row['name'] == $group1) || ($row['name'] == $group2) || ($row['name'] == $group3) || ($row['name'] == $group4) || ($row['name'] == $group5)) {
-
 ?>
                         <form action="scr/entergroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
@@ -62,17 +61,17 @@
                           <input type="hidden" name="membercount" value="-1" />
                           <button class="dropbtn" type="submit" name="leavegroup-submit">Leave group</button>
                         </form>
-
 <?php
                       }
                       else{
+                        if ($row['privacy']=='public') {
 ?>
                         <form action="scr/joingroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
                           <button class="join"  type="submit" name="joingroup-submit">JOIN</button>
                         </form>
-<?php
+<?php                   }
                       }
                     }
                   }

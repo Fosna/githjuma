@@ -41,6 +41,9 @@
                   <form class="" action="mygroups" method="post">
                     <button class="dropbtns" id="myacc" type="submit">My groups</button>
                   </form>
+                  <form class="" action="invites" method="post">
+                    <button class="dropbtns" type="submit">Invites</button>
+                  </form>
                   <form action="scr/logout.scr.php" method="post">
                     <button class="dropbtns" type="submit" name="logout-submit">Log out</button>
                   </form>
@@ -62,6 +65,9 @@
                     </form>
                     <form class="" action="mygroup" method="post">
                       <button class="dropbtns" type="submit">My groups</button>
+                    </form>
+                    <form class="" action="invites" method="post">
+                      <button class="dropbtns" type="submit">Invites</button>
                     </form>
                     <form action="scr/logout.scr.php" method="post">
                       <button class="dropbtns" type="submit" name="logout-submit">Log out</button>

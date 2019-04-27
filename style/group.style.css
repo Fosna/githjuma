@@ -61,6 +61,27 @@ h1 {
   background: #0088cc;
   border: 2px solid #0088cc;
 }
+.invitepeoplebtn{
+  color: white;
+  background: #1ab2ff;
+  border: 2px solid #1ab2ff;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  display: block;
+  bottom:0;
+  position:fixed;
+  z-index:150;
+  transition: 0.25s;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+  height: 95px;
+  margin-left: 100px;
+}
+.settingsbtn:hover{
+  background: #0088cc;
+  border: 2px solid #0088cc;
+}
 .deletemessage_left{
   float:  left;
   margin-top: 20px;

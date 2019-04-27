@@ -10,30 +10,16 @@
     if (!isset($_SESSION['id'])) {
       header("Location: main");
     }
+
+    else{
+    $groupname = $_SESSION['groupname'];
     $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_array($result)){
-          $group1 = $row['group1'];
-          $group2 = $row['group2'];
-          $group3 = $row['group3'];
-          $group4 = $row['group4'];
-          $group5 = $row['group5'];
-        }
-      }
-    }
-    elseif ($_SESSION['groupname'] != $group1 || $_SESSION['groupname'] != $group2 || $_SESSION['groupname'] != $group3 || $_SESSION['groupname'] != $group4 || $_SESSION['groupname'] != $group5 ) {
-      header("Location: main");
-    }
-    else{
-    $groupname = $_SESSION['groupname'];
-    $sql1 = "SELECT * FROM hjuma_users WHERE username='$user' ";
-    if($result1 = mysqli_query($conn, $sql1)){
-      if(mysqli_num_rows($result1) > 0){
-          while($row1 = mysqli_fetch_array($result1)){
+          while($row = mysqli_fetch_array($result)){
   ?>
          <?php
-          if ($row1['group1']!=""){
+          if ($row['group1']!=""){
            ?>
            <form class="" action="scr/entergroup.scr.php" method="post">
              <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group1'];?>">
@@ -46,7 +32,7 @@
          <?php } ?>
 
          <?php
-          if ($row1['group2']!=""){
+          if ($row['group2']!=""){
            ?>
            <form class="" action="scr/entergroup.scr.php" method="post">
              <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group2'];?>">
@@ -59,7 +45,7 @@
 
          <?php } ?>
          <?php
-          if ($row1['group3']!=""){
+          if ($row['group3']!=""){
            ?>
            <form class="" action="scr/entergroup.scr.php" method="post">
              <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group3'];?>">
@@ -69,7 +55,7 @@
            </form>
          <?php } ?>
          <?php
-          if ($row1['group4']!=""){
+          if ($row['group4']!=""){
            ?>
            <form class="" action="scr/entergroup.scr.php" method="post">
              <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group4'];?>">
@@ -79,7 +65,7 @@
            </form>
          <?php } ?>
          <?php
-          if ($row1['group5']!=""){
+          if ($row['group5']!=""){
            ?>
            <form class="" action="scr/entergroup.scr.php" method="post">
              <button type="submit" name="entergroup-submit" id="container-side" class="container-side" value="<?php echo $row['group5'];?>">
@@ -109,6 +95,13 @@
               </form>
               <?php
             }
+            if ($row['privacy'] == 'private') {?>
+              <form class="" action="invitepeople.php" method="post">
+                <input type="hidden" name="group" value="<?php echo $_SESSION['groupname']; ?>">
+                <button class="invitepeoplebtn" type="submit" name="button">Invite people</button>
+              </form>
+
+        <?php    }
           }
         }
       } ?>
