@@ -15,8 +15,6 @@ else{
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
           while($row = mysqli_fetch_array($result)){
-
-
             if ($row['group1'] == $groupname) {
               $group = 'group1';
             }
@@ -40,7 +38,7 @@ else{
       }
     $sql1 = "UPDATE hjuma_users SET $group=NULL WHERE username='$user';";
       if ($conn->query($sql1)){
-          header("Location: ../main");
+          header("Location: ../group");
       }
       else {
         echo "Error".$sql1."<br>" . $conn->error;
