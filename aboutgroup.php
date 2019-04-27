@@ -3,14 +3,12 @@
 <link rel="stylesheet" href="style/aboutgroup.style.css">
   <?php
   require 'scr/dbh.scr.php';
-  session_start();
   $groupname = mysqli_real_escape_string($conn, $_POST['groupname']);
   $membercount = mysqli_real_escape_string($conn, $_POST['membercount']);
     ?>
     <h1><?php echo $groupname; ?></h1>
     <?php
     $sql = "SELECT * FROM hjuma_groups WHERE name = '$groupname'";
-    session_start();
     $user = $_SESSION['username'];
 
     if($result = mysqli_query($conn, $sql)){
@@ -26,7 +24,6 @@
                 <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
             <?php }
             $sql2 = "SELECT * FROM hjuma_users WHERE username ='$user'";
-            session_start();
             if($result2 = mysqli_query($conn, $sql2)){
               if(mysqli_num_rows($result2) > 0){
                   while($row2 = mysqli_fetch_array($result2)){ ?>
@@ -59,7 +56,6 @@
   <h1 class = "aboveUsers">Users</h1>
   <?php
   $sql1 = "SELECT * FROM hjuma_users WHERE group1 = '$groupname' OR group2 = '$groupname' OR group3 = '$groupname' OR group4 = '$groupname' OR group5 = '$groupname'";
-  session_start();
   if($result1 = mysqli_query($conn, $sql1)){
     if(mysqli_num_rows($result1) > 0){
         while($row1 = mysqli_fetch_array($result1)){

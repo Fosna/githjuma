@@ -6,12 +6,15 @@
   <head>
     <title>Hjuma</title>
     <link rel="stylesheet" href="style/header.style.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
   </head>
   <body>
     <header>
       <a href="main"><img src="https://codetheweb.blog/assets/img/icon2.png" ></a>
       <nav>
           <?php
+            error_reporting(0);
             if (isset($_SESSION['id'])) {
               error_reporting(0);
           ?>
@@ -104,15 +107,15 @@
       document.getElementById("profile-dropdown").classList.toggle("show");
       }
       window.onclick = function(event) {
-      if (!event.target.matches('.dropbtns')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
+        if (!event.target.matches('.dropbtns')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
           }
         }
-      }
       }
     </script>

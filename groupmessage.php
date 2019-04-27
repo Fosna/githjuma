@@ -44,6 +44,7 @@
 
 </script>
 <script type="text/javascript">
+/*
 function messageSend(){
   $.ajax({
     type:'POST',
@@ -55,7 +56,7 @@ function messageSend(){
   });
   var form = document.getElementById('messagebox').reset();
   return false;
-}
+}*/
 $(document).ready(function(){
   setInterval(function(){
     $('#container-message').load('message.php')

@@ -10,7 +10,6 @@
     if (!isset($_SESSION['id'])) {
       header("Location: main");
     }
-
     else{
     $groupname = $_SESSION['groupname'];
     $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
