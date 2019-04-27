@@ -51,6 +51,7 @@
 .avatar{
   float: right;
   height: 200px;
+  display: block;
   clear: both;
   margin-top: -0%;
 }

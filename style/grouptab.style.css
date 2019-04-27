@@ -2,7 +2,7 @@
 .container{
   display: block;
   width: 40%;
-  background-image: linear-gradient(to bottom, #808080, #787a86, #69758c, #527292, #2a7096);
+  background: #527292;
   margin-left: auto;
   margin-right: auto;
   border: 0.3mm solid black;
@@ -13,7 +13,7 @@
   font-family: 'Asap', sans-serif;
 }
 .name{
-  font-size: 50px;
+  font-size: 40px;
   margin: auto;
   text-align: center;
 }
@@ -24,6 +24,7 @@
 .maxmembers{
   font-size: 15px;
   margin-top: auto;
+  margin: 10px;
 }
 .aboutgroupBtn{
   display: block;
@@ -41,13 +42,15 @@
 
 .description{
   margin-top: 30px;
-  font-size: 18px;
+  font-size: 15px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   word-wrap: break-word;
   text-align: center;
 }
 .avatar{
-  max-height: 250px;
-  height: 200px;
+  max-height: 240px;
   margin-left: auto;
 	margin-right: auto;
 	display: block;

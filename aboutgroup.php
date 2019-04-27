@@ -22,12 +22,15 @@
 
             <?php if ($row['avatar'] != "") {?>
                 <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
-            <?php }
+
+            <?php }?>
+  <hr>
+<?php
             $sql2 = "SELECT * FROM hjuma_users WHERE username ='$user'";
             if($result2 = mysqli_query($conn, $sql2)){
               if(mysqli_num_rows($result2) > 0){
                   while($row2 = mysqli_fetch_array($result2)){ ?>
-            <hr>
+
             <?php if($row2['group1']==$groupname  or $row2['group2']==$groupname  or $row2['group3']==$groupname  or $row2['group4']==$groupname or $row2['group5']==$groupname){ ?>
               <form action="scr/entergroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />

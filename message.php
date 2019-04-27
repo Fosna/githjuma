@@ -54,7 +54,11 @@ if($result = mysqli_query($conn, $sql)){
           </form>
         <?php } ?>
 
-  <h1 class= "messageleft"><?php echo $message; ?></h1>
+  <?php if(strpos($message, 'https') !== false){ ?>
+    <a class="messageright" href="<?php echo $message; ?>"><?php echo $message; ?></a>
+  <?php }else{ ?>
+    <h1 class= "messageright"><?php echo $message; ?></h1>
+  <?php } ?>
   <h6 class="dateleft"><?php echo $date; ?><h6>
   <form class="" action="profile" method="post">
     <button type="submit" class="profilebtn_left" name="button"><?php echo $sender_name; ?></button>
@@ -91,7 +95,11 @@ else{ ?>
       <button class="deletemessage_right" type="submit" name="deletemessage-submit">Delete</button>
     </form>
   <?php } ?>
+  <?php if(strpos($message, 'https') !== false){ ?>
+    <a class="messageright" href="<?php echo $message; ?>"><?php echo $message; ?></a>
+  <?php }else{ ?>
     <h1 class= "messageright"><?php echo $message; ?></h1>
+  <?php } ?>
     <h6 class="date"><?php echo $date; ?><h6>
     <form class="" action="account" method="post">
       <button type="submit" class="profilebtn_right" name="button"><?php echo $_SESSION['username']; ?></button>

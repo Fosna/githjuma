@@ -12,6 +12,7 @@ body{
   font-weight: bold;
   outline: none;
   padding: 10px;
+  margin-top: -5px;
   font-size: 15px;
   width: 180px;
   -webkit-transition: width 0.1s ease-in-out;
@@ -31,7 +32,7 @@ body{
   transition: 0.25s;
   cursor: pointer;
 }
-.searchbtn:hover{ 
+.searchbtn:hover{
   background: #2A3135;
   border: 2px solid #2A3135;
   color: white;
@@ -39,7 +40,7 @@ body{
 
 .result{
   position: absolute;
-  z-index: 999;
+
   top: 60%;
   left: 0;
   clear: both;
@@ -58,15 +59,5 @@ body{
   background: white;
 }
 .searchjoin{
-  margin-top: -50px;
-  float: right;
-  clear: both;
-  background: white;
-  border: 1px solid black;
-  outline: none;
-  color: #2A3135;
-  border-radius: 2.5px;
-  transition: 0.25s;
-  margin-right: 20px;
-  cursor: pointer;
+
 }
