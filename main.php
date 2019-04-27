@@ -2,19 +2,18 @@
 require 'header.php';
 ?>
 <link rel="stylesheet" href="style/main.style.css">
-<link rel="stylesheet" href="style/includes/error.inc.css">
-<link rel="stylesheet" href="style\includes\categorychoose.inc.css">
+<link rel="stylesheet" href="style/body.style.css">
   <?php
     error_reporting(0);
     if (!isset($_SESSION['id'])) {
   ?>
-      <link rel="stylesheet" href="style/hjuma.style.css">
-      <h1 class="head">Discuse in real time</h1>
-      <div class="creategroup_container">
-        <form class="" action="login" method="post">
-          <h2 class="text_continer">Create group, talk, meet, discuss, make friends!</h2>
-          <button type="submit" class="creategroup_login" name="button">Create group</button>
-        </form>
+      <div class="jumbotron">
+          <h1 class="display-3">Discuse in real time!</h1>
+          <p class="lead">Simple. Efficient. Hjuma.</p>
+          <hr class="my-4">
+          <form class="" action="login" method="post">
+            <button class="btn btn-primary btn-lg" type="submit" name="button">Create group</button>
+          </form>
       </div>
     <?php
     }
@@ -30,7 +29,7 @@ require 'header.php';
 <div class="categorychoose">
   <form class="" action="scr/categorychoose.scr.php" method="post" enctype="multipart/form-data">
     <label for="category"></label>
-    <select class="select" name="category">
+    <select class="browser-default custom-select custom-select-lg" name="category">
       <option selected="selected" value="" class="default">Select category</option>
       <option value="Movies">Movies</option>
       <option value="Politics">Politics</option>
@@ -43,7 +42,7 @@ require 'header.php';
       <option value="Technology">Technology</option>
       <option value="Sport">Sport</option>
     </select>
-    <button class="categorysubmit" type="submit" name="category-submit">Choose</button>
+    <button class="btn btn-secondary" type="submit" name="category-submit">Choose</button>
     <!-- kasnije bez gumba sa ajaxom -->
   </form>
 </div>
@@ -131,9 +130,8 @@ require 'header.php';
             }
           }
         }
-
   ?>
-
+<h3 class="popgroups">Popular groups</h3>
 <?php
 require 'grouptab.php';
 require 'footer.php';

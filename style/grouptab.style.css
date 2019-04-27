@@ -1,71 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Asap');
-.container{
-  display: block;
-  width: 40%;
-  background: #527292;
+.card{
+  margin: 25px;
+  width: 40rem;
   margin-left: auto;
   margin-right: auto;
-  border: 0.3mm solid black;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 80px;
-  margin-left:30%;
-  font-family: 'Asap', sans-serif;
-}
-.name{
-  font-size: 40px;
-  margin: auto;
-  text-align: center;
-}
-.category{
-  text-align: center;
-  font-size: 9px;
-}
-.maxmembers{
-  font-size: 15px;
-  margin-top: auto;
-  margin: 10px;
-}
-.aboutgroupBtn{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  border: 0.4mm solid black;
-  background: none;
-  transition: 0.25s;
-  border-radius: 10px;
-}
-.aboutgroupBtn:hover{
-  font-size: 20px;
-}
-
-.description{
-  margin-top: 30px;
-  font-size: 15px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  word-wrap: break-word;
-  text-align: center;
-}
-.avatar{
-  max-height: 240px;
-  margin-left: auto;
-	margin-right: auto;
-	display: block;
-  border-radius: 7.5px;
-}
-.join{
- float: right;
- border: 0.4mm solid black;
- border-radius: 6px;
- font-size: 25px;
- font-family: 'Asap', sans-serif;
- margin: 7px;
- background: none;
- transition: 0.15s;
-}
-.join:hover{
-  font-size: 27px;
+  border-radius: 5px;
 }

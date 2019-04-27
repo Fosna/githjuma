@@ -68,7 +68,7 @@
                               <button type="submit" name="like-submit">Like</button>
                             </form>
              <?php
-                        }
+                        }           
                       }
                     }
                   }

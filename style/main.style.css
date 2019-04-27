@@ -1,117 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+.jumbotron{
 
-body {
-  background-color: #2A3135;
-  font-family: 'Roboto', sans-serif;
-  margin: auto;
 }
-h1 {
-  font-weight: bold;
-  margin-top: 100px;
+.browser-default{
+  width: 200px;
+  height: 40px;
+  font-size: 15px;
+}
+.popgroups{
   text-align: center;
 }
-.welcome{
-  font-family: 'Roboto', sans-serif;
-  font-size: 140px;
+.categorychoose{
+  margin: 10px;
   text-align: center;
-}
-.head{
-  font-size: 60px;
-  float: left;
-  margin-left: 10px;
-  margin-top: 7px;
-}
-
-.default{
-  display: none;
-}
-.creategroup_container{
-  float: left;
-  clear: both;
-  margin-top: 3%;
-  margin-left: 50px;
-  width: 230px;
-  height: 230px;
-  border: 0.3mm solid black;
-  border-radius: 15px;
-  background: white;
-  background: #527292;
-}
-.text_continer{
-  font-size: 24px;
-  max-width: 200px;
-  margin-left: 20px;
-
-}
-.creategroup_login{
-  margin-top: 60px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 180px;
-  border: 0.4mm solid black;
-  border-radius: 20px;
-  font-size: 20px;
-  transition: 0.25s;
-  background: none;
-}
-.creategroup_login:hover{
-  width: 190px;
-  font-size: 21px;
-}
-.select{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 4px;
-  width: 190px;
-
-}
-.categorysubmit{
-  margin-top: 15px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 130px;
-  border: 0.4mm solid black;
-  border-radius: 20px;
-  font-size: 20px;
-  transition: 0.25s;
-  background: white;
-}
-.search-box{
-  margin-top: 7px;
-}
-.categorysubmit:hover{
-  width: 160px;
-  font-size: 21px;
-}
-.sidegroups{
-  float: left;
-  font-size: 20px;
-  margin-top: 13%;
-  position:fixed;
-  z-index:150;
-  _position:absolute;
-  _top:expression(eval(document.documentElement.scrollTop+
-      (document.documentElement.clientHeight-this.offsetHeight)));
-  height: 95px;
-
-}
-#name{
-  font-size: 25px;
-}
-.mygroups{
-
-  border-radius: 10px;
-  border: 0.3mm solid black;
-  background: #527292;
-  width: 240px;
-  height: 65px;
-  margin-top: 5px;
-  word-wrap: break-word;
-  transition: 0.18s;
-}
-.mygroups:hover{
-   width: 250px;
 }

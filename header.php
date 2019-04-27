@@ -6,102 +6,107 @@
   <head>
     <title>Hjuma</title>
     <link rel="stylesheet" href="style/header.style.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <header>
-      <a href="main"><img src="https://codetheweb.blog/assets/img/icon2.png" ></a>
-      <nav>
-          <?php
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="main">Hjuma</a>
+<?php
             error_reporting(0);
             if (isset($_SESSION['id'])) {
               error_reporting(0);
           ?>
-              <div class="float-left">
-                <a class="groupbtn" href="creategroup">Create group</a>
-                <?php require 'search.php'; ?>
-              </div>
-              <?php
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="btn btn-secondary" href="creategroup">Create group</a>
+              </li>
+<?php require 'search.php'; ?>
+<?php
                 require 'scr/dbh.scr.php';
                 $owner = $_SESSION["username"];
                 $sql = "SELECT * FROM hjuma_users WHERE username='$owner';";
                 if($result = mysqli_query($conn, $sql)){
                   if(mysqli_num_rows($result) > 0){
                       while($row = mysqli_fetch_array($result)){
+?>
+                          <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+<?php
+                               if($row['profileimage'] == ""){
+?>                               <div class="iconHeader">
+                                    <img class="profileimageHeader" src="pics/icon.png">
+                                 </div>
+<?php
+                               }else {
+                                 echo '<div class="native_iconHeader">';
+                                 echo '<img class="native_profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
+                                 echo '</div>';
+                               }
+?>
+                               <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><?php echo $_SESSION['username']; ?></li>
+                              <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                  <form action="account" method="post">
+                                    <button class="btn btn-light btn-block" id="myacc" type="submit">My account</button>
+                                  </form>
+                                </a>
+                              </li>
+                              <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                  <form action="mygroups" method="post">
+                                    <button class="btn btn-light btn-block" id="myacc" type="submit">My groups</button>
+                                  </form>
+                                </a>
+                              </li>
+                              <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                  <form action="invites" method="post">
+                                    <button class="btn btn-light btn-block" type="submit">Invites</button>
+                                  </form>
+                                </a>
+                              </li>
+                              <li role="presentation" class="divider"></li>
+                              <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                  <form action="scr/logout.scr.php" method="post">
+                                    <button class="btn btn-danger btn-block" type="submit" name="logout-submit">Log out</button>
+                                  </form>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+<?php
+                      }
 
-                        if($row['profileimage']==""){
-              ?>
-              <div class="dropdown">
-                <div class="native_iconHeader">
-                    <img class="native_profileimageHeader" onclick="dropdown()" src="pics/icon.png">
-                </div>
-                <div id="profile-dropdown" class="dropdown-content">
-                  <div class="username"><?php echo $_SESSION['username']; ?></div>
-                  <form class="" action="account" method="post">
-                    <button class="dropbtns" id="myacc" type="submit">My account</button>
-                  </form>
-                  <form class="" action="mygroups" method="post">
-                    <button class="dropbtns" id="myacc" type="submit">My groups</button>
-                  </form>
-                  <form class="" action="invites" method="post">
-                    <button class="dropbtns" type="submit">Invites</button>
-                  </form>
-                  <form action="scr/logout.scr.php" method="post">
-                    <button class="dropbtns" type="submit" name="logout-submit">Log out</button>
-                  </form>
-                </div>
-              </div>
-
-              </div>
-
-              <?php     }
-              else {?>
-                <div class="dropdown">
-                  <div class="iconHeader">
-                      <?php echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';  ?>
-                  </div>
-                  <div id="profile-dropdown" class="dropdown-content">
-                    <div class="username"><?php echo $_SESSION['username']; ?></div>
-                    <form class="" action="account" method="post">
-                      <button class="dropbtns" id="myacc" type="submit">My account</button>
-                    </form>
-                    <form class="" action="mygroup" method="post">
-                      <button class="dropbtns" type="submit">My groups</button>
-                    </form>
-                    <form class="" action="invites" method="post">
-                      <button class="dropbtns" type="submit">Invites</button>
-                    </form>
-                    <form action="scr/logout.scr.php" method="post">
-                      <button class="dropbtns" type="submit" name="logout-submit">Log out</button>
-                    </form>
-                  </div>
-                </div>
-                </div>
-
-                <?php
                         }
                       }
                     }
-                  }
-              ?>
-          <?php
-            }
+
+
             else {
           ?>
-          <form action="login" method="post" class="loginform">
-            <button type="submit" class="loginb">Log in</button>
+          <?php require 'search.php'; ?>
+          <form action="login" method="post">
+            <button class="btn btn-link navbar-btn" type="submit">Log in</button>
           </form>
-          <form action="signup" method="post" class="signupform">
-            <button type="submit" class="signupb">Sign up</button>
+          <form action="signup" method="post">
+            <button class="btn btn-dark navbar-btn" type="submit">Sign up</button>
           </form>
-            <?php require 'search.php'; ?>
 
           <?php
             }
           ?>
+        </div>
       </nav>
-    </header>
     <script type="text/javascript">
       function dropdown() {
       document.getElementById("profile-dropdown").classList.toggle("show");

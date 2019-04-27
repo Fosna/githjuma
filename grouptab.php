@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="style/grouptab.style.css">
-
 <?php
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];
@@ -8,30 +7,31 @@
   }else {
     $sql = "SELECT * FROM hjuma_groups WHERE category='$category' ORDER BY membercount DESC";
   }
-  session_start();
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
             $id = $row['name'];
 
 ?>
-            <div class="container" >
-              <h2 class="maxmembers"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></h2>
-              <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
-              <h2 class="name"><?php echo $row['name'];?></h2>
-              <h2 class="category"><?php echo $row['category']; ?></h2>
-
-            <h2  class="description"><?php echo substr($row['description'],0,90); ?></h2>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"><?php echo $row['name'];?></h4>
+                <h5 class="card-text"><?php echo $row['category']; ?></h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text float-right"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></p>
+                <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
+                <p class="card-subtitle mb-2 text-muted"><?php echo substr($row['description'],0,90); ?></p>
 
 <?php
             if($row['avatar'] != ""){
-              echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
+              echo '<img class="card-img-top" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
             }
 ?>
             <form  action="aboutgroup.php" method="post">
               <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
               <input type="hidden" name="membercount" value="1" />
-              <button class="aboutgroupBtn"type="submit" name="button">About group</button>
+              <button class="btn btn-link" type="submit" name="button">About group</button>
             </form>
 <?php
             $sql2 = "SELECT * FROM hjuma_users WHERE username='$owner'";
@@ -77,6 +77,7 @@
                   }
                 }
 ?>
+              </div>
             </div>
 <?php
         }
