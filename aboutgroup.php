@@ -6,7 +6,8 @@
   $groupname = mysqli_real_escape_string($conn, $_POST['groupname']);
   $membercount = mysqli_real_escape_string($conn, $_POST['membercount']);
     ?>
-    <h1><?php echo $groupname; ?></h1>
+    <div class="jumbotron">
+
     <?php
     $sql = "SELECT * FROM hjuma_groups WHERE name = '$groupname'";
     $user = $_SESSION['username'];
@@ -14,11 +15,16 @@
     if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){
           while($row = mysqli_fetch_array($result)){
-            $owner = $row['owner'];
-            ?>
+            $owner = $row['owner'];?>
+
+
             <h4 class="members"><?php echo $row['membercount'],"/",$row['maxmembers']; ?></h4>
-            <h6><?php echo $row['owner']; ?></h6>
-            <h3><?php echo $row['description']; ?></h3>
+            <form class="" action="profile" method="post">
+              <input type="hidden" name="username" value="<?php echo $row['owner']; ?>">
+              <button type="submit" class="btn btn-link" id="owner" name="button"><?php echo $row['owner']; ?></button>
+            </form>
+            <h1 class="display-3"><?php echo $groupname; ?></h1>
+            <p class="lead"><?php echo $row['description']; ?></p>
 
             <?php if ($row['avatar'] != "") {?>
                 <?php echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>'; ?>
@@ -31,7 +37,7 @@
             <?php if($row2['group1']==$groupname  or $row2['group2']==$groupname  or $row2['group3']==$groupname  or $row2['group4']==$groupname or $row2['group5']==$groupname){ ?>
               <form action="scr/entergroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
-                <button class="searchjoin" type="submit" name="entergroup-submit">ENTER</button>
+                <button class="btn btn-primary" type="submit" name="entergroup-submit">ENTER</button>
               </form>
 
           <?php
@@ -41,7 +47,7 @@
               <form action="scr/joingroup.scr.php" method="post">
                 <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                 <input type="hidden" name="membercount" value="1" />
-                <button class="searchjoin" type="submit" name="joingroup-submit">JOIN</button>
+                <button class="btn btn-primary" type="submit" name="joingroup-submit">JOIN</button>
               </form>
 
     <?php         }
@@ -52,6 +58,7 @@
          }
         }
 ?>
+</div>
 <div class="userBox">
   <h1 class = "aboveUsers">Users</h1>
   <?php
@@ -68,7 +75,7 @@
               </form>
               <?php if($owner == $_SESSION['username']){ ?>
                 <form class="" action="scr/kickmember.scr.php" method="post">
-                  <button style="float: right;" type="submit" class="kickbtn" name="kick-submit">Kick</button>
+                  <button style="float: right;" type="submit" class="btn btn-danger" id="kickbtn" name="kick-submit">Kick</button>
                   <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
                   <input type="hidden"  name="groupname" value="<?php echo $groupname  ?>">
                 </form>
