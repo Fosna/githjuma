@@ -37,10 +37,10 @@
                       while($row = mysqli_fetch_array($result)){
 ?>
             </ul>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
                             <div class="dropdown ">
-                              <button class="btn pull-right ml-auto"  type="button" id="menu1" data-toggle="dropdown">
+                              <button class="btn"  type="button" id="menu1" data-toggle="dropdown">
   <?php
                                  if($row['profileimage'] == ""){
   ?>                               <div class="iconHeader">
@@ -55,7 +55,7 @@
   ?>
                                  <span class="caret"></span>
                               </button>
-                              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
