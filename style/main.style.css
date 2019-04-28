@@ -1,10 +1,11 @@
 .jumbotron{
-
+width: 100%;
 }
 .browser-default{
   width: 200px;
   height: 40px;
   font-size: 15px;
+
 }
 .popgroups{
   text-align: center;
@@ -12,4 +13,11 @@
 .categorychoose{
   margin: 10px;
   text-align: center;
+}
+
+.btn-link{
+  float:left;
+}
+.display-3{
+  margin-top: -50px;
 }

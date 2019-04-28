@@ -22,6 +22,9 @@
                 <p class="card-text float-right"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></p>
                 <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
                 <p class="card-subtitle mb-2 text-muted"><?php echo substr($row['description'],0,90); ?></p>
+                <?php if($row['avatar'] != ""){
+                  echo '<img class="card-img-top" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
+                } ?>
 <?php
             $sql2 = "SELECT * FROM hjuma_users WHERE username='$owner'";
             if($result2 = mysqli_query($conn, $sql2)){
@@ -43,12 +46,13 @@
 ?>
                         <form action="scr/entergroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
-                          <button class="btn btn-secondary " type="submit" name="entergroup-submit">ENTER</button>
+                          <button class="btn btn-secondary btn-sm float-left " type="submit" name="entergroup-submit">ENTER</button>
                         </form>
                         <form  action="aboutgroup.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
-                          <button class="btn btn-link float-left" type="submit" name="button">About group</button>
+
+                          <button class="btn btn-link" type="submit" name="button">About group</button>
                         </form>
                         <form class="ml-auto" action="scr/leavegroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
@@ -68,16 +72,14 @@
                         <form  action="aboutgroup.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
-                          <button class="btn btn-link float-left" type="submit" name="button">About group</button>
+                          <button class="btn btn-link " type="submit" name="button">About group</button>
                         </form>
 <?php                   }
                       }
                     }
                   }
                 }
-                if($row['avatar'] != ""){
-                  echo '<img class="card-img-top" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
-                }
+
 ?>
               </div>
             </div>

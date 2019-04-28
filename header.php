@@ -39,8 +39,8 @@
             </ul>
                         <ul class="navbar-nav">
                           <li class="nav-item">
-                            <div class="dropdown">
-                              <button class="btn pull-right mr-auto"  type="button" id="menu1" data-toggle="dropdown">
+                            <div class="dropdown ">
+                              <button class="btn pull-right ml-auto"  type="button" id="menu1" data-toggle="dropdown">
   <?php
                                  if($row['profileimage'] == ""){
   ?>                               <div class="iconHeader">
