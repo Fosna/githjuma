@@ -1,5 +1,25 @@
 <?php require 'header.php' ?>
 <link rel="stylesheet" href="style/adminsettings.style.css">
+<link rel="stylesheet" href="style/login_signup.style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style media="screen">
+  .container{
+    margin-top: -210px;
+  }
+  .btn-success{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 30px;
+  }
+  @media only screen and (max-width: 1369px) {
+    .container{
+      width: 30rem;
+    }
+
+  }
+</style>
 <div class="space">
 </div>
 <?php
@@ -23,7 +43,7 @@ if($result = mysqli_query($conn, $sql)){
                     <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
                     </form>
                       <form class="" action="scr/kickmember.scr.php" method="post">
-                        <button style="float: right;" type="submit" class="kickbtn" name="kick-submit">Kick</button>
+                        <button style="float: right;" type="submit" class="btn btn-danger" id="kickbtn" name="kick-submit">Kick</button>
                         <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
                         <input type="hidden"  name="groupname" value="<?php echo $groupname  ?>">
                       </form>
@@ -34,15 +54,20 @@ if($result = mysqli_query($conn, $sql)){
           }
           ?>
         </div>
-        <div class="updateBox">
+        <div class="container">
+          <h1 style="text-align: center;">Upadate group</h1>
           <form class="" action="scr/updategroup.scr.php" method="post">
-            Max members:<input type="number" name="maxmembers" value="<?php echo $row['maxmembers']; ?>">
-            Description: <input type="text" name="description" value="<?php echo $row['description']; ?>">
-            Privacy: <select class="select" name="privacy">
+              <div class="form-group">
+            Maxmembers:<input type="number" class="form-control"  name="maxmembers" value="<?php echo $row['maxmembers']; ?>">
+          </div>
+            <div class="form-group">
+            Description: <input type="text" class="form-control" name="description" value="<?php echo $row['description']; ?>">
+          </div>
+            Privacy: <select class="form-control" id="exampleFormControlSelect1" name="privacy">
               <option  value="public">Public</option>
               <option value="private">Private</option>
             </select>
-            <button type="submit" name="updategroup-submit">Update</button>
+            <button type="submit" class="btn btn-success" name="updategroup-submit">Update</button>
           </form>
 
         </div>
