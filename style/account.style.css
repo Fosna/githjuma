@@ -61,6 +61,7 @@
 .card{
   float: right;
   clear: both;
+  margin-top: 80px;
 }
 @media only screen and (max-width: 1369px) {
   .namecontainer{
