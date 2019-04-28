@@ -20,22 +20,26 @@
           $_SESSION['title'] = $row['title'];
           $postname = $row['title'];
 ?>
-          <div class="containerpost">
+          <div class="card">
             <h2 class="postowner" style="display: none;" ><?php echo  $_SESSION['postowner'];?></h2>
-
-            <h2 class="title"><?php echo  $row['title']; ?></h2>
-            <h1 id="descriptionfont" class="description"><?php echo $row['description']; ?></h1>
-            <?php if ($row['comments'] !="dont allow"){
-              ?>
-            <form class="" action="comments" method="post">
-                  <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
-                <button class="commentbtn" type="submit" name="comment-redirect">Comment</button>
-            </form>
+            <div class="card-header">
+            <h4 class="card-title" ><?php echo  $row['title']; ?></h4>
+            </div>
+            <div class="card-body">
+            <p class="card-subtitle mb-2 text-muted"><?php echo $row['description']; ?></p>
+          </div>
             <?php
-          }
               if($row['image'] != ""){
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
-              }
+              }?>
+              <?php if ($row['comments'] !="dont allow"){
+                ?>
+              <form class="" action="comments" method="post">
+                    <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
+                  <button class="btn btn-primary float-left" type="submit" name="comment-redirect">Comment</button>
+              </form>
+              <?php
+            }
             ?>
 
             <?php if ($row['owner'] == $_SESSION['username'] ){ ?>
@@ -43,7 +47,7 @@
                       <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
                       <input type="hidden" name="postowner" value="<?php echo $row['owner']; ?>">
                       <input type="hidden" name="date_time" value="<?php echo $row['date_time']; ?>">
-                      <button class="deletebtn" type="submit" name="deletepost-submit">Delete</button>
+                      <button class="btn btn-danger float-right" type="submit" name="deletepost-submit">Delete</button>
                     </form>
             <?php }
                   else
@@ -52,7 +56,7 @@
                         <input type="hidden" name="postname" value="<?php echo $row['title'];?>" />
                         <input type="hidden" name="postowner" value="<?php echo $row['owner']; ?>">
                         <input type="hidden" name="date_time" value="<?php echo $row['date_time']; ?>">
-                        <button class="deletebtn" type="submit" name="deletepost-submit">Delete</button>
+                        <button class="btn btn-danger float-right" type="submit" name="deletepost-submit">Delete</button>
                       </form>
                   <?php  }
 
@@ -68,7 +72,7 @@
                               <button type="submit" name="like-submit">Like</button>
                             </form>
              <?php
-                        }           
+                        }
                       }
                     }
                   }

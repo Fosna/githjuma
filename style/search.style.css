@@ -3,7 +3,6 @@
 }
 .search{
   background-color: #48484E;
-  color: white;
   padding: 7px;
   outline: none;
   border: none;
@@ -11,6 +10,7 @@
   width: 150px;
   -webkit-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out;
+  color: white;
 }
 .search:focus {
   width: 300px;

@@ -1,0 +1,11 @@
+.card{
+  background: #F5F5F5;
+  margin: 25px;
+  width: 40rem;
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
+}
+.btn-link{
+  text-align: center;
+}

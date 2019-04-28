@@ -2,8 +2,8 @@
   <link rel="stylesheet" href="style/login_signup.style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style media="screen">
-  .btn-outline-danger{
-    border-radius: 15px;
+  .btn-primary{
+    margin: 10px;
   }
   .btn-success{
     font-size: 28px;
@@ -53,7 +53,7 @@
     </div>
     <div class="custom-file">
       <input class="btn btn-outline-danger btn-sm" id="file" style="display: none;"  type="file" name="avatar" value="">
-      <input type="button" value="Choose image" class="btn btn-outline-danger btn-sm" id="file_alt"></input>
+      <input type="button" value="Choose image" class="btn btn-primary" id="file_alt"></input>
       <button type="submit" class="btn btn-success" name="creategroup-submit">Create Group</button>
 
     </form>

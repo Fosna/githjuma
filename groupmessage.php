@@ -35,7 +35,6 @@
 <form class="" id="#messagebox" action="scr/message.scr.php" method="post" onsubmit="return messageSend();" onsubmit="return formSubmit();">
   <div class="bottom">
     <input type="text" autocomplete="off" name="message" class="messagebox" ></input>
-
     <input class="send" type="submit" name="send-submit" value=">"></button>
   </div>
 </form>

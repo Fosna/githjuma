@@ -28,7 +28,7 @@ if($result = mysqli_query($conn, $sql)){
 
 
 ?>
-<div class="gray-col">
+<div class="alert alert-secondary" id="gray-col">
   <?php $sql2 = "SELECT * FROM hjuma_users WHERE username = '$sender_name' ";
   if($result2 = mysqli_query($conn, $sql2)){
     if(mysqli_num_rows($result2) > 0){
@@ -50,7 +50,7 @@ if($result = mysqli_query($conn, $sql)){
             <input type="hidden" name="message" value="<?php echo $message; ?>">
             <input type="hidden" name="sender" value="<?php echo $sender_name; ?>">
             <input type="hidden" name="time" value="<?php echo $date; ?>">
-            <button class="deletemessage_left" type="submit" name="deletemessage-submit">Delete</button>
+            <button class="btn btn-danger" id="deleteleft" type="submit" name="deletemessage-submit">Delete</button>
           </form>
         <?php } ?>
 
@@ -59,7 +59,7 @@ if($result = mysqli_query($conn, $sql)){
   <?php }else{ ?>
     <h1 class= "messageright"><?php echo $message; ?></h1>
   <?php } ?>
-  <h6 class="dateleft"><?php echo $date; ?><h6>
+  <h6 style="display: none;" class="dateleft"><?php echo $date; ?><h6>
   <form class="" action="profile" method="post">
     <button type="submit" class="profilebtn_left" name="button"><?php echo $sender_name; ?></button>
     <input type="hidden"  name="username" value="<?php echo $sender_name  ?>">
@@ -71,7 +71,7 @@ if($result = mysqli_query($conn, $sql)){
   } ?>
 <?php      }
 else{ ?>
-  <div class="white-col">
+  <div class="alert alert-primary" id="white-col">
     <?php $sql1 = "SELECT * FROM hjuma_users WHERE username ='$username' ";
     if($result1 = mysqli_query($conn, $sql1)){
       if(mysqli_num_rows($result1) > 0){
@@ -92,7 +92,7 @@ else{ ?>
       <input type="hidden" name="message" value="<?php echo $message; ?>">
       <input type="hidden" name="sender" value="<?php echo $sender_name; ?>">
       <input type="hidden" name="time" value="<?php echo $date; ?>">
-      <button class="deletemessage_right" type="submit" name="deletemessage-submit">Delete</button>
+      <button class="btn btn-danger" id="deleteright" type="submit" name="deletemessage-submit">Delete</button>
     </form>
   <?php } ?>
   <?php if(strpos($message, 'https') !== false){ ?>
@@ -100,7 +100,7 @@ else{ ?>
   <?php }else{ ?>
     <h1 class= "messageright"><?php echo $message; ?></h1>
   <?php } ?>
-    <h6 class="date"><?php echo $date; ?><h6>
+    <h6 class="date" style="display: none;"><?php echo $date; ?><h6>
     <form class="" action="account" method="post">
       <button type="submit" class="profilebtn_right" name="button"><?php echo $_SESSION['username']; ?></button>
     </form>

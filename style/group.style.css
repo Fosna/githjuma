@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-body {
-    background-color: #2A3135;
-    font-family: 'Roboto', sans-serif;
-    margin: auto;
-    height: 1000px;
-}
+
 ::-webkit-scrollbar {
   width: 14px;
 }
@@ -41,26 +36,8 @@ h1 {
   border-radius: 10px;
   margin-left: 20px;
 }
-.settingsbtn{
-  color: white;
-  background: #1ab2ff;
-  border: 2px solid #1ab2ff;
-  border-top-right-radius: 20px;
-  display: block;
-  bottom:0;
-  position:fixed;
-  z-index:150;
-  transition: 0.25s;
-  _position:absolute;
-  _top:expression(eval(document.documentElement.scrollTop+
-      (document.documentElement.clientHeight-this.offsetHeight)));
-  height: 95px;
-  margin-right: 300px;
-}
-.settingsbtn:hover{
-  background: #0088cc;
-  border: 2px solid #0088cc;
-}
+
+
 .invitepeoplebtn{
   color: white;
   background: #1ab2ff;
@@ -77,6 +54,12 @@ h1 {
       (document.documentElement.clientHeight-this.offsetHeight)));
   height: 95px;
   margin-left: 100px;
+}
+#createpostbtn{
+  margin: 10px;
+}
+.btn-primary{
+  margin-top:76px; 
 }
 .settingsbtn:hover{
   background: #0088cc;
@@ -202,6 +185,9 @@ input[type=text] {
   overflow: auto;
 
 }
+#deleteleft{
+  font-size: 8px;
+}
 .groupbtn{
   text-decoration: none;
   font-weight: bold;
@@ -219,24 +205,20 @@ input[type=text] {
   cursor: pointer;
   font-size: 15px;
 }
-.container-side {
+#container-side {
   display: block;
   margin-right: 3px;
   float: right;
   border: 0.3mm solid black;
-  margin-top: 71px;
+  margin-top: -40px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  background: none;
-  background:#1ab2ff;
   width: 10%;
   transition:0.3s;
 
 }
-.container-side:hover{
-  background: #1294D5;
-  width: 10.5%;
-}
+
+
 .messageright{
   font-size: 20px;
   text-align: left;
@@ -252,13 +234,14 @@ input[type=text] {
   position: absolute;
 	right: 20px;
 	bottom: 0px;
-	background: white;
+	background: #F5F5F5;
 	border-radius: 5px 5px 0px 0px;
   height: 355px;
 	width: 30%;
 	overflow: auto;
 	margin-bottom: 45px;
   bottom:45px;
+  border: 0.2mm solid black;
   position:fixed;
   z-index:150;
   _position:absolute;
@@ -282,10 +265,8 @@ input[type=text] {
   position: relative;
   font-size: 20px;
 }
-.gray-col{
-  background: #8ED7FC;
-  border: 2px solid black;
-  border-radius: 5px;
+#gray-col{
+
   padding: 1px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
@@ -295,10 +276,8 @@ input[type=text] {
   word-wrap: break-word;
   clear: both;
 }
-.white-col{
-  background: #1ab2ff;
-  border: 2px solid black;
-  border-radius: 5px;
+#white-col{
+
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   padding: 1px;
@@ -447,7 +426,8 @@ input[type=text] {
 }
 .messagebox{
   width: 55%;
-  height: 15%;
+  height: 35%;
+
   word-wrap: break-word;
 }
 .searching{
@@ -480,12 +460,7 @@ input[type=text] {
 @media only screen and (max-width: 600px) {
 
   @import url('https://fonts.googleapis.com/css?family=Roboto');
-  body {
-      background-color: #2A3135;
-      font-family: 'Roboto', sans-serif;
-      margin: auto;
-      height: 1000px;
-  }
+
   ::-webkit-scrollbar {
     width: 3px;
   }
@@ -634,7 +609,7 @@ input[type=text] {
     padding: 1px;
     margin: 10px auto;
   float: left;
-    width: 90%;
+    width: 100%;
     word-wrap: break-word;
     clear: both;
   }
