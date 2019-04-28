@@ -25,14 +25,14 @@ if($result = mysqli_query($conn, $sql)){
             <?php if($row['group1'] != $groupname && $row['group2'] != $groupname && $row['group3'] != $groupname && $row['group4'] != $groupname && $row['group5'] != $groupname){ ?>
 
               <form class="" action="scr/inviteuser.scr.php" method="post">
-                <button style="float: right;" type="submit" class="kickbtn" name="inviteuser-submit">Invite</button>
+                <button style="float: right;" type="submit" class="btn btn-danger" id="invitebtn" name="inviteuser-submit">Invite</button>
                 <input type="hidden"  name="invited_user" value="<?php echo $row['username']  ?>">
                 <input type="hidden" name="inviter" value="<?php echo $_SESSION['username']; ?>">
                 <input type="hidden"  name="groupname" value="<?php echo $groupname;?>">
               </form>
         <?php
        }else {  ?>
-            <button style="float: right;" type="submit" class="kickbtn" name="inviteuser-submit">Joined</button>
+            <button style="float: right;" type="submit" class="btn btn-success" id="invitebtn" name="inviteuser-submit">Joined</button>
             <?php
             } ?>
         </div>
