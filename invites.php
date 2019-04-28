@@ -15,7 +15,7 @@
           if($result1 = mysqli_query($conn, $sql1)){
             if(mysqli_num_rows($result1) > 0){
                 while($row1 = mysqli_fetch_array($result1)){
-                  if ($row1['group1'] == $row['group_invite'] || $row1['group2'] == $row['group_invite'] || $row1['group3'] == $row['group_invite'] || $row1['group4'] == $row['group_invite'] || $row1['group5'] == $row['group_invite']) {?>
+                  if ($row1['group1'] == $row['group_invite'] || $row1['group2'] == $row['group_invite'] || $row1['group3' ]== $row['group_invite'] || $row1['group4']==$row['group_invite']||$row1['group5']==$row['group_invite']) {?>
                     <div class="invites">
                       <h1><?php echo $row['inviter']; ?> invited you to <?php echo $row['group_invite']; ?></h1>
                     <button type="button" class="btn btn-success" id="join" name="button">JOINED</button>
@@ -35,11 +35,14 @@
               }
             }
 
+
            ?>
 
 
 <?php        }
-      }
+}else{?>
+        <h1>You have no invates</h1>
+    <?php   }
     } ?>
 
 </div>
