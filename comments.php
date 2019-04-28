@@ -1,5 +1,7 @@
 <?php require 'header.php';?>
 <link rel="stylesheet" href="style/comments.style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <?php
   require 'scr/dbh.scr.php';
   if (isset($_POST['comment-redirect'])) {
@@ -12,10 +14,14 @@
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
 ?>
-          <div class="containerpost">
-            <h2 class="postowner"><?php echo  $row['owner'];?></h2>
-            <h2 class="title"><?php echo  $row['title']; ?></h2>
-            <h6 class="description"><?php echo $row['description']; ?></h6>
+<div class="card">
+  <h2 class="postowner" style="display: none;" ><?php echo  $_SESSION['postowner'];?></h2>
+  <div class="card-header">
+  <h4 class="card-title" ><?php echo  $row['title']; ?></h4>
+  </div>
+  <div class="card-body">
+  <p class="card-subtitle mb-2 text-muted"><?php echo $row['description']; ?></p>
+</div>
             <?php
               if($row['image'] != ""){
                 echo '<img class="avatar" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
@@ -31,6 +37,8 @@
             </form>
           </div>
           <br>
+          <div class="rightside">
+
 <?php
           $groupname = $_SESSION['groupname'];
           $sql1 = "SELECT * FROM hjuma_comments WHERE grouppost = '$groupname' AND post = '$postname'";
@@ -38,8 +46,12 @@
             if(mysqli_num_rows($result1) > 0){
                 while($row1 = mysqli_fetch_array($result1)){
 ?>
-                    <div class="comments-container">
-                        <h2 class="commenter"><?php echo $row1['commenter']; ?></h2>
+                    <div  id="comments-container">
+                      <form class="" action="profile" method="post">
+                        <input type="hidden" name="username" value="<?php echo $row1['commenter']; ?>">
+                        <button type="submit" class="commenter" name="button"><?php echo $row1['commenter']; ?></button>
+                      </form>
+
                         <h4 class="comment"><?php echo $row1['comment']; ?></h4>
                         <h6 class="time"><?php echo $row1['date_time']; ?></h6>
                         <?php if ($row1['commenter'] == $_SESSION['username']){ ?>
@@ -61,6 +73,8 @@
       }
     }
 ?>
+
+</div>
 <script type="text/javascript">
 function more() {
 document.getElementById("more-dropdown").classList.toggle("show");

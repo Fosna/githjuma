@@ -41,7 +41,7 @@
 
 <?php        }
 }else{?>
-        <h1>You have no invates</h1>
+        <h1>You have no invites</h1>
     <?php   }
     } ?>
 
