@@ -9,17 +9,15 @@
               $result = mysqli_stmt_get_result($stmt);
               if(mysqli_num_rows($result) > 0){
                   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                      echo '<div class="searchresult">';
-                      echo "<p>" . $row["name"] . "</p>";
-                      echo "<br>";
 ?>
-                      <form action="aboutgroup.php" method="post">
-                        <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
-                        <input type="hidden" name="membercount" value="1" />
-                        <button class="searchjoin" type="submit" name="joingroup-submit">MORE</button>
-                      </form>
+                        <div class="searchresult">
+                          <form action="aboutgroup.php" method="post">
+                            <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
+                            <input type="hidden" name="membercount" value="1" />
+                            <button class="dropdown-item" type="submit" name="joingroup-submit"><?php echo $row["name"]; ?></button>
+                          </form>
 <?php
-                      echo "</div>";
+                  echo "</div>";
                   }
               } else{
                   //echo "<p> No match!</p>";

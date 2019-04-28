@@ -6,6 +6,7 @@
   <head>
     <title>Hjuma</title>
     <link rel="stylesheet" href="style/header.style.css">
+    <link rel="stylesheet" href="style/search.style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -14,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <nav id="header" class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="main">Hjuma</a>
 <?php
             error_reporting(0);
@@ -22,9 +23,9 @@
               error_reporting(0);
           ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="btn btn-secondary" href="creategroup">Create group</a>
+                <a class="creategroup btn btn-outline-primary ml-auto" href="creategroup">Create group</a>
               </li>
 <?php require 'search.php'; ?>
 <?php
@@ -35,56 +36,60 @@
                   if(mysqli_num_rows($result) > 0){
                       while($row = mysqli_fetch_array($result)){
 ?>
-                          <div class="dropdown">
-                            <button class="btn pull-right"  type="button" id="menu1" data-toggle="dropdown">
-
-<?php
-                               if($row['profileimage'] == ""){
-?>                               <div class="iconHeader">
-                                    <img class="profileimageHeader" src="pics/icon.png">
-                                 </div>
-<?php
-                               }else {
-                                 echo '<div class="iconHeader">';
-                                 echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
-                                 echo '</div>';
-                               }
-?>
-                               <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li role="presentation"><?php echo $_SESSION['username']; ?></li>
-                              <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="#">
-                                  <form action="account" method="post">
-                                    <button class="btn btn-light btn-block" id="myacc" type="submit">My account</button>
-                                  </form>
-                                </a>
-                              </li>
-                              <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="#">
-                                  <form action="mygroups" method="post">
-                                    <button class="btn btn-light btn-block" id="myacc" type="submit">My groups</button>
-                                  </form>
-                                </a>
-                              </li>
-                              <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="#">
-                                  <form action="invites" method="post">
-                                    <button class="btn btn-light btn-block" type="submit">Invites</button>
-                                  </form>
-                                </a>
-                              </li>
-                              <li role="presentation" class="divider"></li>
-                              <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="#">
-                                  <form action="scr/logout.scr.php" method="post">
-                                    <button class="btn btn-danger btn-block" type="submit" name="logout-submit">Log out</button>
-                                  </form>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
+            </ul>
+                        <ul class="navbar-nav">
+                          <li class="nav-item">
+                            <div class="dropdown">
+                              <button class="btn pull-right mr-auto"  type="button" id="menu1" data-toggle="dropdown">
+  <?php
+                                 if($row['profileimage'] == ""){
+  ?>                               <div class="iconHeader">
+                                      <img class="profileimageHeader" src="pics/icon.png">
+                                   </div>
+  <?php
+                                 }else {
+                                   echo '<div class="iconHeader">';
+                                   echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
+                                   echo '</div>';
+                                 }
+  ?>
+                                 <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>
+                                <li role="presentation">
+                                  <a role="menuitem" tabindex="-1" href="#">
+                                    <form action="account" method="post">
+                                      <button class="dropdown-item" id="myacc" type="submit">My account</button>
+                                    </form>
+                                  </a>
+                                </li>
+                                <li role="presentation">
+                                  <a role="menuitem" tabindex="-1" href="#">
+                                    <form action="mygroups" method="post">
+                                      <button class="dropdown-item" id="myacc" type="submit">My groups</button>
+                                    </form>
+                                  </a>
+                                </li>
+                                <li role="presentation">
+                                  <a role="menuitem" tabindex="-1" href="#">
+                                    <form action="invites" method="post">
+                                      <button class="dropdown-item" type="submit">Invites</button>
+                                    </form>
+                                  </a>
+                                </li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation">
+                                  <a role="menuitem" tabindex="-1" href="#">
+                                    <form action="scr/logout.scr.php" method="post">
+                                      <button class="dropdown-item" type="submit" name="logout-submit">Log out</button>
+                                    </form>
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
 <?php
                       }
 

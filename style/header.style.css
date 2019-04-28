@@ -1,8 +1,5 @@
-
-.search-box{
-  float: left;
-}
 .iconHeader{
+  float: right;
   display: inline-block;
   position: relative;
   width: 25px;
@@ -16,4 +13,11 @@
   height: 120%;
   margin-top: -1.5px;
   margin-left: -5px;
-}   
+}
+.username{
+  margin-left: 10px;
+  font-size: 20px;
+}
+.creategroup{
+  margin: 10px;
+}

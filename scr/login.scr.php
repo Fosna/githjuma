@@ -33,6 +33,13 @@ elseif (isset($_POST['login-submit'])) {
           session_start();
           $_SESSION['id'] = $row['id'];
           $_SESSION['username'] = $row['username'];
+          $username = $row['username'];
+          $password = $row['password'];
+          if (isset($_POST['remember'])) {
+            header("Location: ../group");
+            setcookie("username", $username, time()+30*24*60*60);
+            setcookie("username", $password, time()+30*24*60*60);
+          }
           header("Location: ../main?login=success");
           exit();
         }

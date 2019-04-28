@@ -1,0 +1,25 @@
+.search-box{
+  margin: 10px;
+}
+.search{
+  background-color: #48484E;
+  padding: 7px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+.search:focus {
+  width: 300px;
+}
+.searchresult{
+  position: fixed;
+  background: white;
+  width: 300px;
+  border-radius: 5px;
+}
+.dropdown-item:hover{
+  border-radius: 5px;
+}

@@ -7,14 +7,15 @@
   <h1 style="text-align: center; padding: 60px;">Login</h1>
 
 
-     <div class="form-group">
-    <input type="text" name="username"  class="form-control" placeholder="Username" value="" required>
+  <div class="form-group">
+    <input type="text" name="username"  class="form-control" placeholder="Username" value="<?php echo $_COOKIE["username"]; ?>" required>
   </div>
-   <div class="form-group">
-    <input type="password" name="password"  class="form-control" autocomplete="off" placeholder="Password" value="" required>
+  <div class="form-group">
+    <input type="password" name="password"  class="form-control" autocomplete="off" placeholder="Password" value="<?php echo $_COOKIE["password"]; ?>" required>
   </div>
-    <button type="submit" class="btn btn-primary" name="login-submit">Login</button>
-    <a class="forgotenPassword" href="#">Forgoten password?</a>
+  <button type="submit" class="btn btn-primary" name="login-submit">Login</button>
+  <input type="checkbox" name="remember">Remember me<br>
+  <a class="forgotenPassword" href="#">Forgoten password?</a>
   </div>
 
 </form>
