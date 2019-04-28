@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-      <nav id="header" class="navbar navbar-expand navbar-dark bg-dark">
+      <nav id="header" class="navbar fixed-top navbar-expand navbar-dark bg-dark navbar-fixed-top">
         <a class="navbar-brand" href="main">Hjuma</a>
 <?php
             error_reporting(0);

@@ -19,7 +19,7 @@
                 <h5 class="card-text"><?php echo $row['category']; ?></h5>
               </div>
               <div class="card-body">
-                <p class="card-text float-right"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></p>
+                <p class="card-text float-right membercount"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></p>
                 <h2 class="owner" style="display: none;"><?php echo  $row['owner']; ?></h2>
                 <p class="card-subtitle mb-2 text-muted"><?php echo substr($row['description'],0,90); ?></p>
                 <?php if($row['avatar'] != ""){

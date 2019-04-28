@@ -37,11 +37,11 @@ require 'header.php';
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
-          
+
 ?>
-<div class="jumbotron">
-  <h1 class="display-3">Joined groups!</h1>
-<div class="sidegroups">
+<div class="container groups">
+  <h1 class="display-3"></h1>
+  <div class="sidegroups">
        <?php
         if ($row['group1']==""){}
           else {
@@ -50,9 +50,7 @@ require 'header.php';
            <button type="submit" name="entergroup-submit"  class="btn btn-link" value="<?php echo $row['group1'];?>">
              <input type="hidden" name="groupname" value="<?php echo $row['group1'];?>" />
              <h2 class="name" id="name"><?php echo $row['group1']; ?></h2>
-
            </button>
-
          </form>
        <?php } ?>
 

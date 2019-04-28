@@ -69,18 +69,18 @@
                 <div class="card-header">
                   <h4 class="card-title"><?php echo $row['name'];?></h4>
                   <h5 class="card-text"><?php echo $row['category']; ?></h5>
-              </div>
-              <div class="card-body">
-                <p class="card-text float-right"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></p>
-                  <p class="card-subtitle mb-2 text-muted"><?php echo substr($row['description'],0,90); ?></p>
-                  <?php if($row['avatar'] != ""){
-                    echo '<img class="card-img-top" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
-                  } ?>
-                <form class="" action="scr/deletegroup.scr.php" enctype="multipart/form-data" method="post">
-                  <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
-                  <button type="submit" class="btn btn-danger" name="deletegroup-submit">Delete</button>
-                </form>
-              </div>
+                </div>
+                <div class="card-body">
+                  <p class="card-text float-right"><?php echo $row['membercount']; echo"/"; echo $row['maxmembers']; ?></p>
+                    <p class="card-subtitle mb-2 text-muted"><?php echo substr($row['description'],0,90); ?></p>
+                    <?php if($row['avatar'] != ""){
+                      echo '<img class="card-img-top" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
+                    } ?>
+                  <form class="" action="scr/deletegroup.scr.php" enctype="multipart/form-data" method="post">
+                    <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
+                    <button type="submit" class="btn btn-danger" name="deletegroup-submit">Delete</button>
+                  </form>
+                </div>
               </div>
     <?php
             }

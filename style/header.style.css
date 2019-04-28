@@ -1,3 +1,6 @@
+.jumbotron{
+  margin-top: 74px;
+}
 .iconHeader{
   float: right;
   display: inline-block;
@@ -15,7 +18,7 @@
   margin-left: -5px;
 }
 .username{
-  margin-left: 26.3px;
+  margin-left: 24px;
   font-size: 20px;
 }
 .creategroup{
