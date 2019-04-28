@@ -1,0 +1,131 @@
+#username{
+  font-size: 40px;
+  text-align: center;
+}
+
+.icon{
+
+  display: block;
+  margin-top: 40px;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.profileimage{
+  width: auto;
+  margin-top: 0px;
+  height: 200px;
+  margin-left: -30px;
+}
+.native_profileimage{
+  width: auto;
+  height: 100%;
+}
+.namecontainer{
+  border: 0.2mm solid black;
+  background: #F5F5F5;
+  width: 50rem;
+  float: left;
+  margin-left: 50px;
+  border-radius: 10px;
+  top:0;
+  position:fixed;
+  z-index:150;
+  transition: 0.25s;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+
+  margin-top: 80px;
+}
+
+.btn-success{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.email{
+  text-align: center;
+  margin: 20px;
+}
+.btn-primary{
+  margin: 5px;
+}
+.card{
+  float: right;
+  clear: both;
+}
+@media only screen and (max-width: 1369px) {
+  .namecontainer{
+    border: 0.2mm solid black;
+    background: #F5F5F5;
+    width: 30rem;
+    float: left;
+    margin-left: 50px;
+    border-radius: 10px;
+    top:0;
+    position:fixed;
+    z-index:150;
+    transition: 0.25s;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+
+    margin-top: 80px;
+  }
+}
+@media only screen and (max-width: 400px) {
+ .namecontainer{
+   border: 0.2mm solid black;
+   background: #F5F5F5;
+   width: 10rem;
+   float: left;
+   margin-left: 0;
+   border-radius: 10px;
+   top:17px;
+   position:fixed;
+   z-index:150;
+   transition: 0.25s;
+   _position:absolute;
+   _top:expression(eval(document.documentElement.scrollTop+
+       (document.documentElement.clientHeight-this.offsetHeight)));
+
+   margin-top: 80px;
+ }
+ .icon{
+
+   display: block;
+   margin-top: 40px;
+   position: relative;
+   width: 130px;
+   height: 130px;
+   overflow: hidden;
+   border: 1px solid black;
+   border-radius: 50%;
+   margin-left: auto;
+   margin-right: auto;
+
+ }
+ .profileimage{
+
+   width: auto;
+   margin-top: 10px;
+   height: 150px;
+   margin-left: -30px;
+ }
+ .native_profileimage{
+   width: auto;
+   height: 100%;
+ }
+ .card{
+   width: 8rem;
+
+ }
+}
