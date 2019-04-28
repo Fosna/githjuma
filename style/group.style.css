@@ -59,7 +59,7 @@ h1 {
   margin: 10px;
 }
 .btn-primary{
-  margin-top:76px; 
+  margin-top:76px;
 }
 .settingsbtn:hover{
   background: #0088cc;
@@ -152,13 +152,24 @@ h2 {
   margin-right: auto;
 }
 .profilebtn_left{
-  border-radius: 20px;
-  margin-left: 6px;
   font-size: 16px;
   border: none;
   background: none;
   color: black;
+  float: left;
+  clear: both;
 
+}
+#deleteright{
+  float: right;
+  height: auto;
+  text-align: center;
+  font-size: 10px;
+  font-size: 10px;
+}
+#deleteleft{
+  float: left;
+  clear: both;
 }
 .profilebtn_right{
   border-radius: 20px;
@@ -427,7 +438,7 @@ input[type=text] {
 .messagebox{
   width: 55%;
   height: 35%;
-
+  font-size: 20px;
   word-wrap: break-word;
 }
 .searching{
