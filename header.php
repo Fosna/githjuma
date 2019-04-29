@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hjuma</title>
+    <title class="title">Hjuma</title>
     <link rel="stylesheet" href="style/header.style.css">
     <link rel="stylesheet" href="style/search.style.css">
     <meta charset="utf-8">
@@ -25,7 +25,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="creategroup btn btn-outline-primary ml-auto" href="creategroup">Create group</a>
+                <a class="creategroup btn btn-outline-primary ml-auto" id="creategroupbtn" href="creategroup">Create group</a>
               </li>
 <?php require 'search.php'; ?>
 <?php
@@ -102,10 +102,10 @@
           ?>
           <?php require 'search.php'; ?>
           <form action="login" class="ml-auto" method="post">
-            <button class="btn btn-primary " style="margin-left: 10px;"   type="submit">Log in</button>
+            <button id="loginbtn" class="btn btn-primary " style="margin-left: 10px;"   type="submit">Log in</button>
           </form>
           <form action="signup" method="post">
-            <button class="btn btn-primary " style="margin-left: 10px;"  type="submit">Sign up</button>
+            <button id="loginbtn" class="btn btn-primary " style="margin-left: 10px;"  type="submit">Sign up</button>
           </form>
 
           <?php

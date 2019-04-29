@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="style/grouptab.style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];

@@ -12,3 +12,18 @@
 .membercount{
   margin: 0;
 }
+@media only screen and (max-width: 763px) {
+  .card{
+    width: 30rem;
+  }
+}
+@media only screen and (max-width: 512px) {
+  .card{
+    width: 20rem;
+  }
+}
+@media only screen and (max-width: 352px) {
+  .card{
+    width: 15rem;
+  }
+}

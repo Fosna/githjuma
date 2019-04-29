@@ -41,7 +41,7 @@ require 'header.php';
 ?>
 <div class="container groups">
   <h1 class="display-3"></h1>
-  <div class="jumbotron">
+  <div class="jumbotron" >
   <div class="sidegroups">
 
 
