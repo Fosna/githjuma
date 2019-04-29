@@ -36,7 +36,10 @@ h1 {
   border-radius: 10px;
   margin-left: 20px;
 }
+#show_hidebtn{
+  font-size: 10px;
 
+}
 
 .invitepeoplebtn{
   color: white;
@@ -188,21 +191,7 @@ h2 {
   margin-top: -30px;
   color: black;
 }
-input[type=text] {
 
-  background: white;
-  display: block;
-  margin: 30px auto;
-  text-align: center;
-  border-radius: 20px;
-
-  padding: 10px 10px;
-  width: 60%;
-  outline: none;
-  border-radius: 25px;
-  overflow: auto;
-
-}
 #deleteleft{
   font-size: 8px;
 }
@@ -437,10 +426,11 @@ input[type=text] {
   }
   .bottom{
     width: 100%;
+    right: 0px;
   }
   .container-message{
     position: absolute;
-
+    right: 0px;
   	bottom: 0px;
   	background: #F5F5F5;
   	border-radius: 5px 5px 0px 0px;
@@ -468,6 +458,7 @@ input[type=text] {
   width: 55%;
   height: 35%;
   font-size: 20px;
+  margin-top: 5px;
   word-wrap: break-word;
 }
 .searching{
@@ -475,8 +466,8 @@ input[type=text] {
 }
 .send{
   float: right;
-  margin-right: 20px;
-  margin-top: -75px;
+  margin-right: 50px;
+  margin-top: -66px;
   border: none;
   border-radius: 10px;
   font-weight: bold;

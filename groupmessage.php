@@ -14,9 +14,7 @@
 ?>
 
        <?php } ?>
-            <div class="messagename">
-              <h1><?php echo $_SESSION['groupname'];?></h1>
-            </div>
+
             <div class="container-message" id="container-message">
               <div class="title">
               </div>
@@ -32,9 +30,10 @@
     }
   }
 ?>
-<form class="" id="#messagebox" action="scr/message.scr.php" method="post" onsubmit="return messageSend();" onsubmit="return formSubmit();">
-  <div class="bottom">
-    <input type="text" autocomplete="off" name="message" class="messagebox" ></input>
+<form class=""  action="scr/message.scr.php" method="post" onsubmit="return messageSend();" onsubmit="return formSubmit();">
+  <div id="messagebox" class="bottom">
+    <button type="button" class="btn btn-light btn-sm" id="show_hidebtn" onclick="toggle_div_fun('container-message','messagebox');"  name="button">Show/hide message</button>
+    <input type="text" autocomplete="off" name="message" class="messagebox" placeholder="Message" ></input>
     <input class="send" type="submit" name="send-submit" value=">"></button>
   </div>
 </form>
@@ -43,19 +42,15 @@
 
 </script>
 <script type="text/javascript">
-/*
-function messageSend(){
-  $.ajax({
-    type:'POST',
-    url:'message.php',
-    data:$('#messagebox').serialize(),
-    success:function(response){
-      $('#success').html(response);
-    }
-  });
-  var form = document.getElementById('messagebox').reset();
-  return false;
-}*/
+function toggle_div_fun(id){
+  var divelement = document.getElementById(id);
+
+  if(divelement.style.display == 'none')
+  divelement.style.display = 'block';
+  else
+      divelement.style.display = 'none';
+
+}
 $(document).ready(function(){
   setInterval(function(){
     $('#container-message').load('message.php')
