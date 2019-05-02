@@ -10,7 +10,7 @@ require 'header.php';
   ?>
       <div class="jumbotron">
           <h1 class="display-3">Discuse in real time!</h1>
-          <p class="lead">Simple. Efficient. Hjuma.</p>
+          <p class="lead">Create group, Talk, Discuss, Make friends!</p>
           <hr class="my-4">
           <form class="" action="login" method="post">
             <button class="btn btn-primary btn-lg" type="submit" name="button">Create group</button>

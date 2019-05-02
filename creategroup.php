@@ -54,8 +54,26 @@
     <div class="custom-file">
       <input class="btn btn-outline-danger btn-sm" id="file" style="display: none;"  type="file" name="avatar" value="">
       <input type="button" value="Choose image" class="btn btn-primary" id="file_alt"></input>
-      <button type="submit" class="btn btn-success" name="creategroup-submit">Create Group</button>
-
+      <button type="button" class="btn btn-success"data-toggle="modal" data-target="#exampleModal" >Create Group</button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to create this group?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" name="creategroup-submit" class="btn btn-primary">Confirm</button>
+    </div>
+  </div>
+</div>
+</div>
     </form>
     </div>
 

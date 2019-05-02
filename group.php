@@ -29,10 +29,11 @@ if($result = mysqli_query($conn, $sql)){
     }
     else{
 
-    $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
-    if($result = mysqli_query($conn, $sql)){
-      if(mysqli_num_rows($result) > 0){
-          while($row = mysqli_fetch_array($result)){
+    $sql1 = "SELECT * FROM hjuma_users WHERE username='$user' ";
+    if($result1 = mysqli_query($conn, $sql1)){
+      if(mysqli_num_rows($result1) > 0){
+          while($row1 = mysqli_fetch_array($result1)){
+            
   ?>
          <?php
           if ($row['group1']!=""){

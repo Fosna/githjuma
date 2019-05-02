@@ -29,10 +29,10 @@
             ?>
           </div>
           <br>
-          <div class="commentbox">
+          <div class="form-group">
             <form class="" action="scr/comments.scr.php" method="post">
               <input type="hidden" name="postname" value="<?php echo $row['title'];?>"/>
-              <input class="commentinput" name="comment" autocomplete="off" placeholder="Type comment here..." value="" />
+              <input class="form-control" id="commentinput" name="comment" autocomplete="off" placeholder="Type comment here..." value="" />
               <button class="commentbtn" type="submit" name="comment-submit">Comment</button>
             </form>
           </div>

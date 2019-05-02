@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -7,6 +8,7 @@
 ::-webkit-scrollbar-track {
   background: none;
 }
+
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -49,7 +51,6 @@
 
   border-radius: 5px;
   overflow: hidden;
-
 }
 
 .btn-link{
@@ -62,11 +63,13 @@
 #comments-container{
   border: 0;
   background: #F5F5F5;
-  border: 0.2mm solid black;
+  border: 0.2mm solid #CFCFCF;
   margin-top: 50px;
   border-radius: 5px;
-  width: 70%;
+  width: 40%;
+  font-family: 'Saira Semi Condensed', sans-serif;
 
+  margin-right: 430px;
   float: right;
   clear: both;
 
@@ -82,18 +85,7 @@
   float:right;
   font-size: 8px;
 }
-.containerpost{
-  width: 70%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background: #1ab2ff;
-  border-radius: 5px;
-  margin-top: 4%;
-  border: 0.4mm solid black;
-  overflow: hidden;
-  font-family: 'Roboto', sans-serif;
-}
+
 .postowner{
   display: none;
   float: left;
@@ -116,17 +108,10 @@
   height: 250px;
   border-radius: 7.5px;
 }
-.commentinput{
-  position: absolute;
-	bottom: 0px;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 30%;
-  font-size: 25px;
-  word-wrap: break-word;
-  border-radius: 5px;
-  background:#1ab2ff;
-  bottom:-20px;
+#commentinput{
+  text-align: center;
+  border: 0.2mm solid black;
+  bottom:-0px;
   position:fixed;
   z-index:150;
   _position:absolute;
@@ -145,38 +130,135 @@
 .comment{
   text-align: center;
   margin-top: 50px;
+  font-size: 18px;
   max-width: 700px;
   word-wrap: break-word;
 }
-@media only screen and (max-width: 1369px) {
+@media only screen and (max-width: 1669px) {
 
   #comments-container{
     border: 0;
     background: #F5F5F5;
-    border: 0.2mm solid black;
-    margin-top: 50px;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
     border-radius: 5px;
-    width: 50%;
+    width: 40%;
+    margin-right: 200px;
     float: right;
     clear: both;
+
   }
-  .commentinput{
+  #commentinput{
     width: 40%;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 1169px) {
+
   #comments-container{
     border: 0;
     background: #F5F5F5;
-    border: 0.2mm solid black;
-    margin-top: 50px;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
     border-radius: 5px;
-    width: 20%;
+    width: 40%;
+    margin-right: 100px;
     float: right;
     clear: both;
+
+  }
+  #commentinput{
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 990px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 40%;
+    margin-right: 50px;
+    float: right;
+    clear: both;
+
+  }
+  #commentinput{
+    width: 40%;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+}
+@media only screen and (max-width: 990px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 20px;
+    float: right;
+    clear: both;
+
+  }
+  #commentinput{
+    width: 40%;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+}
+@media only screen and (max-width: 690px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 0px;
+    float: right;
+    clear: both;
+
   }
   .commentinput{
     width: 40%;
+  }
+  .card{
+    width: 17rem;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .comment{
+    font-size: 10px;
+  }
+  .commentinput{
+    width: 100%;
+    font-size: 10px;
+    height: 20px;
   }
   .card{
     background: #F5F5F5;
@@ -198,10 +280,7 @@
   .time{
     display: none;
   }
-  .commentinput{
-    width: 40%;
-    font-size: 10px;
-  }
+
   .commentbtn{
     position: absolute;
   	bottom: 0px;
@@ -223,11 +302,43 @@
   #comments-container{
     border: 0;
     background: #F5F5F5;
-    border: 0.2mm solid black;
-    margin-top: 50px;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
     border-radius: 5px;
-    width: 35%;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 0px;
     float: right;
     clear: both;
+
+  }
+}
+@media only screen and (max-width: 300px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 0px;
+    float: right;
+    clear: both;
+
+  }
+  .commentinput{
+    width: 40%;
+  }
+  .card{
+    width: 10rem;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    max-width: 700px;
+    word-wrap: break-word;
   }
 }

@@ -23,10 +23,9 @@
                <button type="submit" name="entergroup-submit"  class="mygroups" value="<?php echo $row['group1'];?>">
                  <input type="hidden" name="groupname" value="<?php echo $row['group1'];?>" />
                  <h2 class="name"><?php echo $row['group1']; ?></h2>
-
                </button>
-
              </form>
+             <
            <?php } ?>
 
            <?php
