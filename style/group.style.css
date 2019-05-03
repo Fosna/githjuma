@@ -275,22 +275,22 @@ h2 {
 #gray-col{
 
   padding: 1px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-radius: 20px;
   margin: 10px auto;
   float: left;
-  width: 70%;
+  width: 80%;
+  margin-left: 20px;
   word-wrap: break-word;
   clear: both;
 }
 #white-col{
 
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-radius: 20px;
   padding: 1px;
   margin: 10px auto;
-  width: 70%;
+  width: 80%;
   float: right;
+  margin-right: 20px;
   word-wrap: break-word;
   clear: both;
 }

@@ -32,7 +32,7 @@
 ?>
 <form class=""  action="scr/message.scr.php" method="post" onsubmit="return messageSend();" onsubmit="return formSubmit();">
   <div id="messagebox" class="bottom">
-    <button type="button" class="btn btn-light btn-sm" id="show_hidebtn" onclick="toggle_div_fun('container-message','messagebox');"  name="button">Show/hide message</button>
+    <input type="button" class="btn btn-light btn-sm" id="show_hidebtn" onclick="toggle_div_fun('container-message','messagebox'); change();" value="▼" name="button"></input>
     <input type="text" autocomplete="off" name="message" class="messagebox" placeholder="Message" ></input>
     <input class="send" type="submit" name="send-submit" value=">"></button>
   </div>
@@ -49,7 +49,12 @@ function toggle_div_fun(id){
   divelement.style.display = 'block';
   else
       divelement.style.display = 'none';
-
+}
+function change() // no ';' here
+{
+    var elem = document.getElementById("show_hidebtn");
+    if (elem.value=="▼") elem.value = "▲";
+    else elem.value = "▼";
 }
 $(document).ready(function(){
   setInterval(function(){
