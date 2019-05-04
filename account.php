@@ -12,9 +12,14 @@
       <?php
         require 'scr/dbh.scr.php';
         $owner = $_SESSION["username"];
-        $sql = "SELECT * FROM hjuma_users WHERE username='$owner';";
-        if($result = mysqli_query($conn, $sql)){
-          if(mysqli_num_rows($result) > 0){
+        $sql = "SELECT * FROM hjuma_users WHERE username=?;";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)){
+          echo "SQL error";
+        }else {
+          mysqli_stmt_bind_param($stmt, "s", $owner);
+          mysqli_stmt_execute($stmt);
+          $result = mysqli_stmt_get_result($stmt);
               while($row = mysqli_fetch_array($result)){
 
                 if($row['profileimage']==""){
@@ -37,7 +42,7 @@
                 echo '<div class="email">'.$row['email'].'</div>';
               }
             }
-          }
+
       ?>
       <div class="form-group">
         <form class="" style="margin-top:40px;" action="scr/passwordconfirm.scr.php" method="post">
@@ -60,9 +65,14 @@
     <?php
       require 'scr/dbh.scr.php';
       $owner = $_SESSION["username"];
-      $sql = "SELECT * FROM hjuma_groups WHERE owner='$owner';";
-      if($result = mysqli_query($conn, $sql)){
-        if(mysqli_num_rows($result) > 0){
+      $sql = "SELECT * FROM hjuma_groups WHERE owner=?;";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)){
+        echo "SQL error";
+      }else {
+        mysqli_stmt_bind_param($stmt, "s", $owner);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
             while($row = mysqli_fetch_array($result)){
     ?>
               <div class="card">
@@ -85,7 +95,7 @@
     <?php
             }
           }
-        }
+
         if (isset($_GET['error'])) {
           $error = $_GET['error'];
           if ($error == "pwd") {

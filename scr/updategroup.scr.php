@@ -11,9 +11,15 @@
     $user = $_SESSION['username'];
     $groupname = $_SESSION['groupname'];
 
-    $sql = "UPDATE hjuma_groups SET maxmembers='$maxmembers', description='$description', privacy='$privacy' WHERE name='$groupname' AND owner='$user'  ";
-        if ($conn->query($sql)){
+    $sql = "UPDATE hjuma_groups SET maxmembers= ?, description= ?, privacy= ? WHERE name= ? AND owner= ? ";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"sssss", $maxmembers, $description, $privacy, $groupname, $user);
+      mysqli_stmt_execute($stmt);
+    }
+
           header("Location: ../group");
-          $conn->close();
-        }
+
     }

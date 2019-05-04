@@ -64,7 +64,7 @@
   border: 0;
   background: #F5F5F5;
   border: 0.2mm solid #CFCFCF;
-  margin-top: 50px;
+  margin-top: 10px;
   border-radius: 5px;
   width: 40%;
   font-family: 'Saira Semi Condensed', sans-serif;
@@ -112,6 +112,7 @@
   text-align: center;
   border: 0.2mm solid black;
   bottom:-0px;
+  width: 30%;
   position:fixed;
   z-index:150;
   _position:absolute;

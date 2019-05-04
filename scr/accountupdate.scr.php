@@ -12,12 +12,13 @@
     $user = $_SESSION['username'];
 
 
-      $sql = "UPDATE hjuma_users SET profileimage='$image', imagename='$image_name' WHERE username='$user';";
-      if ($conn->query($sql)){
+      $sql = "UPDATE hjuma_users SET profileimage='$image', imagename=? WHERE username=?;";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "SQL error";
+      }else {
+        mysqli_stmt_bind_param($stmt,"ss", $imagename, $user);
+        mysqli_stmt_execute($stmt);
+      }
         header("Location: ../account");
-      }
-      else {
-        echo "Error".$sql."<br>" . $conn->error;
-      }
-      $conn->close();
-    }
+}

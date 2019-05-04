@@ -27,9 +27,14 @@
                   echo '<img class="card-img-top" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row['avatar'] ).'"/>';
                 } ?>
 <?php
-            $sql2 = "SELECT * FROM hjuma_users WHERE username='$owner'";
-            if($result2 = mysqli_query($conn, $sql2)){
-              if(mysqli_num_rows($result2) > 0){
+            $sql2 = "SELECT * FROM hjuma_users WHERE username=?";
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql2)){
+              echo "SQL error";
+            }else {
+              mysqli_stmt_bind_param($stmt, "s", $owner);
+              mysqli_stmt_execute($stmt);
+              $result2 = mysqli_stmt_get_result($stmt);
                   while($row2 = mysqli_fetch_array($result2)){
                     $sql3 = "SELECT * FROM hjuma_users";
                     if($result3 = mysqli_query($conn, $sql3)){
@@ -79,7 +84,6 @@
                       }
                     }
                   }
-                }
 
 ?>
               </div>

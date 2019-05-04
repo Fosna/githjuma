@@ -7,8 +7,13 @@
 require 'scr/dbh.scr.php';
 $groupname = $_SESSION['groupname'];
 $sql = "SELECT * FROM hjuma_groups WHERE name='$groupname' ";
-if($result = mysqli_query($conn, $sql)){
-  if(mysqli_num_rows($result) > 0){
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)){
+  echo "SQL error";
+}else {
+  mysqli_stmt_bind_param($stmt, "s", $groupname);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
       while($row = mysqli_fetch_array($result)){
         if($row['owner'] == $_SESSION['username']){?>
           <a href="adminsettings" class="btn btn-primary">Settings</a>
@@ -20,20 +25,24 @@ if($result = mysqli_query($conn, $sql)){
     <?php    }
       }
     }
-  } ?>
+   ?>
 <?php
-    require 'scr/dbh.scr.php';
     $user = $_SESSION["username"];
     if (!isset($_SESSION['id'])) {
       header("Location: main");
     }
     else{
 
-    $sql1 = "SELECT * FROM hjuma_users WHERE username='$user' ";
-    if($result1 = mysqli_query($conn, $sql1)){
-      if(mysqli_num_rows($result1) > 0){
-          while($row1 = mysqli_fetch_array($result1)){
-            
+    $sql = "SELECT * FROM hjuma_users WHERE username=? ";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt, "s", $user);
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
+          while($row = mysqli_fetch_array($result)){
+
   ?>
          <?php
           if ($row['group1']!=""){
@@ -95,7 +104,7 @@ if($result = mysqli_query($conn, $sql)){
               }
             }
           }
-        }
+        
     ?>
 
 

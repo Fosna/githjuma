@@ -12,9 +12,14 @@
     $_SESSION['groupname'] = $groupname;
     $groupmembers = $groupname;
     $owner = $_SESSION['username'];
-    $sql = "SELECT * FROM hjuma_users";
-    if($result = mysqli_query($conn, $sql)){
-      if(mysqli_num_rows($result) > 0){
+    $sql = "SELECT * FROM hjuma_users WHERE username=?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt, "s", $user);
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
           while($row = mysqli_fetch_array($result)){
             if ($row['group1'] == "") {
               $group = "group1";
@@ -36,7 +41,6 @@
             }
           }
         }
-      }
       if (!isset($_SESSION['id'])) {
 
         header("Location: ../login");

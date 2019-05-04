@@ -33,9 +33,14 @@ require 'header.php';
     $category = $_GET['category'];
   }
   $user = $_SESSION['username'];
-  $sql = "SELECT * FROM hjuma_users WHERE username='$user' ";
-  if($result = mysqli_query($conn, $sql)){
-    if(mysqli_num_rows($result) > 0){
+  $sql = "SELECT * FROM hjuma_users WHERE username=? ";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)){
+    echo "SQL error";
+  }else {
+    mysqli_stmt_bind_param($stmt, "s", $user);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
 
 ?>
@@ -115,7 +120,7 @@ require 'header.php';
 </div>
          <?php
             }
-          }
+
         }
   ?>
 <h3 class="popgroups">Popular groups</h3>

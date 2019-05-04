@@ -13,16 +13,23 @@ else{
     header("Location: ../login");
   }
   else{
-    $sql = "DELETE FROM hjuma_comments WHERE grouppost = '$postname';";
-    $sql1 = "DELETE FROM hjuma_posts WHERE title = '$postname' AND owner = '$owner' AND date_time ='$date';";
-      if ($conn->query($sql)){
-        if ($conn->query($sql1)){
-          header("Location: ../group");
-        }
-        else {
-          echo "Error".$sql."<br>" . $conn->error;
-        }
-      $conn->close();
+    $sql = "DELETE FROM hjuma_comments WHERE grouppost = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"s", $postname);
+      mysqli_stmt_execute($stmt);
     }
+    $sql1 = "DELETE FROM hjuma_posts WHERE title = ? AND owner =? AND date_time =?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql1)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"sss", $postname, $owner, $date);
+      mysqli_stmt_execute($stmt);
+    }
+      header("Location: ../group");
+
   }
 }

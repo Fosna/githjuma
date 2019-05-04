@@ -11,9 +11,14 @@ else{
     header("Location: ../login");
   }
   else{
-    $sql = "SELECT * FROM hjuma_users WHERE username = '$user'";
-    if($result = mysqli_query($conn, $sql)){
-      if(mysqli_num_rows($result) > 0){
+    $sql = "SELECT * FROM hjuma_users WHERE username = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt, "s", $user);
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
           while($row = mysqli_fetch_array($result)){
             if ($row['group1'] == $groupname) {
               $group = 'group1';
@@ -34,15 +39,17 @@ else{
               header("Location: ../main");
             }
           }
-        }
-      }
-    $sql1 = "UPDATE hjuma_users SET $group=NULL WHERE username='$user';";
-      if ($conn->query($sql1)){
-          header("Location: ../group");
-      }
-      else {
-        echo "Error".$sql1."<br>" . $conn->error;
-      }
-    $conn->close();
+         }
+    $sql1 = "UPDATE hjuma_users SET $group=NULL WHERE username=?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql1)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"s", $user);
+      mysqli_stmt_execute($stmt);
+    }
+
+          header("Location: ../adminsettings");
+
   }
 }

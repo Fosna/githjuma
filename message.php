@@ -2,21 +2,30 @@
 <?php require 'scr/dbh.scr.php'; ?>
 <?php session_start();
 $groupmes = $_SESSION['groupname'];
-$sql3 = "SELECT * FROM hjuma_groups WHERE name='$groupmes'";
-if($result3 = mysqli_query($conn, $sql3)){
-  if(mysqli_num_rows($result3) > 0){
+$sql3 = "SELECT * FROM hjuma_groups WHERE name=?";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql3)){
+  echo "SQL error";
+}else {
+  mysqli_stmt_bind_param($stmt, "s", $groupmes);
+  mysqli_stmt_execute($stmt);
+  $result3 = mysqli_stmt_get_result($stmt);
       while($row3 = mysqli_fetch_array($result3)){
         $owner = $row3['owner'];
 
       }
     }
-  }
   ?>
 
 <?php
-$sql = "SELECT * FROM hjuma_messages WHERE groupmes='$groupmes'";
-if($result = mysqli_query($conn, $sql)){
-  if(mysqli_num_rows($result) > 0){
+$sql = "SELECT * FROM hjuma_messages WHERE groupmes=?";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)){
+  echo "SQL error";
+}else {
+  mysqli_stmt_bind_param($stmt, "s", $groupmes);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
       while($row = mysqli_fetch_array($result)){
         $sender_name = $row['sender_name'];
         $_SESSION['sender_name']  = $sender_name;
@@ -29,9 +38,14 @@ if($result = mysqli_query($conn, $sql)){
 
 ?>
 <div class="alert alert-secondary" id="gray-col">
-  <?php $sql2 = "SELECT * FROM hjuma_users WHERE username = '$sender_name' ";
-  if($result2 = mysqli_query($conn, $sql2)){
-    if(mysqli_num_rows($result2) > 0){
+  <?php $sql2 = "SELECT * FROM hjuma_users WHERE username = ? ";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql2)){
+    echo "SQL error";
+  }else {
+    mysqli_stmt_bind_param($stmt, "s", $sender_name);
+    mysqli_stmt_execute($stmt);
+    $result2 = mysqli_stmt_get_result($stmt);
         while($row2 = mysqli_fetch_array($result2)){
           if($row2['profileimage'] != ""){
            ?>
@@ -68,14 +82,19 @@ if($result = mysqli_query($conn, $sql)){
 </div>
 <?php
       }
-    }
-  } ?>
+  }
+  ?>
 <?php      }
 else{ ?>
   <div class="alert alert-primary" id="white-col">
-    <?php $sql1 = "SELECT * FROM hjuma_users WHERE username ='$username' ";
-    if($result1 = mysqli_query($conn, $sql1)){
-      if(mysqli_num_rows($result1) > 0){
+    <?php $sql1 = "SELECT * FROM hjuma_users WHERE username =? ";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql1)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt, "s", $username);
+      mysqli_stmt_execute($stmt);
+      $result1 = mysqli_stmt_get_result($stmt);
           while($row1 = mysqli_fetch_array($result1)){?>
 
   <?php if(strpos($message, 'https') !== false){ ?>
@@ -96,13 +115,13 @@ else{ ?>
   <?php
         }
       }
-    } ?>
+   ?>
 
 <?php
             }
           }
         }
-      }
+
 ?>
 <script type="text/javascript">
 var myDiv = document.getElementById("container-message");

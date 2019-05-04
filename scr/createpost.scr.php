@@ -20,10 +20,15 @@
       exit();
     }
     else {
-      $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments, owner, date_time) VALUES ('$title','$description', '$image_name', '$image', '$grouppost', '$comments' , '$postowner', '$date')";
-          if ($conn->query($sql)){
+      $sql = "INSERT INTO hjuma_posts (title, description, imagename, image, grouppost, comments, owner, date_time) VALUES (?,?, ?, '$image', ?, ? , ?, ?)";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "SQL error";
+      }else {
+        mysqli_stmt_bind_param($stmt,"sssssss", $title,$description, $image_name,  $grouppost, $comments , $postowner, $date);
+        mysqli_stmt_execute($stmt);
+      }
             header("Location: ../group");
-            $conn->close();
-          }
+
       }
   }

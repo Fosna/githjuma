@@ -6,12 +6,18 @@
   require 'scr/dbh.scr.php';
   if (isset($_POST['comment-redirect'])) {
     $postname = mysqli_real_escape_string($conn, $_POST['postname']);
+    $date_time = mysqli_real_escape_string($conn, $_POST['date_time']);
   }else {
     $postname = $_SESSION['postname'];
   }
-  $sql = "SELECT * FROM hjuma_posts WHERE title = '$postname';";
-  if($result = mysqli_query($conn, $sql)){
-    if(mysqli_num_rows($result) > 0){
+  $sql = "SELECT * FROM hjuma_posts WHERE title = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)){
+    echo "SQL error";
+  }else {
+    mysqli_stmt_bind_param($stmt, "s", $postname);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
 ?>
 <div class="card">
@@ -41,9 +47,14 @@
 
 <?php
           $groupname = $_SESSION['groupname'];
-          $sql1 = "SELECT * FROM hjuma_comments WHERE grouppost = '$groupname' AND post = '$postname'";
-          if($result1 = mysqli_query($conn, $sql1)){
-            if(mysqli_num_rows($result1) > 0){
+          $sql1 = "SELECT * FROM hjuma_comments WHERE grouppost = ? AND post = ?";
+          $stmt = mysqli_stmt_init($conn);
+          if (!mysqli_stmt_prepare($stmt, $sql1)){
+            echo "SQL error";
+          }else {
+            mysqli_stmt_bind_param($stmt, "ss", $groupname, $postname);
+            mysqli_stmt_execute($stmt);
+            $result1 = mysqli_stmt_get_result($stmt);
                 while($row1 = mysqli_fetch_array($result1)){
 ?>
                     <div  id="comments-container">
@@ -67,10 +78,10 @@
                     </div>
 <?php
                 }
-            }
+
           }
         }
-      }
+
     }
 ?>
 

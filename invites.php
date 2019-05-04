@@ -7,13 +7,23 @@
 <div class="inviteBox">
   <?php
   $user = $_SESSION['username'];
-  $sql = "SELECT * FROM hjuma_groupinvites WHERE invited_user = '$user' ";
-  if($result = mysqli_query($conn, $sql)){
-    if(mysqli_num_rows($result) > 0){
+  $sql = "SELECT * FROM hjuma_groupinvites WHERE invited_user = ? ";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)){
+    echo "SQL error";
+  }else {
+    mysqli_stmt_bind_param($stmt, "s", $user);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
-          $sql1 = "SELECT * FROM hjuma_users WHERE username = '$user' ";
-          if($result1 = mysqli_query($conn, $sql1)){
-            if(mysqli_num_rows($result1) > 0){
+          $sql1 = "SELECT * FROM hjuma_users WHERE username = ? ";
+          $stmt = mysqli_stmt_init($conn);
+          if (!mysqli_stmt_prepare($stmt, $sql1)){
+            echo "SQL error";
+          }else {
+            mysqli_stmt_bind_param($stmt, "s", $user);
+            mysqli_stmt_execute($stmt);
+            $result1 = mysqli_stmt_get_result($stmt);
                 while($row1 = mysqli_fetch_array($result1)){
                   if ($row1['group1'] == $row['group_invite'] || $row1['group2'] == $row['group_invite'] || $row1['group3' ]== $row['group_invite'] || $row1['group4']==$row['group_invite']||$row1['group5']==$row['group_invite']) {?>
                     <div class="invites">
@@ -32,7 +42,7 @@
                 <?php
               }
                 }
-              }
+
             }
 
 
@@ -40,9 +50,9 @@
 
 
 <?php        }
-}else{?>
-        <h1>You have no invites</h1>
-    <?php   }
-    } ?>
+
+      }
+
+   ?>
 
 </div>

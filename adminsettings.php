@@ -25,33 +25,44 @@
 <?php
 $user = $_SESSION['username'];
 $groupname = $_SESSION['groupname'];
-$sql = "SELECT * FROM hjuma_groups WHERE name='$groupname' AND owner = '$user'";
-if($result = mysqli_query($conn, $sql)){
-  if(mysqli_num_rows($result) > 0){
+$sql = "SELECT * FROM hjuma_groups WHERE name=? AND owner = ?";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)){
+  echo "SQL error";
+}else {
+  mysqli_stmt_bind_param($stmt, "ss", $groupname, $user);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
       while($row = mysqli_fetch_array($result)){
         ?>
         <h1 class="title">Settings of <?php echo $groupname; ?></h1>
         <div class="userBox">
         <?php
-        $sql1 = "SELECT * FROM hjuma_users WHERE group1 = '$groupname' OR group2 = '$groupname' OR group3 = '$groupname' OR group4 = '$groupname' OR group5 = '$groupname' ";
-        if($result1 = mysqli_query($conn, $sql1)){
-          if(mysqli_num_rows($result1) > 0){
+        $sql1 = "SELECT * FROM hjuma_users WHERE group1 = ? OR group2 = ? OR group3 = ? OR group4 =? OR group5 = ? ";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql1)){
+          echo "SQL error";
+        }else {
+          mysqli_stmt_bind_param($stmt, "sssss", $groupname, $groupname, $groupname, $groupname, $groupname);
+          mysqli_stmt_execute($stmt);
+          $result1 = mysqli_stmt_get_result($stmt);
               while($row1 = mysqli_fetch_array($result1)){?>
                 <div class="users">
                   <form class="" action="profile" method="post">
                     <button type="submit" class="username" name="button"><?php echo $row1['username']; ?></button>
                     <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
                     </form>
+                    <?php if($row1['username'] == $_SESSION['username']){}else { ?>
                       <form class="" action="scr/kickmember.scr.php" method="post">
                         <button style="float: right;" type="submit" class="btn btn-danger" id="kickbtn" name="kick-submit">Kick</button>
                         <input type="hidden"  name="username" value="<?php echo $row1['username']  ?>">
                         <input type="hidden"  name="groupname" value="<?php echo $groupname  ?>">
                       </form>
+                    <?php } ?>
                 </div>
               <?php
               }
             }
-          }
           ?>
         </div>
         <div class="container">
@@ -74,5 +85,4 @@ if($result = mysqli_query($conn, $sql)){
 
 <?php
       }
-    }
   } ?>

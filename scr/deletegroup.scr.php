@@ -11,11 +11,30 @@ else{
     header("Location: ../login");
   }
   else{
-    $sql = "DELETE FROM hjuma_groups WHERE name = '$groupname';";
-    $sql1 = "DELETE FROM hjuma_messages WHERE groupmes = '$groupname';";
-    $sql1 = "DELETE FROM hjuma_posts WHERE grouppost = '$groupname';";
-      if ($conn->query($sql)){
-        if ($conn->query($sql1)){
+    $sql = "DELETE FROM hjuma_groups WHERE name = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"s", $groupname);
+      mysqli_stmt_execute($stmt);
+    }
+    $sql1 = "DELETE FROM hjuma_messages WHERE groupmes = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql1)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"s", $groupname);
+      mysqli_stmt_execute($stmt);
+    }
+    $sql1 = "DELETE FROM hjuma_posts WHERE grouppost = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql1)) {
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt,"s", $groupname);
+      mysqli_stmt_execute($stmt);
+    }
         $groupname = mysqli_real_escape_string($conn, $_POST['groupname']);
         $membercount = mysqli_real_escape_string($conn, $_POST['membercount']);
         $groupmembers = $_SESSION['groupname'];
@@ -43,27 +62,33 @@ else{
                 }
               }
               }
-            }
-          }
+
 
         if (!isset($_SESSION['id'])) {
           header("Location: ../login");
         }
         else{
-          $sql1 = "UPDATE hjuma_users SET $group=NULL WHERE $group='$groupname';";
-          $sql2 = "UPDATE hjuma_groups SET membercount='$membercount' - 1 WHERE name='$groupmembers';";
-            if ($conn->query($sql1)){
-              if ($conn->query($sql2)){
-                header("Location: ../main");
-              }
-            $conn->close();
-            }
+          $sql1 = "UPDATE hjuma_users SET $group=NULL WHERE $group=?;";
+          $stmt = mysqli_stmt_init($conn);
+          if (!mysqli_stmt_prepare($stmt, $sql1)) {
+            echo "SQL error";
+          }else {
+            mysqli_stmt_bind_param($stmt,"s", $groupname);
+            mysqli_stmt_execute($stmt);
           }
+          $sql2 = "UPDATE hjuma_groups SET membercount=? - 1 WHERE name=?;";
+          $stmt = mysqli_stmt_init($conn);
+          if (!mysqli_stmt_prepare($stmt, $sql2)) {
+            echo "SQL error";
+          }else {
+            mysqli_stmt_bind_param($stmt,"s", $membercount, $groupmembers);
+            mysqli_stmt_execute($stmt);
+          }
+
+                header("Location: ../main");
+
         header("Location: ../account");
       }
-      else {
-        echo "Error".$sql."<br>" . $conn->error;
-      }
-      $conn->close();
     }
-  }
+}
+}
