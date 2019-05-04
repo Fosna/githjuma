@@ -35,11 +35,24 @@
           exit();
         }
         else {
-          $sql = "INSERT INTO hjuma_groups (name, description, category, privacy, maxmembers, owner, avatarname, avatar) VALUES ('$name','$description','$category', '$privacy','$maxmembers', '$owner', '$image_name', '$image')";
-            if ($conn->query($sql)){
-              $sql = "SELECT * FROM hjuma_users";
-              if($result = mysqli_query($conn, $sql)){
-                if(mysqli_num_rows($result) > 0){
+          $sql = "INSERT INTO hjuma_groups (name, description, category, privacy, maxmembers, owner, avatarname, avatar) VALUES (?, ?, ?, ?, ?, ?, ?, '$image')";
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+              echo "SQL error";
+            }else {
+              mysqli_stmt_bind_param($stmt,"sssssss", $name,$description,$category, $privacy,$maxmembers, $owner, $image_name);
+              mysqli_stmt_execute($stmt);
+            }
+              $sql = "SELECT * FROM hjuma_users WHERE username= ?";
+              $stmt = mysqli_stmt_init($conn);
+              if (!mysqli_stmt_prepare($stmt, $sql)){
+                echo "SQL error";
+              }else {
+                mysqli_stmt_bind_param($stmt, "s", $owner);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+
+
                     while($row = mysqli_fetch_array($result)){
                       if ($row['group1'] == "") {
                         $group = "group1";
@@ -59,34 +72,47 @@
                       else {
                         header("Location: ../main");
                       }
-
                     }
                   }
-                }
+
               if (!isset($_SESSION['id'])) {
                 header("Location: ../login");
               }
               else{
                 $_SESSION['group'] = $group;
-                $sql1 = "UPDATE hjuma_users SET $group='$name' WHERE username='$owner';";
-                $sql = "SELECT * FROM hjuma_groups WHERE name='$name'";
-                if($result = mysqli_query($conn, $sql)){
-                  if(mysqli_num_rows($result) > 0){
+                $sql1 = "UPDATE hjuma_users SET $group=? WHERE username=?;";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql1)) {
+                  echo "SQL error";
+                }else {
+                  mysqli_stmt_bind_param($stmt,"ss", $name, $owner);
+                  mysqli_stmt_execute($stmt);
+                }
+                $sql = "SELECT * FROM hjuma_groups WHERE name=?";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)){
+                  echo "SQL error";
+                }else {
+                  mysqli_stmt_bind_param($stmt, "s", $name);
+                  mysqli_stmt_execute($stmt);
+                  $result = mysqli_stmt_get_result($stmt);
                       while($row = mysqli_fetch_array($result)){
                         $membercount = $row['membercount'];
-                $sql2 = "UPDATE hjuma_groups SET membercount='$membercount' + 1 WHERE name='$name';";
-                  if ($conn->query($sql1)){
-                    if ($conn->query($sql2)){
+                $sql2 = "UPDATE hjuma_groups SET membercount=? + 1 WHERE name=?;";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql2)) {
+                  echo "SQL error";
+                }else {
+                  mysqli_stmt_bind_param($stmt,"ss", $membercount, $name);
+                  mysqli_stmt_execute($stmt);
+                }
                       header("Location: ../main");
-                    }
-                  $conn->close();
-                  }
+
+
                 }
               }
-            }
           }
         }
           }
       }
     }
-  }
