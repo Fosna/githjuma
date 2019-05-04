@@ -1,5 +1,5 @@
 <?php
-  if (!isset($_POST['send-submit'])) {
+  if (!isset($_POST['data'])) {
     exit();
   }
   else{
@@ -14,13 +14,19 @@
       exit();
     }
     else {
-      $sql = "INSERT INTO hjuma_messages (sender_name, groupmes, message, date_time) values ('$sender_name', '$groupmes', '$message', '$date' )";
-        if ($conn->query($sql)){
-          header ("location: ../group");
-        }
-        else {
-          echo "Error".$sql."<br>" . $conn->error;
-        }
-        $conn->close();
+      $sql = "INSERT INTO hjuma_messages (sender_name, groupmes, message, date_time) values (?, ?, ?, ? )";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "SQL error";
+      }else {
+        mysqli_stmt_bind_param($stmt,"ssss", $sender_name, $groupmes, $message, $date );
+        mysqli_stmt_execute($stmt);
+        echo "inserted";
+      }
+
+
+
+
+
     }
   }

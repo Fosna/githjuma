@@ -33,18 +33,43 @@
 
       }
     }
-  
+
 ?>
-<form class=""  action="scr/message.scr.php" method="post" onsubmit="return messageSend();" onsubmit="return formSubmit();">
+
   <div id="messagebox" class="bottom">
     <input type="button" class="btn btn-light btn-sm" id="show_hidebtn" onclick="toggle_div_fun('container-message','messagebox'); change();" value="▼" name="button"></input>
-    <input type="text" autocomplete="off" name="message" class="messagebox" placeholder="Message" ></input>
-    <input class="send" type="submit" name="send-submit" value=">"></button>
+    <input type="text" id="message" autocomplete="off"  class="messagebox" placeholder="Message" ></input>
+    <input class="send" type="submit" id="submit_comment" name="send-submit" value=">"></button>
   </div>
-</form>
 <script src="scr/jquery.js" charset="utf-8"></script>
 <script type="text/javascript">
+var input = document.getElementById("message");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("submit_comment").click();
+  }
+});
+  $(document).ready(function() {
+    // alert("jquery working");
 
+    $("#submit_comment").click(function(){
+       var message = $("#message").val();
+
+       $.ajax({
+         url: "scr/message.scr.php",
+         type: "POST",
+         async: false,
+         data: {
+           "data":1,
+           "message" : message,
+         },
+         success: function(data){
+           $("#message").val('');
+         }
+       })
+    });
+  });
 </script>
 <script type="text/javascript">
 function toggle_div_fun(id){
@@ -64,7 +89,7 @@ function change() // no ';' here
 $(document).ready(function(){
   setInterval(function(){
     $('#container-message').load('message.php')
-  }, 505);
+  }, 305);
 });
 </script>
   </body>
