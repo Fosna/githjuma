@@ -58,24 +58,7 @@
                         <form class="ml-auto" action="scr/leavegroup.scr.php" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="-1" />
-                          <button class="btn btn-outline-danger btn-sm float-right " data-toggle="modal" data-target="#exampleModal" type="button" >Leave group</button>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Are you sure you want to leave this group?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" name="leavegroup-submit" class="btn btn-danger">Leave</button>
-                          </div>
+                          <button class="btn btn-outline-danger btn-sm float-right " type="submit" name="leavegroup-submit" >Leave group</button>
                         </form>
 <?php
                       }
