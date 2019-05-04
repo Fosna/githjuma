@@ -32,7 +32,7 @@
                     </div>
                 <?php  }else{?>
                   <div class="invites">
-                    <h1><?php echo $row['inviter']; ?> invited you to <?php echo $row['group_invite']; ?></h1>
+                    <h1 id="text"><?php echo $row['inviter']; ?> invited you to <?php echo $row['group_invite']; ?></h1>
                     <form action="scr/joingroup.scr.php" method="post">
                       <input type="hidden" name="groupname" value="<?php echo $row['group_invite'];?>" />
                       <input type="hidden" name="membercount" value="1" />

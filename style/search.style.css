@@ -28,19 +28,30 @@
   .search:focus{
     width: 160px;
   }
+  .searchresult{
+    width: 160px;
+  }
 }
 @media only screen and (max-width: 412px) {
   .search{
+    width: 100px;
+  }
+  .search:focus{
+    width: 100px;
+  }
+  .searchresult{
     width: 100px;
   }
 }
 @media only screen and (max-width: 378px) {
   .search{
     width: 60px;
-
+  }
+  .searchresult{
+    width: 60px;
   }
   .search:focus{
-    width: 75px;
+    width: 60px;
   }
 }
 @media only screen and (max-width: 300px) {
@@ -50,5 +61,8 @@
   }
   .search:focus{
     width: 60px;
+  }
+  .searchresult{
+    width:60px;
   }
 }

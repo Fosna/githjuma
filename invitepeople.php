@@ -1,7 +1,7 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/invitepeople.style.css">
 <div class="space"></div>
-<h1 class="title">Invite people to <?php echo $_SESSION['groupname'] ?></h1>
+<h1 class="title" style="margin-top: 100px;">Invite people to <?php echo $_SESSION['groupname'] ?></h1>
 
 <div class="userBox">
   <h1 style="margin-top:-50px; text-align: center;">Users</h1>

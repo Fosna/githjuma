@@ -3,9 +3,7 @@
 <link rel="stylesheet" href="style/login_signup.style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style media="screen">
-  .container{
-    margin-top: -210px;
-  }
+
   .btn-success{
     display: block;
     margin-left: auto;
@@ -18,6 +16,12 @@
       width: 30rem;
     }
 
+  }
+  @media only screen and (max-width: 412px) {
+    .container{
+      margin-top: 55px;
+      width: 15rem;
+    }
   }
 </style>
 <div class="space">
@@ -36,6 +40,23 @@ if (!mysqli_stmt_prepare($stmt, $sql)){
       while($row = mysqli_fetch_array($result)){
         ?>
         <h1 class="title">Settings of <?php echo $groupname; ?></h1>
+        <div class="container">
+          <h1 style="text-align: center;">Upadate group</h1>
+          <form class="" action="scr/updategroup.scr.php" method="post">
+              <div class="form-group">
+            Maxmembers:<input type="number" class="form-control"  name="maxmembers" value="<?php echo $row['maxmembers']; ?>">
+          </div>
+            <div class="form-group">
+            Description: <input type="text" class="form-control" name="description" value="<?php echo $row['description']; ?>">
+          </div>
+            Privacy: <select class="form-control" id="exampleFormControlSelect1" name="privacy">
+              <option  value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+            <button type="submit" class="btn btn-success" name="updategroup-submit">Update</button>
+          </form>
+
+        </div>
         <div class="userBox">
         <?php
         $sql1 = "SELECT * FROM hjuma_users WHERE group1 = ? OR group2 = ? OR group3 = ? OR group4 =? OR group5 = ? ";
@@ -65,23 +86,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)){
             }
           ?>
         </div>
-        <div class="container">
-          <h1 style="text-align: center;">Upadate group</h1>
-          <form class="" action="scr/updategroup.scr.php" method="post">
-              <div class="form-group">
-            Maxmembers:<input type="number" class="form-control"  name="maxmembers" value="<?php echo $row['maxmembers']; ?>">
-          </div>
-            <div class="form-group">
-            Description: <input type="text" class="form-control" name="description" value="<?php echo $row['description']; ?>">
-          </div>
-            Privacy: <select class="form-control" id="exampleFormControlSelect1" name="privacy">
-              <option  value="public">Public</option>
-              <option value="private">Private</option>
-            </select>
-            <button type="submit" class="btn btn-success" name="updategroup-submit">Update</button>
-          </form>
 
-        </div>
 
 <?php
       }
