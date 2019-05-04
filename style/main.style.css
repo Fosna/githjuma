@@ -49,7 +49,10 @@
     margin-top: 40px;
   }
   .jumbotron{
-    height: 130px;
+    height: 110px;
+  }
+  #jumbotron{
+    height: 530px;
   }
   .name{
     margin-top: -16px;

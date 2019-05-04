@@ -54,7 +54,7 @@
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <button class="btn btn-secondary btn-sm float-left " type="submit" name="entergroup-submit">ENTER</button>
                         </form>
-                        <form  action="aboutgroup.php" method="post">
+                        <form  action="aboutgroup" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
 
@@ -75,7 +75,7 @@
                           <input type="hidden" name="membercount" value="1" />
                           <button class="btn btn-primary" type="submit" name="joingroup-submit">JOIN</button>
                         </form>
-                        <form  action="aboutgroup.php" method="post">
+                        <form  action="aboutgroup" method="post">
                           <input type="hidden" name="groupname" value="<?php echo $row['name'];?>" />
                           <input type="hidden" name="membercount" value="1" />
                           <button class="btn btn-link " type="submit" name="button">About group</button>

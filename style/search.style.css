@@ -24,6 +24,11 @@
 .dropdown-item:hover{
   border-radius: 5px;
 }
+@media only screen and (max-width: 577px) {
+  .search:focus{
+    width: 160px;
+  }
+}
 @media only screen and (max-width: 412px) {
   .search{
     width: 100px;
@@ -31,6 +36,19 @@
 }
 @media only screen and (max-width: 378px) {
   .search{
+    width: 60px;
+
+  }
+  .search:focus{
+    width: 75px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .search{
+    width: 60px;
+
+  }
+  .search:focus{
     width: 60px;
   }
 }

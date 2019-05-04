@@ -8,7 +8,7 @@ require 'header.php';
     error_reporting(0);
     if (!isset($_SESSION['id'])) {
   ?>
-      <div class="jumbotron">
+      <div class="jumbotron" id="jumbotron">
           <h1 class="display-3">Discuse in real time!</h1>
           <p class="lead">Create group, Talk, Discuss, Make friends!</p>
           <hr class="my-4">
@@ -36,7 +36,7 @@ require 'header.php';
   $sql = "SELECT * FROM hjuma_users WHERE username=? ";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)){
-    
+
   }else {
     mysqli_stmt_bind_param($stmt, "s", $user);
     mysqli_stmt_execute($stmt);
@@ -45,7 +45,6 @@ require 'header.php';
 
 ?>
 <div class="container groups">
-  <h1 class="display-3"></h1>
   <div class="jumbotron" >
   <div class="sidegroups">
 
