@@ -9,6 +9,7 @@
       ?>
       <h1 id="username"><?php echo $user; ?></h1>
       <?php
+      $_SESSION['receiver'] = $user;
        $sql = "SELECT * FROM hjuma_users WHERE username = '$user';";
       if($result = mysqli_query($conn, $sql)){
         if(mysqli_num_rows($result) > 0){
@@ -46,7 +47,10 @@
              }
            }
            ?>
-
+            <div>
+          
+           <a href="main_privatemessage" class="btn btn-primary">Message</a>
+            </div>
 
 
     </div>

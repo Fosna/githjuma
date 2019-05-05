@@ -1,29 +1,18 @@
 
 <?php require 'scr/dbh.scr.php'; ?>
 <?php session_start();
-$groupmes = $_SESSION['groupname'];
-$sql3 = "SELECT * FROM hjuma_groups WHERE name=?";
-$stmt = mysqli_stmt_init($conn);
-if (!mysqli_stmt_prepare($stmt, $sql3)){
-  echo "SQL error";
-}else {
-  mysqli_stmt_bind_param($stmt, "s", $groupmes);
-  mysqli_stmt_execute($stmt);
-  $result3 = mysqli_stmt_get_result($stmt);
-      while($row3 = mysqli_fetch_array($result3)){
-        $owner = $row3['owner'];
+$receiver = $_SESSION['receiver'];
+$username = $_SESSION['username'];
+?>
 
-      }
-    }
-  ?>
 
 <?php
-$sql = "SELECT * FROM hjuma_messages WHERE groupmes=?";
+$sql = "SELECT * FROM hjuma_privatemessages WHERE receiver=? AND sender_name=? OR receiver=? AND sender_name=?";
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)){
   echo "SQL error";
 }else {
-  mysqli_stmt_bind_param($stmt, "s", $groupmes);
+  mysqli_stmt_bind_param($stmt, "ssss", $receiver, $username, $username, $receiver);
   mysqli_stmt_execute($stmt);
   $result = mysqli_stmt_get_result($stmt);
       while($row = mysqli_fetch_array($result)){
@@ -31,7 +20,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)){
         $_SESSION['sender_name']  = $sender_name;
         $message = $row['message'];
         $date = $row['date_time'];
-        $username = $_SESSION['username'];
+     
 
         if ($sender_name != $_SESSION['username']){
 
@@ -71,8 +60,8 @@ if (!mysqli_stmt_prepare($stmt, $sql)){
     <button type="submit" class="profilebtn_left" name="button"><?php echo $sender_name; ?></button>
     <input type="hidden"  name="username" value="<?php echo $sender_name  ?>">
   </form>
-  <?php if($_SESSION['username'] == $owner){ ?>
-    <form class="" action="scr/deletemessage.scr.php" method="post">
+  <?php if($_SESSION['username'] == $sender_name){ ?>
+    <form class="" action="scr/deleteprivatemessage.scr.php" method="post">
       <input type="hidden" name="message" value="<?php echo $message; ?>">
       <input type="hidden" name="sender" value="<?php echo $sender_name; ?>">
       <input type="hidden" name="time" value="<?php echo $date; ?>">
@@ -103,8 +92,8 @@ else{ ?>
     <h1 class= "messageright"><?php echo $message; ?></h1>
   <?php } ?>
     <h6 class="date" style="display: none;"><?php echo $date; ?><h6>
-      <?php if($_SESSION['username'] == $owner){ ?>
-        <form class="" action="scr/deletemessage.scr.php" method="post">
+      <?php if($_SESSION['username'] == $sender_name){ ?>
+        <form class="" action="scr/deleteprivatemessage.scr.php" method="post">
           <input type="hidden" name="message" value="<?php echo $message; ?>">
           <input type="hidden" name="sender" value="<?php echo $sender_name; ?>">
           <input type="hidden" name="time" value="<?php echo $date; ?>">

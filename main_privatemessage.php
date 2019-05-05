@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="style/group.style.css">
+<?php require 'header.php'?>
+<link rel="stylesheet" href="style/privatemessage.style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <?php
@@ -7,6 +8,7 @@
   }else{
   require 'scr/dbh.scr.php';
   $user = $_SESSION["username"];
+  echo $_SESSION['receiver'];
   $sql = "SELECT * FROM hjuma_users WHERE username=? ";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)){
@@ -57,7 +59,7 @@ input.addEventListener("keyup", function(event) {
        var message = $("#message").val();
 
        $.ajax({
-         url: "scr/message.scr.php",
+         url: "scr/private_message.scr.php",
          type: "POST",
          async: false,
          data: {
@@ -88,7 +90,7 @@ function change() // no ';' here
 }
 $(document).ready(function(){
   setInterval(function(){
-    $('#container-message').load('message.php')
+    $('#container-message').load('privatemessage.php')
   }, 305);
 });
 </script>
