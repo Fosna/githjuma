@@ -27,8 +27,11 @@
               <li class="nav-item active">
                 <a class="creategroup btn btn-outline-primary ml-auto" id="creategroupbtn" href="creategroup">Create group</a>
               </li>
+              
 <?php require 'search.php'; ?>
+                  
 <?php
+
                 require 'scr/dbh.scr.php';
                 $owner = $_SESSION["username"];
                 $sql = "SELECT * FROM hjuma_users WHERE username=?;";
@@ -42,6 +45,7 @@
                       while($row = mysqli_fetch_array($result)){
 ?>
             </ul>
+                
                         <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
                             <div class="dropdown ">
@@ -83,6 +87,13 @@
                                     </form>
                                   </a>
                                 </li>
+                                <li role="presentation">
+                                  <a role="menuitem" tabindex="-1" href="#">
+                                    <form action="friends" method="post">
+                                      <button class="dropdown-item" type="submit">Friends</button>
+                                    </form>
+                                  </a>
+                                </li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
@@ -95,6 +106,7 @@
                             </div>
                           </li>
                         </ul>
+                        
 <?php
                       }
 
