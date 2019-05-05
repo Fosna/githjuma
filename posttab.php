@@ -81,6 +81,7 @@
                       $result2 = mysqli_stmt_get_result($stmt);
                         while($row2 = mysqli_fetch_assoc($result2)){
                           $liker = $row2['user'];
+                        }
                           if ($_SESSION['username'] != $liker) {
             ?>
                             <form class="" action="scr/like.scr.php" method="post">
@@ -89,7 +90,7 @@
                             </form>
              <?php
                         }
-                      }
+                     
                   }
                 }
            ?>

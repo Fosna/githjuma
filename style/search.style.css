@@ -16,10 +16,10 @@
   width: 300px;
 }
 .searchresult{
-  position: fixed;
   background: white;
   width: 300px;
-  border-radius: 5px;
+  margin: 1px;
+  border-radius: 2px;
 }
 .dropdown-item:hover{
   border-radius: 5px;

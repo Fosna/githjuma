@@ -1,7 +1,7 @@
 <?php
   require 'dbh.scr.php';
   if(isset($_REQUEST["term"])){
-      $sql = "SELECT * FROM hjuma_groups WHERE name LIKE ?";
+      $sql = "SELECT * FROM hjuma_groups WHERE name LIKE ? LIMIT 3";
       if($stmt = mysqli_prepare($conn, $sql)){
           mysqli_stmt_bind_param($stmt, "s", $param_term);
           $param_term = '%%' . $_REQUEST["term"] . '%%';

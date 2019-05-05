@@ -36,9 +36,11 @@
           </div>
           <br>
           <div class="form-group">
-            <form class="" action="scr/comments.scr.php" method="post">
+            <form class="" action="scr/comments.scr.php" method="post" enctype="multipart/form-data">
               <input type="hidden" name="postname" value="<?php echo $row['title'];?>"/>
-              <input class="form-control" id="commentinput" name="comment" autocomplete="off" placeholder="Type comment here..." value="" />
+              <input class="btn btn-outline-danger btn-sm" id="file" style="display: none;"  type="file" name="avatar" value="">
+            <input type="button" value="Choose image" class="btn btn-primary" id="file_alt"></input>
+              <textarea class="form-control" id="commentinput" name="comment" autocomplete="off" placeholder="Type comment here..." value="" ></textarea>
               <button class="commentbtn" type="submit" name="comment-submit">Comment</button>
             </form>
           </div>
@@ -65,6 +67,9 @@
 
                         <h4 class="comment"><?php echo $row1['comment']; ?></h4>
                         <h6 class="time"><?php echo $row1['date_time']; ?></h6>
+                        <?php if($row1['avatar'] != ""){
+                  echo '<img class="image" alt="Card image cap" src="data:image/jpeg;base64,'.base64_encode( $row1['avatar'] ).'"/>';
+                } ?>
                         <?php if ($row1['commenter'] == $_SESSION['username']){ ?>
                           <div class="more">
                           <button onclick="more()" class="morebtn" style="display:none;">...</button>
@@ -86,6 +91,12 @@
 ?>
 
 </div>
+<script type="text/javascript">
+  document.getElementById('file_alt').addEventListener('click',function(){
+    document.getElementById('file').click();
+});
+
+  </script>
 <script type="text/javascript">
 function more() {
 document.getElementById("more-dropdown").classList.toggle("show");

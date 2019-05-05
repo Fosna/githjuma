@@ -27,7 +27,6 @@ require 'header.php';
       }
     }
   ?>
-
 <?php
   if (isset($_GET['category'])) {
     $category = $_GET['category'];

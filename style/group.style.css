@@ -254,7 +254,7 @@ h2 {
   _position:absolute;
   _top:expression(eval(document.documentElement.scrollTop+
       (document.documentElement.clientHeight-this.offsetHeight)));
-  height:50%;
+  height:65%;
 }
 .senderright{
   font-size: 20px;
