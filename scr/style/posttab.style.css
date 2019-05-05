@@ -1,0 +1,41 @@
+.card{
+  background: #F5F5F5;
+  margin: 25px;
+  width: 40rem;
+  border-radius: 5px;
+  overflow: hidden;
+
+}
+.btn-link{
+  text-align: center;
+}
+@media only screen and (max-width: 952px) {
+  .card{
+    margin: 5px;
+    width: 34rem;
+
+  }
+}
+@media only screen and (max-width: 663px) {
+  .card{
+    margin: 5px;
+    width: 34rem;
+
+  }
+}
+@media only screen and (max-width: 463px) {
+  .card{
+    width: 15rem;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .card{
+    width: 19rem;
+
+  }
+}
+@media only screen and (max-width: 300px) {
+  .card{
+    width: 15rem;
+  }
+}

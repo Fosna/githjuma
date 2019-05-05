@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+.title{
+  text-align: center;
+}
+#invitebtn{
+  margin-top:15px;
+  margin-right: 10px;
+
+}
+
+.users{
+  height: 60px;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 200px;
+  margin-top: 20px;
+  background: none;
+  border: 0.2mm solid black;
+}
+.userBox{
+
+  background: #F5F5F5;
+  width: auto;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+  padding: 70px;
+
+}
+.username{
+  float: left;
+  margin-top: 20px;
+  clear: both;
+  background: none;
+  border: none;
+}

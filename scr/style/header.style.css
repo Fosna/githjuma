@@ -1,0 +1,48 @@
+.jumbotron{
+  margin-top: 74px;
+}
+.iconHeader{
+  float: right;
+  display: inline-block;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+  outline: none;
+}
+.profileimageHeader{
+  width: auto;
+  height: 120%;
+  margin-top: -2.7px;
+  margin-left: -5px;
+}
+.username{
+  margin-left: 24px;
+  font-size: 20px;
+}
+.creategroup{
+  margin: 10px;
+}
+@media only screen and (max-width: 412px) {
+  #loginbtn{
+    margin-right: -5px;
+    height: 70px;
+    font-size: 13px;
+    width: 40px;
+
+  }
+}
+@media only screen and (max-width: 378px) {
+  #loginbtn{
+    margin-right: -5px;
+    height: 50px;
+    width: 40px;
+    font-size: 13px;
+  }
+  #creategroupbtn{
+    width: 50px;
+    font-size: 10px;
+  }
+
+}

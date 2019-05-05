@@ -1,0 +1,65 @@
+@media only screen and (max-width: 412px) {
+  .search{
+    width: 100px;
+  }
+  .search:focus{
+    width: 100px;
+  }
+  .searchresult{
+    width: 100px;
+  }
+}@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.title{
+  text-align: center;
+}
+
+.username{
+  float: left;
+  margin-top: 20px;
+  clear: both;
+  background: none;
+  border: none;
+}
+#kickbtn{
+  margin-top:16px;
+  margin-right: 10px;
+
+  width: 70px;
+}
+.container{}
+.users{
+  height: 60px;
+  text-align: left;
+  display: block;
+  border-radius: 10px;
+  width: 200px;
+  margin-top: 10px;
+  background: none;
+
+}
+.userBox{
+  border: 0.2mm solid black;
+  width: 17rem;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: -300px;
+  margin-left: 20px;
+  background: #F5F5F5;
+}
+@media only screen and (max-width: 412px) {
+  .userBox{
+    margin-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (max-width: 1053px) {
+  .userBox{
+    margin-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

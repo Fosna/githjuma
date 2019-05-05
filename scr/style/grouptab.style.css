@@ -1,0 +1,29 @@
+.card{
+  background: #F5F5F5;
+  margin: 25px;
+  width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+.btn-link{
+  text-align: center;
+}
+.membercount{
+  margin: 0;
+}
+@media only screen and (max-width: 763px) {
+  .card{
+    width: 30rem;
+  }
+}
+@media only screen and (max-width: 512px) {
+  .card{
+    width: 20rem;
+  }
+}
+@media only screen and (max-width: 352px) {
+  .card{
+    width: 15rem;
+  }
+}

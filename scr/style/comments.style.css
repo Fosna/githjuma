@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #848383;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.commentbox{
+}
+.commentinput{
+  border: 0;
+  background: white;
+  width: 300px;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: none;
+  padding: 10px 10px;
+  outline: none;
+  border-radius: 4px;
+}
+.time{
+  display: none;
+}
+
+.card{
+  background: #F5F5F5;
+  margin-top:150px;
+  float: left;
+  margin-left: 20px;
+  width: 30rem;
+  position:fixed;
+  z-index:150;
+  transition: 0.25s;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.btn-link{
+  text-align: center;
+}
+
+.membercount{
+  margin: 0;
+}
+#file_alt{
+  text-align: center;
+  border: 0.2mm solid black;
+  bottom:90px;
+  width: 20%;
+  position:fixed;
+  font-size: 9px;
+  z-index:150;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+      height: 4%;
+}
+.image{
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  max-height: 300px;
+}
+#comments-container{
+  border: 0;
+  background: #F5F5F5;
+  border: 0.2mm solid #CFCFCF;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 40%;
+  font-family: 'Saira Semi Condensed', sans-serif;
+
+  margin-right: 430px;
+  float: right;
+  clear: both;
+
+}
+.commenter{
+  padding: 10px;
+  float: left;
+  border: none;
+  background: none;
+  font-size: 13px;
+}
+.time{
+  float:right;
+  font-size: 8px;
+}
+
+.postowner{
+  display: none;
+  float: left;
+}
+.title{
+  font-size: 30px;
+  margin: 13px;
+}
+.description{
+  font-size: 13px;
+  word-wrap: break-word;
+  float: left;
+  margin-left: 20px;
+  max-width: 380px;
+}
+.avatar{
+  float: right;
+  margin-right: 10%;
+  margin-top: -3%;
+  height: 250px;
+  border-radius: 7.5px;
+}
+#commentinput{
+  text-align: center;
+  border: 0.2mm solid black;
+  bottom:-0px;
+  width: 20%;
+  position:fixed;
+  font-size: 13px;
+  z-index:150;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+      height: 10%;
+
+}
+.commentbtn{
+  text-align: center;
+  border: 0.2mm solid black;
+  bottom:-0px;
+  width: 3%;
+  position:fixed;
+  font-size: 9px;
+  z-index:150;
+  margin-left: 20%;
+  _position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+
+      (document.documentElement.clientHeight-this.offsetHeight)));
+      height: 10%;
+  word-wrap: break-word;
+}
+.commentbtn:hover{
+  background:#1ab2ff;
+  color: white;
+}
+.comment{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+  max-width: 700px;
+  word-wrap: break-word;
+}
+@media only screen and (max-width: 1669px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    width: 40%;
+    margin-right: 200px;
+    float: right;
+    clear: both;
+
+  }
+  #commentinput{
+    width: 20%;
+  }
+  .image{
+    max-height: 200px;
+  }
+  #file_alt{
+    bottom:70px;  
+  }
+}
+@media only screen and (max-width: 1169px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    width: 40%;
+    margin-right: 100px;
+    float: right;
+    clear: both;
+
+  }
+  #commentinput{
+    width: 20%;
+  }
+}
+@media only screen and (max-width: 990px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 40%;
+    margin-right: 50px;
+    float: right;
+    clear: both;
+
+  }
+  #commentinput{
+    width: 20%;
+  }
+  .image{
+    max-height: 120px;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .card{
+    width: 20rem;
+  }
+  
+}
+
+
+@media only screen and (max-width: 690px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 0px;
+    float: right;
+    clear: both;
+
+  }
+  .image{
+    max-height: 80px;
+  }
+  .commentinput{
+    width: 20%;
+    font-size: 8px;
+  }
+  .card{
+    width: 17rem;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .comment{
+    font-size: 10px;
+  }
+  #commentinput{
+    width: 30%;
+    
+  }
+  .commentbtn{
+    margin-left: 30%;
+  }
+  .image{
+    max-height: 60px;
+  }
+  #file_alt{
+    bottom: 60px;-
+  }
+  .card{
+    background: #F5F5F5;
+    margin-top:100px;
+    margin-right: 10px;
+    float: left;
+    width: 12rem;
+    position:fixed;
+    z-index:150;
+    transition: 0.25s;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .time{
+    display: none;
+  }
+
+ 
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 0px;
+    float: right;
+    clear: both;
+
+  }
+}
+@media only screen and (max-width: 310px) {
+
+  #comments-container{
+    border: 0;
+    background: #F5F5F5;
+    border: 0.2mm solid #CFCFCF;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 30%;
+    margin-right: 0px;
+    float: right;
+    clear: both;
+
+  }
+  
+  .card{
+    width: 10rem;
+  }
+  .image{
+    max-height: 50px;
+  }
+  .comment{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    max-width: 700px;
+    word-wrap: break-word;
+  }
+}
