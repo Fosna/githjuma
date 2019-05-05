@@ -6,7 +6,7 @@
     require 'dbh.scr.php';
     session_start();
     $category = mysqli_real_escape_string($conn, $_POST['category']);
-    $sql = "SELECT * FROM hjuma_groups WHERE category=?";
+    $sql = "SELECT * FROM hjuma_groups WHERE category=?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
       echo "SQL error";

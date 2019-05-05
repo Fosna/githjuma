@@ -126,7 +126,7 @@ require 'header.php';
   <form class="" action="scr/categorychoose.scr.php" method="post" enctype="multipart/form-data">
     <label for="category"></label>
     <select class="browser-default custom-select custom-select-lg" name="category">
-      <option selected="selected" value="" class="default">Select category</option>
+      <option selected="selected" value="all" class="default">Select category</option>
       <option value="Movies">Movies</option>
       <option value="Politics">Politics</option>
       <option value="Video game">Video game</option>

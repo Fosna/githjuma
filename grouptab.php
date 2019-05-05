@@ -3,10 +3,10 @@
 <?php
   require 'scr/dbh.scr.php';
   $owner = $_SESSION['username'];
-  if ($category == "") {
-    $sql = "SELECT * FROM hjuma_groups ORDER BY membercount DESC";
-  }else {
+  if ($category=="Movies"||$category=="Politics"||$category=="Video game"||$category=="Life"||$category == "Nature"||$category == "Comedy"||$category=="Music"||$category=="Business"||$category=="Technology"||$category=="Sport") {
     $sql = "SELECT * FROM hjuma_groups WHERE category='$category' ORDER BY membercount DESC";
+  }else {
+    $sql = "SELECT * FROM hjuma_groups ORDER BY membercount DESC";
   }
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
