@@ -34,7 +34,7 @@
                         <div class="searchresult1">
                           <form class="" action="scr/sendfriendreq.scr.php" method="post">
                             <p class="username"><?php echo $row['username']; ?></p>
-                            <?php if($row['username'] == $_SESSION['username'] || $userfriend == $_SESSION['username']){ ?>
+                            <?php if($row['username'] == $_SESSION['username']){ ?>
                             <?php }else{ ?>
                                 <button style="float: right;" type="submit" class="btn btn-success" id="invitebtn" name="inviteuser-submit">Make friend!</button>
                             <?php } ?>

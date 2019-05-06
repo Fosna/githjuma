@@ -21,9 +21,11 @@
           mysqli_stmt_execute($stmt);
           $result = mysqli_stmt_get_result($stmt);
               while($row = mysqli_fetch_array($result)){
+                echo '<div class="email">'.$row['email'].'</div>';
 
                 if($row['profileimage']==""){
       ?>
+   
       <div class="icon">
         <img class="native_profileimage" src="pics/icon.png"/>
       </div>
@@ -39,26 +41,21 @@
 
         <?php
                 }
-                echo '<div class="email">'.$row['email'].'</div>';
+
+                echo '<p class="account_description">'.$row['description'].'</p>';
               }
             }
 
       ?>
+      
       <div class="form-group">
         <form class="" style="margin-top:40px;" action="scr/passwordconfirm.scr.php" method="post">
-          <input type="password" class="form-control" name="password" autocomplete="off" placeholder="Confirm password to change name" value="" required>
-          <button type="submit" class="btn btn-success" name="passwordconfirm-submit">Change name</button>
+          <input type="password" class="form-control" id="confirmsettings" name="password" autocomplete="off" placeholder="Confirm password to enter settings" value="" required>
+          <button type="submit" class="btn btn-success" name="passwordconfirm-submit">Enter settings</button>
         </form>
       </div>
 
-      <div class="imageupload">
-        <form class="" action="scr/accountupdate.scr.php" method="post" enctype="multipart/form-data">
-          <input class="btn btn-primary" id="file" style="display: none;"  type="file" name="avatar" value="">
-          <input type="button" value="Choose image" class="btn btn-primary" id="file_alt"></input>
-        <button type="submit" class="btn btn-primary" name="accountupdate-submit">Upload</button>
-
-        </form>
-      </div>
+      
 
     </div>
 

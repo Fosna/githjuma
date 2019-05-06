@@ -38,10 +38,10 @@ if (!mysqli_stmt_prepare($stmt, $sql1)){
         ?>
           <form class="" action="profile" method="post">
             <?php if($row1['user1']!=$username){?>
-              <input type="hidden" name="username" value="<?php echo $row1['user1']; ?>">
+              <input type="hidden" name="sender" value="<?php echo $row1['user1']; ?>">
               <button type="submit" style="float: right; clear: both; font-size: 30px;" class="btn btn-link" id="owner" name="button"><?php echo $row1['user1']; ?></button>
             <?php }else{ ?>
-              <input type="hidden" name="username" value="<?php echo $row1['user2']; ?>">
+              <input type="hidden" name="sender" value="<?php echo $row1['user2']; ?>">
               <button type="submit" style="float: right; clear: both; font-size: 30px;" class="btn btn-link" id="owner" name="button"><?php echo $row1['user2']; ?></button>
             <?php } ?>
             </form> 

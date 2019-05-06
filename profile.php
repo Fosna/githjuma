@@ -49,7 +49,10 @@
            ?>
             <div>
           
-           <a href="main_privatemessage" class="btn btn-primary">Message</a>
+           <form action="main_privatemessage" type="post">
+           <input type="hidden" name="sender" value="<?php echo $user; ?>"/>
+           <button type="submit" class="btn btn-primary">Message</button>
+           </form>
             </div>
 
 

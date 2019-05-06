@@ -24,7 +24,7 @@ else{
         exit();
       }
       else if ($pwdCheck == true) {
-        header("Location: ../changename?check=success");
+        header("Location: ../accountsettings?check=success");
         exit();
       }
     }

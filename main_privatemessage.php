@@ -7,8 +7,7 @@
     header("Location: main");
   }else{
   require 'scr/dbh.scr.php';
-  $user = $_SESSION["username"];
-  echo $_SESSION['receiver'];
+  $user = mysqli_real_escape_string($conn, $_POST['sender']);
   $sql = "SELECT * FROM hjuma_users WHERE username=? ";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)){
