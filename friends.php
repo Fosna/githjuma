@@ -1,7 +1,14 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/invitepeople.style.css">
 <div class="space"></div>
-<h1  style="margin-top: 100px; margin-left: 55px;">Search friends</h1>
+<style>
+.yourfriends{
+  height: 100%;
+  width: 100px;
+  margin: 20px; 
+  border-radius: 20px;
+}
+</style>
 <?php
 require 'searchfriends.php';
 $username = $_SESSION['username'];
@@ -24,7 +31,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)){
       <?php
       }
     }?>
- <h1 style="float:right; margin-right:20px;">Your friends</h1>
+
  <?php
  $sql1 = "SELECT * FROM hjuma_friends WHERE user1=? OR user2=?;";
 $stmt = mysqli_stmt_init($conn);
@@ -35,17 +42,35 @@ if (!mysqli_stmt_prepare($stmt, $sql1)){
   mysqli_stmt_execute($stmt);
   $result1 = mysqli_stmt_get_result($stmt);
       while($row1= mysqli_fetch_array($result1)){
+        if($row1['user1']!=$username){
+          $friend = $row1['user1'];
+        }else{
+          $friend = $row1['user2'];
+        }
         ?>
-          <form class="" action="profile" method="post">
-            <?php if($row1['user1']!=$username){?>
-              <input type="hidden" name="sender" value="<?php echo $row1['user1']; ?>">
-              <button type="submit" style="float: right; clear: both; font-size: 30px;" class="btn btn-link" id="owner" name="button"><?php echo $row1['user1']; ?></button>
-            <?php }else{ ?>
-              <input type="hidden" name="sender" value="<?php echo $row1['user2']; ?>">
-              <button type="submit" style="float: right; clear: both; font-size: 30px;" class="btn btn-link" id="owner" name="button"><?php echo $row1['user2']; ?></button>
-            <?php } ?>
+        <div class="yourfriends">
+          <form class="" action="profile" method="post">       
+              <input type="hidden" name="sender" value="<?php echo $friend; ?>">
+              <button type="submit" style=" float: left; clear: both; font-size: 20px;" class="btn btn-link" id="owner" name="button"><?php echo $friend; ?></button>          
             </form> 
+            </div>
     <?php
       }
     }
+    $sql2 = "SELECT * FROM hjuma_users WHERE username=? ;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql2)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt, "s", $friend);
+      mysqli_stmt_execute($stmt);
+      $result2 = mysqli_stmt_get_result($stmt);
+          while($row2= mysqli_fetch_assoc($result2)){
+            if($row2['profileimage']!=""){
+            echo '<img class="profileimage" src="data:image/jpeg;base64,'.base64_encode( $row2['profileimage'] ).'"/>';
+            }else{
+              echo "Aaaaaaaaaa";
+            }
+          }
+        }
   ?>
