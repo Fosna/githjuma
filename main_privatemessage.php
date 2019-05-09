@@ -18,7 +18,6 @@
     $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
 ?>
-
        <?php } ?>
 
             <div class="container-message" id="container-message">

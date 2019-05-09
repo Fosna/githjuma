@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="style/grouptab.style.css">
     <link rel="stylesheet" href="style/account.style.css">
     <link rel="stylesheet" href="style/includes/error.inc.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="namecontainer">
       <?php
           if (isset($_SESSION['username'])) {
@@ -22,7 +22,6 @@
           $result = mysqli_stmt_get_result($stmt);
               while($row = mysqli_fetch_array($result)){
                 echo '<div class="email">'.$row['email'].'</div>';
-
                 if($row['profileimage']==""){
       ?>
    

@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="style/group.style.css">
 <link rel="stylesheet" href="style/body.style.css">
 <a class="btn btn-primary" href="createpost">Create post</a>
+<a class="btn btn-primary" href="events">Events</a>
 <?php
 require 'scr/dbh.scr.php';
 $groupname = $_SESSION['groupname'];
