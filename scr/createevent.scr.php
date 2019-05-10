@@ -20,12 +20,12 @@
       exit();
     }
     else {
-      $sql = "INSERT INTO hjuma_events (name, description, category, place, date_time, imagename, image, owner) VALUES (?,?, ?, ?, '$image', ?, ?, ?)";
+      $sql = "INSERT INTO hjuma_events (name, description, category, place, date_time, imagename, image, owner) VALUES (?, ?, ?, ?, ?, ?, '$image', ?)";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)) {
         echo "SQL error";
       }else {
-        mysqli_stmt_bind_param($stmt,"sssssss", $name, $description, $category, $place, $date, $imagename, $owner);
+        mysqli_stmt_bind_param($stmt,"sssssss", $name, $description, $category, $place, $date, $image_name, $owner);
         mysqli_stmt_execute($stmt);
         header("Location: ../events");
       }
