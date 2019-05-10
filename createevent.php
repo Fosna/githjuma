@@ -32,9 +32,15 @@
         <div class="form-group">
             <label for="date_time">Date off the event:</label>
             <input class="form-control" type="text1" autocomplete="off"  placeholder="Enter date when your event will happen" name="date_time" value="">
+            <!-- kalendar dropdown choose -->
         </div>
-        <label for="category">Category:</label>
         <div class="form-group">
+            <label for="place">Place off event:</label>
+            <input class="form-control" type="text1" autocomplete="off"  placeholder="Enter place where your event will happen" name="place" value="">
+            <!-- google maps dropdown choose -->
+        </div>
+        <div class="form-group"> 
+            <label for="category">Category:</label>
             <select class="form-control" id="exampleFormControlSelect1" name="category">
                 <option selected="selected" value="all" class="default">Choose category</option>
                 <option value="reality">Reality</option>

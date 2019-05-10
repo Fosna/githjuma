@@ -2,12 +2,13 @@
   if (!isset($_POST['createevent-submit'])) {
     exit();
   }
-  else{
+  else{ 
     require 'dbh.scr.php';
     session_start();
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $category = mysqli_real_escape_string($conn, $_POST['category']);
+    $place = mysqli_real_escape_string($conn, $_POST['place']);
     $file = $_FILES['avatar']['tmp_name'];
     $image = addslashes(file_get_contents($_FILES['avatar']['tmp_name']));
     $image_name =addslashes($_FILES['avatar']['tmp_name']);
@@ -19,12 +20,12 @@
       exit();
     }
     else {
-      $sql = "INSERT INTO hjuma_events (name, description, category, date_time, imagename, image, owner) VALUES (?,?, ?, '$image', ?, ?, ?)";
+      $sql = "INSERT INTO hjuma_events (name, description, category, place, date_time, imagename, image, owner) VALUES (?,?, ?, ?, '$image', ?, ?, ?)";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)) {
         echo "SQL error";
       }else {
-        mysqli_stmt_bind_param($stmt,"sssssss", $name, $description, $category, $date, $imagename, $owner);
+        mysqli_stmt_bind_param($stmt,"sssssss", $name, $description, $category, $place, $date, $imagename, $owner);
         mysqli_stmt_execute($stmt);
         header("Location: ../events");
       }
