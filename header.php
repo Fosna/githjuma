@@ -20,7 +20,6 @@
 <?php
             error_reporting(0);
             if (isset($_SESSION['id'])) {
-              error_reporting(0);
           ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -64,7 +63,7 @@
   ?>
                                  <span class="caret"></span>
                               </button>
-                              <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
+                              <ul class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
@@ -94,6 +93,7 @@
                                     </form>
                                   </a>
                                 </li>
+                                <div class="dropdown-divider"></div>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
