@@ -114,7 +114,7 @@
 
 
             else {
-          ?>
+?>
           <?php require 'search.php'; ?>
           <form action="login" class="ml-auto" method="post">
             <button id="loginbtn" class="btn btn-primary " style="margin-left: 10px;"   type="submit">Log in</button>
