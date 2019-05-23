@@ -47,18 +47,18 @@
                           <li class="nav-item">
                             <div class="dropdown ">
                               <button class="btn"  type="button" id="menu1" data-toggle="dropdown">
-  <?php
+<?php
                                  if($row['profileimage'] == ""){
-  ?>                               <div class="iconHeader">
+?>                                 <div class="iconHeader">
                                       <img class="profileimageHeader" src="pics/icon.png">
                                    </div>
-  <?php
+<?php
                                  }else {
                                    echo '<div class="iconHeader">';
                                    echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
                                    echo '</div>';
                                  }
-  ?>
+?>
                                  <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
