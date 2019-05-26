@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,6 +20,7 @@
 <?php
             error_reporting(0);
             if (isset($_SESSION['id'])) {
+              error_reporting(0);
           ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
@@ -47,21 +50,21 @@
                           <li class="nav-item">
                             <div class="dropdown ">
                               <button class="btn"  type="button" id="menu1" data-toggle="dropdown">
-<?php
+  <?php
                                  if($row['profileimage'] == ""){
-?>                                 <div class="iconHeader">
+  ?>                               <div class="iconHeader">
                                       <img class="profileimageHeader" src="pics/icon.png">
                                    </div>
-<?php
+  <?php
                                  }else {
                                    echo '<div class="iconHeader">';
                                    echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,'.base64_encode( $row['profileimage'] ).'"/>';
                                    echo '</div>';
                                  }
-?>
+  ?>
                                  <span class="caret"></span>
                               </button>
-                              <ul class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
+                              <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
@@ -91,7 +94,6 @@
                                     </form>
                                   </a>
                                 </li>
-                                <div class="dropdown-divider"></div>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
@@ -114,7 +116,7 @@
 
 
             else {
-?>
+          ?>
           <?php require 'search.php'; ?>
           <form action="login" class="ml-auto" method="post">
             <button id="loginbtn" class="btn btn-primary " style="margin-left: 10px;"   type="submit">Log in</button>

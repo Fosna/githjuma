@@ -27,7 +27,7 @@
       }else {
         mysqli_stmt_bind_param($stmt,"sssssss", $name, $description, $category, $place, $date, $image_name, $owner);
         mysqli_stmt_execute($stmt);
-        header("Location: ../events");
+        header("Location: ../events.php");
       }
     }
   }
