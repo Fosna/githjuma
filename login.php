@@ -1,21 +1,26 @@
-<?php require'header.php'; ?>
+<?php require 'header.php'; ?>
 <title>Hjuma</title>
 <link rel="stylesheet" href="style/login_signup.style.css">
 <link rel="stylesheet" href="style/includes/error.inc.css">
+<style>
+
+</style>
 <form class="content" action="scr/login.scr.php" method="post">
   <div class="container">
   <h1 style="text-align: center; padding: 60px;">Login</h1>
-
-
+  <hr class="my-2">
   <div class="form-group">
-    <input type="text" name="username"  class="form-control" placeholder="Username" value="<?php echo $_COOKIE["username"]; ?>" required>
+  Username:
+    <input type="text" name="username"  class="form-control"  value="" required>
   </div>
+ 
   <div class="form-group">
-    <input type="password" name="password"  class="form-control" autocomplete="off" placeholder="Password" value="<?php echo $_COOKIE["password"]; ?>" required>
+  Password:
+    <input type="password" name="password"  class="form-control" autocomplete="off" value="" required>
   </div>
-  <button type="submit" class="btn btn-primary" name="login-submit">Login</button>
-  <input type="checkbox" name="remember">Remember me<br>
-  <a class="forgotenPassword" href="#">Forgoten password?</a>
+  <button type="submit" class="btn btn-primary btn-block" name="login-submit">Login</button>
+  <!-- <input type="checkbox"  name="remember">Remember me<br> -->
+  <!-- <a class="forgotenPassword" href="#">Forgoten password?</a> -->
   </div>
 
 </form>
@@ -42,4 +47,4 @@
     }
   }
 ?>
-<?php require 'footer.php'; ?>
+

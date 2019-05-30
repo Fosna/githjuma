@@ -25,10 +25,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="creategroup btn btn-outline-primary ml-auto" id="creategroupbtn" href="creategroup">Create group</a>
               </li>
               
-<?php require 'search.php'; ?>
+
                   
 <?php
 
@@ -65,35 +64,7 @@
                                  <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
-                                <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>
-                                <li role="presentation">
-                                  <a role="menuitem" tabindex="-1" href="#">
-                                    <form action="account" method="post">
-                                      <button class="dropdown-item" id="myacc" type="submit">My account</button>
-                                    </form>
-                                  </a>
-                                </li>
-                                <li role="presentation">
-                                  <a role="menuitem" tabindex="-1" href="#">
-                                    <form action="mygroups" method="post">
-                                      <button class="dropdown-item" id="myacc" type="submit">My groups</button>
-                                    </form>
-                                  </a>
-                                </li>
-                                <li role="presentation">
-                                  <a role="menuitem" tabindex="-1" href="#">
-                                    <form action="invites" method="post">
-                                      <button class="dropdown-item" type="submit">Invites</button>
-                                    </form>
-                                  </a>
-                                </li>
-                                <li role="presentation">
-                                  <a role="menuitem" tabindex="-1" href="#">
-                                    <form action="friends" method="post">
-                                      <button class="dropdown-item" type="submit">Friends</button>
-                                    </form>
-                                  </a>
-                                </li>
+                                <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>                       
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
@@ -117,12 +88,12 @@
 
             else {
           ?>
-          <?php require 'search.php'; ?>
+          
           <form action="login" class="ml-auto" method="post">
-            <button id="loginbtn" class="btn btn-primary " style="margin-left: 10px;"   type="submit">Log in</button>
+            <button id="loginbtn" class="btn btn-primary" style=""   type="submit">Log in</button>
           </form>
           <form action="signup" method="post">
-            <button id="loginbtn" class="btn btn-primary " style="margin-left: 10px;"  type="submit">Sign up</button>
+            <button id="loginbtn" class="btn btn-primary" style=""  type="submit">Sign up</button>
           </form>
 
           <?php
