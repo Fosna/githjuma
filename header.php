@@ -64,7 +64,8 @@
                                  <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
-                                <li role="presentation"><p class="username"><?php echo $_SESSION['username']; ?></p></li>                       
+                                <li role="presentation"><p class="dropdown_username"><?php echo $_SESSION['username']; ?></p></li>    
+                                <hr>                   
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
                                   <a role="menuitem" tabindex="-1" href="#">
@@ -88,14 +89,12 @@
 
             else {
           ?>
-          
           <form action="login" class="ml-auto" method="post">
-            <button id="loginbtn" class="btn btn-primary" style=""   type="submit">Log in</button>
+            <button id="loginbtn" class="btn btn-primary" type="submit">Log in</button>
           </form>
           <form action="signup" method="post">
-            <button id="loginbtn" class="btn btn-primary" style=""  type="submit">Sign up</button>
+            <button id="loginbtn" class="btn btn-primary" type="submit">Sign up</button>
           </form>
-
           <?php
             }
           ?>
@@ -118,3 +117,4 @@
         }
       }
     </script>
+<div class="header_space"></div>

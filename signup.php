@@ -49,7 +49,7 @@
       Confirm password:
         <input type="password" name="password-rp" class="form-control" autocomplete="off" placeholder="" size="30" value="" required/>
       </div>
-        <button type="submit" name="signup-submit" class="btn btn-primary btn-block" autocomplete="off" value="Submit">Sign up</button>
+        <button type="submit" name="signup-submit" class="btn btn-success btn-block" autocomplete="off" value="Submit">Sign up</button>
         </div>
       </form>
       <div class="alogin">

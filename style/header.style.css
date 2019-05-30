@@ -8,13 +8,20 @@
     overflow: hidden;
     border-radius: 50%;
     outline: none;
-  }
+}
   .profileimageHeader{
     width: auto;
     height: 120%;
     margin-top: -2.7px;
     margin-left: -5px;
+}
+  .dropdown_username{
+    font-size: 20px;
+    margin-left: 25px;
   }
-  .btn-primary{
-    margin-left: 10px;
-  }
+.header_space{
+  padding: 35px;
+}  
+#loginbtn{
+  margin-left: 10px;
+}

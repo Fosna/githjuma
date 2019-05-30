@@ -18,7 +18,7 @@
   Password:
     <input type="password" name="password"  class="form-control" autocomplete="off" value="" required>
   </div>
-  <button type="submit" class="btn btn-primary btn-block" name="login-submit">Login</button>
+  <button type="submit"  class="btn btn-success btn-block" name="login-submit">Login</button>
   <!-- <input type="checkbox"  name="remember">Remember me<br> -->
   <!-- <a class="forgotenPassword" href="#">Forgoten password?</a> -->
   </div>
