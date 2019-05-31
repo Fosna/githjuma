@@ -16,19 +16,23 @@ elseif (isset($_POST['create_challenge-submit'])) {
     exit();
   }
   else {
-    $hashedPwd = password_hash($challenge_password, PASSWORD_DEFAULT);
+    if ($challenge_password === "") {
+      $final_password = "";
+    }else {
+      $final_password = password_hash($challenge_password, PASSWORD_DEFAULT);
+    }
     $sql = "INSERT INTO hjuma_challenges (challenge_title, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password) VALUES (?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       echo "SQL error";
     }else {
-      mysqli_stmt_bind_param($stmt,"ssssss", $challenge_title, $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $hashedPwd);
+      mysqli_stmt_bind_param($stmt,"ssssss", $challenge_title, $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $final_password);
       mysqli_stmt_execute($stmt);
-    }
-    header("Location: ../main");
-
+      header("Location: ../main");
+      exit();
     }
   }
+}
 else {
   header("Location: ../main");
   exit();

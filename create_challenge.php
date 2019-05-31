@@ -25,8 +25,8 @@
         <option value="java">Java</option>
         <option value="html_css">HTML&CSS</option>
       </select>
-      </div>
-      <div class="form-group">
+    </div>
+    <div class="form-group">
       <label for="password">Start date:</label>
       <input type="date" class="form-control" name="challenge_start_date">
     </div>
@@ -38,7 +38,7 @@
       <label for="password">Pasword:</label>
       <input type="password" class="form-control" name="challenge_password" placeholder="Password of challenge">
     </div>
-    <button type="submit" class="btn btn-success btn-block" name="create_challenge-submit">Create Challenge!</button>
+    <button type="submit" class="btn btn-success btn-block" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
    
   </div>
 </form>

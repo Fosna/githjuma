@@ -1,6 +1,9 @@
 .container{
     margin-top:100px;
 }
-#create_challengebtn{
+#header_create_challengebtn{
     display:none;
+}
+#btn_createchallenge{
+    margin-bottom: 20px;
 }

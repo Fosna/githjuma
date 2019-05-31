@@ -24,7 +24,7 @@ session_start();
     if (isset($_SESSION['id'])) {
       error_reporting(0);
       ?>
-      <a id="create_challengebtn" class="btn btn-primary" href="create_challenge">Create challenge!</a>
+      <a id="header_create_challengebtn" class="btn btn-primary" href="create_challenge">Create challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item active">
