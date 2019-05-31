@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <label for="password">Description</label>
-      <input type="password" class="form-control" name="description" placeholder="Description of challenge">
+      <input type="text" class="form-control" name="description" placeholder="Description of challenge">
     </div>
     <div class="form-group">
       <label for="sel1">Select programming language:</label>

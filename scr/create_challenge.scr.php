@@ -16,7 +16,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
     exit();
   }
   else {
-    $sql = "INSERT INTO hjuma_challenges (title, description, prog_language, start_date, deadline) VALUES (?, ?, ?, ?, ?, ?, '$image');";
+    $sql = "INSERT INTO hjuma_challenges (title, description, prog_language, start_date, deadline) VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       echo "SQL error";
@@ -24,11 +24,10 @@ elseif (isset($_POST['create_challenge-submit'])) {
       mysqli_stmt_bind_param($stmt,"sssss", $title, $description, $prog_language, $start_date, $deadline);
       mysqli_stmt_execute($stmt);
     }
-    header("Location: ../comments");
+    header("Location: ../main");
 
     }
   }
-}
 else {
   header("Location: ../main");
   exit();

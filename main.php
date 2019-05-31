@@ -7,7 +7,7 @@
     <hr class="my-4">
     <p>Create a challange, have fun!</p>
     <p class="lead">
-        <a class="btn btn-primary btn-lg" id="btn_main" href="" role="button">Start today!</a>
+        <a class="btn btn-primary btn-lg" id="btn_main" href="create_challenge" role="button">Start today!</a>
     </p>
 </div>
 <!-- Opis aplikacije -->
