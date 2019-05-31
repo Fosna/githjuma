@@ -16,7 +16,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
     exit();
   }
   else {
-    $sql = "INSERT INTO hjuma_challenges (title, description, prog_language, start_date, deadline) VALUES (?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO hjuma_challenges (challenge_title, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline) VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       echo "SQL error";
