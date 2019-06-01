@@ -1,6 +1,7 @@
 <?php require 'header.php'; ?>
 <title>Hjuma</title>
 <link rel="stylesheet" href="style/login_signup.style.css">
+<link rel="stylesheet" href="style/login.style.css">
 <link rel="stylesheet" href="style/includes/error.inc.css">
 <style>
  
@@ -16,7 +17,6 @@
     <div class="form-group">
       <label for="password">Password:</label>
       <input type="password" class="form-control" name="password" placeholder="Enter your password">
-      <small id="passwordHelp" class="form-text text-muted">We'll never share your password with anyone else!</small>
     </div>
     <button type="submit" class="btn btn-success btn-block" name="login-submit">Login</button>
     <!-- <input type="checkbox"  name="remember">Remember me<br> -->

@@ -1,9 +1,6 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-
 <head>
   <title class="title">Hjuma</title>
   <link rel="stylesheet" href="style/header.style.css">
@@ -19,11 +16,10 @@ session_start();
 <body>
   <nav id="header" class="navbar fixed-top navbar-expand navbar-dark bg-dark navbar-fixed-top">
     <a class="navbar-brand" href="main">Hjuma</a>
-    <?php
+<?php
     error_reporting(0);
     if (isset($_SESSION['id'])) {
-      error_reporting(0);
-      ?>
+?>
       <a id="header_create_challengebtn" class="btn btn-primary" href="create_challenge">Create challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
@@ -32,8 +28,7 @@ session_start();
 
 
 
-          <?php
-
+<?php
           require 'scr/dbh.scr.php';
           $owner = $_SESSION["username"];
           $sql = "SELECT * FROM hjuma_users WHERE username=?;";
@@ -45,25 +40,26 @@ session_start();
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             while ($row = mysqli_fetch_array($result)) {
-              ?>
+?>
             </ul>
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <div class="dropdown ">
                   <button class="btn" type="button" id="menu1" data-toggle="dropdown">
-                    <?php
+<?php
                     if ($row['profileimage'] == "") {
-                      ?> <div class="iconHeader">
+?> 
+                      <div class="iconHeader">
                         <img class="profileimageHeader" src="pics/icon.png">
                       </div>
-                    <?php
+<?php
                   } else {
                     echo '<div class="iconHeader">';
                     echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,' . base64_encode($row['profileimage']) . '"/>';
                     echo '</div>';
                   }
-                  ?>
+?>
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
@@ -84,20 +80,20 @@ session_start();
               </li>
             </ul>
 
-          <?php
+<?php
         }
       }
     } else {
-      ?>
+?>
         <form action="login" class="ml-auto" method="post">
           <button id="loginbtn" class="btn btn-outline-primary" type="submit">Log in</button>
         </form>
         <form action="signup" method="post">
           <button id="loginbtn" class="btn btn-primary" type="submit">Sign up</button>
         </form>
-      <?php
+<?php
     }
-    ?>
+?>
     </div>
   </nav>
   <script type="text/javascript">

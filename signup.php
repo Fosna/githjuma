@@ -1,5 +1,6 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/login_signup.style.css">
+<link rel="stylesheet" href="style/signup.style.css">
 <form class="content" action="scr/signup.scr.php" method="post">
   <div class="container">
     <h1>Sign up</h1>
