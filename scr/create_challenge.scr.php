@@ -29,6 +29,8 @@ elseif (isset($_POST['create_challenge-submit'])) {
             $challenge_explanation = $row['def_challenge_explanation'];
           }
         }
+  }elseif ($challenge_type == "user_challenge"){
+    $challenge_explanation = mysqli_real_escape_string($conn, $_POST['challenge_user_explanation']);
   }
   $challenge_description = mysqli_real_escape_string($conn, $_POST['challenge_description']);
   $challenge_prog_language = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);

@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
       <label for="challenge_type">Type of challenge</label>
-      <select id="challenge_type" name="challenge_type" class="form-control">
+      <select id="challenge_type" name="challenge_type" class="form-control" onchange="java_script_:show(this.options[this.selectedIndex].value)">
         <option value="def_challenge">Random most popular challenges from our database</option>
 <?php
         if (!isset($_SESSION['id'])) {
@@ -19,7 +19,7 @@
 <?php
         }else{
 ?>
-        <option onclick="toggleExplanation()" value="user_challenge">Your own challenge wich you need to create on your own</option>
+        <option  value="user_challenge">Your own challenge wich you need to create on your own</option>
 <?php 
         }
 ?>
@@ -72,7 +72,13 @@
 </form>
 <script type="text/javascript">
     document.getElementById("item_block").disabled = true;
-    function toggleElement(){
-      document.getElementById("user_explanation").style.display = 'block';
+    function show(aval) {
+    if (aval == "user_challenge") {
+      user_explanation.style.display='inline-block';
+    Form.fileURL.focus();
+    } 
+    else{
+      user_explanation.style.display='none';
     }
+  }
 </script>
