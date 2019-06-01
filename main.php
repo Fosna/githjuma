@@ -23,5 +23,6 @@
     </p>
 </div>
 <!-- Opis aplikacije -->
+<h1>ovaj jumbotron background ili drugi (slika u folderu pics)-Ian</h1>
 </body>
 </html>
