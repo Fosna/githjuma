@@ -1,5 +1,4 @@
-<?php require 'header.php'; ?>
-<div  class="header_space"></div> 
+<?php require 'header.php'; ?>> 
 <link rel="stylesheet" href="style/create_challenge.style.css">
 <form class="content" action="scr/create_challenge.scr.php" method="post">
   <div class="container">
@@ -10,18 +9,24 @@
       <input type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge">
     </div>
     <div class="form-group">
-      <label for="challenge_description">Description: (mozda - zadatak ili opis zadatka)</label>
-      <input type="text" class="form-control" name="challenge_description" placeholder="Description of challenge">
-    </div>
-    <!-- test /////////////////////////////////////////////////////-->
-    <div class="form-group">
       <label for="challenge_type">Type of challenge</label>
       <select name="challenge_type" class="form-control" id="sel1">
         <option value="type_default">Random most popular challenges from our database</option>
         <option value="type_unicue">Your own challenge wich you need to create on your own</option>
       </select>
     </div>
-    <!-- test ////////////////////////////////////////////////////-->
+    <div class="form-group">
+      <label for="sel1">Select difficulty:</label>
+      <select name="challenge_difficulty" class="form-control" id="sel2">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>    
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="challenge_description">Description:</label>
+      <input type="text" class="form-control" name="challenge_description" placeholder="Description of challenge">
+    </div>
     <div class="form-group">
       <label for="sel1">Select programming language:</label>
       <select name="challenge_prog_language" class="form-control" id="sel2">
