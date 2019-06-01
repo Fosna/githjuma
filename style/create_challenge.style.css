@@ -7,6 +7,9 @@
 #btn_createchallenge{
     margin-bottom: 125px;
 }
+#user_explanation{
+    display: none;
+}
 option:nth-child(2){
     cursor: not-allowed !important;
 }

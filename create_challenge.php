@@ -10,27 +10,28 @@
     </div>
     <div class="form-group">
       <label for="challenge_type">Type of challenge</label>
-      <select name="challenge_type" class="form-control" id="sel1">
+      <select id="challenge_type" name="challenge_type" class="form-control">
         <option value="def_challenge">Random most popular challenges from our database</option>
 <?php
         if (!isset($_SESSION['id'])) {
 ?>    
         <option id="item_block" value="user_challenge">Your own challenge wich you need to create on your own - Login for this feature!</option>¸
-        <script type="text/javascript">
-          document.getElementById("item_block").disabled = true;
-        </script>
 <?php
         }else{
 ?>
-        <option value="user_challenge">Your own challenge wich you need to create on your own</option>
+        <option onclick="toggleExplanation()" value="user_challenge">Your own challenge wich you need to create on your own</option>
 <?php 
         }
 ?>
       </select>
     </div>
+    <div class="form-group" id="user_explanation">
+      <label for="challenge_user_explanation">Text area:</label>
+      <input type="text" class="form-control" name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain what users need to do">
+    </div>
     <div class="form-group">
       <label for="challenge_difficulty">Select difficulty:</label>
-      <select name="challenge_difficulty" class="form-control" id="sel2">
+      <select name="challenge_difficulty" class="form-control">
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>    
@@ -42,7 +43,7 @@
     </div>
     <div class="form-group">
       <label for="challenge_prog_language">Select programming language:</label>
-      <select name="challenge_prog_language" class="form-control" id="sel3">
+      <select name="challenge_prog_language" class="form-control">
         <option value="python">Python</option>
         <option value="php">PHP</option>
         <option value="c">C</option>
@@ -69,3 +70,9 @@
    
   </div>
 </form>
+<script type="text/javascript">
+    document.getElementById("item_block").disabled = true;
+    function toggleElement(){
+      document.getElementById("user_explanation").style.display = 'block';
+    }
+</script>
