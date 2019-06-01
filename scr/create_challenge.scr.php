@@ -6,6 +6,8 @@ elseif (isset($_POST['create_challenge-submit'])) {
   require 'dbh.scr.php';
 
   $challenge_title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
+  $challenge_type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
+  $challenge_difficulty = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
   $challenge_description = mysqli_real_escape_string($conn, $_POST['challenge_description']);
   $challenge_prog_language = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);
   $challenge_start_date = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);

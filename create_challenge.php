@@ -11,12 +11,25 @@
     <div class="form-group">
       <label for="challenge_type">Type of challenge</label>
       <select name="challenge_type" class="form-control" id="sel1">
-        <option value="type_default">Random most popular challenges from our database</option>
-        <option value="type_unicue">Your own challenge wich you need to create on your own</option>
+        <option value="def_challenge">Random most popular challenges from our database</option>
+<?php
+        if (!isset($_SESSION['id'])) {
+?>    
+        <option id="item_block" value="user_challenge">Your own challenge wich you need to create on your own - Login for this feature!</option>¸
+        <script type="text/javascript">
+          document.getElementById("item_block").disabled = true;
+        </script>
+<?php
+        }else{
+?>
+        <option value="user_challenge">Your own challenge wich you need to create on your own</option>
+<?php 
+        }
+?>
       </select>
     </div>
     <div class="form-group">
-      <label for="sel1">Select difficulty:</label>
+      <label for="challenge_difficulty">Select difficulty:</label>
       <select name="challenge_difficulty" class="form-control" id="sel2">
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
@@ -28,8 +41,8 @@
       <input type="text" class="form-control" name="challenge_description" placeholder="Description of challenge">
     </div>
     <div class="form-group">
-      <label for="sel1">Select programming language:</label>
-      <select name="challenge_prog_language" class="form-control" id="sel2">
+      <label for="challenge_prog_language">Select programming language:</label>
+      <select name="challenge_prog_language" class="form-control" id="sel3">
         <option value="python">Python</option>
         <option value="php">PHP</option>
         <option value="c">C</option>

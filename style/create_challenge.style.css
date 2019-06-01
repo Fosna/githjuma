@@ -7,3 +7,6 @@
 #btn_createchallenge{
     margin-bottom: 125px;
 }
+option:nth-child(2){
+    cursor: not-allowed !important;
+}
