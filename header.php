@@ -14,7 +14,7 @@
 </head>
 
 <body onload="show1();">
-  <nav id="header" class="navbar fixed-top navbar-expand navbar-dark bg-dark navbar-fixed-top">
+  <nav id="header" class="navbar fixed-top navbar-expand navbar-dark navbar-fixed-top" style="background-color: #22384F;">
     <a class="navbar-brand" href="main">Hjuma</a>
 <?php
     error_reporting(0);
