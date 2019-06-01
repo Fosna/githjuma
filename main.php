@@ -7,14 +7,19 @@
     <p class="lead">Challange your friends! Make Friends! Become a better coder!</p>
     <hr class="my-4">
     <p class="lead">
-        <a class="btn btn-primary btn-lg" id="btn_main" href="create_challenge">Create Challenge</a>
+        <div class="form-check form-check-inline">
+           <a class="btn btn-primary btn-lg" id="btn_main" href="create_challenge">Create Challenge</a>
 <?php
         if (!isset($_SESSION['id'])) {
 ?>
-        <a class="btn btn-outline-secondary btn-lg" id="btn_main" href="login">Log in</a>
+           <div class="btn-group" role="group" aria-label="Basic example">
+                <a class="btn btn-outline-secondary btn-lg" id="btn_main" href="login" style="margin-left: 15px;">Log in</a>
+                <a class="btn btn-outline-secondary btn-lg" id="btn_main" href="signup">Sign Up</a>
+           </div>
 <?php
         }
 ?>
+        </div>
     </p>
 </div>
 <!-- Opis aplikacije -->

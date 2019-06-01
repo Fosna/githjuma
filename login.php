@@ -6,23 +6,40 @@
 <style>
  
 </style>
-<form class="content" action="scr/login.scr.php" method="post">
+<form class="main-form needs-validation" action="scr/login.scr.php" method="post" novalidate>
   <div class="container">
     <h1>Login</h1>
     <hr class="my-2">
     <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" class="form-control" name="username" aria-describedby="username" placeholder="Enter your username">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" aria-describedby="username" placeholder="Enter your username" required>
+      <div class="invalid-feedback">
+        This field can't be empty!
+      </div>
     </div>
     <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" name="password" placeholder="Enter your password">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+      <div class="invalid-feedback">
+        This field can't be empty!
+      </div>
     </div>
     <button type="submit" class="btn btn-success btn-block" name="login-submit">Login</button>
     <!-- <input type="checkbox"  name="remember">Remember me<br> -->
     <!-- <a class="forgotenPassword" href="#">Forgoten password?</a> -->
   </div>
 </form>
+<script type="text/javascript">
+    var form = document.querySelector('.needs-validation');
+
+    form.addEventListener('submit', function(event){
+        if (form.checkValidity() === false){
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    });
+</script>
 <?php
   if (isset($_GET['error'])) {
     $error = $_GET['error'];

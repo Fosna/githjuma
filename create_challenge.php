@@ -1,70 +1,99 @@
 <?php require 'header.php'; ?>> 
 <link rel="stylesheet" href="style/create_challenge.style.css">
-<form class="content" action="scr/create_challenge.scr.php" method="post">
+<form class="main-form needs-validation" action="scr/create_challenge.scr.php" method="post" novalidate>
   <div class="container">
     <h1>Create challenge</h1>
     <hr class="my-2">
-    <div class="form-group">
-      <label for="username">Title:</label>
-      <input type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge">
-    </div>
-    <div class="form-group">
-      <label for="challenge_type">Type of challenge</label>
-      <select id="challenge_type" name="challenge_type" class="form-control" onchange="java_script_:show(this.options[this.selectedIndex].value)">
-        <option value="def_challenge">Random most popular challenges from our database</option>
+    <div class="form-row">
+      <div class="form-group col-md-5 mb-3">
+        <label for="username">Title</label>
+        <input type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" required>
+        <div class="invalid-feedback">
+          This field can't be empty!
+        </div>
+      </div>
+      <div class="form-group col-md-5 mb-3">
+        <label for="challenge_type">Type of challenge</label>
+        <select id="challenge_type" name="challenge_type" class="form-control" onchange="java_script_:show(this.options[this.selectedIndex].value)">
+          <option value="def_challenge">Random most popular challenges from our database</option>
 <?php
         if (!isset($_SESSION['id'])) {
 ?>    
-        <option id="item_block" value="user_challenge">Your own challenge wich you need to create on your own - Login for this feature!</option>¸
+          <option id="item_block" value="user_challenge">Your own challenge - LOGIN FOR THIS FEATURE !</option>
 <?php
         }else{
 ?>
-        <option  value="user_challenge">Your own challenge wich you need to create on your own</option>
+          <option  value="user_challenge">Your own challenge</option>
 <?php 
         }
 ?>
-      </select>
+        </select>
+      </div>
+      <div class="form-group col-md-2 mb-3">
+        <label for="challenge_difficulty">Select difficulty</label>
+        <select name="challenge_difficulty" class="form-control">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>    
+        </select>
+      </div>
     </div>
-    <div class="form-group" id="user_explanation">
-      <label for="challenge_user_explanation">Text area:</label>
-      <input type="text" class="form-control" name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain what users need to do">
-    </div>
-    <div class="form-group">
-      <label for="challenge_difficulty">Select difficulty:</label>
-      <select name="challenge_difficulty" class="form-control">
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>    
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="challenge_description">Description:</label>
-      <input type="text" class="form-control" name="challenge_description" placeholder="Description of challenge">
-    </div>
-    <div class="form-group">
-      <label for="challenge_prog_language">Select programming language:</label>
-      <select name="challenge_prog_language" class="form-control">
-        <option value="python">Python</option>
-        <option value="php">PHP</option>
-        <option value="c">C</option>
-        <option value="c++">C++</option>
-        <option value="c#">C#</option>
-        <option value="javascript">JavaScript</option>
-        <option value="java">Java</option>
-        <option value="html_css">HTML&CSS</option>
-      </select>
+    <div class="form-group" id="user_explanation" style="width: 100%;">
+      <label for="challenge_user_explanation">Explain task</label>
+      <input type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" required>
+      <div class="invalid-feedback">
+        This field can't be empty!
+      </div>
     </div>
     <div class="form-group">
-      <label for="password">Start date:</label>
-      <input type="date" class="form-control" name="challenge_start_date">
+      <label for="challenge_description">Description</label>
+      <input type="text" class="form-control" name="challenge_description" placeholder="Description of challenge" required>
+      <div class="invalid-feedback">
+        This field can't be empty!
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4 mb-3">
+        <label for="challenge_prog_language">Select programming language</label>
+        <select name="challenge_prog_language" class="form-control">
+          <option value="python">Python</option>
+          <option value="php">PHP</option>
+          <option value="c">C</option>
+          <option value="c++">C++</option>
+          <option value="c#">C#</option>
+          <option value="javascript">JavaScript</option>
+          <option value="java">Java</option>
+          <option value="html_css">HTML&CSS</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 mb-3">
+        <label for="password">Start date</label>
+        <input type="date" class="form-control" name="challenge_start_date" required>
+        <div class="invalid-feedback">
+          This field can't be empty!
+        </div>
+      </div>
+      <div class="form-group col-md-4 mb-3">
+        <label for="password">Deadline</label>
+        <input type="date" class="form-control" name="challenge_deadline" required>
+        <div class="invalid-feedback">
+          This field can't be empty!
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="password">Deadline</label>
-      <input type="date" class="form-control" name="challenge_deadline">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" onclick="show1();" checked>
+        <label class="custom-control-label" for="customRadioInline1">Public challenge</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" onclick="show2();">
+        <label class="custom-control-label" for="customRadioInline2">Private challenge</label>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="password">Pasword:</label>
-      <input type="password" class="form-control" name="challenge_password" placeholder="Password of challenge">
+    <div class="form-group" id="challenge_password">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="challenge_password" placeholder="Password for challenge">
     </div>
     <button type="submit" class="btn btn-success btn-block" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
    
@@ -75,10 +104,24 @@
     function show(aval) {
     if (aval == "user_challenge") {
       user_explanation.style.display='inline-block';
-    Form.fileURL.focus();
+      Form.fileURL.focus();
     } 
     else{
       user_explanation.style.display='none';
     }
   }
+  var form = document.querySelector('.needs-validation');
+  form.addEventListener('submit', function(event){
+      if (form.checkValidity() === false){
+          event.preventDefault();
+          event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+  });
+  function show1(){
+  document.getElementById('challenge_password').style.display ='none';
+}
+  function show2(){
+  document.getElementById('challenge_password').style.display = 'block';
+  } 
 </script>
