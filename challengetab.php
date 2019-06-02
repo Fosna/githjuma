@@ -15,14 +15,19 @@
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
 
-<div class="card text-center">
+<div id="card"  class="card text-center">
 <div class="card-header">
     <?php echo $row['challenge_difficulty']; ?>
 </div>
 <div class="card-body">
     <h5 class="card-title"><?php echo $row['challenge_title']; ?></h5>
-    <p class="card-text"><?php echo $row['challenge_description']; ?></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text"><?php echo substr($row['challenge_description'],0,75), "..."; ?></p>
+    <!-- Form koji salje na stranicu koja opisuje challenge -->
+    <form action="more_challenge.php" method="post">
+    <input type="hidden" name="challenge_id" value="<?php echo $row['challenge_id']; ?>"/>
+    <button type="submit" id="seemorebtn" name="seemore-submit" class="btn btn-primary">See more</button>
+    </form>
+    <!-- Form koji salje na stranicu koja opisuje challenge -->
 </div>
 <div class="card-footer text-muted">
 <?php echo $row['challenge_prog_language']; ?>

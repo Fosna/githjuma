@@ -1,0 +1,23 @@
+#challenge_difficulty{
+    float:right;
+}
+#challenge_prog_language{
+    float:right;
+}
+#alert{
+    position: absolute;
+    width:100%;
+    text-align:center;
+    bottom:-15px;
+    position:fixed;
+    z-index:150;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));  
+}
+#progress-bar{
+    margin-top:150px;
+}
+#seecompetitorsbtn{
+    margin: 30px;
+}
