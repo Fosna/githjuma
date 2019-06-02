@@ -13,3 +13,7 @@
 option:nth-child(2){
     cursor: not-allowed !important;
 }
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}

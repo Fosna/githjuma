@@ -15,7 +15,7 @@
       <div class="form-group col-md-5 mb-3">
         <label for="challenge_type">Type of challenge</label>
         <select id="challenge_type" name="challenge_type" class="form-control" onchange="java_script_:show(this.options[this.selectedIndex].value)">
-          <option value="def_challenge">Random most popular challenges from our database</option>
+          <option value="def_challenge">Popular challenges from our database</option>
 <?php
         if (!isset($_SESSION['id'])) {
 ?>    
@@ -68,14 +68,14 @@
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="password">Start date</label>
-        <input type="date" class="form-control" name="challenge_start_date" required>
+        <input class="form-control" type="text" name="challenge_start_date" value="" required/>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="password">Deadline</label>
-        <input type="date" class="form-control" name="challenge_deadline" required>
+        <input class="form-control" type="text" name="challenge_deadline" value="" required/>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
@@ -94,6 +94,7 @@
     <div class="form-group" id="challenge_password">
       <label for="password">Password</label>
       <input type="password" class="form-control" name="challenge_password" placeholder="Password for challenge">
+      <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
     <button type="submit" class="btn btn-success btn-block" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
    
@@ -120,8 +121,30 @@
   });
   function show1(){
   document.getElementById('challenge_password').style.display ='none';
-}
+  }
   function show2(){
   document.getElementById('challenge_password').style.display = 'block';
-  } 
+  }
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = mm + '/' + dd + '/' + yyyy;
+
+  $(function() {
+  $('input[name="challenge_start_date"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 2019,
+    maxYear: parseInt(moment().format('YYYY'),10)
+    });
+  });
+  $(function() {
+  $('input[name="challenge_deadline"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 2019,
+    maxYear: parseInt(moment().format('YYYY'),10)
+    });
+  });
 </script>
