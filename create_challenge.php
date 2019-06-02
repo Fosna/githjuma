@@ -1,6 +1,6 @@
 <?php require 'header.php'; ?>> 
 <link rel="stylesheet" href="style/create_challenge.style.css">
-<form class="main-form needs-validation" action="scr/create_challenge.scr.php" method="post" novalidate>
+<form  action="scr/create_challenge.scr.php" method="post" novalidate>
   <div class="container">
     <h1>Create challenge</h1>
     <hr class="my-2">
@@ -68,14 +68,14 @@
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="password">Start date</label>
-        <input class="form-control" type="text" name="challenge_start_date" value="" required/>
+        <input class="form-control" type="date" name="challenge_start_date" value="" required/>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="password">Deadline</label>
-        <input class="form-control" type="text" name="challenge_deadline" value="" required/>
+        <input class="form-control" type="date" name="challenge_deadline" value="" required/>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
