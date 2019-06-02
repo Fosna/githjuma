@@ -23,5 +23,8 @@
     </p>
 </div>
 <!-- Opis aplikacije -->
+<!-- Challenge tabovi -->
+<?php require 'challengetab.php' ?>
+<!-- Challenge tabovi -->
 </body>
 </html>

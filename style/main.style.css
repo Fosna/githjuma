@@ -18,3 +18,8 @@
 #header_create_challengebtn{
     display: none;
 }
+@media only screen and (max-width: 650px) {
+.jumbotron{
+    background-position: 50% 20%;
+}
+}
