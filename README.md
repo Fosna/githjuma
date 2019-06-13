@@ -5,4 +5,5 @@ Hjuma je web aplikacija koja vam omogućava da radite izazove u programiranju sa
 ## Opcije (Koje moramo dodat)
 - online editor
 - Algoritam provjere outputa i "progressa" challenga
+- Create Team - opcija koja omogucuje da napravimo tim i natjecemo se zajedno sa timom ili unutar jednog tima
 - 
