@@ -1,6 +1,16 @@
 .header_space{
     padding: 27px;  
 }  
+.btn-primary{
+    /*border-radius: 50px!important;
+    border: 0px!important;
+    border-color: #02a8f5!important;
+    background-color: #0262f5!important;*/
+}
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
 #loginbtn{
     margin-left: 10px;
 }

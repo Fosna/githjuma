@@ -31,7 +31,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Profile
+              <img src="pics/icon.png" alt="" style="width:25px;height:25px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Account</a>

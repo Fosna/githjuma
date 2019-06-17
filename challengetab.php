@@ -21,7 +21,7 @@
         <!-- Form koji salje na stranicu koja opisuje challenge -->
         <form name="form" action="more_challenge.php" method="post">
         <input type="hidden" name="challenge_id" value="<?php echo $row['challenge_id']; ?>"/>
-        <button type="submit" id="seemorebtn" name="seemore-submit" class="btn btn-primary">More</button>
+        <button type="submit" id="seemorebtn" name="seemore-submit" class="btn btn-outline-info" style="width:25%;">More</button>
         </form>
         <!-- Form koji salje na stranicu koja opisuje challenge -->
     </div>

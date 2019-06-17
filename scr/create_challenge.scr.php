@@ -8,7 +8,7 @@ if (!isset($_POST['create_challenge-submit'])) {
 }
 elseif (isset($_POST['create_challenge-submit'])) {
   require 'dbh.scr.php';
-  
+  $challenge_id = uniqid();
   $challenge_title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
   $challenge_type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
   $challenge_difficulty = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
@@ -52,12 +52,12 @@ elseif (isset($_POST['create_challenge-submit'])) {
     }else {
       $challenge_password = password_hash($challenge_password, PASSWORD_DEFAULT);
     }
-    $sql2 = "INSERT INTO hjuma_challenges (challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt2 = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt2, $sql2)) {
       die("SQL error 2");
     }else {
-      mysqli_stmt_bind_param($stmt2,"sssssssss", $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $challenge_password);
+      mysqli_stmt_bind_param($stmt2,"ssssssssss", $challenge_id, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $challenge_password);
       if (!mysqli_stmt_execute($stmt2)){
         die("SQL error 3");
       }else{

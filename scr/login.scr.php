@@ -31,7 +31,7 @@ elseif (isset($_POST['login-submit'])) {
         }
         else if ($pwdCheck == true) {
           session_start();
-          $_SESSION['id'] = $row['id'];
+          $_SESSION['id'] = $row['user_id'];
           $_SESSION['username'] = $row['username'];
           $username = $row['username'];
           $password = $row['password'];
