@@ -12,11 +12,11 @@
     position:fixed;
     z-index:150;
     _position:absolute;
-    _top:expression(eval(document.documentElement.scrollTop+
+    _top:expression(eval(documentElement.scrollTop+
         (document.documentElement.clientHeight-this.offsetHeight)));  
 }
 #progress-bar{
-    margin-top:150px;
+    margin-top: 150px;
 }
 #seecompetitorsbtn{
     margin: 30px;

@@ -17,26 +17,6 @@ elseif (isset($_POST['create_challenge-submit'])) {
   $challenge_start_date = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);
   $challenge_deadline = mysqli_real_escape_string($conn, $_POST['challenge_deadline']);
   $challenge_password = mysqli_real_escape_string($conn, $_POST['challenge_password']);
-  
-  ###################
-  echo "<hr>";
-  echo "Title: <b>", var_dump($challenge_title), "</b>";
-  echo "<br>";
-  echo "Type: <b>", var_dump($challenge_type), "</b>";
-  echo "<br>";
-  echo "Difficulty: <b>", var_dump($challenge_difficulty), "</b>";
-  echo "<br>";
-  echo "Description: <b>", var_dump($challenge_description), "</b>";
-  echo "<br>";
-  echo "Prog language: <b>", var_dump($challenge_prog_language), "</b>";
-  echo "<br>";
-  echo "Start date: <b>", var_dump($challenge_start_date), "</b>";
-  echo "<br>";
-  echo "Deadline: <b>", var_dump($challenge_deadline), "</b>";
-  echo "<br>";
-  echo "Password: <b>", var_dump($challenge_password), "</b>";
-  echo "<hr>";
-  ###################
 
   if (empty($challenge_title) || empty($challenge_description) || empty($challenge_prog_language) || empty($challenge_start_date) || empty($challenge_deadline)){
     header("Location: ../create_challenge?error=empty");
@@ -81,7 +61,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
       if (!mysqli_stmt_execute($stmt2)){
         die("SQL error 3");
       }else{
-        header("Location: ../challenge");
+        header("Location: ../challenge?");
         exit();
       }
     }

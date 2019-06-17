@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,83 +10,40 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body onload="show1();">
   <nav id="header" class="navbar fixed-top navbar-expand navbar-dark navbar-fixed-top" style="background-color: #22384F;">
     <a class="navbar-brand" href="main">Hjuma</a>
 <?php
-    error_reporting(0);
+    session_start();
+    require 'scr/dbh.scr.php';
     if (isset($_SESSION['id'])) {
+      $username = $_SESSION["username"];
 ?>
-      <a id="header_create_challengebtn" class="btn btn-primary" href="create_challenge">Create challenge</a>
+      <a class="btn btn-primary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link my-2 my-sm-0" href="">
+              My challenges<span class="sr-only">(current)</span></a>
+            </a>
           </li>
-
-
-
-<?php
-          require 'scr/dbh.scr.php';
-          $owner = $_SESSION["username"];
-          $sql = "SELECT * FROM hjuma_users WHERE username=?;";
-          $stmt = mysqli_stmt_init($conn);
-          if (!mysqli_stmt_prepare($stmt, $sql)) {
-            echo "SQL error";
-          } else {
-            mysqli_stmt_bind_param($stmt, "s", $owner);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-            while ($row = mysqli_fetch_array($result)) {
-?>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <div class="dropdown ">
-                  <button class="btn" type="button" id="menu1" data-toggle="dropdown">
-<?php
-                    if ($row['profileimage'] == "") {
-?> 
-                      <div class="iconHeader">
-                        <img class="profileimageHeader" src="pics/icon.png">
-                      </div>
-<?php
-                  } else {
-                    echo '<div class="iconHeader">';
-                    echo '<img class="profileimageHeader" onclick="dropdown()" src="data:image/jpeg;base64,' . base64_encode($row['profileimage']) . '"/>';
-                    echo '</div>';
-                  }
-?>
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" style="right: 0; left: auto;" role="menu" aria-labelledby="menu1">
-                    <li role="presentation">
-                      <p class="dropdown_username"><?php echo $_SESSION['username']; ?></p>
-                    </li>
-                    <hr>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation">
-                      <a role="menuitem" tabindex="-1" href="#">
-                        <form action="scr/logout.scr.php" method="post">
-                          <button class="dropdown-item" type="submit" name="logout-submit">Log out</button>
-                        </form>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profile
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Account</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item btn-danger" href="scr/logout.scr.php">Log out</a>
+            </div>
+          </li>
+      </div>
 
 <?php
-        }
-      }
-    } else {
+    }else {
 ?>
         <form action="login" class="ml-auto" method="post">
           <button id="loginbtn" class="btn btn-outline-primary" type="submit">Log in</button>
@@ -98,22 +54,4 @@
 <?php
     }
 ?>
-    </div>
   </nav>
-  <script type="text/javascript">
-    function dropdown() {
-      document.getElementById("profile-dropdown").classList.toggle("show");
-    }
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropbtns')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-  </script>

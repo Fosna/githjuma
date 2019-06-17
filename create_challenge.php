@@ -41,16 +41,10 @@
     <div class="form-group" id="user_explanation" style="width: 100%;">
       <label for="challenge_user_explanation">Explain task</label>
       <input type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" required>
-      <div class="invalid-feedback">
-        This field can't be empty!
-      </div>
     </div>
     <div class="form-group">
       <label for="challenge_description">Description</label>
       <input type="text" class="form-control" name="challenge_description" placeholder="Description of challenge" required>
-      <div class="invalid-feedback">
-        This field can't be empty!
-      </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4 mb-3">
@@ -69,16 +63,10 @@
       <div class="form-group col-md-4 mb-3">
         <label for="password">Start date</label>
         <input class="form-control" type="date" name="challenge_start_date" value="" required/>
-        <div class="invalid-feedback">
-          This field can't be empty!
-        </div>
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="password">Deadline</label>
         <input class="form-control" type="date" name="challenge_deadline" value="" required/>
-        <div class="invalid-feedback">
-          This field can't be empty!
-        </div>
       </div>
     </div>
     <div class="form-group">
@@ -111,14 +99,6 @@
       user_explanation.style.display='none';
     }
   }
-  var form = document.querySelector('.needs-validation');
-  form.addEventListener('submit', function(event){
-      if (form.checkValidity() === false){
-          event.preventDefault();
-          event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-  });
   function show1(){
   document.getElementById('challenge_password').style.display ='none';
   }

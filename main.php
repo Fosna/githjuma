@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/main.style.css">
 <div class="header_space"></div>
 <!-- Opis aplikacije -->
-<div class="jumbotron">
+<div class="jumbotron rounded-0">
     <h1 class="display-4">Code Wars!</h1>
     <p class="lead">Challange your friends! Make Friends! Become a better coder!</p>
     <hr class="my-4">
@@ -24,6 +24,7 @@
 </div>
 <!-- Opis aplikacije -->
 <!-- Challenge tabovi -->
+<h2 class="text-center">Popular daily challenges</h2>
 <?php require 'challengetab.php' ?>
 <!-- Challenge tabovi -->
 </body>
