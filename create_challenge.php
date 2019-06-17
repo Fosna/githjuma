@@ -23,7 +23,7 @@
 <?php
         }else{
 ?>
-          <option  value="user_challenge">Your own challenge</option>
+          <option  value="def_challenge">Your own challenge</option>
 <?php 
         }
 ?>
