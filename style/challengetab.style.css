@@ -3,6 +3,7 @@
     width: 28.676%;
     background: #F4F2F1;
     float: left;
+    border-radius: 20px;
 }
 .card:hover{
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
