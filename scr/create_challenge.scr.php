@@ -10,7 +10,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
   require 'dbh.scr.php';
   session_start();
   $challenge_id = uniqid();
-  $challenge_owner = $_SESSION['username'];
+  $challenge_owner = $_SESSION['id'];
   $challenge_title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
   $challenge_type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
   $challenge_difficulty = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
@@ -27,12 +27,12 @@ elseif (isset($_POST['create_challenge-submit'])) {
   else {
     if ($challenge_type == "def_challenge"){
       $def_challenge_id = rand(1, 2);
-      if ($challenge_difficulty == "easy"){
+      if ($challenge_difficulty == "Easy"){
         $sql = "SELECT def_challenge_explanation FROM hjuma_def_challenges WHERE def_challenge_id = ? AND def_challenge_difficulty= 'easy';";
-      }elseif ($challenge_difficulty == "medium"){
+      }elseif ($challenge_difficulty == "Medium"){
         $sql = "SELECT def_challenge_explanation FROM hjuma_def_challenges WHERE def_challenge_id = ? AND def_challenge_difficulty= 'medium';";
       }
-      elseif ($challenge_difficulty == "hard"){
+      elseif ($challenge_difficulty == "Hard"){
         $sql = "SELECT def_challenge_explanation FROM hjuma_def_challenges WHERE def_challenge_id = ? AND def_challenge_difficulty= 'hard';";
       }
       $stmt = mysqli_stmt_init($conn);
