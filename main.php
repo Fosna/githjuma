@@ -1,6 +1,5 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/main.style.css">
-<div class="header_space"></div>
 <!-- Opis aplikacije -->
 <div class="jumbotron rounded-0">
     <h1 class="display-4">Code Wars!</h1>
@@ -24,7 +23,7 @@
 </div>
 <!-- Opis aplikacije -->
 <!-- Challenge tabovi -->
-<h2 class="text-center">Popular daily challenges</h2>
+<h2 class="text-center">Popular challenges</h2>
 <?php require 'challengetab.php' ?>
 <!-- Challenge tabovi -->
 </body>

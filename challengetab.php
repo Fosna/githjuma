@@ -32,7 +32,7 @@
 
 <!-- Card - prikazivanje challenga -->
 <!-- Zavrsetak php skripte koja vuce iz sql baze -->
- <?php
+<?php
             }
         }
     }
