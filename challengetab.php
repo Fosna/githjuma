@@ -29,7 +29,7 @@
 ?>      
         </p>
         <!-- Form koji salje na stranicu koja opisuje challenge -->
-        <form name="form" action="more_challenge.php" method="post">
+        <form name="form" action="challenge_info.php" method="post">
         <input type="hidden" name="challenge_id" value="<?php echo $row['challenge_id']; ?>"/>
         <button type="submit" id="seemorebtn" name="seemore-submit" class="btn btn-outline-info" style="width:25%;">More</button>
         </form>

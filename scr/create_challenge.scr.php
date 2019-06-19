@@ -60,7 +60,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
         die("SQL error 3");
       }else{
         $_SESSION['challenge_id'] = $challenge_id;
-        header("Location: ../challenge");
+        header("Location: ../challenge_info?c=$challenge_id");
         exit();
       }
     }

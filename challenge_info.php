@@ -1,9 +1,8 @@
-<?php require 'header.php'; ?>
-<link rel="stylesheet" href="style/more_challenge.style.css">
-<?php
-if (!isset($_POST['seemore-submit'])) {
-    exit();
-}else{
+<link rel="stylesheet" href="style/challenge_info.style.css">
+<?php 
+require 'header.php';
+#ovdje ispisujemo info challenga ako smo dosli iz more btn-a
+if (isset($_POST['seemore-submit'])) {
   require 'scr/dbh.scr.php';
   $challenge_id = mysqli_real_escape_string($conn, $_POST['challenge_id']);
   $sql = "SELECT * FROM hjuma_challenges WHERE challenge_id = ?;";
@@ -64,20 +63,19 @@ if (!isset($_POST['seemore-submit'])) {
           <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Progress (comming soon)</div>
           </div>
   <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
-
-<?php if (!isset($_SESSION['id'])) { ?>
-          <div class="alert alert-primary" id="alert" role="alert">
-          Log in for more enjoyable experience!
-          </div>
-<?php   }     
-        }
-      }
+<?php 
+      if (!isset($_SESSION['id'])) { ?>
+          <div class="alert alert-primary" id="alert" role="alert">Log in for more features!</div>
+<?php   
+      }     
+    }
   }
-  ?>
-<script>
-$(function () {
-  $('.example-popover').popover({
-    container: 'body'
-  })
-})
-</script>
+}
+#ovdje ispisujemo info challenga ako smo ga tek napravili ili smo mi krator challenga
+if (isset($_GET['c'])) {
+  $challenge_id = $_GET['c'];
+  echo $challenge_id;
+  echo "<br>";
+  echo "Dolazimo ili iz mychallenges.php ili createchallenge.scr.php";
+  }
+?>

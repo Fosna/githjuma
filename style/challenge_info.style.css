@@ -8,12 +8,8 @@
     position: absolute;
     width:100%;
     text-align:center;
-    bottom:-15px;
+    bottom:-16px;
     position:fixed;
-    z-index:150;
-    _position:absolute;
-    _top:expression(eval(documentElement.scrollTop+
-        (document.documentElement.clientHeight-this.offsetHeight)));  
 }
 #progress-bar{
     margin-top: 150px;
