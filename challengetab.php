@@ -17,7 +17,17 @@
     </div>
     <div class="card-body">
         <h5 class="card-title"><?php echo $row['challenge_title']; ?></h5>
-        <p class="card-text"><?php echo substr($row['challenge_description'],0,75), "..."; ?></p>
+        <p class="card-text">
+<?php   
+        #stavlja tri točke samo ako je broj slova veci od 43
+        $char_number = strlen($row['challenge_description']);
+        if ($char_number > 43) {
+            echo substr($row['challenge_description'],0,43), "..."; 
+        }else{
+            echo substr($row['challenge_description'],0,43); 
+        }    
+?>      
+        </p>
         <!-- Form koji salje na stranicu koja opisuje challenge -->
         <form name="form" action="more_challenge.php" method="post">
         <input type="hidden" name="challenge_id" value="<?php echo $row['challenge_id']; ?>"/>

@@ -1,6 +1,5 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/more_challenge.style.css">
-<div class="header_space"></div>
 <?php
 if (!isset($_POST['seemore-submit'])) {
     exit();
@@ -18,7 +17,7 @@ if (!isset($_POST['seemore-submit'])) {
         while($row = mysqli_fetch_array($result)){
 ?>
   <!-- Glavni opis stranice -->
-          <div class="jumbotron jumbotron-fluid">
+          <div class="jumbotron"> 
           <div class="container">
           <p class="lead" id="challenge_difficulty"><?php echo $row['challenge_difficulty'];?></p>
               <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>

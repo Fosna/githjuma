@@ -14,7 +14,7 @@
       </div>
       <div class="form-group col-md-5 mb-3">
         <label for="challenge_type">Type of challenge</label>
-        <select id="challenge_type" name="challenge_type" class="form-control" onchange="java_script_:show(this.options[this.selectedIndex].value)">
+        <select id="challenge_type" name="challenge_type" class="form-control">
           <option value="def_challenge">Popular challenges from our database</option>
 <?php
         if (!isset($_SESSION['id'])) {
@@ -23,7 +23,7 @@
 <?php
         }else{
 ?>
-          <option  value="def_challenge">Your own challenge</option>
+          <option value="user_challenge" onclick="showExplanation()">Your own challenge</option>
 <?php 
         }
 ?>
@@ -40,11 +40,11 @@
     </div>
     <div class="form-group" id="user_explanation" style="width: 100%;">
       <label for="challenge_user_explanation">Explain task</label>
-      <input type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" required>
+      <input id="explanation" value="" type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
     </div>
     <div class="form-group">
       <label for="challenge_description">Description</label>
-      <input id="description" value="" type="text" class="form-control" name="challenge_description" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);" required>
+      <input id="description" value="" type="text" class="form-control" name="challenge_description" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);">
     </div>
     <div class="form-row">
       <div class="form-group col-md-4 mb-3">
@@ -89,22 +89,15 @@
   </div>
 </form>
 <script type="text/javascript">
-    document.getElementById("item_block").disabled = true;
-    function show(aval) {
-    if (aval == "user_challenge") {
-      user_explanation.style.display='inline-block';
-      Form.fileURL.focus();
-    } 
-    else{
-      user_explanation.style.display='none';
-    }
-  }
+  document.getElementById("item_block").disabled = true;
+
   function show1(){
   document.getElementById('challenge_password').style.display ='none';
   }
   function show2(){
   document.getElementById('challenge_password').style.display = 'block';
   }
+
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -136,5 +129,8 @@
           str = firstChar.toUpperCase() + remainingStr;
       }
       document.getElementById(textboxid).value = str;
+  }
+  function showExplanation(){
+    document.getElementById('user_explanation').style.display = 'block';
   }
 </script>
