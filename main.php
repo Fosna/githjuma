@@ -26,5 +26,4 @@
 <h2 class="text-center">Popular challenges</h2>
 <?php require 'challengetab.php' ?>
 <!-- Challenge tabovi -->
-</body>
-</html>
+<?php require 'footer.php' ?>

@@ -1,5 +1,5 @@
 <?php require 'header.php'; ?>
-<link rel="stylesheet" href="style/challenge.style.css">
+<link rel="stylesheet" href="style/mychallenge.style.css">
 <div class="space"></div>
 <?php 
     $username = $_SESSION['username'];
@@ -47,5 +47,4 @@
         }
     }
 ?>
-</body>
-</html>
+<?php require 'footer.php' ?>

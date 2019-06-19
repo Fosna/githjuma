@@ -1,10 +1,25 @@
 <link rel="stylesheet" href="style/challenge_info.style.css">
 <?php 
 require 'header.php';
-#ovdje ispisujemo info challenga ako smo dosli iz more btn-a
-if (isset($_POST['seemore-submit'])) {
-  require 'scr/dbh.scr.php';
-  $challenge_id = mysqli_real_escape_string($conn, $_POST['challenge_id']);
+require 'scr/dbh.scr.php';
+#ovdje ispisujemo info challenga
+if (!isset($_GET['c'])) {
+  header("Location: main");
+}elseif(isset($_GET['c'])){
+  $challenge_id = $_GET['c'];
+  #ako neko pokusa upisat id a da on ne postoji vraca ga u main
+  $sql = "SELECT challenge_id FROM hjuma_challenges WHERE challenge_id=?";
+  $stmt = mysqli_stmt_init($conn);
+  if (mysqli_stmt_prepare($stmt, $sql)){
+    mysqli_stmt_bind_param($stmt, "s", $challenge_id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+    $result = mysqli_stmt_num_rows($stmt);
+    if (!$result > 0) {
+      header("Location: main");
+      exit();
+    }
+  }
   $sql = "SELECT * FROM hjuma_challenges WHERE challenge_id = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)){
@@ -71,11 +86,5 @@ if (isset($_POST['seemore-submit'])) {
     }
   }
 }
-#ovdje ispisujemo info challenga ako smo ga tek napravili ili smo mi krator challenga
-if (isset($_GET['c'])) {
-  $challenge_id = $_GET['c'];
-  echo $challenge_id;
-  echo "<br>";
-  echo "Dolazimo ili iz mychallenges.php ili createchallenge.scr.php";
-  }
 ?>
+<?php require 'footer.php' ?>

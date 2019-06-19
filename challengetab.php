@@ -10,35 +10,33 @@
 ?>
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
-
-<div id="card"  class="card text-center">
-    <div class="card-header">
-        <?php echo $row['challenge_difficulty']; ?>
-    </div>
-    <div class="card-body">
-        <h5 class="card-title"><?php echo $row['challenge_title']; ?></h5>
-        <p class="card-text">
+<form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
+    <div id="card" class="card text-center" onclick="this.parentNode.submit()">
+        <div class="card-header text-muted">
+            <?php echo $row['challenge_difficulty']; ?>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
+            <p class="card-text">
 <?php   
-        #stavlja tri točke samo ako je broj slova veci od 43
-        $char_number = strlen($row['challenge_description']);
-        if ($char_number > 43) {
-            echo substr($row['challenge_description'],0,43), "..."; 
-        }else{
-            echo substr($row['challenge_description'],0,43); 
-        }    
+            #stavlja tri točke samo ako je broj slova veci od 43
+            $char_number = strlen($row['challenge_description']);
+            if ($char_number > 125) {
+                echo substr($row['challenge_description'],0,121), "..."; 
+            }else{
+                echo substr($row['challenge_description'],0,121); 
+            }    
 ?>      
-        </p>
-        <!-- Form koji salje na stranicu koja opisuje challenge -->
-        <form name="form" action="challenge_info.php" method="post">
-        <input type="hidden" name="challenge_id" value="<?php echo $row['challenge_id']; ?>"/>
-        <button type="submit" id="seemorebtn" name="seemore-submit" class="btn btn-outline-info" style="width:25%;">More</button>
-        </form>
-        <!-- Form koji salje na stranicu koja opisuje challenge -->
+            </p>
+            <!-- Form koji salje na stranicu koja opisuje challenge -->
+            
+            <!-- Form koji salje na stranicu koja opisuje challenge -->
+        </div>
+        <div class="card-footer text-muted">
+            <?php echo $row['challenge_prog_language']; ?>
+        </div>
     </div>
-    <div class="card-footer text-muted">
-        <?php echo $row['challenge_prog_language']; ?>
-    </div>
-</div>
+</form>
 
 <!-- Card - prikazivanje challenga -->
 <!-- Zavrsetak php skripte koja vuce iz sql baze -->

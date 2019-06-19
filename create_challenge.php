@@ -15,7 +15,7 @@
       <div class="form-group col-md-5 mb-3">
         <label for="challenge_type">Type of challenge</label>
         <select id="challenge_type" name="challenge_type" class="form-control">
-          <option value="def_challenge">Popular challenges from our database</option>
+          <option value="def_challenge" onclick="hideExplanation()">Popular challenges from our database</option>
 <?php
         if (!isset($_SESSION['id'])) {
 ?>    
@@ -41,6 +41,7 @@
     <div class="form-group" id="user_explanation" style="width: 100%;">
       <label for="challenge_user_explanation">Explain task</label>
       <input id="explanation" value="" type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
+      <small class="form-text text-muted">You need to explain task because people won't know what they need to do!</small>
     </div>
     <div class="form-group">
       <label for="challenge_description">Description</label>
@@ -121,7 +122,6 @@
     });
   });
   function capitalize(textboxid, str) {
-      // string with alteast one character
       if (str && str.length >= 1)
       {       
           var firstChar = str.charAt(0);
@@ -133,4 +133,8 @@
   function showExplanation(){
     document.getElementById('user_explanation').style.display = 'block';
   }
+  function hideExplanation(){
+    document.getElementById('user_explanation').style.display = 'none';
+  }
 </script>
+<?php require 'footer.php' ?>
