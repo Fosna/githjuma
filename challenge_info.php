@@ -29,22 +29,40 @@ if (!isset($_GET['c'])) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
+          $progLang = $row['challenge_prog_language'];
+          if ($progLang == "Python"){
+            $icon = "pics/python.jpeg";
+          }elseif($progLang == "PHP"){
+            $icon = "pics/php.png";
+          }elseif($progLang == "C"){
+            $icon = "pics/c.png";
+          }elseif($progLang == "C++"){
+            $icon = "pics/c++.png";
+          }elseif($progLang == "C#"){
+            $icon = "pics/c#.png";
+          }elseif($progLang == "Java"){
+            $icon = "pics/java.jpg";
+          }elseif($progLang == "JavaScript"){
+            $icon = "pics/javascript.jpeg";
+          }
 ?>
   <!-- Glavni opis stranice -->
-          <div class="jumbotron"> 
-          <div class="container">
-          <p class="lead" id="challenge_difficulty"><?php echo $row['challenge_difficulty'];?></p>
+          <div class="jumbotron jumbotron-fluid"> 
+            <div class="container">
               <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
-              <p class="lead" id="challenge_prog_language"><?php echo $row['challenge_prog_language'];?></p>
               <p class="lead"><?php echo $row['challenge_description'];?></p>
               <hr class=my-4>
+              <!--<p class="lead" id="challenge_prog_language"><?php //echo $row['challenge_prog_language'];?></p>-->
+              <img src="<?php echo $icon; ?>" id="icon" alt="">
+              <p class="lead" id="challenge_difficulty"><?php echo $row['challenge_difficulty'];?></p>
+              <hr class=my-4>
               <p><?php echo $row['challenge_explanation']; ?> </p>
-          </div>
+              <hr class=my-4>
+              <a class="btn btn-primary btn-lg" href="#" role="button">Join</a>
+              <a class="btn btn-outline-info btn-lg" role="button" id="seecompetitorsbtn" data-toggle="modal" data-target="#exampleModalCenter">Competitors</a>
+            </div>
           </div>
   <!-- Glavni opis stranice -->
-  <button type="button" id="seecompetitorsbtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    See Competitors
-  </button>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -72,11 +90,6 @@ if (!isset($_GET['c'])) {
     </div>
   </div>
   <!-- Modal -->
-  <button id="joinchallengebtn" class="btn btn-primary">Join Challenge</button>
-  <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
-          <div id="progress-bar" class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Progress (comming soon)</div>
-          </div>
   <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
 <?php 
       if (!isset($_SESSION['id'])) { ?>

@@ -21,7 +21,7 @@
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>
-      <a class="btn btn-primary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
+      <a class="btn btn-outline-primary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
