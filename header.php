@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link my-2 my-sm-0" href="mychallanges">
+            <a class="nav-link my-2 my-sm-0" href="mychallenges">
               My challenges<span class="sr-only">(current)</span></a>
             </a>
           </li>

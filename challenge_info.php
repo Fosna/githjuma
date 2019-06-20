@@ -49,47 +49,38 @@ if (!isset($_GET['c'])) {
   <!-- Glavni opis stranice -->
           <div class="jumbotron jumbotron-fluid"> 
             <div class="container">
+              <p class="lead font-weight-bold text-info" id="challenge_difficulty" style="text-align:center;"><?php //echo $row['challenge_difficulty'];?></p>
               <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
               <p class="lead"><?php echo $row['challenge_description'];?></p>
               <hr class=my-4>
-              <!--<p class="lead" id="challenge_prog_language"><?php //echo $row['challenge_prog_language'];?></p>-->
+              <p class="lead" id="challenge_prog_language">Difficulty: <strong class="text-info"><?php echo $row['challenge_difficulty'];?></strong></p>
               <img src="<?php echo $icon; ?>" id="icon" alt="">
-              <p class="lead" id="challenge_difficulty"><?php echo $row['challenge_difficulty'];?></p>
               <hr class=my-4>
-              <p><?php echo $row['challenge_explanation']; ?> </p>
+              <p>
+                <a class="btn btn-outline-info" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Explanation</a>
+                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Competitors</button>
+              </p>
+              <div class="row">
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                      <?php echo $row['challenge_explanation']; ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <div class="card card-body">
+                      user10923
+                    </div>
+                  </div>
+                </div>
+              </div>
               <hr class=my-4>
-              <a class="btn btn-primary btn-lg" href="#" role="button">Join</a>
-              <a class="btn btn-outline-info btn-lg" role="button" id="seecompetitorsbtn" data-toggle="modal" data-target="#exampleModalCenter">Competitors</a>
+              <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>
             </div>
           </div>
   <!-- Glavni opis stranice -->
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Competitors</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          User1
-          <br>
-          User2
-          <br>
-          User3
-          <br>
-          itd
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal -->
   <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
 <?php 
       if (!isset($_SESSION['id'])) { ?>
