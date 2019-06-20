@@ -2,6 +2,16 @@
 <link rel="stylesheet" href="style/create_challenge.style.css">
 <form  action="scr/create_challenge.scr.php" method="post" novalidate>
   <div class="container" style="margin-top:25px!important;">
+<?php
+  if(!isset($_SESSION['id'])){
+?>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <a href="login" class="alert-link">Log in</a> to modify your challenge once you made one!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<?php }?>
     <h1>Create challenge</h1>
     <hr class="my-2">
     <div class="form-row">

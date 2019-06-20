@@ -7,9 +7,21 @@
     border-color: #02a8f5!important;
     background-color: #0262f5!important;*/
 }
+.btn{
+    border-radius: 15px!important;
+}
 .btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none !important;
+}
+input[type="text"], [type="password"], [type="date"]{
+    border-radius: 15px!important;
+}
+select{
+    border-radius: 15px!important;
+}
+.alert{
+    border-radius: 15px!important;
 }
 #loginbtn{
     margin-left: 10px;

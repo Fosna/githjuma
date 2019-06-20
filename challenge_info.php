@@ -56,6 +56,16 @@ if (!isset($_GET['c'])) {
   <!-- Glavni opis stranice -->
           <div class="jumbotron jumbotron-fluid"> 
             <div class="container">
+<?php
+  if(!isset($_SESSION['id'])){
+?>
+              <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <a href="login" class="alert-link">Log in</a> for more features!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+<?php }?>
               <p class="lead font-weight-bold text-info" id="challenge_difficulty" style="text-align:center;"><?php //echo $row['challenge_difficulty'];?></p>
               <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
               <p class="lead"><?php echo $row['challenge_description'];?></p>
@@ -89,13 +99,8 @@ if (!isset($_GET['c'])) {
           </div>
   <!-- Glavni opis stranice -->
   <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
-<?php 
-      if (!isset($_SESSION['id'])) { ?>
-          <div class="alert alert-primary" id="alert" role="alert">Log in for more features!</div>
-<?php   
-      }     
+<?php    
     }
   }
 }
-?>
-<?php require 'footer.php' ?>
+require 'footer.php' ?>

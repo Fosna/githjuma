@@ -6,8 +6,8 @@ elseif (isset($_POST['create_challenge-submit'])) {
   require 'dbh.scr.php';
   session_start();
   $challenge_id = uniqid();
-  if (!isset($_SESSION['id'])) { 
-  $challenge_owner = "anonymous";
+  if (!isset($_SESSION['id'])) {
+  $challenge_owner = "Guest";
 }else{
   $challenge_owner = $_SESSION['id'];
 }

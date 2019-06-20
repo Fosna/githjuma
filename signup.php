@@ -36,11 +36,31 @@
         </div>
     </div>
     <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Privacy policy i ta sranja
-    </label>
-  </div>
+      <label>
+        <input type="checkbox" value="remember-me"> Privacy policy i ta sranja
+      </label>
+    </div>
     <button type="submit" class="btn btn-success btn-block" name="signup-submit">Sign up</button>
+<?php
+  if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    if ($error == "email") {
+      echo '<div class="alert alert-danger" role="alert">Username and password are incorrect!</div>';
+    }
+    elseif ($error == "empty") {
+      echo '<div class="alert alert-danger" role="alert">You must fill all fields</div>';
+    }
+    elseif ($error == "pwd") {
+      echo '<div class="alert alert-danger" role="alert">Password is incorrect!</div>';
+    }
+    elseif ($error == "nouser") {
+      echo '<div class="alert alert-danger" role="alert">There is no user like that!</div>';
+    }
+    elseif ($error == "username") {
+      echo '<div class="alert alert-danger" role="alert">Use different characters for username!</div>';
+    }
+  }
+?>
   </div>
 </form>
 <script type="text/javascript">

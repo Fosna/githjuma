@@ -8,27 +8,19 @@
     $passwordRp = mysqli_real_escape_string($conn, $_POST['password-rp']);
 
     if (empty($username) || empty($email) || empty($password) || empty($passwordRp)){
-      header("Location: ../main?error=empty&username=".$username."&email=".$email);
-      exit();
-    }
-    else if ((empty($username) || empty($email) || empty($password) || empty($passwordRp)) && (!filter_var($email, FILTER_VALIDATE_EMAIL))){
-      header("Location: ../main?error=emptyandmail&username=".$username);
-      exit();
-    }
-    else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-      header("Location: ../main?error=invalidusernameandmail");
+      header("Location: ../signup?error=empty");
       exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      header("Location: ../main?error=invalidemail&username=".$username);
+      header("Location: ../signup?error=email");
       exit();
     }
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-      header("Location: ../main?error=invalidusername&email=".$email);
+      header("Location: ../signup?error=username");
       exit();
     }
     else if ($password !== $passwordRp){
-      header("Location: ../main?error=passwordcheck&username=".$username."&email=".$email);
+      header("Location: ../signup?error=pwd");
       exit();
     }
     else {

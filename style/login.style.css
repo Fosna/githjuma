@@ -2,7 +2,7 @@ nav{
     display:none!important;
 }
 input{
-  border-radius: 30px!important;
+  /*border-radius: 30px!important;*/
 }
 .btn-lg{
   border-radius: 30px;
