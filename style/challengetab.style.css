@@ -1,7 +1,7 @@
 .card{
-    margin:36px!important;
-    width: 379px!important;
-    height: 250px!important;
+    margin:36px;
+    width: 28%;
+    height: 250px;
     background: #F4F2F1;
     float: left;
     border-radius: 20px;
@@ -22,4 +22,14 @@ div.header {
 
 div.container {
     padding: 10px;
+}
+@media only screen and (max-width: 1400px) {
+    .card{
+        width:27%;
+    }
+    }
+@media only screen and (max-width: 600px) {
+.card{
+    width: 80%;
+}
 }

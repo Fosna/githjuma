@@ -6,7 +6,11 @@ elseif (isset($_POST['create_challenge-submit'])) {
   require 'dbh.scr.php';
   session_start();
   $challenge_id = uniqid();
+  if (!isset($_SESSION['id'])) { 
+  $challenge_owner = "anonymous";
+}else{
   $challenge_owner = $_SESSION['id'];
+}
   $challenge_title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
   $challenge_type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
   $challenge_difficulty = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);

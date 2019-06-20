@@ -32,18 +32,25 @@ if (!isset($_GET['c'])) {
           $progLang = $row['challenge_prog_language'];
           if ($progLang == "Python"){
             $icon = "pics/python.jpeg";
+            $link = "https://www.python.org/";
           }elseif($progLang == "PHP"){
             $icon = "pics/php.png";
+            $link = "https://php.net/";
           }elseif($progLang == "C"){
             $icon = "pics/c.png";
+            $link = "https://www.geeksforgeeks.org/c-programming-language/";
           }elseif($progLang == "C++"){
             $icon = "pics/c++.png";
+            $link = "http://www.cplusplus.com/";
           }elseif($progLang == "C#"){
             $icon = "pics/c#.png";
+            $link = "https://www.geeksforgeeks.org/csharp-programming-language/";
           }elseif($progLang == "Java"){
             $icon = "pics/java.jpg";
+            $link = "https://www.java.com/en/";
           }elseif($progLang == "JavaScript"){
             $icon = "pics/javascript.jpeg";
+            $link = "https://www.javascript.com/";
           }
 ?>
   <!-- Glavni opis stranice -->
@@ -54,7 +61,7 @@ if (!isset($_GET['c'])) {
               <p class="lead"><?php echo $row['challenge_description'];?></p>
               <hr class=my-4>
               <p class="lead" id="challenge_prog_language">Difficulty: <strong class="text-info"><?php echo $row['challenge_difficulty'];?></strong></p>
-              <img src="<?php echo $icon; ?>" id="icon" alt="">
+              <a href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt=""></a>
               <hr class=my-4>
               <p>
                 <a class="btn btn-outline-info" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Explanation</a>

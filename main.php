@@ -23,7 +23,6 @@
 </div>
 <!-- Opis aplikacije -->
 <!-- Challenge tabovi -->
-<h2 class="text-center">Popular challenges</h2>
 <?php require 'challengetab.php' ?>
 <!-- Challenge tabovi -->
 <?php require 'footer.php' ?>
