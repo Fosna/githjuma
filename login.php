@@ -21,6 +21,7 @@
     </label>
   </div>
   <button class="btn btn-lg btn-success btn-block" name="login-submit" type="submit">Log in</button>
+  <a href="signup" class="signup-link">Sign up</a>
   <div class="form-label-group">
   <?php
   if (isset($_GET['error'])) {
@@ -38,7 +39,9 @@
       echo '<div class="alert alert-danger" role="alert">There is no user like that!</div>';
     }
   }
-  require 'footer.php';
+  //require 'footer.php';
 ?>
   </div>
 </form>
+</body>
+</html>

@@ -4,6 +4,11 @@ nav{
 input{
   /*border-radius: 30px!important;*/
 }
+.signup-link{
+  text-align: center;
+  display: block;
+  margin: 15px;
+}
 .btn-lg{
   border-radius: 30px;
 }

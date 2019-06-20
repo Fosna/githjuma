@@ -10,11 +10,7 @@
 .btn{
     border-radius: 15px!important;
 }
-.btn:focus, .btn:active {
-    outline: none !important;
-    box-shadow: none !important;
-}
-input[type="text"], [type="password"], [type="date"]{
+input[type="text"], [type="password"], [type="date"], [type="email"]{
     border-radius: 15px!important;
 }
 select{
@@ -22,6 +18,10 @@ select{
 }
 .alert{
     border-radius: 15px!important;
+}
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 #loginbtn{
     margin-left: 10px;

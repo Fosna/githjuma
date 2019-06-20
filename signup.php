@@ -11,9 +11,9 @@
       </div>
     </div>
     <div class="form-group">
-        <input type="text" name="email" class="form-control" autocomplete="off" placeholder="Email" size="30" required/>
+        <input type="email" name="email" class="form-control" autocomplete="off" placeholder="Email" size="30" required/>
         <div class="invalid-feedback">
-            This field can not be empty!
+            Use a valid email!
         </div>
     </div>
     <div class="row">
@@ -41,6 +41,7 @@
       </label>
     </div>
     <button type="submit" class="btn btn-success btn-block" name="signup-submit">Sign up</button>
+    <a href="login" class="login-link">Log in</a>
 <?php
   if (isset($_GET['error'])) {
     $error = $_GET['error'];
@@ -51,7 +52,7 @@
       echo '<div class="alert alert-danger" role="alert">You must fill all fields</div>';
     }
     elseif ($error == "pwd") {
-      echo '<div class="alert alert-danger" role="alert">Password is incorrect!</div>';
+      echo '<div class="alert alert-danger" role="alert">Passwords are not matching!</div>';
     }
     elseif ($error == "nouser") {
       echo '<div class="alert alert-danger" role="alert">There is no user like that!</div>';
@@ -60,7 +61,7 @@
       echo '<div class="alert alert-danger" role="alert">Use different characters for username!</div>';
     }
   }
-?>
+?>  
   </div>
 </form>
 <script type="text/javascript">

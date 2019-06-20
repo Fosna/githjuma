@@ -4,3 +4,8 @@
 .alert{
     margin-top: 25px;
 }
+.login-link{
+    text-align: center;
+    display: block;
+    margin: 15px;
+}
