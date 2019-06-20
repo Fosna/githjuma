@@ -20,10 +20,10 @@
 <?php   
             #stavlja tri točke samo ako je broj slova veci od 43
             $char_number = strlen($row['challenge_description']);
-            if ($char_number > 125) {
-                echo substr($row['challenge_description'],0,121), "..."; 
+            if ($char_number > 114) {
+                echo substr($row['challenge_description'],0,114), "..."; 
             }else{
-                echo substr($row['challenge_description'],0,121); 
+                echo substr($row['challenge_description'],0,114); 
             }    
 ?>      
             </p>
