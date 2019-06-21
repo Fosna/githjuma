@@ -73,41 +73,6 @@ if (!isset($_GET['c'])) {
               </div>
 <?php 
             }
-            //dva razlicita html-a ovisi dal smo vlasnik challenga ili ne
-            if($challenge_owner == $user_id){
-?>
-              <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
-              <p class="lead"><?php echo $row['challenge_description'];?></p>
-              <hr class=my-4>
-              <p class="lead" id="challenge_prog_language">Difficulty: <strong class="text-info"><?php echo $row['challenge_difficulty'];?></strong></p>
-              <a href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt=""></a>
-              <hr class=my-4>
-              <p>
-                <a class="btn btn-outline-info" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Explanation</a>
-                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Competitors</button>
-              </p>
-              <div class="row">
-                <div class="col">
-                  <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card card-body">
-                      <?php echo $row['challenge_explanation']; ?>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="collapse multi-collapse" id="multiCollapseExample2">
-                    <div class="card card-body">
-                      user10923
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class=my-4>
-              <a class="btn btn-success btn-lg btn-block" href="#" role="button">Start challenge now</a>
-            </div>
-          </div>
-<?php 
-            }else{ 
 ?>
               <div class="container">
                 <div class="row">
@@ -120,79 +85,76 @@ if (!isset($_GET['c'])) {
                           <div class="jumbotron greenback right">
                               <div class="">
                                   <div class="">
-                                  <?php if($row['challenge_start_date'] < date("Y-m-d")){?>
-                                    
-                                    <h6>Ending in:</h6>
-                                  <p id="demo"></p>
-                                  <script>
-                            // Set the date we're counting down to
-                            var countDownDate = new Date("<?php echo $row['challenge_deadline']; ?>").getTime();
-
-                            // Update the count down every 1 second
-                            var x = setInterval(function() {
-
-                              // Get today's date and time
-                              var now = new Date().getTime();
-                                
-                              // Find the distance between now and the count down date
-                              var distance = countDownDate - now;
-                                
-                              // Time calculations for days, hours, minutes and seconds
-                              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                
-                              // Output the result in an element with id="demo"
-                              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                              + minutes + "m " + seconds + "s ";
-                                
-                              // If the count down is over, write some text 
-                              if (distance < 0) {
-                                clearInterval(x);
-                                document.getElementById("demo").innerHTML = "EXPIRED";
-                              }
-                            }, 1000);
-                            </script>
-                                 <?php
-                                   }else{?>
-                                      <h6>Starting in:</h6>
+<?php 
+                                if($row['challenge_start_date'] < date("Y-m-d h:i:A")){?>
+<?php
+                                }else{
+?>
+                                    Starting in:
                                   </div>
                                   <div class="">
-                                  
-                                  <p id="demo"></p>
+                                  <b><p id="demo"></p></b>
+                                    <script>
+                                    // Set the date we're counting down to
+                                    var countDownDate = new Date("<?php echo $row['challenge_start_date']; ?>").getTime();
 
-                            <script>
-                            // Set the date we're counting down to
-                            var countDownDate = new Date("<?php echo $row['challenge_start_date']; ?>").getTime();
+                                    // Update the count down every 1 second
+                                    var x = setInterval(function() {
 
-                            // Update the count down every 1 second
-                            var x = setInterval(function() {
+                                    // Get today's date and time
+                                    var now = new Date().getTime();
+                                        
+                                    // Find the distance between now and the count down date
+                                    var distance = countDownDate - now;
+                                        
+                                    // Time calculations for days, hours, minutes and seconds
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                                        
+                                    // Output the result in an element with id="demo"
+                                    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                                    + minutes + "m " + seconds + "s ";
+                                        
+                                    // If the count down is over, write some text 
+                                    if (distance < 0) {
+                                        clearInterval(x);
+                                        document.getElementById("demo").innerHTML = "EXPIRED";
+                                        // Set the date we're counting down to
+                                        var countDownDate = new Date("<?php echo $row['challenge_deadline']; ?>").getTime();
 
-                              // Get today's date and time
-                              var now = new Date().getTime();
-                                
-                              // Find the distance between now and the count down date
-                              var distance = countDownDate - now;
-                                
-                              // Time calculations for days, hours, minutes and seconds
-                              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                
-                              // Output the result in an element with id="demo"
-                              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                              + minutes + "m " + seconds + "s ";
-                                
-                              // If the count down is over, write some text 
-                              if (distance < 0) {
-                                clearInterval(x);
-                                document.getElementById("demo").innerHTML = "EXPIRED";
-                              }
-                            }, 1000);
-                            </script>
-                                  <?php } ?>
+                                        // Update the count down every 1 second
+                                        var y = setInterval(function() {
+
+                                        // Get today's date and time
+                                        var now = new Date().getTime();
+                                            
+                                        // Find the distance between now and the count down date
+                                        var distance = countDownDate - now;
+                                            
+                                        // Time calculations for days, hours, minutes and seconds
+                                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                                            
+                                        // Output the result in an element with id="demo"
+                                        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                                        + minutes + "m " + seconds + "s ";
+                                            
+                                        // If the count down is over, write some text 
+                                        if (distance < 0) {
+                                            clearInterval(y);
+                                            document.getElementById("demo").innerHTML = "Challenge ended!";
+                                        }
+                                        }, 1000);
+                                    }
+                                    }, 1000);
+                                    </script>
+<?php 
+                                } 
+?>
                                   </div>    
                               </div>
 
@@ -207,7 +169,7 @@ if (!isset($_GET['c'])) {
                 <div class="row">
                       <div class="col-8">
                           <div class="jumbotron greenback" style="margin-bottom:0!important;">
-                          <p class="lead" id="challenge_prog_language" style="margin-bottom:0!important;">Difficulty: <strong class="text-info"><?php echo $row['challenge_difficulty'];?></strong></p>
+                          <p class="lead" id="challenge_prog_language" style="margin-bottom:0!important;">Difficulty: <strong><b><?php echo $row['challenge_difficulty'];?></b></strong></p>
                           </div>
                       </div>
                       <div class="col-4">
@@ -244,13 +206,22 @@ if (!isset($_GET['c'])) {
                 </div>
               </div>
               <hr class=my-4>
-              <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>
+<?php
+            if ($challenge_owner == $user_id) {
+?>
+                <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>
+<?php
+            }else{
+?>            
+                <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>    
+<?php
+            }
+?>
             </div>
           </div>
   <!-- Glavni opis stranice -->
   <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
 <?php  
-            }
     }
   }
 }

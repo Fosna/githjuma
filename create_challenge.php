@@ -1,5 +1,9 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/create_challenge.style.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <form  action="scr/create_challenge.scr.php" method="post" novalidate>
   <div class="container" style="margin-top:25px!important;">
 <?php
@@ -72,12 +76,13 @@
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="password">Start date</label>
-        <input class="form-control" type="date" name="challenge_start_date" value="" required/>
+        <label for="">Start date</label>
+        <!--<input class="form-control" type="date" name="challenge_start_date" value="" required/>-->
+        <input class="form-control" type="text" name="datetimes" />
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="password">Deadline</label>
-        <input class="form-control" type="date" name="challenge_deadline" value="" required/>
+        <label for="">Deadline</label>
+        <!--<input class="form-control" type="date" name="challenge_deadline" value="" required/>-->
       </div>
     </div>
     <div class="form-group">
@@ -115,22 +120,6 @@
   var yyyy = today.getFullYear();
   today = mm + '/' + dd + '/' + yyyy;
 
-  $(function() {
-  $('input[name="challenge_start_date"]').daterangepicker({
-    singleDatePicker: true,
-    showDropdowns: true,
-    minYear: 2019,
-    maxYear: parseInt(moment().format('YYYY'),10)
-    });
-  });
-  $(function() {
-  $('input[name="challenge_deadline"]').daterangepicker({
-    singleDatePicker: true,
-    showDropdowns: true,
-    minYear: 2019,
-    maxYear: parseInt(moment().format('YYYY'),10)
-    });
-  });
   function capitalize(textboxid, str) {
       if (str && str.length >= 1)
       {       
@@ -146,5 +135,15 @@
   function hideExplanation(){
     document.getElementById('user_explanation').style.display = 'none';
   }
+  $(function() {
+    $('input[name="datetimes"]').daterangepicker({
+      timePicker: true,
+      startDate: moment().startOf('hour'),
+      locale: {
+        format: 'YYYY/MM/DD hh:mm A'
+      }
+    });
+  });
+
 </script>
 <?php require 'footer.php' ?>

@@ -46,7 +46,7 @@
   if (isset($_GET['error'])) {
     $error = $_GET['error'];
     if ($error == "email") {
-      echo '<div class="alert alert-danger" role="alert">Username and password are incorrect!</div>';
+      echo '<div class="alert alert-danger" role="alert">Email is not existing!</div>';
     }
     elseif ($error == "empty") {
       echo '<div class="alert alert-danger" role="alert">You must fill all fields</div>';
