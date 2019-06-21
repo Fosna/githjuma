@@ -34,6 +34,8 @@ if (!isset($_GET['c'])) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
+          $start_date = $row['challenge_start_date'];
+          $deadline = $row['challenge_deadline'];
           $challenge_owner = $row['challenge_owner'];
           $progLang = $row['challenge_prog_language'];
           if ($progLang == "Python"){
@@ -85,76 +87,12 @@ if (!isset($_GET['c'])) {
                           <div class="jumbotron greenback right">
                               <div class="">
                                   <div class="">
-<?php 
-                                if($row['challenge_start_date'] < date("Y-m-d h:i:A")){?>
-<?php
-                                }else{
-?>
-                                    Starting in:
+                                    <div id="counter-mode">Starting in:</div>
                                   </div>
                                   <div class="">
-                                  <b><p id="demo"></p></b>
-                                    <script>
-                                    // Set the date we're counting down to
-                                    var countDownDate = new Date("<?php echo $row['challenge_start_date']; ?>").getTime();
-
-                                    // Update the count down every 1 second
-                                    var x = setInterval(function() {
-
-                                    // Get today's date and time
-                                    var now = new Date().getTime();
-                                        
-                                    // Find the distance between now and the count down date
-                                    var distance = countDownDate - now;
-                                        
-                                    // Time calculations for days, hours, minutes and seconds
-                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                        
-                                    // Output the result in an element with id="demo"
-                                    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                                    + minutes + "m " + seconds + "s ";
-                                        
-                                    // If the count down is over, write some text 
-                                    if (distance < 0) {
-                                        clearInterval(x);
-                                        document.getElementById("demo").innerHTML = "EXPIRED";
-                                        // Set the date we're counting down to
-                                        var countDownDate = new Date("<?php echo $row['challenge_deadline']; ?>").getTime();
-
-                                        // Update the count down every 1 second
-                                        var y = setInterval(function() {
-
-                                        // Get today's date and time
-                                        var now = new Date().getTime();
-                                            
-                                        // Find the distance between now and the count down date
-                                        var distance = countDownDate - now;
-                                            
-                                        // Time calculations for days, hours, minutes and seconds
-                                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                            
-                                        // Output the result in an element with id="demo"
-                                        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                                        + minutes + "m " + seconds + "s ";
-                                            
-                                        // If the count down is over, write some text 
-                                        if (distance < 0) {
-                                            clearInterval(y);
-                                            document.getElementById("demo").innerHTML = "Challenge ended!";
-                                        }
-                                        }, 1000);
-                                    }
-                                    }, 1000);
-                                    </script>
-<?php 
-                                } 
-?>
+                                    <b>
+                                        <p id="counter"></p>
+                                    </b>
                                   </div>    
                               </div>
 
@@ -209,7 +147,8 @@ if (!isset($_GET['c'])) {
 <?php
             if ($challenge_owner == $user_id) {
 ?>
-                <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>
+                <!--<a class="btn btn-success btn-lg btn-block" href="#" role="button">Start challenge</a>-->
+                <button class="btn btn-success btn-lg btn-block" onclick="gate();">Start challenge</button>
 <?php
             }else{
 ?>            
@@ -226,3 +165,88 @@ if (!isset($_GET['c'])) {
   }
 }
 require 'footer.php' ?>
+<div id="test"></div>
+<script>
+    var gate = 0;
+    function gate(){
+        gate = 1;
+    }
+    var raw = "<?php echo $start_date?>";
+    /*var date = raw.slice(0, 11);
+    var year = date.slice(6, 11);
+    var month = date.slice(3, 6);
+    var day = date.slice(0,3);
+    var finaldate = month.concat(day,year);
+    console.log(date);
+    console.log(finaldate);
+    //document.getElementById("test").innerHTML = date2;*/
+    var countDownDate = new Date(raw).getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+        
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+        
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    // Output the result in an element with id="demo"
+    document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+        
+    // If the count down is over, write some text 
+    if (distance < 0 || gate == 1) {
+        clearInterval(x);
+        document.getElementById("counter-mode").innerHTML = "Ending in: ";
+        //document.getElementById("counter").innerHTML = "pokazi deadline";
+        deadline();
+    }
+    }, 1000);
+
+    function deadline(){
+        // 22/06/2019
+        // /0/ 2//201
+        var raw2 = "<?php echo $deadline?>";
+        /*var date = raw.slice(0, 12);
+        var year = date.slice(7, 12);
+        var month = date.slice(4, 7);
+        var day = date.slice(1,4);
+        var finaldate = month.concat(day,year);
+        console.log(date);
+        console.log(finaldate);*/
+        var countDownDate = new Date(raw2).getTime();
+
+        var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+            
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+            
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        // Output the result in an element with id="demo"
+        document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+            
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("counter-mode").innerHTML = "__________________";
+            document.getElementById("counter").innerHTML = "Challenge has ended!";
+        }
+        }, 1000);
+    }
+</script>

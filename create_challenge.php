@@ -76,13 +76,9 @@
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="">Start date</label>
+        <label for="">Dates</label>
         <!--<input class="form-control" type="date" name="challenge_start_date" value="" required/>-->
         <input class="form-control" type="text" name="datetimes" />
-      </div>
-      <div class="form-group col-md-4 mb-3">
-        <label for="">Deadline</label>
-        <!--<input class="form-control" type="date" name="challenge_deadline" value="" required/>-->
       </div>
     </div>
     <div class="form-group">
@@ -140,7 +136,7 @@
       timePicker: true,
       startDate: moment().startOf('hour'),
       locale: {
-        format: 'YYYY/MM/DD hh:mm A'
+        format: 'MM/DD/YYYY H:mm:ss'
       }
     });
   });
