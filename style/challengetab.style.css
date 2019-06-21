@@ -1,7 +1,7 @@
 .card{
-    margin:35px;
-    width: 30%;
-    height: 250px;
+    margin:35px!important;
+    width: 380px!important;
+    height: 250px!important;
     background: #F4F2F1;
     float: left;
     border-radius: 25px;
@@ -14,7 +14,6 @@
 }
 
 div.header {
-    background-color: #4CAF50;
     color: white;
     padding: 10px;
     font-size: 40px;

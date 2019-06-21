@@ -7,6 +7,11 @@ if (!isset($_GET['c'])) {
   header("Location: main");
 }elseif(isset($_GET['c'])){
   $challenge_id = $_GET['c'];
+  if(!isset($_SESSION['id'])){
+    $user_id = "NONE";
+  }else{
+    $user_id = $_SESSION['id'];
+  }
   #ako neko pokusa upisat id a da on ne postoji vraca ga u main
   $sql = "SELECT challenge_id FROM hjuma_challenges WHERE challenge_id=?";
   $stmt = mysqli_stmt_init($conn);
@@ -29,6 +34,7 @@ if (!isset($_GET['c'])) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
+          $challenge_owner = $row['challenge_owner'];
           $progLang = $row['challenge_prog_language'];
           if ($progLang == "Python"){
             $icon = "pics/python.jpeg";
@@ -57,7 +63,7 @@ if (!isset($_GET['c'])) {
           <div class="jumbotron jumbotron-fluid"> 
             <div class="container">
 <?php
-  if(!isset($_SESSION['id'])){
+            if(!isset($_SESSION['id'])){
 ?>
               <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <a href="login" class="alert-link">Log in</a> for more features!
@@ -65,8 +71,11 @@ if (!isset($_GET['c'])) {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-<?php }?>
-              <p class="lead font-weight-bold text-info" id="challenge_difficulty" style="text-align:center;"><?php //echo $row['challenge_difficulty'];?></p>
+<?php 
+            }
+            //dva razlicita html-a ovisi dal smo vlasnik challenga ili ne
+            if($challenge_owner == $user_id){
+?>
               <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
               <p class="lead"><?php echo $row['challenge_description'];?></p>
               <hr class=my-4>
@@ -94,12 +103,85 @@ if (!isset($_GET['c'])) {
                 </div>
               </div>
               <hr class=my-4>
+              <a class="btn btn-success btn-lg btn-block" href="#" role="button">Start challenge now</a>
+            </div>
+          </div>
+<?php 
+            }else{ 
+?>
+              <div class="container">
+                <div class="row">
+                      <div class="col-8">
+                          <div class="jumbotron greenback">
+                            <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
+                          </div>
+                      </div>
+                      <div class="col-4">
+                          <div class="jumbotron greenback right">
+                              <div class="">
+                                  <div class="">
+                                      <h6>Starting in:</h6>
+                                  </div>
+                                  <div class="">
+                                      <h4>tu neki counter</h4>
+                                  </div>    
+                              </div>
+
+                          </div>
+
+                      </div>
+                  </div>      
+              </div>
+              <p class="lead"><?php echo $row['challenge_description'];?></p>
+              <hr class=my-4>
+              <div class="container">
+                <div class="row">
+                      <div class="col-8">
+                          <div class="jumbotron greenback" style="margin-bottom:0!important;">
+                          <p class="lead" id="challenge_prog_language" style="margin-bottom:0!important;">Difficulty: <strong class="text-info"><?php echo $row['challenge_difficulty'];?></strong></p>
+                          </div>
+                      </div>
+                      <div class="col-4">
+                          <div class="jumbotron greenback right" style="margin-bottom:0!important;">
+                            <a href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
+                          </div>
+                      </div>
+                  </div>      
+              </div>
+              <hr class=my-4>
+              <p class="">Challenge progress</p>
+              <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+              </div>
+              <hr class=my-4>
+              <p>
+                <a class="btn btn-outline-info" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Explanation</a>
+                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Competitors</button>
+              </p>
+              <div class="row">
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                      <?php echo $row['challenge_explanation']; ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <div class="card card-body">
+                      user10923
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class=my-4>
               <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>
             </div>
           </div>
   <!-- Glavni opis stranice -->
   <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
-<?php    
+<?php  
+            }
     }
   }
 }
