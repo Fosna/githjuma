@@ -1,10 +1,10 @@
 .card{
-    margin:36px;
-    width: 28%;
+    margin:35px;
+    width: 30%;
     height: 250px;
     background: #F4F2F1;
     float: left;
-    border-radius: 20px;
+    border-radius: 25px;
     transition: 100ms;
 }
 .card:hover{
