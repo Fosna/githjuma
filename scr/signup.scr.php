@@ -2,10 +2,15 @@
   if (isset($_POST['signup-submit'])){
     require 'dbh.scr.php';
     $user_id = uniqid();
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $passwordRp = mysqli_real_escape_string($conn, $_POST['password-rp']);
+    $usr = mysqli_real_escape_string($conn, $_POST['username']);
+    $em = mysqli_real_escape_string($conn, $_POST['email']);
+    $pwd = mysqli_real_escape_string($conn, $_POST['password']);
+    $pwdRp = mysqli_real_escape_string($conn, $_POST['password-rp']);
+
+    $username = filter_var($usr, FILTER_SANITIZE_STRING);
+    $email = filter_var($em, FILTER_SANITIZE_STRING);
+    $password = filter_var($pwd, FILTER_SANITIZE_STRING);
+    $passwordRp = filter_var($pwdRp, FILTER_SANITIZE_STRING);
 
     if (empty($username) || empty($email) || empty($password) || empty($passwordRp)){
       header("Location: ../signup?error=empty");

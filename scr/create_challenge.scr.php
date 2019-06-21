@@ -11,14 +11,23 @@ elseif (isset($_POST['create_challenge-submit'])) {
 }else{
   $challenge_owner = $_SESSION['id'];
 }
-  $challenge_title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
-  $challenge_type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
-  $challenge_difficulty = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
-  $challenge_description = mysqli_real_escape_string($conn, $_POST['challenge_description']);
-  $challenge_prog_language = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);
-  $challenge_start_date = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);
-  $challenge_deadline = mysqli_real_escape_string($conn, $_POST['challenge_deadline']);
-  $challenge_password = mysqli_real_escape_string($conn, $_POST['challenge_password']);
+  $title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
+  $type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
+  $diff = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
+  $des = mysqli_real_escape_string($conn, $_POST['challenge_description']);
+  $lang = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);
+  $start = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);
+  $dead = mysqli_real_escape_string($conn, $_POST['challenge_deadline']);
+  $pwd = mysqli_real_escape_string($conn, $_POST['challenge_password']);
+
+  $challenge_title = filter_var($title, FILTER_SANITIZE_STRING);
+  $challenge_type = filter_var($type, FILTER_SANITIZE_STRING);
+  $challenge_difficulty = filter_var($diff, FILTER_SANITIZE_STRING);
+  $challenge_description = filter_var($des, FILTER_SANITIZE_STRING);
+  $challenge_prog_language = filter_var($lang, FILTER_SANITIZE_STRING);
+  $challenge_start_date = filter_var($start, FILTER_SANITIZE_STRING);
+  $challenge_deadline = filter_var($dead, FILTER_SANITIZE_STRING);
+  $challenge_password = filter_var($pwd, FILTER_SANITIZE_STRING);
 
   if (empty($challenge_title) || empty($challenge_description) || empty($challenge_prog_language) || empty($challenge_start_date) || empty($challenge_deadline)){
     header("Location: ../create_challenge?error=empty");
