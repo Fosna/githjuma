@@ -76,7 +76,7 @@
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="">Dates</label>
+        <label for="">Start and end date</label>
         <!--<input class="form-control" type="date" name="challenge_start_date" value="" required/>-->
         <input class="form-control" type="text" name="datetimes" />
       </div>
@@ -104,10 +104,10 @@
   document.getElementById("item_block").disabled = true;
 
   function show1(){
-  document.getElementById('challenge_password').style.display ='none';
+    document.getElementById('challenge_password').style.display ='none';
   }
   function show2(){
-  document.getElementById('challenge_password').style.display = 'block';
+    document.getElementById('challenge_password').style.display = 'block';
   }
 
   var today = new Date();
