@@ -33,6 +33,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
   $challenge_start_date = filter_var($start, FILTER_SANITIZE_STRING);
   $challenge_deadline = filter_var($dead, FILTER_SANITIZE_STRING);
   $challenge_password = filter_var($pwd, FILTER_SANITIZE_STRING);
+  $challenge_status = "PENDING";
 
   if (empty($challenge_title) || empty($challenge_description) || empty($challenge_prog_language) || empty($challenge_start_date) /*|| empty($challenge_deadline)*/ ){
     header("Location: ../create_challenge?error=empty");
@@ -68,12 +69,12 @@ elseif (isset($_POST['create_challenge-submit'])) {
     }else {
       $challenge_password = password_hash($challenge_password, PASSWORD_DEFAULT);
     }
-    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password, challenge_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt2 = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt2, $sql2)) {
       die("SQL error 2");
     }else {
-      mysqli_stmt_bind_param($stmt2,"sssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $challenge_password);
+      mysqli_stmt_bind_param($stmt2,"ssssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $challenge_password, $challenge_status);
       if (!mysqli_stmt_execute($stmt2)){
         die("SQL error 3");
       }else{

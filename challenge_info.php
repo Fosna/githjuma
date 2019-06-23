@@ -34,6 +34,7 @@ if (!isset($_GET['c'])) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
+          $challenge_status = $row['challenge_status'];
           $start_date = $row['challenge_start_date'];
           $deadline = $row['challenge_deadline'];
           $challenge_owner = $row['challenge_owner'];
@@ -147,13 +148,27 @@ if (!isset($_GET['c'])) {
 <?php
             if ($challenge_owner == $user_id) {
 ?>
-                <!--<a class="btn btn-success btn-lg btn-block" href="#" role="button">Start challenge</a>-->
-                <button class="btn btn-success btn-lg btn-block" onclick="gate();">Start challenge</button>
+                <form action="scr/status.scr.php" method="post">
+                    <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
 <?php
+                    if ($challenge_status == "PENDING"){
+?>
+                    <input type="hidden" name="challenge_status" value="ACTIVE">
+                    <button id="challenge_start" type="submit" name="status-submit" class="btn btn-success btn-lg btn-block">Start challenge</button>
+<?php  
+                    }elseif ($challenge_status == "ACTIVE" ){
+?>
+                    <input type="hidden" name="challenge_status" value="EXPIRED">
+                    <button id="challenge_end" type="submit" name="status-submit" class="btn btn-success btn-lg btn-block">End challenge</button>
+                </form>
+<?php
+                    }
             }else{
-?>            
-                <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>    
+                if ($challenge_status == "PENDING" || $challenge_status == "ACTIVE"){
+?>              
+                    <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>    
 <?php
+                }
             }
 ?>
             </div>
@@ -165,21 +180,8 @@ if (!isset($_GET['c'])) {
   }
 }
 require 'footer.php' ?>
-<div id="test"></div>
 <script>
-    var gate = 0;
-    function gate(){
-        gate = 1;
-    }
     var raw = "<?php echo $start_date?>";
-    /*var date = raw.slice(0, 11);
-    var year = date.slice(6, 11);
-    var month = date.slice(3, 6);
-    var day = date.slice(0,3);
-    var finaldate = month.concat(day,year);
-    console.log(date);
-    console.log(finaldate);
-    //document.getElementById("test").innerHTML = date2;*/
     var countDownDate = new Date(raw).getTime();
 
     // Update the count down every 1 second
@@ -202,25 +204,16 @@ require 'footer.php' ?>
     + minutes + "m " + seconds + "s ";
         
     // If the count down is over, write some text 
-    if (distance < 0 || gate == 1) {
+    if (distance < 0) {
         clearInterval(x);
         document.getElementById("counter-mode").innerHTML = "Ending in: ";
-        //document.getElementById("counter").innerHTML = "pokazi deadline";
         deadline();
+        document.getElementById("challenge_start").click();     
     }
     }, 1000);
 
     function deadline(){
-        // 22/06/2019
-        // /0/ 2//201
         var raw2 = "<?php echo $deadline?>";
-        /*var date = raw.slice(0, 12);
-        var year = date.slice(7, 12);
-        var month = date.slice(4, 7);
-        var day = date.slice(1,4);
-        var finaldate = month.concat(day,year);
-        console.log(date);
-        console.log(finaldate);*/
         var countDownDate = new Date(raw2).getTime();
 
         var x = setInterval(function() {
