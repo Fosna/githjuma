@@ -11,18 +11,18 @@ elseif (isset($_POST['create_challenge-submit'])) {
 }else{
   $challenge_owner = $_SESSION['id'];
 }
-  $dateRaw = mysqli_real_escape_string($conn, $_POST['datetimes']);
+  /*$dateRaw = mysqli_real_escape_string($conn, $_POST['datetimes']);
   $date = explode("-", $dateRaw); 
   $start = $date[0];
-  $dead = $date[1];
+  $dead = $date[1];*/
 
   $title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
   $type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
   $diff = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
   $des = mysqli_real_escape_string($conn, $_POST['challenge_description']);
   $lang = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);
-  //$start = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);
-  //$dead = mysqli_real_escape_string($conn, $_POST['challenge_deadline']);
+  $start = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);
+  $dead = mysqli_real_escape_string($conn, $_POST['challenge_deadline']);
   $pwd = mysqli_real_escape_string($conn, $_POST['challenge_password']);
 
   $challenge_title = filter_var($title, FILTER_SANITIZE_STRING);

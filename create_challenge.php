@@ -76,9 +76,12 @@
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="">Start and end date</label>
-        <!--<input class="form-control" type="date" name="challenge_start_date" value="" required/>-->
-        <input class="form-control" type="text" name="datetimes" />
+        <label for="">Start date</label>
+        <input class="form-control" type="datetime" name="challenge_start_date" value="" required/>
+      </div>
+      <div class="form-group col-md-4 mb-3">
+        <label for="">End date</label>
+        <input class="form-control" type="datetime" name="challenge_deadline" value="" required/>
       </div>
     </div>
     <div class="form-group">
