@@ -11,6 +11,36 @@ elseif (isset($_POST['create_challenge-submit'])) {
 }else{
   $challenge_owner = $_SESSION['id'];
 }
+$sql = "SELECT * FROM hjuma_users WHERE id=?;";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)){
+          echo "SQL error";
+        }else {
+          mysqli_stmt_bind_param($stmt, "s", $challenge_owner);
+          mysqli_stmt_execute($stmt);
+          $result = mysqli_stmt_get_result($stmt);
+              while($row = mysqli_fetch_array($result)){
+                if ($row['joinedchallenge_1'] == "") {
+                  $join_to_challenge = "joinedchallenge_1";
+                }
+                elseif ($row['joinedchallenge_2'] == "") {
+                  $join_to_challenge = "joinedchallenge_2";
+                }
+                elseif ($row['joinedchallenge_3'] == "") {
+                  $join_to_challenge = "joinedchallenge_3";
+                }
+                elseif ($row['joinedchallenge_4'] == "") {
+                  $join_to_challenge = "joinedchallenge_4";
+                }
+                elseif ($row['joinedchallenge_5'] == "") {
+                  $join_to_challenge = "joinedchallenge_5";
+                }
+                else {
+                  header("Location: ../main");
+                  exit();
+                }
+              }
+            }
   /*$dateRaw = mysqli_real_escape_string($conn, $_POST['datetimes']);
   $date = explode("-", $dateRaw); 
   $start = $date[0];
@@ -78,6 +108,15 @@ elseif (isset($_POST['create_challenge-submit'])) {
       if (!mysqli_stmt_execute($stmt2)){
         die("SQL error 3");
       }else{
+        
+            $sql4 = "UPDATE hjuma_users SET $join_to_challenge=? WHERE id=?;";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql4)) {
+        echo "SQL error";
+      }else {
+        mysqli_stmt_bind_param($stmt,"ss",$challenge_id, $challenge_owner);
+        mysqli_stmt_execute($stmt);
+      }
         $_SESSION['challenge_id'] = $challenge_id;
         header("Location: ../challenge_info?c=$challenge_id");
         exit();

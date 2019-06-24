@@ -165,14 +165,29 @@ if (!isset($_GET['c'])) {
                     }
             }else{
                 if ($challenge_status == "PENDING" || $challenge_status == "ACTIVE"){
+                  $sql = "SELECT * FROM hjuma_users WHERE id=?";
+                  $stmt = mysqli_stmt_init($conn);
+                  if (!mysqli_stmt_prepare($stmt, $sql)){
+                    echo "SQL error";
+                  }else {
+                    mysqli_stmt_bind_param($stmt, "s", $user_id);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                        while($row = mysqli_fetch_array($result)){
+                          if($row['joinedchallenge_1']!=$challenge_id && $row['joinedchallenge_2']!=$challenge_id && $row['joinedchallenge_3']!=$challenge_id && $row['joinedchallenge_4']!=$challenge_id && $row['joinedchallenge_5']!=$challenge_id){
 ?>              
-                    <form action="scr/join.scr.php?c=<?php echo $challenge_id?>" method="post">
+                    <form action="scr/join_challenge.scr.php" method="post">
                       <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-                      <button type="submit" name="join-submit" class="btn btn-success btn-lg btn-block">Join</button>   
+                      <button type="submit" name="joinchallenge-submit" class="btn btn-success btn-lg btn-block">Join</button>   
                     </form>
-<?php
+<?php                   }
+                      else{?>
+                      <button class="btn btn-success">Joined</button>
+<?php                 }
+                    }
+                  }
                 }
-            }
+              }
 ?>
             </div>
           </div>
