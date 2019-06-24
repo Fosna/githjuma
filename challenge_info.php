@@ -166,7 +166,10 @@ if (!isset($_GET['c'])) {
             }else{
                 if ($challenge_status == "PENDING" || $challenge_status == "ACTIVE"){
 ?>              
-                    <a class="btn btn-success btn-lg btn-block" href="#" role="button">Join</a>    
+                    <form action="scr/join.scr.php?c=<?php echo $challenge_id?>" method="post">
+                      <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                      <button type="submit" name="join-submit" class="btn btn-success btn-lg btn-block">Join</button>   
+                    </form>
 <?php
                 }
             }
@@ -203,7 +206,7 @@ require 'footer.php' ?>
     document.getElementById("counter").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
         
-    // If the count down is over, write some text 
+    // Ako je je start date odbrojen onda udji tu
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("counter-mode").innerHTML = "Ending in: ";

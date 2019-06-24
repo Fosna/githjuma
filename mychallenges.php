@@ -2,10 +2,11 @@
 <link rel="stylesheet" href="style/mychallenge.style.css">
 <div class="space"></div>
 <?php 
-    $username = $_SESSION['username'];
+    require 'scr/dbh.scr.php';
+    $user_id = $_SESSION['id'];
     $owner = $username;
     require 'scr/dbh.scr.php';
-    $sql = "SELECT * FROM hjuma_users WHERE challenge_1='$username';";
+    $sql = "SELECT * FROM hjuma_users";
     if($result = mysqli_query($conn, $sql)){
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
@@ -19,9 +20,8 @@
                 $challenge_start_date = $row['challenge_start_date'];
                 $challenge_deadline = $row['challenge_deadline'];
                 $challenge_password = $row['challenge_password'];
-                if ($challenge_owner === $username){
+                if ($challenge_owner == $user_id){
 
-                
 ?>
                <div id="card"  class="card text-center">
                     <div class="card-header">

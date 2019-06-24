@@ -18,7 +18,7 @@ $(window).load(function() {
 		$(".se-pre-con").fadeOut("");;
 	});
 </script>
-<body onload="show1();">
+<body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
   <nav id="header" class="navbar fixed-top navbar-expand navbar-dark navbar-fixed-top" style="background-color: #22384F;">
     <a class="navbar-brand" href="main">Hjuma</a>

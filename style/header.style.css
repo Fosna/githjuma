@@ -13,7 +13,7 @@ form{
 .btn{
     border-radius: 15px!important;
 }
-input[type="text"], [type="password"], [type="date"], [type="email"]{
+input[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
     border-radius: 15px!important;
 }
 select{
