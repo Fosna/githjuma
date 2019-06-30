@@ -12,17 +12,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-</head>
-<script type="text/javascript">
-$(window).load(function() {
-		$(".se-pre-con").fadeOut("");;
-	});
+  <script type="text/javascript">
+  $(window).load(function() {
+      $(".se-pre-con").fadeOut("");;
+    });
 </script>
+</head>
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
-  <nav id="header" class="navbar fixed-top navbar-expand navbar-dark navbar-fixed-top" style="background-color: #22384F;">
+  <nav id="header" class="navbar fixed-top navbar-toggleable-sm bg-transparent" style="background-color: #22384F;">
     <a class="navbar-brand" href="main">Hjuma</a>
 <?php
+    error_reporting(0);
     session_start();
     require 'scr/dbh.scr.php';
     if (isset($_SESSION['id'])) {
@@ -62,4 +63,4 @@ $(window).load(function() {
     }
 ?>
   </nav>
-  <div class="header_space"></div>
+  

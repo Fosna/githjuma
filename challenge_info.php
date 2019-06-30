@@ -255,7 +255,7 @@ require 'footer.php' ?>
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("counter-mode").innerHTML = "__________________";
+            document.getElementById("counter-mode").innerHTML = "";
             document.getElementById("counter").innerHTML = "Challenge has ended!";
         }
         }, 1000);
