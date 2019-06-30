@@ -100,7 +100,15 @@
       <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
     <button type="submit" class="btn btn-success btn-block" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
-   
+    <?php
+      if (isset($_GET['error'])) {
+        $error = $_GET['error'];
+        if ($error == "empty") {
+          echo '<div class="alert alert-danger" role="alert">You must fill all fields</div>';
+        }
+      }
+      //require 'footer.php';
+    ?>
   </div>
 </form>
 <script type="text/javascript">

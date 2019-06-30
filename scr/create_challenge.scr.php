@@ -102,6 +102,18 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
     $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password, challenge_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt2 = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt2, $sql2)) {
+      echo $challenge_id;
+      echo $challenge_owner;
+      echo $challenge_title;
+      echo $challenge_type;
+      echo $challenge_explanation;
+      echo $challenge_difficulty;
+      echo $challenge_description;
+      echo $challenge_prog_language;
+      echo $challenge_start_date;
+      echo $challenge_deadline;
+      echo $challenge_password;
+      echo $challenge_status;
       die("SQL error 2");
     }else {
       mysqli_stmt_bind_param($stmt2,"ssssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $challenge_password, $challenge_status);

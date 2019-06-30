@@ -16,7 +16,7 @@
   $(window).load(function() {
       $(".se-pre-con").fadeOut("");;
     });
-</script>
+  </script>
 </head>
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
@@ -63,4 +63,18 @@
     }
 ?>
   </nav>
-  
+  <div class="header_space"></div>
+  <script type="text/javascript">
+    $(function() {
+      var header = $(".navbar");
+      $(window).scroll(function() {    
+          var scroll = $(window).scrollTop();
+      
+          if (scroll >= 100) {
+              header.removeClass('bg-transparent').addClass("bg-dark");
+          } else {
+              header.removeClass("bg-dark").addClass('bg-transparent');
+          }
+      });
+    });
+  </script>
