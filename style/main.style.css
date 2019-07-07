@@ -1,5 +1,5 @@
-.space {
-    padding: 25;
+.header_space {
+    display: none !important;
 }
 .jumbotron {
     background-image: url("../pics/background.png");

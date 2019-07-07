@@ -77,11 +77,12 @@
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="">Start date</label>
-        <input class="form-control" type="datetime-local" name="challenge_start_date" value="" required/>
+        <input id="start_date" class="form-control" type="datetime-local" name="challenge_start_date" value="" required/>
+        <small class="form-text text-muted">Click filled circle on calendar to choose today's date!</small>
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="">End date</label>
-        <input class="form-control" type="datetime-local" name="challenge_deadline" value="" required/>
+        <input class="form-control" type="datetime-local" name="challenge_deadline" required/>
       </div>
     </div>
     <div class="form-group">
@@ -99,7 +100,7 @@
       <input type="text" class="form-control" name="challenge_password" placeholder="Password for challenge">
       <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
-    <button type="submit" class="btn btn-success btn-block" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
+    <button type="submit" class="btn btn-success btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
     <?php
       if (isset($_GET['error'])) {
         $error = $_GET['error'];
@@ -126,6 +127,7 @@
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
   today = mm + '/' + dd + '/' + yyyy;
+  document.getElementById('start_date').innerHTML = today + " --:-- --";
 
   function capitalize(textboxid, str) {
       if (str && str.length >= 1)

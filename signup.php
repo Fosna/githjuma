@@ -40,7 +40,7 @@
         <input type="checkbox" value="remember-me"> Privacy policy i ta sranja
       </label>
     </div>
-    <button type="submit" class="btn btn-success btn-block" name="signup-submit">Sign up</button>
+    <button type="submit" class="btn btn-success btn-block btn-lg" name="signup-submit">Sign up</button>
     <a href="login" class="login-link">Log in</a>
 <?php
   if (isset($_GET['error'])) {

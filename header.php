@@ -20,8 +20,8 @@
 </head>
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
-  <nav id="header" class="navbar fixed-top navbar-toggleable-sm bg-transparent" style="background-color: #22384F;">
-    <a class="navbar-brand" href="main">Hjuma</a>
+  <nav class="navbar fixed-top navbar-toggleable-sm bg-transparent">
+    <a class="navbar-brand" href="main"><b>Hjuma</b></a>
 <?php
     error_reporting(0);
     session_start();
@@ -29,7 +29,7 @@
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>
-      <a class="btn btn-outline-primary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
+      <a class="btn btn-outline-secondary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -42,23 +42,21 @@
               <img src="pics/icon.png" alt="" style="width:25px;height:25px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <p><?php echo $username ?></p>
               <a class="dropdown-item" href="#">Account</a>
               <a class="dropdown-item" href="#">Settings</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item btn-danger" href="scr/logout.scr.php">Log out</a>
             </div>
           </li>
+        </ul>
       </div>
 
 <?php
     }else {
 ?>
-        <form action="login" class="ml-auto" method="post">
-          <button id="loginbtn" class="btn btn-outline-primary" type="submit">Log in</button>
-        </form>
-        <form action="signup" method="post">
-          <button id="loginbtn" class="btn btn-primary" type="submit">Sign up</button>
-        </form>
+        <a href="login" id="loginbtn" class="btn btn-outline-primary ml-auto"">Log In</a>
+        <a href="signup" id="loginbtn" class="btn btn-primary">Sign Up</a>
 <?php
     }
 ?>
@@ -70,7 +68,7 @@
       $(window).scroll(function() {    
           var scroll = $(window).scrollTop();
       
-          if (scroll >= 100) {
+          if (scroll >= 10) {
               header.removeClass('bg-transparent').addClass("bg-dark");
           } else {
               header.removeClass("bg-dark").addClass('bg-transparent');

@@ -8,6 +8,9 @@
 #user_explanation{
     display: none;
 }
+#btn_main{
+    display: none;
+}
 option:nth-child(2){
     cursor: not-allowed !important;
 }
