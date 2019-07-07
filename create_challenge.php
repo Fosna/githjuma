@@ -19,32 +19,15 @@
     <h1>Create challenge</h1>
     <hr class="my-2">
     <div class="form-row">
-      <div class="form-group col-md-5 mb-3">
+      <div class="form-group col-md-10 mb-3">
         <label for="username">Title</label>
         <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" onkeyup="javascript:capitalize(this.id, this.value);" required>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
       </div>
-      <div class="form-group col-md-5 mb-3">
-        <label for="challenge_type">Type of challenge</label>
-        <select id="challenge_type" name="challenge_type" class="form-control">
-          <option value="def_challenge" onclick="hideExplanation()">Popular challenges from our database</option>
-<?php
-        if (!isset($_SESSION['id'])) {
-?>    
-          <option id="item_block" value="user_challenge">Your own challenge - LOGIN FOR THIS FEATURE !</option>
-<?php
-        }else{
-?>
-          <option value="user_challenge" onclick="showExplanation()">Your own challenge</option>
-<?php 
-        }
-?>
-        </select>
-      </div>
       <div class="form-group col-md-2 mb-3">
-        <label for="challenge_difficulty">Select difficulty</label>
+        <label for="challenge_difficulty">Difficulty</label>
         <select name="challenge_difficulty" class="form-control">
           <option value="Easy">Easy</option>
           <option value="Medium">Medium</option>
@@ -52,8 +35,29 @@
         </select>
       </div>
     </div>
+    <div class="form-group">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline3" name="challenge_type" value="def_challenge" class="custom-control-input" onclick="hideExplanation();" checked>
+        <label class="custom-control-label" for="customRadioInline3">Popular challenges from our database</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+<?php
+      if (!isset($_SESSION['id'])){
+?>
+        <input type="radio" id="customRadioInline4" name="challenge_type" value="user_challenge" class="custom-control-input" onclick="showExplanation();" disabled>
+        <label class="custom-control-label text-muted" for="customRadioInline4">Your own challenge - LOGIN FOR THIS FEATURE!</label>
+<?php
+      }else{
+?>
+        <input type="radio" id="customRadioInline4" name="challenge_type" value="user_challenge" class="custom-control-input" onclick="showExplanation();" >
+        <label class="custom-control-label" for="customRadioInline4">Your own challenge</label>
+<?php
+      }
+?>
+      </div>
+    </div>
     <div class="form-group" id="user_explanation" style="width: 100%;">
-      <label for="challenge_user_explanation">Explain task</label>
+      <label for="challenge_user_explanation">Explanation of your task</label>
       <input id="explanation" value="" type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
       <small class="form-text text-muted">You need to explain task because people won't know what they need to do!</small>
     </div>
@@ -63,7 +67,7 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-4 mb-3">
-        <label for="challenge_prog_language">Select programming language</label>
+        <label for="challenge_prog_language">Programming language</label>
         <select name="challenge_prog_language" class="form-control">
           <option value="Python">Python</option>
           <option value="PHP">PHP</option>
