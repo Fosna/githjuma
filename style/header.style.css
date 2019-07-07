@@ -13,6 +13,8 @@ form{
 }
 input[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
     border-radius: 15px!important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 select{
     border-radius: 15px!important;
@@ -30,6 +32,35 @@ select{
 .bg-dark{
     transition: 150ms;
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.dropdown_username{
+    font-weight: bold !important; 
+}
+.dropdown_username:hover{
+    background-color: white !important; 
+}
+.dropdown_username:focus{
+    background-color: white !important; 
+}
+.dropdown-toggle {
+    color: grey;
+}
+.dropdown-toggle:hover {
+    color: grey;
+}
+.dropdown-toggle:focus {
+    color: grey;
+}
+.btn_logout:hover{
+    background-color: #dc3545 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+.btn_logout:focus{
+    background-color: #dc3545 !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 #loginbtn{
     margin-left: 10px;

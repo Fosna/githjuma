@@ -20,10 +20,9 @@
 </head>
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
-  <nav class="navbar fixed-top navbar-toggleable-sm bg-transparent">
+  <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
     <a class="navbar-brand" href="main"><b>Hjuma</b></a>
 <?php
-    error_reporting(0);
     session_start();
     require 'scr/dbh.scr.php';
     if (isset($_SESSION['id'])) {
@@ -39,14 +38,14 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="pics/icon.png" alt="" style="width:25px;height:25px;">
+              <img src="pics/icon-profile_3.png" alt="" style="width:25px;height:25px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <p><?php echo $username ?></p>
+              <a class="dropdown-item dropdown_username"><?php echo $username ?></a>
               <a class="dropdown-item" href="#">Account</a>
               <a class="dropdown-item" href="#">Settings</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item btn-danger" href="scr/logout.scr.php">Log out</a>
+              <a class="dropdown-item btn-danger btn_logout" href="scr/logout.scr.php">Log out</a>
             </div>
           </li>
         </ul>
