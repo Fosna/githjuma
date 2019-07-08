@@ -63,6 +63,18 @@ if (!isset($_GET['c'])) {
             $icon = "pics/javascript.jpeg";
             $link = "https://www.javascript.com/";
           }
+          $sql2 = "SELECT * FROM hjuma_users WHERE id=?";
+            $stmt2 = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt2, $sql2)){
+              echo "SQL error";
+            }else {
+              mysqli_stmt_bind_param($stmt2, "s", $challenge_owner);
+              mysqli_stmt_execute($stmt2);
+              $result2 = mysqli_stmt_get_result($stmt2);
+                  while($row2 = mysqli_fetch_array($result2)){
+                    $challenge_owner_name = $row2['username'];
+                  }
+            }
 ?>
             <div class="container" style="margin-top:25px;">
 <?php
@@ -89,6 +101,7 @@ if (!isset($_GET['c'])) {
                   <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
               </div>
               <p><?php echo $row['challenge_description'];?></p>
+              <p>Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
               <div id="accordion">
                 <div class="card">
                   <div class="card-header" id="headingTwo">

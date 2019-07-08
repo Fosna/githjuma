@@ -7,7 +7,7 @@ elseif (isset($_POST['create_challenge-submit'])) {
   session_start();
   $challenge_id = uniqid();
   if (!isset($_SESSION['id'])) {
-  $challenge_owner = "Guest";
+  $challenge_owner = uniqid();
 }else{
   $challenge_owner = $_SESSION['id'];
 }
