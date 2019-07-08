@@ -34,6 +34,8 @@ if (!isset($_GET['c'])) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
         while($row = mysqli_fetch_array($result)){
+          $challenge_owner = $row['challenge_owner'];
+          $challenge_difficulty = $row['challenge_difficulty'];
           $challenge_status = $row['challenge_status'];
           $start_date = $row['challenge_start_date'];
           $deadline = $row['challenge_deadline'];
@@ -62,9 +64,7 @@ if (!isset($_GET['c'])) {
             $link = "https://www.javascript.com/";
           }
 ?>
-  <!-- Glavni opis stranice -->
-          <div class="jumbotron jumbotron-fluid"> 
-            <div class="container">
+            <div class="container" style="margin-top:25px;">
 <?php
             if(!isset($_SESSION['id'])){
 ?>
@@ -77,187 +77,103 @@ if (!isset($_GET['c'])) {
 <?php 
             }
 ?>
-              <div class="container">
-                <div class="row">
-                      <div class="col-8">
-                          <div class="jumbotron greenback">
-                            <h1 class="display-4"><?php echo $row['challenge_title']; ?></h1>
-                          </div>
-                      </div>
-                      <div class="col-4">
-                          <div class="jumbotron greenback right">
-                              <div class="">
-                                  <div class="">
-                                    <div id="counter-mode">Starting in:</div>
-                                  </div>
-                                  <div class="">
-                                    <b>
-                                        <p id="counter"></p>
-                                    </b>
-                                  </div>    
-                              </div>
-
-                          </div>
-
-                      </div>
-                  </div>      
-              </div>
-              <p class="lead"><?php echo $row['challenge_description'];?></p>
-              <hr class=my-4>
-              <div class="container">
-                <div class="row">
-                      <div class="col-8">
-                          <div class="jumbotron greenback" style="margin-bottom:0!important;">
-                          <p class="lead" id="challenge_prog_language" style="margin-bottom:0!important;">Difficulty: <strong><b><?php echo $row['challenge_difficulty'];?></b></strong></p>
-                          </div>
-                      </div>
-                      <div class="col-4">
-                          <div class="jumbotron greenback right" style="margin-bottom:0!important;">
-                            <a href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
-                          </div>
-                      </div>
-                  </div>      
-              </div>
-              <hr class=my-4>
-              <p class="">Challenge progress</p>
-              <div class="progress">
-                <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-              </div>
-              <hr class=my-4>
-              <p>
-                <a class="btn btn-outline-info" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Explanation</a>
-                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Competitors</button>
-              </p>
               <div class="row">
-                <div class="col">
-                  <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card card-body">
-                      <?php echo $row['challenge_explanation']; ?>
-                    </div>
-                  </div>
+                <div class="col-sm">
+                  <h1><?php echo $row['challenge_title'];?></h1>
                 </div>
-                <div class="col">
-                  <div class="collapse multi-collapse" id="multiCollapseExample2">
-                    <div class="card card-body">
-                      user10923
+                <div class="col-sm">
+                  <h1 class="float-right" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
+                    <?php echo $row['challenge_difficulty'];?>
+                  </h1>
+                </div>
+                  <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
+              </div>
+              <p><?php echo $row['challenge_description'];?></p>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Challenge explanation
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      <?php echo $row['challenge_explanation'];?>
                     </div>
                   </div>
                 </div>
               </div>
-              <hr class=my-4>
 <?php
-            if ($challenge_owner == $user_id) {
-?>
-                <form action="scr/status.scr.php" method="post">
-                    <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-<?php
-                    if ($challenge_status == "PENDING"){
-?>
-                    <input type="hidden" name="challenge_status" value="ACTIVE">
-                    <button id="challenge_start" type="submit" name="status-submit" class="btn btn-success btn-lg btn-block">Start challenge</button>
-<?php  
-                    }elseif ($challenge_status == "ACTIVE" ){
-?>
-                    <input type="hidden" name="challenge_status" value="EXPIRED">
-                    <button id="challenge_end" type="submit" name="status-submit" class="btn btn-success btn-lg btn-block">End challenge</button>
-                </form>
-<?php
-                    }
-            }else{
-                if ($challenge_status == "PENDING" || $challenge_status == "ACTIVE"){
-                  $sql = "SELECT * FROM hjuma_users WHERE id=?";
-                  $stmt = mysqli_stmt_init($conn);
-                  if (!mysqli_stmt_prepare($stmt, $sql)){
-                    echo "SQL error";
-                  }else {
-                    mysqli_stmt_bind_param($stmt, "s", $user_id);
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
-                        while($row = mysqli_fetch_array($result)){
-                          if($row['joinedchallenge_1']!=$challenge_id && $row['joinedchallenge_2']!=$challenge_id && $row['joinedchallenge_3']!=$challenge_id && $row['joinedchallenge_4']!=$challenge_id && $row['joinedchallenge_5']!=$challenge_id){
-?>              
-                    <form action="scr/join_challenge.scr.php" method="post">
-                      <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-                      <button type="submit" name="joinchallenge-submit" class="btn btn-success btn-lg btn-block">Join</button>   
-                    </form>
-<?php                   }
-                      else{?>
-                      <button class="btn btn-success">Joined</button>
-<?php                 }
-                    }
-                  }
-                }
+            if($user_id == $challenge_owner){
+              if ($challenge_status == "PENDING"){
+                $start_challenge_btn_style = "display:block;"; 
+                $enter_editor_btn_style = "display:none;"; 
+              }elseif ($challenge_status == "ACTIVE"){
+                $start_challenge_btn_style = "display:none;"; 
+                $enter_editor_btn_style = "display:block;"; 
+              }elseif ($challenge_status == "EXPIRED"){
+                $start_challenge_btn_style = "display:none;"; 
+                $enter_editor_btn_style = "display:none;"; 
               }
 ?>
+              <form action="scr/status.scr.php" method="post">
+                <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                <input type="hidden" name="challenge_status" value="ACTIVE">
+                <button type="submit" name="status-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $start_challenge_btn_style; ?>">Start Challenge</button>
+              </form>
+              <form action="challenge" method="post">
+                <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $enter_editor_btn_style; ?>">Enter Editor</button>
+              </form>
+<?php 
+            }else{
+              $sql = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ? AND joined_user = ?;";
+              $stmt = mysqli_stmt_init($conn);
+              if (!mysqli_stmt_prepare($stmt, $sql)){
+                echo "SQL error";
+              }else {
+                mysqli_stmt_bind_param($stmt, "ss", $challenge_id, $user_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                    while($row = mysqli_fetch_array($result)){
+                        $joined_challenge = $row['joined_challenge'];
+                        $joined_user = $row['joined_user'];
+                    }
+              } 
+              #provjerava jesmo li već ušli u challenge
+              if(!$joined_challenge == $challenge_id && !$joined_user == $user_id){
+?>
+              <form action="scr/join_challenge.scr.php" method="post">
+                <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                <input type="hidden" name="challenge_status" value="<?php echo $challenge_status; ?>">
+                <button type="submit" name="joinchallenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px;">Join Challenge</button>
+              </form>
+<?php
+              }else{
+                if ($challenge_status == "PENDING"){
+                  $challenge_submit_btn_status = "disabled";
+                  $challenge_submit_btn_label = "Waiting for owner to start a challenge!";
+                }elseif ($challenge_status == "ACTIVE"){
+                  $challenge_submit_btn_status = "";
+                  $challenge_submit_btn_label = "";
+                }elseif ($challenge_status == "EXPIRED"){
+                  $challenge_submit_btn_style = "display:none!important;";
+                  $challenge_submit_btn_label = "";
+                }
+?>
+              <form action="challenge" method="post">
+                <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
+                <small class="form-text text-muted"><?php echo $challenge_submit_btn_label;?></small>
+              </form>
+<?php
+              }
+            }
+?>
             </div>
-          </div>
-  <!-- Glavni opis stranice -->
-  <!-- Prograss bar (treba skuzit kak cemo to pratit) -->
-<?php  
+<?php
     }
   }
 }
-require 'footer.php' ?>
-<script>
-    var raw = "<?php echo $start_date?>";
-    var countDownDate = new Date(raw).getTime();
-
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-    // Get today's date and time
-    var now = new Date().getTime();
-        
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-        
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-    // Output the result in an element with id="demo"
-    document.getElementById("counter").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-        
-    // Ako je je start date odbrojen onda udji tu
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("counter-mode").innerHTML = "Ending in: ";
-        deadline();
-        document.getElementById("challenge_start").click();     
-    }
-    }, 1000);
-
-    function deadline(){
-        var raw2 = "<?php echo $deadline?>";
-        var countDownDate = new Date(raw2).getTime();
-
-        var x = setInterval(function() {
-
-        // Get today's date and time
-        var now = new Date().getTime();
-            
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-            
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-        // Output the result in an element with id="demo"
-        document.getElementById("counter").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-            
-        // If the count down is over, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("counter-mode").innerHTML = "";
-            document.getElementById("counter").innerHTML = "Challenge has ended!";
-        }
-        }, 1000);
-    }
-</script>

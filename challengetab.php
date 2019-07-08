@@ -18,7 +18,7 @@
             <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
             <p class="card-text">
 <?php   
-            #stavlja tri točke samo ako je broj slova veci od 43
+            #stavlja tri točke samo ako je broj slova veci od 110
             $char_number = strlen($row['challenge_description']);
             if ($char_number > 110) {
                 echo substr($row['challenge_description'],0,110), "..."; 

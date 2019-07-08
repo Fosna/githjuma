@@ -104,7 +104,7 @@
       <input type="text" class="form-control" name="challenge_password" placeholder="Password for challenge">
       <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
-    <button type="submit" class="btn btn-success btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge!</button>
+    <button type="submit" class="btn btn-success btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge</button>
     <?php
       if (isset($_GET['error'])) {
         $error = $_GET['error'];

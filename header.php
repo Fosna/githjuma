@@ -23,6 +23,7 @@
   <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
     <a class="navbar-brand" href="main"><b>Hjuma</b></a>
 <?php
+    error_reporting(0); 
     session_start();
     require 'scr/dbh.scr.php';
     if (isset($_SESSION['id'])) {
@@ -35,7 +36,7 @@
             <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color:grey;">
               My Challenges
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="createdchallenges">Created Challenges</a>
               <a class="dropdown-item" href="joinedchallenges">Joined Challenges</a>
             </div>
