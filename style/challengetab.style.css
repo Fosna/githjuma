@@ -1,8 +1,8 @@
 .card{
     margin:35px!important;
-    width: 380px!important;
-    height: 250px!important;
-    background: #F4F2F1;
+    width: 28%!important;
+    height: 248px!important;
+    background: rgb(244, 242, 241);
     float: left;
     border-radius: 25px;
     transition: 100ms;

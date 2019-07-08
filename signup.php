@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/signup.style.css">
 <form class="main-form needs-validation" action="scr/signup.scr.php" method="post" novalidate>
   <div class="container">
-    <h1>Sign up</h1>
+    <h1>Sign Up</h1>
     <hr class="my-2">
     <div class="form-group">
       <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" size="30" required/>
@@ -40,8 +40,8 @@
         <input type="checkbox" value="remember-me"> Privacy policy i ta sranja
       </label>
     </div>
-    <button type="submit" class="btn btn-success btn-block btn-lg" name="signup-submit">Sign up</button>
-    <a href="login" class="login-link">Log in</a>
+    <button type="submit" class="btn btn-success btn-block btn-lg" name="signup-submit">Sign Up</button>
+    <a href="login" class="login-link">Log In</a>
 <?php
   if (isset($_GET['error'])) {
     $error = $_GET['error'];

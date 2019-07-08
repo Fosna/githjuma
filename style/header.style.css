@@ -37,10 +37,10 @@ select{
     font-weight: bold !important; 
 }
 .dropdown_username:hover{
-    background-color: white !important; 
+    background-color: rgba(255, 255, 255, 0) !important; 
 }
 .dropdown_username:focus{
-    background-color: white !important; 
+    background-color: rgba(255, 255, 255, 0) !important; 
 }
 .dropdown-toggle {
     color: grey;
@@ -49,13 +49,22 @@ select{
     color: grey;
 }
 .dropdown-toggle:focus {
-    color: grey;
+    color: grey; 
+}
+.dropdown-item{
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-bottom-left-radius: 13px !important;
+    border-bottom-right-radius: 13px !important;
+    color: black !important;
+}
+.dropdown-menu{
+    border-radius: 15px !important;
+    padding: 0 !important;
 }
 .btn_logout:hover{
     background-color: #dc3545 !important;
     outline: none !important;
     box-shadow: none !important;
-    color: white !important;
 }
 .btn_logout:focus{
     background-color: #dc3545 !important;

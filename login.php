@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/login.style.css">
 <form class="form-signin" action="scr/login.scr.php" method="post">
   <div class="text-center mb-4">
-    <h1 class="h1 font-weight-normal">Log in</h1>
+    <h1 class="h1 font-weight-normal">Log In</h1>
   </div>
 
   <div class="form-label-group">
@@ -20,8 +20,8 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-success btn-block" name="login-submit" type="submit">Log in</button>
-  <a href="signup" class="signup-link">Sign up</a>
+  <button class="btn btn-lg btn-success btn-block" name="login-submit" type="submit">Log In</button>
+  <a href="signup" class="signup-link">Sign Up</a>
   <div class="form-label-group">
   <?php
   if (isset($_GET['error'])) {

@@ -16,7 +16,7 @@
     </button>
   </div>
 <?php }?>
-    <h1>Create challenge</h1>
+    <h1>Create Challenge</h1>
     <hr class="my-2">
     <div class="form-row">
       <div class="form-group col-md-10 mb-3">
@@ -38,10 +38,10 @@
     <div class="form-group">
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" id="customRadioInline3" name="challenge_type" value="def_challenge" class="custom-control-input" onclick="hideExplanation();" checked>
-        <label class="custom-control-label" for="customRadioInline3">Popular challenges from our database</label>
+        <label class="custom-control-label" for="customRadioInline3">Challenge from our database</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-<?php
+<?php 
       if (!isset($_SESSION['id'])){
 ?>
         <input type="radio" id="customRadioInline4" name="challenge_type" value="user_challenge" class="custom-control-input" onclick="showExplanation();" disabled>
@@ -57,8 +57,8 @@
       </div>
     </div>
     <div class="form-group" id="user_explanation" style="width: 100%;">
-      <label for="challenge_user_explanation">Explanation of your task</label>
-      <input id="explanation" value="" type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
+      <label for="challenge_user_explanation">Challenge explanation</label>
+      <input id="explanation" value="" type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your challenge task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
       <small class="form-text text-muted">You need to explain task because people won't know what they need to do!</small>
     </div>
     <div class="form-group">
