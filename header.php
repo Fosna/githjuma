@@ -31,11 +31,15 @@
       <a class="btn btn-outline-secondary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link my-2 my-sm-0" href="mychallenges">
-              My challenges<span class="sr-only">(current)</span></a>
-            </a>
-          </li>
+          <div class="dropdown">
+            <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color:grey;">
+              My Challenges
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="createdchallenges">Created Challenges</a>
+              <a class="dropdown-item" href="joinedchallenges">Joined Challenges</a>
+            </div>
+          </div>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="pics/icon-profile_3.png" alt="" style="width:25px;height:25px;">
