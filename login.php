@@ -42,6 +42,12 @@
   //require 'footer.php';
 ?>
   </div>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <a class="alert-link">Log in</a> for for using an application!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 </form>
 </body>
 </html>

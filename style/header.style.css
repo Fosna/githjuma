@@ -79,6 +79,24 @@ select{
 .card-header{
     border-radius: 15px!important;
 }
+.more_btn{
+    border: none!important;
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: grey!important;
+}
+.more_btn:hover{
+    border: none!important;
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: grey!important;
+}
+.more_btn:focus{
+    border: none!important;
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: grey!important;
+}
+.modal-content{
+    border-radius: 15px!important;
+}
 #loginbtn{
     margin-left: 10px;
 }
@@ -94,3 +112,4 @@ select{
 	z-index: 9999;
     background: url(../pics/pre.gif) center no-repeat white;
 }
+i{ vertical-align: middle !important; }

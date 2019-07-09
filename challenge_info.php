@@ -78,16 +78,9 @@ if (!isset($_GET['c'])) {
 ?>
             <div class="container" style="margin-top:25px;">
 <?php
-            if(!isset($_SESSION['id'])){
-?>
-              <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <a href="login" class="alert-link">Log in</a> for more features!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-<?php 
-            }
+  if(!isset($_SESSION['id'])){
+    header("Location: login");
+  }
 ?>
               <div class="row">
                 <div class="col-sm">
@@ -98,7 +91,63 @@ if (!isset($_GET['c'])) {
                     <?php echo $row['challenge_difficulty'];?>
                   </h1>
                 </div>
-                  <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
+                <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
+<?php
+                  if($user_id == $challenge_owner){
+?>
+                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">delete_forever</i></button>
+<?php
+                  }else{
+?>
+                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">exit_to_app</i></button>
+<?php
+                  }
+                  if($user_id == $challenge_owner){
+?>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Delete Challenge</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          You are about to delete your challenge!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+<?php
+                  }else{
+?>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Leave Challenge</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        You are about to leave challenge!
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Leave</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<?php
+                  }
+?>
               </div>
               <p><?php echo $row['challenge_description'];?></p>
               <p>Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
@@ -184,9 +233,30 @@ if (!isset($_GET['c'])) {
 <?php
               }
             }
+            $sql = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ?";
+              $stmt = mysqli_stmt_init($conn);
+              if (!mysqli_stmt_prepare($stmt, $sql)){
+                echo "SQL error";
+              }else {
+                mysqli_stmt_bind_param($stmt, "ss", $challenge_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                    while($row = mysqli_fetch_array($result)){
 ?>
+              <form name="form" action="" method="post">
+                <div id="card" class="card text-center" onclick="this.parentNode.submit()">
+                    <div class="card-header text-muted">
+                        <?php echo $row['joined_user']; ?>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+              </form>
             </div>
 <?php
+                  }
+            } 
     }
   }
 }
