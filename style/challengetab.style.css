@@ -1,4 +1,4 @@
-.card{
+.challenge_card{
     margin:35px!important;
     width: 28%!important;
     height: 248px!important;
@@ -10,7 +10,7 @@
 .card-header{
     border-radius: 25px;
 }
-.card:hover{
+.challenge_card:hover{
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-width: 1px;
     border-color: #36a0f2;

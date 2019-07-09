@@ -2,6 +2,9 @@
 <?php 
 require 'header.php';
 require 'scr/dbh.scr.php';
+if(!isset($_SESSION['id'])){
+  header("Location: login");
+}
 #ovdje ispisujemo info challenga
 if (!isset($_GET['c'])) {
   header("Location: main");
@@ -41,6 +44,7 @@ if (!isset($_GET['c'])) {
           $deadline = $row['challenge_deadline'];
           $challenge_owner = $row['challenge_owner'];
           $progLang = $row['challenge_prog_language'];
+          $password = $row['challenge_password'];
           if ($progLang == "Python"){
             $icon = "pics/python.jpeg";
             $link = "https://www.python.org/";
@@ -77,11 +81,6 @@ if (!isset($_GET['c'])) {
             }
 ?>
             <div class="container" style="margin-top:25px;">
-<?php
-  if(!isset($_SESSION['id'])){
-    header("Location: login");
-  }
-?>
               <div class="row">
                 <div class="col-sm">
                   <h1><?php echo $row['challenge_title'];?></h1>
@@ -206,6 +205,7 @@ if (!isset($_GET['c'])) {
               } 
               #provjerava jesmo li već ušli u challenge
               if(!$joined_challenge == $challenge_id && !$joined_user == $user_id){
+                if($password == ""){
 ?>
               <form action="scr/join_challenge.scr.php" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
@@ -213,6 +213,34 @@ if (!isset($_GET['c'])) {
                 <button type="submit" name="joinchallenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px;">Join Challenge</button>
               </form>
 <?php
+                }else{
+?>
+              <button class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#joinModal" style="margin-top:15px;">Join Challenge</button>
+              <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="joinModalLabel">Join Challenge</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form action="scr/join_challenge.scr.php" method="post">
+                      <div class="modal-body">
+                        <label for="">Challenge password</label>
+                        <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                        <input type="hidden" name="challenge_status" value="<?php echo $challenge_status; ?>">
+                        <input value="" type="password" class="form-control" name="challenge_password_entered" aria-describedby="title" placeholder="Type password for entering">
+                      </div>
+                      <div class="modal-footer">
+                          <button type="submit" name="joinchallenge-submit" class="btn btn-success btn-block btn-lg">Join</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+<?php
+                }
               }else{
                 if ($challenge_status == "PENDING"){
                   $challenge_submit_btn_status = "disabled";
@@ -230,29 +258,38 @@ if (!isset($_GET['c'])) {
                 <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
                 <small class="form-text text-muted"><?php echo $challenge_submit_btn_label;?></small>
               </form>
+              <hr class="my-5">
 <?php
               }
             }
-            $sql = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ?";
-              $stmt = mysqli_stmt_init($conn);
-              if (!mysqli_stmt_prepare($stmt, $sql)){
+              $sql3 = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ?";
+              $stmt3 = mysqli_stmt_init($conn);
+              if (!mysqli_stmt_prepare($stmt3, $sql3)){
                 echo "SQL error";
               }else {
-                mysqli_stmt_bind_param($stmt, "ss", $challenge_id);
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
-                    while($row = mysqli_fetch_array($result)){
+                mysqli_stmt_bind_param($stmt3, "s", $challenge_id);
+                mysqli_stmt_execute($stmt3);
+                $result3 = mysqli_stmt_get_result($stmt3);
+                    while($row3 = mysqli_fetch_array($result3)){
+                      $sql4 = "SELECT * FROM hjuma_users WHERE id=?";
+                      $stmt4 = mysqli_stmt_init($conn);
+                      if (!mysqli_stmt_prepare($stmt4, $sql4)){
+                        echo "SQL error";
+                      }else {
+                        mysqli_stmt_bind_param($stmt4, "s", $row3['joined_user']);
+                        mysqli_stmt_execute($stmt4);
+                        $result4 = mysqli_stmt_get_result($stmt4);
+                            while($row4 = mysqli_fetch_array($result4)){
+                              $joined_user_name = $row4['username'];
+                            }
+                      }
 ?>
-              <form name="form" action="" method="post">
-                <div id="card" class="card text-center" onclick="this.parentNode.submit()">
-                    <div class="card-header text-muted">
-                        <?php echo $row['joined_user']; ?>
-                    </div>
-                    <div class="card-body">
-
+                <div class="text-center profile_card">
+                    <img src="pics/icon-profile_3.png" alt="" class="card_profile_img">
+                    <div class="card_username">
+                        <?php echo $joined_user_name; ?>
                     </div>
                 </div>
-              </form>
             </div>
 <?php
                   }

@@ -10,7 +10,7 @@
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
 <form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
-    <div id="card" class="card text-center" onclick="this.parentNode.submit()">
+    <div id="card" class="card text-center challenge_card" onclick="this.parentNode.submit()">
         <div class="card-header text-muted">
             <?php echo $row['challenge_difficulty']; ?>
         </div>
