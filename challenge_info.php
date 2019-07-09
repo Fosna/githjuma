@@ -242,7 +242,7 @@ if (!isset($_GET['c'])) {
 <?php
                 }
               }else{
-                if ($challenge_status == "PENDING"){
+                /*if ($challenge_status == "PENDING"){
                   $challenge_submit_btn_status = "disabled";
                   $challenge_submit_btn_label = "Waiting for owner to start a challenge!";
                 }elseif ($challenge_status == "ACTIVE"){
@@ -251,7 +251,22 @@ if (!isset($_GET['c'])) {
                 }elseif ($challenge_status == "EXPIRED"){
                   $challenge_submit_btn_style = "display:none!important;";
                   $challenge_submit_btn_label = "";
-                }
+                }*/
+                switch ($challenge_status) {
+                  case "PENDING":
+                      $challenge_submit_btn_status = "disabled";
+                      $challenge_submit_btn_label = "Waiting for owner to start a challenge!";
+                      break;
+                  case "ACTIVE":
+                      $challenge_submit_btn_status = "";
+                      $challenge_submit_btn_label = "";
+                      break;
+                  case "EXPIRED":
+                      $challenge_submit_btn_style = "display:none!important;";
+                      $challenge_submit_btn_label = "";
+                      break;
+                  default:
+              }
 ?>
               <form action="challenge" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">

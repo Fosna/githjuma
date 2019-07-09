@@ -23,7 +23,7 @@ elseif (isset($_POST['joinchallenge-submit'])) {
               $challenge_password = $row['challenge_password'];
               $pwdCheck = password_verify($challenge_password_entered, $challenge_password);
               if ($pwdCheck == false) {
-                header("Location: ../challenge?c=$challenge_id&$challenge_password_entered");
+                header("Location: ../challenge_info?c=$challenge_id&error=pass");
                 exit();
               }else{
                 $sql = "INSERT INTO hjuma_joined_challenges (joined_user, joined_challenge) VALUES (?, ?)";
