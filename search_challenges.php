@@ -1,6 +1,6 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
-<h1 style="text-align:center;">You results:</h1>
+<h1 style="text-align:center;">Your results:</h1>
 <hr class="my-3">
 <?php 
 if (!isset($_POST['search_challenge-submit'])) {
@@ -8,7 +8,9 @@ if (!isset($_POST['search_challenge-submit'])) {
 }elseif (isset($_POST['search_challenge-submit'])) {
   require 'scr/dbh.scr.php';
   $search_challenge = mysqli_real_escape_string($conn, $_POST['search_challenge']);
-
+  if ($search_challenge == ""){
+    header("Location: main");
+  }
   $sql = "SELECT * FROM hjuma_challenges WHERE challenge_title LIKE '%$search_challenge%';";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -43,6 +45,13 @@ if (!isset($_POST['search_challenge-submit'])) {
             </form>
 <?php
         }
+    }else{
+        echo '
+        <div class="container">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                No Result!
+            </div>
+        </div>';
     }
   }
 }
