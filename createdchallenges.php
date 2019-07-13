@@ -1,9 +1,8 @@
 <?php require 'header.php'; ?>
-<link rel="stylesheet" href="style/createdchallenges.style.css">
 <link rel="stylesheet" href="style/challengetab.style.css">
 <div class="space"></div>
-<div class="container" style="margin-top:25px!important;">
-<h1 style="margin-left: 35px;">Created Challenges</h1>
+<h1 style="text-align:center;">Created Challenges</h1>
+<hr class="my-3">
 <!-- Dobivanje challenga iz baze -->
 <?php
     require 'scr/dbh.scr.php';
@@ -50,5 +49,4 @@
     }
 ?>
 <!-- Zavrsetak php skripte koja vuce iz sql baze -->
-</div>
 <?php require 'footer.php' ?>

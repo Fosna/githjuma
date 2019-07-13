@@ -14,6 +14,15 @@ if (!isset($_POST['delete_challenge-submit'])) {
     else {
       mysqli_stmt_bind_param($stmt, "s", $challenge_id);
       mysqli_stmt_execute($stmt);
+      $sql = "DELETE FROM hjuma_joined_challenges WHERE joined_challenge=?;";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)){
+        die("sql error");
+      }
+      else {
+        mysqli_stmt_bind_param($stmt, "s", $challenge_id);
+        mysqli_stmt_execute($stmt);
+      }
       header("Location: ../main");
       exit();
     }

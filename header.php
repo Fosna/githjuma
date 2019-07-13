@@ -3,7 +3,6 @@
 <head>
   <title class="title">Hjuma</title>
   <link rel="stylesheet" href="style/header.style.css">
-  <link rel="stylesheet" href="style/search.style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -23,6 +22,10 @@
   <div class="se-pre-con"></div>
   <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
     <a class="navbar-brand" href="main"><b>Hjuma</b></a>
+    <form action="search_challenges.php" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
+      <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
+      <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
 <?php
     error_reporting(0); 
     session_start();
@@ -30,7 +33,6 @@
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>
-      <a class="btn btn-outline-secondary btn-sm" id="btn_main" href="create_challenge" style="margin-left: 15px;">Create Challenge</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">

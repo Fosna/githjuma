@@ -97,6 +97,25 @@ select{
 .modal-content{
     border-radius: 15px!important;
 }
+.search_input{
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0)!important;
+    color: grey !important;
+    border: 2px solid grey !important;
+    border-width: 2px !important;
+    /*border-bottom: solid rgb(248, 248, 248)!important;
+    border-right: none!important;
+    border-left: none!important;
+    border-top: none!important;*/
+    border-radius: 15px !important;
+    width: 200px !important;
+    transition: 150ms !important;
+}
+.search_input:focus{
+    width: 300px !important;
+    border: 2px solid grey !important;
+}
 #loginbtn{
     margin-left: 10px;
 }
