@@ -5,7 +5,7 @@
     <h1>Sign Up</h1>
     <hr class="my-2">
     <div class="form-group">
-      <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" size="30" required/>
+      <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" size="30" autocomplete="off" required/>
       <div class="invalid-feedback">
         This field can not be empty!
       </div>
@@ -16,8 +16,8 @@
             Use a valid email!
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row"> 
+        <div class="col"> 
           <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <div class="invalid-feedback">

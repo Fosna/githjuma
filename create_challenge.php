@@ -16,7 +16,7 @@
     <div class="form-row">
       <div class="form-group col-md-10 mb-3">
         <label for="username">Title</label>
-        <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" onkeyup="javascript:capitalize(this.id, this.value);" required>
+        <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" required>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
@@ -53,12 +53,12 @@
     </div>
     <div class="form-group" id="user_explanation" style="width: 100%;">
       <label for="challenge_user_explanation">Challenge explanation</label>
-      <input id="explanation" value="" type="text" class="form-control " name="challenge_user_explanation" aria-describedby="explanation" placeholder="Explain your challenge task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
+      <input id="explanation" value="" type="text" class="form-control" name="challenge_user_explanation" autocomplete="off" aria-describedby="explanation" placeholder="Explain your challenge task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
       <small class="form-text text-muted">You need to explain task because people won't know what they need to do!</small>
     </div>
     <div class="form-group">
       <label for="challenge_description">Description</label>
-      <input id="description" value="" type="text" class="form-control" name="challenge_description" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);">
+      <input id="description" value="" type="text" class="form-control" name="challenge_description" autocomplete="off" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);">
     </div>
     <div class="form-row">
       <div class="form-group col-md-4 mb-3">
