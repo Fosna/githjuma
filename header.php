@@ -24,10 +24,6 @@
   <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
     <a class="navbar-brand" href="main"><b>Hjuma</b></a>
 <?php
-    #ovo preventa "confirm form ressubmission"
-    header('Cache-Control: no cache'); 
-    session_cache_limiter('private_no_expire');
-    session_cache_limiter('public');
     error_reporting(0); 
     session_start();
     require 'scr/dbh.scr.php';

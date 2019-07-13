@@ -2,16 +2,13 @@
 <?php 
 require 'header.php';
 require 'scr/dbh.scr.php';
-if(!isset($_SESSION['id'])){
-  header("Location: login");
-}
 #ovdje ispisujemo info challenga
 if (!isset($_GET['c'])) {
   header("Location: main");
 }elseif(isset($_GET['c'])){
   $challenge_id = $_GET['c'];
   if(!isset($_SESSION['id'])){
-    $user_id = "NONE";
+    header("Location: login");
   }else{
     $user_id = $_SESSION['id'];
   }
@@ -117,7 +114,11 @@ if (!isset($_GET['c'])) {
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-danger">Delete</button>
+                          <form action="scr/delete_challenge.scr.php" method="post">
+                            <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                            <input type="hidden" name="challenge_owner" value="<?php echo $challenge_owner; ?>">
+                            <button type="submit" name="delete_challenge-submit" class="btn btn-danger">Delete</button>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -139,9 +140,12 @@ if (!isset($_GET['c'])) {
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger">Leave</button>
+                        <form action="scr/leave_challenge.scr.php" method="post">
+                          <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                          <button type="submit" name="leave_challenge-submit" class="btn btn-danger">Leave</button>
+                        </form>
                       </div>
-                    </div>
+                    </div> 
                   </div>
                 </div>
 <?php
