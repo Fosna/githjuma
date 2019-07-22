@@ -14,20 +14,16 @@
     <h1>Create Challenge</h1>
     <hr class="my-2">
     <div class="form-row">
-      <div class="form-group col-md-10 mb-3">
+      <div class="form-group col-md-6 mb-3">
         <label for="username">Title</label>
         <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" required>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
       </div>
-      <div class="form-group col-md-2 mb-3">
-        <label for="challenge_difficulty">Difficulty</label>
-        <select name="challenge_difficulty" class="form-control">
-          <option value="Easy">Easy</option>
-          <option value="Medium">Medium</option>
-          <option value="Hard">Hard</option>    
-        </select>
+      <div class="form-group col-md-6 mb-3">
+        <label for="challenge_description">Description</label>
+        <input id="description" value="" type="text" class="form-control" name="challenge_description" autocomplete="off" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);">
       </div>
     </div>
     <div class="form-group">
@@ -36,7 +32,7 @@
         <label class="custom-control-label" for="customRadioInline3">Challenge from our database</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-<?php 
+<?php
       if (!isset($_SESSION['id'])){
 ?>
         <input type="radio" id="customRadioInline4" name="challenge_type" value="user_challenge" class="custom-control-input" onclick="showExplanation();" disabled>
@@ -56,32 +52,40 @@
       <input id="explanation" value="" type="text" class="form-control" name="challenge_user_explanation" autocomplete="off" aria-describedby="explanation" placeholder="Explain your challenge task to other people" onkeyup="javascript:capitalize(this.id, this.value);" required>
       <small class="form-text text-muted">You need to explain task because people won't know what they need to do!</small>
     </div>
-    <div class="form-group">
-      <label for="challenge_description">Description</label>
-      <input id="description" value="" type="text" class="form-control" name="challenge_description" autocomplete="off" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);">
-    </div>
     <div class="form-row">
       <div class="form-group col-md-4 mb-3">
         <label for="challenge_prog_language">Programming language</label>
         <select name="challenge_prog_language" class="form-control">
           <option value="Python">Python</option>
-          <option value="PHP">PHP</option>
-          <option value="C">C</option>
-          <option value="C++">C++</option>
-          <option value="C#">C#</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Java">Java</option>
-          <option value="HTML_CSS">HTML&CSS</option>
+          <option value="PHP" disabled>PHP</option>
+          <option value="C" disabled>C</option>
+          <option value="C++" disabled>C++</option>
+          <option value="C#" disabled>C#</option>
+          <option value="JavaScript" disabled>JavaScript</option>
+          <option value="Java" disabled>Java</option>
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="">Start date</label>
-        <input id="start_date" class="form-control" type="datetime-local" name="challenge_start_date" value="" required/>
-        <small class="form-text text-muted">Click filled circle on calendar to choose today's date!</small>
+        <label for="">Challenge duration</label>
+        <select name="challenge_duration" class="form-control">
+          <option value="5">5min</option>
+          <option value="15">15min</option>
+          <option value="30">30min</option>
+          <option value="60">1h</option>
+          <option value="120">2h</option>
+          <option value="300">5h</option>
+          <option value="720">12h</option>
+          <option value="1440">24h</option>
+        </select>
+        <small class="form-text text-muted">Select duration of your challenge</small>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="">End date</label>
-        <input class="form-control" type="datetime-local" name="challenge_deadline" required/>
+        <label for="challenge_difficulty">Difficulty</label>
+        <select name="challenge_difficulty" class="form-control">
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
       </div>
     </div>
     <div class="form-group">
@@ -130,7 +134,7 @@
 
   function capitalize(textboxid, str) {
       if (str && str.length >= 1)
-      {       
+      {
           var firstChar = str.charAt(0);
           var remainingStr = str.slice(1);
           str = firstChar.toUpperCase() + remainingStr;

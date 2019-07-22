@@ -42,7 +42,7 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
               }
             }
   /*$dateRaw = mysqli_real_escape_string($conn, $_POST['datetimes']);
-  $date = explode("-", $dateRaw); 
+  $date = explode("-", $dateRaw);
   $start = $date[0];
   $dead = $date[1];*/
 
@@ -51,8 +51,7 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
   $diff = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
   $des = mysqli_real_escape_string($conn, $_POST['challenge_description']);
   $lang = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);
-  $start = mysqli_real_escape_string($conn, $_POST['challenge_start_date']);
-  $dead = mysqli_real_escape_string($conn, $_POST['challenge_deadline']);
+  $dura = mysqli_real_escape_string($conn, $_POST['challenge_duration']);
   $pwd = mysqli_real_escape_string($conn, $_POST['challenge_password']);
 
   $challenge_title = filter_var($title, FILTER_SANITIZE_STRING);
@@ -60,12 +59,11 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
   $challenge_difficulty = filter_var($diff, FILTER_SANITIZE_STRING);
   $challenge_description = filter_var($des, FILTER_SANITIZE_STRING);
   $challenge_prog_language = filter_var($lang, FILTER_SANITIZE_STRING);
-  $challenge_start_date = filter_var($start, FILTER_SANITIZE_STRING);
-  $challenge_deadline = filter_var($dead, FILTER_SANITIZE_STRING);
+  $challenge_duration = filter_var($dura, FILTER_SANITIZE_STRING);
   $challenge_password = filter_var($pwd, FILTER_SANITIZE_STRING);
   $challenge_status = "PENDING";
 
-  if (empty($challenge_title) || empty($challenge_description) || empty($challenge_prog_language) || empty($challenge_start_date) /*|| empty($challenge_deadline)*/ ){
+  if (empty($challenge_title) || empty($challenge_description) /*|| empty($challenge_deadline)*/ ){
     header("Location: ../create_challenge?error=empty");
     exit();
   }
@@ -99,16 +97,16 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
     }else {
       $challenge_password = password_hash($challenge_password, PASSWORD_DEFAULT);
     }
-    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_start_date, challenge_deadline, challenge_password, challenge_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_duration, challenge_password, challenge_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt2 = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt2, $sql2)) {
       die("SQL error 2");
     }else {
-      mysqli_stmt_bind_param($stmt2,"ssssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_start_date, $challenge_deadline, $challenge_password, $challenge_status);
+      mysqli_stmt_bind_param($stmt2,"sssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_duration, $challenge_password, $challenge_status);
       if (!mysqli_stmt_execute($stmt2)){
         die("SQL error 3");
       }else{
-        
+
       $sql = "INSERT INTO hjuma_joined_challenges (joined_user, joined_challenge) VALUES (?, ?)";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)){

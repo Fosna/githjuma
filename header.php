@@ -22,12 +22,12 @@
   <div class="se-pre-con"></div>
   <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
     <a class="navbar-brand" href="main"><b>Hjuma</b></a>
-    <form action="search_challenges.php" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
+    <form action="search_challenges" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
       <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
 <?php
-    error_reporting(0); 
+    error_reporting(0);
     session_start();
     require 'scr/dbh.scr.php';
     if (isset($_SESSION['id'])) {
@@ -62,7 +62,7 @@
 <?php
     }else {
 ?>
-        <a href="login" id="loginbtn" class="btn btn-outline-primary ml-auto"">Log In</a>
+        <a href="login" id="loginbtn" class="btn btn-outline-primary ml-auto">Log In</a>
         <a href="signup" id="loginbtn" class="btn btn-primary">Sign Up</a>
 <?php
     }
@@ -72,9 +72,9 @@
   <script type="text/javascript">
     $(function() {
       var header = $(".navbar");
-      $(window).scroll(function() {    
+      $(window).scroll(function() {
           var scroll = $(window).scrollTop();
-      
+
           if (scroll >= 10) {
               header.removeClass('bg-transparent').addClass("bg-dark");
           } else {

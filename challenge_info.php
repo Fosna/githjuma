@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="style/challenge_info.style.css">
-<?php 
+<?php
 require 'header.php';
 require 'scr/dbh.scr.php';
 #ovdje ispisujemo info challenga
@@ -37,8 +37,7 @@ if (!isset($_GET['c'])) {
           $challenge_owner = $row['challenge_owner'];
           $challenge_difficulty = $row['challenge_difficulty'];
           $challenge_status = $row['challenge_status'];
-          $start_date = $row['challenge_start_date'];
-          $deadline = $row['challenge_deadline'];
+          $challenge_duration = $row['challenge_duration'];
           $challenge_owner = $row['challenge_owner'];
           $progLang = $row['challenge_prog_language'];
           $password = $row['challenge_password'];
@@ -87,7 +86,7 @@ if (!isset($_GET['c'])) {
                     <?php echo $row['challenge_difficulty'];?>
                   </h1>
                 </div>
-                <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a> 
+                <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a>
 <?php
                   if($user_id == $challenge_owner){
 ?>
@@ -145,7 +144,7 @@ if (!isset($_GET['c'])) {
                           <button type="submit" name="leave_challenge-submit" class="btn btn-danger">Leave</button>
                         </form>
                       </div>
-                    </div> 
+                    </div>
                   </div>
                 </div>
 <?php
@@ -173,14 +172,17 @@ if (!isset($_GET['c'])) {
 <?php
             if($user_id == $challenge_owner){
               if ($challenge_status == "PENDING"){
-                $start_challenge_btn_style = "display:block;"; 
-                $enter_editor_btn_style = "display:none;"; 
+                $start_challenge_btn_style = "display:block;";
+                $enter_editor_btn_style = "display:none;";
+                $ended = "display:none;";
               }elseif ($challenge_status == "ACTIVE"){
-                $start_challenge_btn_style = "display:none;"; 
-                $enter_editor_btn_style = "display:block;"; 
+                $start_challenge_btn_style = "display:none;";
+                $enter_editor_btn_style = "display:block;";
+                $ended = "display:none;";
               }elseif ($challenge_status == "EXPIRED"){
-                $start_challenge_btn_style = "display:none;"; 
-                $enter_editor_btn_style = "display:none;"; 
+                $start_challenge_btn_style = "display:none;";
+                $enter_editor_btn_style = "display:none;";
+                $ended = "display:block;";
               }
 ?>
               <form action="scr/status.scr.php" method="post">
@@ -188,11 +190,12 @@ if (!isset($_GET['c'])) {
                 <input type="hidden" name="challenge_status" value="ACTIVE">
                 <button type="submit" name="status-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $start_challenge_btn_style; ?>">Start Challenge</button>
               </form>
-              <form action="challenge" method="post">
+              <form action="challenge?c=<?php echo $challenge_id; ?>" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
                 <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $enter_editor_btn_style; ?>">Enter Editor</button>
               </form>
-<?php 
+              <h1 style="<?php echo $ended; ?>">Challenge Ended!</h1>
+<?php
             }else{
               $sql = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ? AND joined_user = ?;";
               $stmt = mysqli_stmt_init($conn);
@@ -206,7 +209,7 @@ if (!isset($_GET['c'])) {
                         $joined_challenge = $row['joined_challenge'];
                         $joined_user = $row['joined_user'];
                     }
-              } 
+              }
               #provjerava jesmo li već ušli u challenge
               if(!$joined_challenge == $challenge_id && !$joined_user == $user_id){
                 if($password == ""){
@@ -272,12 +275,11 @@ if (!isset($_GET['c'])) {
                   default:
               }
 ?>
-              <form action="challenge" method="post">
+              <form action="challenge?c=<?php echo $challenge_id; ?>" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
                 <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
                 <small class="form-text text-muted"><?php echo $challenge_submit_btn_label;?></small>
               </form>
-              <hr class="my-5">
 <?php
               }
             }
@@ -312,7 +314,8 @@ if (!isset($_GET['c'])) {
             </div>
 <?php
                   }
-            } 
+            }
     }
   }
 }
+?>
