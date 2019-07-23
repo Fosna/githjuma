@@ -3,8 +3,8 @@ body {
     font-family: 'DM Sans', sans-serif !important;
 }
 .header_space{
-    padding: 27px;  
-} 
+    padding: 27px;
+}
 form{
     margin-bottom: 0;
 }
@@ -36,13 +36,13 @@ select{
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .dropdown_username{
-    font-weight: bold !important; 
+    font-weight: bold !important;
 }
 .dropdown_username:hover{
-    background-color: rgba(255, 255, 255, 0) !important; 
+    background-color: rgba(255, 255, 255, 0) !important;
 }
 .dropdown_username:focus{
-    background-color: rgba(255, 255, 255, 0) !important; 
+    background-color: rgba(255, 255, 255, 0) !important;
 }
 .dropdown-toggle {
     color: grey;
@@ -51,7 +51,7 @@ select{
     color: grey;
 }
 .dropdown-toggle:focus {
-    color: grey; 
+    color: grey;
 }
 .dropdown-item{
     background-color: rgba(255, 255, 255, 0) !important;
@@ -132,3 +132,25 @@ select{
     background: url(../pics/pre.gif) center no-repeat white;
 }
 i{ vertical-align: middle !important; }
+::-webkit-scrollbar {
+  width: 8px; /* 1px wider than Lion. */
+  /* This is more usable for users trying to click it. */
+  background-color: rgba(0,0,0,0);
+  -webkit-border-radius: 100px;
+}
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+  /* This is the EXACT color of Mac OS scrollbars.
+     Yes, I pulled out digital color meter */
+  background: rgba(0,0,0,0.5);
+  -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.61); /* Some darker color when you click it */
+  -webkit-border-radius: 100px;
+}

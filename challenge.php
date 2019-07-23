@@ -75,29 +75,56 @@ if (!isset($_GET['c'])) {
                   }
             }
 ?>
-<!-- <div class="info_div">
-  <div class="container">
-    <h1><?php //echo $row['challenge_title']; ?></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h2><?php echo $row['challenge_title'];?></h2>
+    </div>
+    <div class="col-sm">
+      <h2 class="float-right" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
+        <?php echo $row['challenge_difficulty'];?>
+      </h2>
+    </div>
+    <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a>
   </div>
+  <p><?php echo $row['challenge_description'];?></p>
+  <p>Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
+  <h5>Challenge </h5>
+  <p><?php echo $row['challenge_explanation'];?></p>
+  <hr>
+  <div class="row">
+    <div class="col-md-10 mb-3">
+      <div class="editor">
+        <textarea class="codemirror-textarea"></textarea>
+      </div>
+    </div>
+    <div class="col-md-2 mb-3">
+      <button class="btn btn-success btn-lg" type="submit" name="button">Run Code</button>
+      <hr>
+      <button class="btn btn-outline-primary" type="submit" name="button">Submit Code</button>
+      <hr>
+      <div class="output">
+        <h5>Output:</h5>
+        <p>1423172445</p>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <link rel="stylesheet" href="plugin/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="plugin/codemirror/theme/pastel-on-dark.css">
+  <script type="text/javascript" src="plugin/codemirror/lib/codemirror.js" charset="utf-8"></script>
+  <!--ova skripta određuje programski jezik kompajlera  -->
+  <script src="plugin/codemirror/mode/python/python.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var code = $(".codemirror-textarea") [0];
+      var editor = CodeMirror.fromTextArea(code, {
+        lineNumbers : true,
+        theme : "pastel-on-dark"
+      });
+    });
+  </script>
 </div>
-<div class="editor_div" contenteditable="true">
-    Editor
-</div>
-<table> -->
-<table>
-    <tr>
-        <td class="info">
-            <div>
-
-            </div>
-        </td>
-        <td class="editor">
-            <div class="tag"></div>
-            <code><div class="content" contenteditable></div></code>
-        </td>
-    </tr>
-
-</table>
 
 <?php
       }

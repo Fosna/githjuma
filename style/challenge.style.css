@@ -1,43 +1,17 @@
-.info_div{
-  height: 100%;
-  width: 30%;
-  float: left;
-}
-.editor_div{
-  outline: none;
-}
-
-html,body,table,div.content,iframe{
-border:0;
-height:100%;
-margin:0;
-padding:0;
-width:100%;
-}
-table{
-  height: 600px!important;
-}
-.info{
-  height:10%;
-  padding:25px 5px 5px 5px;
-  position:relative;
-  vertical-align:top;
-  width:30%;
-}
 .editor{
-border:2px solid black;
-border-radius: 15px;
-height:50%;
-padding:25px 5px 5px 5px;
-position:relative;
-vertical-align:top;
-width:70%;
+  border: 2px solid grey;
 }
-.content{
-  outline: none;
+.explanation_container{
+  border: 2px solid black;
 }
-div.tag{
-position:absolute;
-right:5px;
-top:5px;
+.output{
+  height: 125px;
+  width: 100%;
+  background-color: inherit;
+}
+#icon{
+  margin: 0;
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
 }
