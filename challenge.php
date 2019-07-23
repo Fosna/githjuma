@@ -43,24 +43,15 @@ if (!isset($_GET['c'])) {
           if ($progLang == "Python"){
             $icon = "pics/python.jpeg";
             $link = "https://www.python.org/";
+            $mode = "python/python.js";
           }elseif($progLang == "PHP"){
             $icon = "pics/php.png";
             $link = "https://php.net/";
-          }elseif($progLang == "C"){
-            $icon = "pics/c.png";
-            $link = "https://www.geeksforgeeks.org/c-programming-language/";
-          }elseif($progLang == "C++"){
-            $icon = "pics/c++.png";
-            $link = "http://www.cplusplus.com/";
-          }elseif($progLang == "C#"){
-            $icon = "pics/c#.png";
-            $link = "https://www.geeksforgeeks.org/csharp-programming-language/";
-          }elseif($progLang == "Java"){
-            $icon = "pics/java.jpg";
-            $link = "https://www.java.com/en/";
+            $mode = "php/php.js";
           }elseif($progLang == "JavaScript"){
             $icon = "pics/javascript.jpeg";
             $link = "https://www.javascript.com/";
+            $mode = "javascript/javascript.js";
           }
           $sql2 = "SELECT * FROM hjuma_users WHERE id=?";
             $stmt2 = mysqli_stmt_init($conn);
@@ -75,20 +66,21 @@ if (!isset($_GET['c'])) {
                   }
             }
 ?>
-<div class="container">
+<div class="container" style="margin-top: 15px;">
   <div class="row">
-    <div class="col-sm">
-      <h2><?php echo $row['challenge_title'];?></h2>
+    <div class="col-md-10 mb-3" style="margin-bottom: 0px!important;">
+      <h2 style="margin-bottom: 0px!important;"><?php echo $row['challenge_title'];?></h2>
     </div>
-    <div class="col-sm">
-      <h2 class="float-right" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
-        <?php echo $row['challenge_difficulty'];?>
-      </h2>
+    <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;"   >
+      <p style="margin-bottom: 0px!important;">Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
     </div>
-    <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a>
   </div>
-  <p><?php echo $row['challenge_description'];?></p>
-  <p>Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
+  <hr>
+  <h5 class="" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
+    <?php echo $row['challenge_difficulty'];?>
+  </h5>
+  <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+  <hr>
   <h5>Challenge </h5>
   <p><?php echo $row['challenge_explanation'];?></p>
   <hr>
@@ -104,23 +96,34 @@ if (!isset($_GET['c'])) {
       <button class="btn btn-outline-primary" type="submit" name="button">Submit Code</button>
       <hr>
       <div class="output">
-        <h5>Output:</h5>
+        <h5>Testing output</h5>
         <p>1423172445</p>
       </div>
       <hr>
     </div>
   </div>
   <link rel="stylesheet" href="plugin/codemirror/lib/codemirror.css">
-  <link rel="stylesheet" href="plugin/codemirror/theme/pastel-on-dark.css">
+  <link rel="stylesheet" href="plugin/codemirror/theme/yonce.css">
+  <script src="plugin/codemirror/mode/xml/xml.js"></script>
+  <link rel="stylesheet" href="plugin/codemirror/addon/display/fullscreen.css">
+  <script type="text/javascript" src="plugin/codemirror/addon/display/fullscreen.js"></script>
   <script type="text/javascript" src="plugin/codemirror/lib/codemirror.js" charset="utf-8"></script>
   <!--ova skripta određuje programski jezik kompajlera  -->
-  <script src="plugin/codemirror/mode/python/python.js"></script>
+  <script src="plugin/codemirror/mode/<?php echo $mode; ?>"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       var code = $(".codemirror-textarea") [0];
       var editor = CodeMirror.fromTextArea(code, {
         lineNumbers : true,
-        theme : "pastel-on-dark"
+        theme : "yonce",
+        extraKeys: {
+        "F11": function(cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function(cm) {
+          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+      }
       });
     });
   </script>

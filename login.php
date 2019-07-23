@@ -4,23 +4,22 @@
   <div class="text-center mb-4">
     <h1 class="h1 font-weight-normal">Log In</h1>
   </div>
-
   <div class="form-label-group">
-    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" value="<?php echo $_SESSION['remember_username']; ?>" required autofocus>
     <label for="inputUsername">Username</label>
   </div>
 
   <div class="form-label-group">
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['remember_password']; ?>" required>
     <label for="inputPassword">Password</label>
   </div>
 
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
+  <div class="custom-control custom-checkbox" style="margin-bottom: 15px;">
+    <input type="checkbox" class="custom-control-input" id="rememberme" name="rememberme">
+    <label class="custom-control-label" for="rememberme">Remember me</label>
   </div>
-  <button class="btn btn-lg btn-success btn-block" name="login-submit" type="submit">Log In</button>
+
+  <button class="btn btn-lg btn-primary btn-block" name="login-submit" type="submit">Log In</button>
   <a href="signup" class="signup-link">Sign Up</a>
   <div class="form-label-group">
   <?php

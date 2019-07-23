@@ -49,7 +49,6 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
   $title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
   $type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
   $diff = mysqli_real_escape_string($conn, $_POST['challenge_difficulty']);
-  $des = mysqli_real_escape_string($conn, $_POST['challenge_description']);
   $lang = mysqli_real_escape_string($conn, $_POST['challenge_prog_language']);
   $dura = mysqli_real_escape_string($conn, $_POST['challenge_duration']);
   $pwd = mysqli_real_escape_string($conn, $_POST['challenge_password']);
@@ -57,13 +56,12 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
   $challenge_title = filter_var($title, FILTER_SANITIZE_STRING);
   $challenge_type = filter_var($type, FILTER_SANITIZE_STRING);
   $challenge_difficulty = filter_var($diff, FILTER_SANITIZE_STRING);
-  $challenge_description = filter_var($des, FILTER_SANITIZE_STRING);
   $challenge_prog_language = filter_var($lang, FILTER_SANITIZE_STRING);
   $challenge_duration = filter_var($dura, FILTER_SANITIZE_STRING);
   $challenge_password = filter_var($pwd, FILTER_SANITIZE_STRING);
   $challenge_status = "PENDING";
 
-  if (empty($challenge_title) || empty($challenge_description) /*|| empty($challenge_deadline)*/ ){
+  if (empty($challenge_title)){
     header("Location: ../create_challenge?error=empty");
     exit();
   }
@@ -97,12 +95,12 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
     }else {
       $challenge_password = password_hash($challenge_password, PASSWORD_DEFAULT);
     }
-    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_description, challenge_prog_language, challenge_duration, challenge_password, challenge_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql2 = "INSERT INTO hjuma_challenges (challenge_id, challenge_owner, challenge_title, challenge_type, challenge_explanation, challenge_difficulty, challenge_prog_language, challenge_duration, challenge_password, challenge_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt2 = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt2, $sql2)) {
       die("SQL error 2");
     }else {
-      mysqli_stmt_bind_param($stmt2,"sssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty,  $challenge_description, $challenge_prog_language, $challenge_duration, $challenge_password, $challenge_status);
+      mysqli_stmt_bind_param($stmt2,"ssssssssss", $challenge_id, $challenge_owner, $challenge_title, $challenge_type, $challenge_explanation, $challenge_difficulty, $challenge_prog_language, $challenge_duration, $challenge_password, $challenge_status);
       if (!mysqli_stmt_execute($stmt2)){
         die("SQL error 3");
       }else{

@@ -1,11 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "tehnooz_toni";
-$password = "tehnooz123qw";
-$dbname = "tehnooz_plasaj_login_test";
+$baseservername = "localhost";
+$baseusername = "tehnooz_toni";
+$basepassword = "tehnooz123qw";
+$basedbname = "tehnooz_plasaj_login_test";
 
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($baseservername, $baseusername, $basepassword, $basedbname);
 
 if (!$conn) {
   die("Neuspjelo spajanje: " . mysqli_connect_error());

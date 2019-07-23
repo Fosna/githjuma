@@ -22,18 +22,18 @@
         <div class="card-body">
             <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
             <p class="card-text">
-<?php   
+<?php
             #stavlja tri točke samo ako je broj slova veci od 43
-            $char_number = strlen($row['challenge_description']);
+            $char_number = strlen($row['challenge_explanation']);
             if ($char_number > 114) {
-                echo substr($row['challenge_description'],0,114), "..."; 
+                echo substr($row['challenge_explanation'],0,114), "...";
             }else{
-                echo substr($row['challenge_description'],0,114); 
-            }    
-?>      
+                echo substr($row['challenge_explanation'],0,114);
+            }
+?>
             </p>
             <!-- Form koji salje na stranicu koja opisuje challenge -->
-            
+
             <!-- Form koji salje na stranicu koja opisuje challenge -->
         </div>
         <div class="card-footer text-muted">

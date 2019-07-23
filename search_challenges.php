@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/challengetab.style.css">
 <h1 style="text-align:center;">Your results:</h1>
 <hr class="my-3">
-<?php 
+<?php
 if (!isset($_POST['search_challenge-submit'])) {
     header("Location: main");
 }elseif (isset($_POST['search_challenge-submit'])) {
@@ -24,18 +24,18 @@ if (!isset($_POST['search_challenge-submit'])) {
                     <div class="card-body">
                         <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
                         <p class="card-text">
-<?php   
+<?php
                         #stavlja tri točke samo ako je broj slova veci od 110
                         $char_number = strlen($row['challenge_description']);
                         if ($char_number > 110) {
-                            echo substr($row['challenge_description'],0,110), "..."; 
+                            echo substr($row['challenge_description'],0,110), "...";
                         }else{
-                            echo substr($row['challenge_description'],0,110); 
-                        }    
-?>      
+                            echo substr($row['challenge_description'],0,110);
+                        }
+?>
                         </p>
                         <!-- Form koji salje na stranicu koja opisuje challenge -->
-                        
+
                         <!-- Form koji salje na stranicu koja opisuje challenge -->
                     </div>
                     <div class="card-footer text-muted">

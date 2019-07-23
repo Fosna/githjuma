@@ -14,16 +14,12 @@
     <h1>Create Challenge</h1>
     <hr class="my-2">
     <div class="form-row">
-      <div class="form-group col-md-6 mb-3">
+      <div class="form-group col-md-12 mb-3">
         <label for="username">Title</label>
         <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" required>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
-      </div>
-      <div class="form-group col-md-6 mb-3">
-        <label for="challenge_description">Description</label>
-        <input id="description" value="" type="text" class="form-control" name="challenge_description" autocomplete="off" placeholder="Description of challenge" onkeyup="javascript:capitalize(this.id, this.value);">
       </div>
     </div>
     <div class="form-group">
@@ -57,12 +53,8 @@
         <label for="challenge_prog_language">Programming language</label>
         <select name="challenge_prog_language" class="form-control">
           <option value="Python">Python</option>
-          <option value="PHP" disabled>PHP</option>
-          <option value="C" disabled>C</option>
-          <option value="C++" disabled>C++</option>
-          <option value="C#" disabled>C#</option>
-          <option value="JavaScript" disabled>JavaScript</option>
-          <option value="Java" disabled>Java</option>
+          <option value="PHP">PHP</option>
+          <option value="JavaScript">JavaScript</option>
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">

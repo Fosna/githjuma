@@ -47,18 +47,6 @@ if (!isset($_GET['c'])) {
           }elseif($progLang == "PHP"){
             $icon = "pics/php.png";
             $link = "https://php.net/";
-          }elseif($progLang == "C"){
-            $icon = "pics/c.png";
-            $link = "https://www.geeksforgeeks.org/c-programming-language/";
-          }elseif($progLang == "C++"){
-            $icon = "pics/c++.png";
-            $link = "http://www.cplusplus.com/";
-          }elseif($progLang == "C#"){
-            $icon = "pics/c#.png";
-            $link = "https://www.geeksforgeeks.org/csharp-programming-language/";
-          }elseif($progLang == "Java"){
-            $icon = "pics/java.jpg";
-            $link = "https://www.java.com/en/";
           }elseif($progLang == "JavaScript"){
             $icon = "pics/javascript.jpeg";
             $link = "https://www.javascript.com/";
@@ -73,6 +61,19 @@ if (!isset($_GET['c'])) {
               $result2 = mysqli_stmt_get_result($stmt2);
                   while($row2 = mysqli_fetch_array($result2)){
                     $challenge_owner_name = $row2['username'];
+                  }
+            }
+            $sql5 = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ? AND joined_user = ?;";
+            $stmt5 = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt5, $sql5)){
+              echo "SQL error";
+            }else {
+              mysqli_stmt_bind_param($stmt5, "ss", $challenge_id, $user_id);
+              mysqli_stmt_execute($stmt5);
+              $result5 = mysqli_stmt_get_result($stmt5);
+                  while($row5 = mysqli_fetch_array($result5)){
+                      $joined_challenge = $row5['joined_challenge'];
+                      $joined_user = $row5['joined_user'];
                   }
             }
 ?>
@@ -93,9 +94,11 @@ if (!isset($_GET['c'])) {
                     <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">delete_forever</i></button>
 <?php
                   }else{
+                    if ($joined_challenge == $challenge_id && $joined_user == $user_id) {
 ?>
                     <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">exit_to_app</i></button>
 <?php
+                    }
                   }
                   if($user_id == $challenge_owner){
 ?>
@@ -148,10 +151,9 @@ if (!isset($_GET['c'])) {
                   </div>
                 </div>
 <?php
-                  }
+                }
 ?>
               </div>
-              <p><?php echo $row['challenge_description'];?></p>
               <p>Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
               <div id="accordion">
                 <div class="card">

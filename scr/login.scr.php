@@ -4,6 +4,7 @@ if (!isset($_POST['login-submit'])) {
 }
 elseif (isset($_POST['login-submit'])) {
   require 'dbh.scr.php';
+  session_start();
 
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -13,6 +14,10 @@ elseif (isset($_POST['login-submit'])) {
     exit();
   }
   else {
+    if (isset($_POST['rememberme'])) {
+      $_SESSION['remember_username'] = $username;
+      $_SESSION['remember_password'] = $password;
+    }
     $sql = "SELECT * FROM hjuma_users WHERE username=? OR email=?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
@@ -30,7 +35,6 @@ elseif (isset($_POST['login-submit'])) {
           exit();
         }
         else if ($pwdCheck == true) {
-          session_start();
           $_SESSION['id'] = $row['id'];
           $_SESSION['username'] = $row['username'];
           $username = $row['username'];
