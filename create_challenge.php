@@ -16,7 +16,8 @@
     <div class="form-row">
       <div class="form-group col-md-12 mb-3">
         <label for="username">Title</label>
-        <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" required>
+        <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="25" required>
+        <small class="form-text text-muted">Max characters are 25</small>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
@@ -102,12 +103,16 @@
         if ($error == "empty") {
           echo '<div class="alert alert-danger" role="alert">You must fill all fields</div>';
         }
+        elseif ($error == "maxchar") {
+          echo '<div class="alert alert-danger" role="alert">Naughty boy you are using too many characters!</div>';
+        }
       }
       //require 'footer.php';
     ?>
   </div>
 </form>
 <script type="text/javascript">
+
   document.getElementById("item_block").disabled = true;
 
   function show1(){
@@ -116,13 +121,6 @@
   function show2(){
     document.getElementById('challenge_password').style.display = 'block';
   }
-
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  today = mm + '/' + dd + '/' + yyyy;
-  document.getElementById('start_date').innerHTML = today + " --:-- --";
 
   function capitalize(textboxid, str) {
       if (str && str.length >= 1)
@@ -139,15 +137,5 @@
   function hideExplanation(){
     document.getElementById('user_explanation').style.display = 'none';
   }
-  $(function() {
-    $('input[name="datetimes"]').daterangepicker({
-      timePicker: true,
-      startDate: moment().startOf('hour'),
-      locale: {
-        format: 'MM/DD/YYYY H:mm:ss'
-      }
-    });
-  });
-
 </script>
 <?php require 'footer.php' ?>

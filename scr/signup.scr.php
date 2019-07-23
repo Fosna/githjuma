@@ -12,8 +12,14 @@
     $password = filter_var($password, FILTER_SANITIZE_STRING);
     $passwordRp = filter_var($passwordRp, FILTER_SANITIZE_STRING);
 
+    $maxchar = strlen($username);
+
     if (empty($username) || empty($email) || empty($password) || empty($passwordRp)){
       header("Location: ../signup?error=empty");
+      exit();
+    }
+    elseif ($maxchar > 10) {
+      header("Location: ../signup?error=maxchar");
       exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){

@@ -41,10 +41,6 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
                 }
               }
             }
-  /*$dateRaw = mysqli_real_escape_string($conn, $_POST['datetimes']);
-  $date = explode("-", $dateRaw);
-  $start = $date[0];
-  $dead = $date[1];*/
 
   $title = mysqli_real_escape_string($conn, $_POST['challenge_title']);
   $type = mysqli_real_escape_string($conn, $_POST['challenge_type']);
@@ -61,8 +57,13 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
   $challenge_password = filter_var($pwd, FILTER_SANITIZE_STRING);
   $challenge_status = "PENDING";
 
+  $maxchar = strlen($challenge_title);
+
   if (empty($challenge_title)){
     header("Location: ../create_challenge?error=empty");
+    exit();
+  }elseif ($maxchar > 10) {
+    header("Location: ../create_challenge?error=maxchar");
     exit();
   }
   else {

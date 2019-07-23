@@ -5,7 +5,8 @@
     <h1>Sign Up</h1>
     <hr class="my-2">
     <div class="form-group">
-      <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" size="30" autocomplete="off" required/>
+      <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" size="30" maxlength="10" autocomplete="off" required/>
+      <small class="form-text text-muted">Max characters are 10</small>
       <div class="invalid-feedback">
         This field can not be empty!
       </div>
@@ -16,8 +17,8 @@
             Use a valid email!
         </div>
     </div>
-    <div class="row"> 
-        <div class="col"> 
+    <div class="row">
+        <div class="col">
           <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <div class="invalid-feedback">
@@ -60,8 +61,11 @@
     elseif ($error == "username") {
       echo '<div class="alert alert-danger" role="alert">Use different characters for username!</div>';
     }
+    elseif ($error == "maxchar") {
+      echo '<div class="alert alert-danger" role="alert">Naughty boy you are using too many characters!</div>';
+    }
   }
-?>  
+?>
   </div>
 </form>
 <script type="text/javascript">

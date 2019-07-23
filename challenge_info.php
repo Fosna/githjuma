@@ -79,27 +79,35 @@ if (!isset($_GET['c'])) {
 ?>
             <div class="container" style="margin-top:25px;">
               <div class="row">
-                <div class="col-sm">
-                  <h1><?php echo $row['challenge_title'];?></h1>
+                <div class="col-md-9 mb-3" style="margin-bottom: 0px!important;">
+                  <h1 style="margin-bottom: 0px!important;"><?php echo $row['challenge_title'];?></h1>
                 </div>
-                <div class="col-sm">
-                  <h1 class="float-right" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
-                    <?php echo $row['challenge_difficulty'];?>
-                  </h1>
+                <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;">
+                  <p style="margin-bottom: 0px!important;">Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
                 </div>
-                <a class="float-right" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon" alt="" style="margin-left: 20px;"></a>
+                <div class="col-md-1 mb-3 float-right" style="margin-bottom: 0px!important;">
+                <?php
+                                  if($user_id == $challenge_owner){
+                ?>
+                                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">delete_forever</i></button>
+                <?php
+                                  }else{
+                                    if ($joined_challenge == $challenge_id && $joined_user == $user_id) {
+                ?>
+                                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">exit_to_app</i></button>
+                <?php
+                                    }
+                                  }
+                ?>
+                </div>
+              </div>
+              <hr>
+              <h3 class="" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
+                <?php echo $row['challenge_difficulty'];?>
+              </h3>
+              <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+              <hr>
 <?php
-                  if($user_id == $challenge_owner){
-?>
-                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">delete_forever</i></button>
-<?php
-                  }else{
-                    if ($joined_challenge == $challenge_id && $joined_user == $user_id) {
-?>
-                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">exit_to_app</i></button>
-<?php
-                    }
-                  }
                   if($user_id == $challenge_owner){
 ?>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -153,8 +161,6 @@ if (!isset($_GET['c'])) {
 <?php
                 }
 ?>
-              </div>
-              <p>Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
               <div id="accordion">
                 <div class="card">
                   <div class="card-header" id="headingTwo">
