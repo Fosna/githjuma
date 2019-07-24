@@ -59,7 +59,7 @@
         </select>
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="">Challenge duration</label>
+        <label for="">Duration</label>
         <select name="challenge_duration" class="form-control">
           <option value="5">5min</option>
           <option value="15">15min</option>
@@ -70,7 +70,6 @@
           <option value="720">12h</option>
           <option value="1440">24h</option>
         </select>
-        <small class="form-text text-muted">Select duration of your challenge</small>
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="challenge_difficulty">Difficulty</label>
@@ -93,7 +92,7 @@
     </div>
     <div class="form-group" id="challenge_password">
       <label for="password">Password</label>
-      <input type="password" class="form-control" name="challenge_password" placeholder="Password for challenge">
+      <input type="password" class="form-control" name="challenge_password" placeholder="Password for challenge" required>
       <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
     <button type="submit" class="btn btn-success btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge</button>

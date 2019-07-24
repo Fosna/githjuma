@@ -86,19 +86,19 @@ if (!isset($_GET['c'])) {
                   <p style="margin-bottom: 0px!important;">Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
                 </div>
                 <div class="col-md-1 mb-3 float-right" style="margin-bottom: 0px!important;">
-                <?php
-                                  if($user_id == $challenge_owner){
-                ?>
-                                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">delete_forever</i></button>
-                <?php
-                                  }else{
-                                    if ($joined_challenge == $challenge_id && $joined_user == $user_id) {
-                ?>
-                                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">exit_to_app</i></button>
-                <?php
-                                    }
-                                  }
-                ?>
+<?php
+                if($user_id == $challenge_owner){
+?>
+                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">delete_forever</i></button>
+<?php
+                }else{
+                  if ($joined_challenge == $challenge_id && $joined_user == $user_id) {
+?>
+                    <button class="btn" data-toggle="modal" data-target="#exampleModal"><i class="material-icons" style="font-size:36px">exit_to_app</i></button>
+<?php
+                  }
+                }
+?>
                 </div>
               </div>
               <hr>
@@ -326,4 +326,5 @@ if (!isset($_GET['c'])) {
     }
   }
 }
+//require 'footer.php';
 ?>
