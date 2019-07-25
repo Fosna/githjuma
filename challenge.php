@@ -43,15 +43,18 @@ if (!isset($_GET['c'])) {
           if ($progLang == "Python"){
             $icon = "pics/python.jpeg";
             $link = "https://www.python.org/";
-            $mode = "python/python.js";
+            $path = "python/python.js";
+            $mode = "python";
           }elseif($progLang == "PHP"){
             $icon = "pics/php.png";
             $link = "https://php.net/";
-            $mode = "php/php.js";
+            $path = "php/php.js";
+            $mode = "php";
           }elseif($progLang == "JavaScript"){
             $icon = "pics/javascript.jpeg";
             $link = "https://www.javascript.com/";
-            $mode = "javascript/javascript.js";
+            $path = "javascript/javascript.js";
+            $mode = "javascript";
           }
           $sql2 = "SELECT * FROM hjuma_users WHERE id=?";
             $stmt2 = mysqli_stmt_init($conn);
@@ -66,69 +69,66 @@ if (!isset($_GET['c'])) {
                   }
             }
 ?>
-<div class="container" style="margin-top: 15px;">
+<div class="container" style="margin-top:15px;">
   <div class="row">
     <div class="col-md-10 mb-3" style="margin-bottom: 0px!important;">
-      <h2 style="margin-bottom: 0px!important;"><?php echo $row['challenge_title'];?></h2>
+      <h2 style="margin-bottom:0px!important;"><?php echo $row['challenge_title'];?></h2>
     </div>
-    <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;"   >
-      <p style="margin-bottom: 0px!important;">Challenge owner: <b><?php echo $challenge_owner_name;?></b></p>
+    <div class="col-md-2 mb-3 float-right" style="margin-bottom:0px!important;">
+      <p style="margin-bottom:0px!important;float:right!important;">Challenge owner:<br><b><?php echo $challenge_owner_name;?></b></p>
     </div>
   </div>
   <hr>
-  <h5 class="" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
-    <?php echo $row['challenge_difficulty'];?>
-  </h5>
-  <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+  <div class="row">
+    <div class="col-md-10 mb-3" style="margin-bottom: 0px!important;">
+      <h4 class="" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
+        <?php echo $row['challenge_difficulty'];?>
+      </h4>
+    </div>
+    <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;">
+        <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+    </div>
+  </div>
   <hr>
   <h5>Challenge </h5>
   <p><?php echo $row['challenge_explanation'];?></p>
   <hr>
-  <div class="row">
-    <div class="col-md-10 mb-3">
-      <div class="editor">
-        <textarea class="codemirror-textarea"></textarea>
+    <div class="row editor_row">
+      <div class="col-md-10 mb-3">
+        <div id="editor"></div>
+        <script src="plugin/ace.js" charset="utf-8"></script>
+        <script src="plugin/ext-language_tools.js"></script>
+        <script type="text/javascript">
+          var editor = ace.edit("editor");
+          editor.setTheme("ace/theme/monokai");
+          editor.session.setMode("ace/mode/<?php echo $mode; ?>");
+          editor.setShowPrintMargin(false);
+          document.getElementById('editor').style.fontSize='14px';
+          editor.setValue("the new text here"); // or session.setValue
+          ace.require("ace/ext/language_tools");
+          editor.setOptions({
+              enableBasicAutocompletion: true
+          });
+          function codeSubmit() {
+            let output = editor.getValue();
+            document.getElementById("code_raw").value = output;
+          }
+        </script>
+      </div>
+      <div class="col-md-2 mb-3">
+        <button class="btn btn-success btn-lg" id="run">Run Code</button>
+        <hr>
+        <form class="" action="scr/code_submit.scr.php" method="post">
+          <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+          <input type="hidden" name="code_raw" id="code_raw" value="">
+          <button class="btn btn-outline-primary" type="submit" name="code-submit" onclick="codeSubmit();">Submit Code</button>
+        </form>
+        <hr>
+        <div id="output"></div>
+        <hr>
       </div>
     </div>
-    <div class="col-md-2 mb-3">
-      <button class="btn btn-success btn-lg" type="submit" name="button">Run Code</button>
-      <hr>
-      <button class="btn btn-outline-primary" type="submit" name="button">Submit Code</button>
-      <hr>
-      <div class="output">
-        <h5>Testing output</h5>
-        <p>1423172445</p>
-      </div>
-      <hr>
-    </div>
-  </div>
-  <link rel="stylesheet" href="plugin/codemirror/lib/codemirror.css">
-  <link rel="stylesheet" href="plugin/codemirror/theme/yonce.css">
-  <script src="plugin/codemirror/mode/xml/xml.js"></script>
-  <link rel="stylesheet" href="plugin/codemirror/addon/display/fullscreen.css">
-  <script type="text/javascript" src="plugin/codemirror/addon/display/fullscreen.js"></script>
-  <script type="text/javascript" src="plugin/codemirror/lib/codemirror.js" charset="utf-8"></script>
-  <!--ova skripta određuje programski jezik kompajlera  -->
-  <script src="plugin/codemirror/mode/<?php echo $mode; ?>"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      var code = $(".codemirror-textarea") [0];
-      var editor = CodeMirror.fromTextArea(code, {
-        lineNumbers : true,
-        theme : "yonce",
-        extraKeys: {
-        "F11": function(cm) {
-          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-        },
-        "Esc": function(cm) {
-          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-        }
-      }
-      });
-    });
-  </script>
 </div>
-
 <?php
       }
     }
