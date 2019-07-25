@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="style/challengetab.style.css">
 <h1 style="text-align:center;">Your results:</h1>
 <hr class="my-3">
+<div class="container">
 <div class="row">
 <?php
 if (!isset($_POST['search_challenge-submit'])) {
@@ -16,23 +17,28 @@ if (!isset($_POST['search_challenge-submit'])) {
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
+          $diff = $row['challenge_difficulty'];
+          if ($diff == "Easy") {
+            $card_color = "bg-success mb-3";
+          }elseif ($diff == "Medium") {
+            $card_color = "bg-warning mb-3";
+          }elseif ($diff == "Hard") {
+            $card_color = "bg-danger mb-3";
+          }
 ?>
-<div class="col-sm-4">
+<div class="col-sm-3">
             <form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
-                <div id="card" class="card text-center challenge_card" onclick="this.parentNode.submit()">
-                    <div class="card-header text-muted">
-                        <?php echo $row['challenge_difficulty']; ?>
-                    </div>
+                <div id="card" class="card text-center <?php echo $card_color; ?>" onclick="this.parentNode.submit()">
                     <div class="card-body">
                         <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
                         <p class="card-text">
 <?php
                         #stavlja tri točke samo ako je broj slova veci od 110
-                        $char_number = strlen($row['challenge_description']);
+                        $char_number = strlen($row['challenge_explanation']);
                         if ($char_number > 110) {
-                            echo substr($row['challenge_description'],0,110), "...";
+                            echo substr($row['challenge_explanation'],0,110), "...";
                         }else{
-                            echo substr($row['challenge_description'],0,110);
+                            echo substr($row['challenge_explanation'],0,110);
                         }
 ?>
                         </p>
@@ -59,5 +65,6 @@ if (!isset($_POST['search_challenge-submit'])) {
   }
 }
 ?>
+</div>
 </div>
 <?php require 'footer.php' ?>

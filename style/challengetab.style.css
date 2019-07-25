@@ -6,17 +6,17 @@
     height: 90%!important;
     float: left;
     border-radius: 25px;
-    transition: 100ms;
+    transition: 150ms;
     margin: 0 auto;
     margin-bottom: 25px;
     padding: 0px 0px!important;
     float: none;
 }
 .card:hover{
-    width: 95%!important;
+    width: 100%!important;
     box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-width: 1px;
-    -webkit-filter: brightness(80%);
+    -webkit-filter: brightness(50%);
     cursor: pointer;
 }
 .card-header{

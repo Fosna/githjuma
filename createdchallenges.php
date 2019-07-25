@@ -3,6 +3,7 @@
 <div class="space"></div>
 <h1 style="text-align:center;">Created Challenges</h1>
 <hr class="my-3">
+<div class="container">
 <!-- Dobivanje challenga iz baze -->
 <?php
     require 'scr/dbh.scr.php';
@@ -11,14 +12,19 @@
     if($result = mysqli_query($conn, $sql)){
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
+              $diff = $row['challenge_difficulty'];
+              if ($diff == "Easy") {
+                $card_color = "bg-success mb-3";
+              }elseif ($diff == "Medium") {
+                $card_color = "bg-warning mb-3";
+              }elseif ($diff == "Hard") {
+                $card_color = "bg-danger mb-3";
+              }
 ?>
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
 <form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
-    <div id="card" class="card text-center" onclick="this.parentNode.submit()">
-        <div class="card-header text-muted">
-            <?php echo $row['challenge_difficulty']; ?>
-        </div>
+    <div id="card" class="card text-center <?php echo $card_color; ?>" onclick="this.parentNode.submit()">
         <div class="card-body">
             <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
             <p class="card-text">
@@ -48,5 +54,6 @@
         }
     }
 ?>
+</div>
 <!-- Zavrsetak php skripte koja vuce iz sql baze -->
 <?php require 'footer.php' ?>

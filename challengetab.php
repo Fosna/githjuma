@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="style/challengetab.style.css">
 <!-- Dobivanje challenga iz baze -->
+<div class="container">
 <div class="row tab_row">
 <?php
     require 'scr/dbh.scr.php';
@@ -18,12 +19,10 @@
 ?>
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
-<div class="col-sm-4">
+<div class="col-sm-3">
 <form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
     <div id="card" class="card text-center <?php echo $card_color; ?>" onclick="this.parentNode.submit()">
-        <div class="card-header text-muted">
-            <?php echo $row['challenge_difficulty']; ?>
-        </div>
+
         <div class="card-body">
             <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
             <p class="card-text">
@@ -55,5 +54,6 @@
         }
     }
 ?>
+</div>
 </div>
 <!-- Zavrsetak php skripte koja vuce iz sql baze -->
