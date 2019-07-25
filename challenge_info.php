@@ -104,8 +104,7 @@ if (!isset($_GET['c'])) {
               <hr>
               <div class="row">
                 <div class="col-md-10 mb-3" style="margin-bottom: 0px!important;">
-                  <h1 class="" style="<?php if ($challenge_difficulty == "Easy"){echo "color: green;";}elseif ($challenge_difficulty == "Medium") {echo "color: yellow;";}elseif ($challenge_difficulty == "Hard") {echo "color: red;";}?>">
-                    <?php echo $row['challenge_difficulty'];?>
+                  <h1 class="<?php if ($challenge_difficulty == "Easy"){echo "text-success";}elseif ($challenge_difficulty == "Medium") {echo "text-warning";}elseif ($challenge_difficulty == "Hard") {echo "text-danger";}?>">                    <?php echo $row['challenge_difficulty'];?>
                   </h1>
                 </div>
                 <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;">

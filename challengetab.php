@@ -19,7 +19,7 @@
 ?>
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
-<div class="col-sm-3">
+<div class="col-sm-4">
 <form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
     <div id="card" class="card text-center <?php echo $card_color; ?>" onclick="this.parentNode.submit()">
 

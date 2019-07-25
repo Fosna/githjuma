@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title class="title">Hjuma</title>
+  <title class="title">hjuma</title>
   <link rel="stylesheet" href="style/header.style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
   <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
-    <a class="navbar-brand" href="main"><b>Hjuma</b></a>
+    <a class="navbar-brand" href="main"><b>hjuma</b></a>
     <form action="search_challenges" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
       <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
@@ -49,7 +49,7 @@
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

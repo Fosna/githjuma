@@ -11,6 +11,13 @@
     margin-bottom: 25px;
     padding: 0px 0px!important;
     float: none;
+    border: 1px solid black;
+    color: white;
+    text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 .card:hover{
     width: 100%!important;
@@ -19,11 +26,13 @@
     -webkit-filter: brightness(50%);
     cursor: pointer;
 }
-.card-header{
-  color: black!important;
-}
 .card-footer{
-  color: black!important;
+  color: white!important;
+  text-shadow:
+ -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+   1px 1px 0 #000;
 }
 @media only screen and (max-width: 1400px) {
     .card{

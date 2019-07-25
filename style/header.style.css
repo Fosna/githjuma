@@ -112,6 +112,10 @@ select{
 #loginbtn{
     margin-left: 10px;
 }
+.carousel-inner > .carousel-item > img {
+  width:1350px;
+  height:360px;
+}
 /*Loader ne diraj!!!!!!!!!!!!!*/
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
