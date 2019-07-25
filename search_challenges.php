@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="style/challengetab.style.css">
 <h1 style="text-align:center;">Your results:</h1>
 <hr class="my-3">
+<div class="row">
 <?php
 if (!isset($_POST['search_challenge-submit'])) {
     header("Location: main");
@@ -16,6 +17,7 @@ if (!isset($_POST['search_challenge-submit'])) {
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
 ?>
+<div class="col-sm-4">
             <form name="form" action="challenge_info?c=<?php echo $row['challenge_id'];?>" method="post">
                 <div id="card" class="card text-center challenge_card" onclick="this.parentNode.submit()">
                     <div class="card-header text-muted">
@@ -43,6 +45,7 @@ if (!isset($_POST['search_challenge-submit'])) {
                     </div>
                 </div>
             </form>
+</div>
 <?php
         }
     }else{
@@ -56,4 +59,5 @@ if (!isset($_POST['search_challenge-submit'])) {
   }
 }
 ?>
+</div>
 <?php require 'footer.php' ?>

@@ -1,37 +1,33 @@
+.tab_row{
+  text-align:center!important;
+}
 .card{
-    margin:35px!important;
-    width: 28%!important;
-    height: 248px!important;
-    background: rgb(244, 242, 241);
+    width: 90%!important;
+    height: 90%!important;
     float: left;
     border-radius: 25px;
     transition: 100ms;
-}
-.card-header{
-    border-radius: 25px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 0px 0px!important;
+    float: none;
 }
 .card:hover{
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 95%!important;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-width: 1px;
-    border-color: #36a0f2;
     -webkit-filter: brightness(80%);
     cursor: pointer;
 }
-.card-body{
-    background-color:rgb(255, 255, 255);
-    opacity: 10%;
+.card-header{
+  color: black!important;
 }
-div.header {
-    color: white;
-    padding: 10px;
-    font-size: 40px;
-}
-div.container {
-    padding: 10px;
+.card-footer{
+  color: black!important;
 }
 @media only screen and (max-width: 1400px) {
     .card{
-        width:27%;
+        width:10%;
     }
     }
 @media only screen and (max-width: 600px) {
