@@ -37,12 +37,7 @@ select{
 }
 .dropdown_username{
     font-weight: bold !important;
-}
-.dropdown_username:hover{
-    background-color: rgba(255, 255, 255, 0) !important;
-}
-.dropdown_username:focus{
-    background-color: rgba(255, 255, 255, 0) !important;
+    margin-left: 25px;
 }
 .dropdown-toggle {
     color: grey;
@@ -55,6 +50,13 @@ select{
 }
 .dropdown-item{
     background-color: rgba(255, 255, 255, 0) !important;
+    border-radius: 13px !important;
+    border-radius: 13px !important;
+    color: black !important;
+    transition: 150ms;
+}
+.dropdown-item:hover{
+    background-color: #009CFFAD!important;
     border-bottom-left-radius: 13px !important;
     border-bottom-right-radius: 13px !important;
     color: black !important;
@@ -63,16 +65,7 @@ select{
     border-radius: 15px !important;
     padding: 0 !important;
 }
-.btn_logout:hover{
-    background-color: #dc3545 !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-.btn_logout:focus{
-    background-color: #dc3545 !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
+
 .card{
     border-radius: 15px!important;
 }

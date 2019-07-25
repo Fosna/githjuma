@@ -36,10 +36,9 @@
           </div>
         </div>
     </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Privacy policy i ta sranja
-      </label>
+    <div class="custom-control custom-checkbox" style="margin-bottom: 15px;">
+      <input type="checkbox" class="custom-control-input" id="privacy">
+      <label class="custom-control-label" for="privacy">Privacy Policy</label>
     </div>
     <button type="submit" class="btn btn-success btn-block btn-lg" name="signup-submit">Sign Up</button>
     <a href="login" class="login-link">Log In</a>

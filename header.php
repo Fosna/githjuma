@@ -29,21 +29,21 @@
 <?php
     error_reporting(0);
     $tsstring = gmdate('D, d M Y H:i:s ', $timestamp) . 'GMT';
-$etag = $language . $timestamp;
+    $etag = $language . $timestamp;
 
-$if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false;
-$if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] : false;
-if ((($if_none_match && $if_none_match == $etag) || (!$if_none_match)) &&
-    ($if_modified_since && $if_modified_since == $tsstring))
-{
-    header('HTTP/1.1 304 Not Modified');
-    exit();
-}
-else
-{
-    header("Last-Modified: $tsstring");
-    header("ETag: \"{$etag}\"");
-}
+    $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false;
+    $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] : false;
+    if ((($if_none_match && $if_none_match == $etag) || (!$if_none_match)) &&
+        ($if_modified_since && $if_modified_since == $tsstring))
+    {
+        header('HTTP/1.1 304 Not Modified');
+        exit();
+    }
+    else
+    {
+        header("Last-Modified: $tsstring");
+        header("ETag: \"{$etag}\"");
+    }
     session_start();
     require 'scr/dbh.scr.php';
     if (isset($_SESSION['id'])) {
@@ -65,7 +65,7 @@ else
               <img src="pics/icon-profile_3.png" alt="" style="width:25px;height:25px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item dropdown_username"><?php echo $username ?></a>
+              <a class="dropdown_username"><?php echo $username ?></a>
               <a class="dropdown-item" href="#"><i class="material-icons" style="font-size:20px">account_circle</i> Account</a>
               <a class="dropdown-item" href="#"><i class="material-icons" style="font-size:20px">settings</i> Settings</a>
               <div class="dropdown-divider"></div>
