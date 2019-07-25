@@ -26,6 +26,7 @@
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
       <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <a class="btn btn-link" id="btn_main" href="create_challenge" style="text-decoration:none;color:gray;">Create Challenge</a>
 <?php
     error_reporting(0);
     $tsstring = gmdate('D, d M Y H:i:s ', $timestamp) . 'GMT';

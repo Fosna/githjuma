@@ -102,11 +102,11 @@ select{
     border-left: none!important;
     border-top: none!important;*/
     border-radius: 15px !important;
-    width: 200px !important;
+    width: 300px !important;
     transition: 150ms !important;
 }
 .search_input:focus{
-    width: 300px !important;
+    width: 400px !important;
     border: 2px solid grey !important;
 }
 #loginbtn{

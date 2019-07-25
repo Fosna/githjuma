@@ -290,7 +290,7 @@ if (!isset($_GET['c'])) {
 ?>
               <form action="challenge?c=<?php echo $challenge_id; ?>" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-                <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
+                <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" id="thebtn" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
                 <small class="form-text text-muted"><?php echo $challenge_submit_btn_label;?></small>
               </form>
 <?php

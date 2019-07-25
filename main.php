@@ -43,7 +43,7 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="pics/hjuma-background2.png" alt="Third slide">
       <div class="carousel-caption d-none d-md-block">
-          <h1 class="text-secondary">Create your team</h1>
+          <!-- <h1 class="text-secondary">Create your team</h1> -->
           <a class="btn btn-primary btn-lg btn-block" id="btn_main" href="create_challenge">Create Challenge</a>
       </div>
     </div>
