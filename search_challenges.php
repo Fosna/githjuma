@@ -10,9 +10,10 @@ if (!isset($_POST['search_challenge-submit'])) {
 }elseif (isset($_POST['search_challenge-submit'])) {
   require 'scr/dbh.scr.php';
   $search_challenge = mysqli_real_escape_string($conn, $_POST['search_challenge']);
+
   if ($search_challenge == ""){
     header("Location: main");
-  }
+  }else {
   $sql = "SELECT * FROM hjuma_challenges WHERE challenge_title LIKE '%$search_challenge%';";
   if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -61,6 +62,7 @@ if (!isset($_POST['search_challenge-submit'])) {
                 No Result!
             </div>
         </div>';
+      }
     }
   }
 }

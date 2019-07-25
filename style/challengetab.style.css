@@ -34,6 +34,9 @@
   -1px 1px 0 #000,
    1px 1px 0 #000;
 }
+.col-sm-3,.col-sm-4,.col-sm-5{
+  padding: 0px 0px!important;
+}
 @media only screen and (max-width: 1400px) {
     .card{
         width:10%;
