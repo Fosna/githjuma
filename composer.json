@@ -1,7 +1,7 @@
 {
     "require": {
         "monolog/monolog": "1.0.*"
-    }
+    },
     "scripts": {
     "post-update-cmd": "MyVendor\\MyClass::postUpdate",
     "post-package-install": [
@@ -20,5 +20,5 @@
     "post-create-project-cmd": [
         "php -r \"copy('config/local-example.php', 'config/local.php');\""
     ]
-}
+    }
 }
