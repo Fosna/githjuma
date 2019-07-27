@@ -95,6 +95,7 @@ if (!isset($_GET['c'])) {
   <hr>
     <div class="row editor_row">
       <div class="col-md-10 mb-3">
+        <!-- Copyright (c) 2010, Ajax.org B.V. -->
         <div id="editor"></div>
         <script src="plugin/ace.js" charset="utf-8"></script>
         <script src="plugin/ext-language_tools.js"></script>

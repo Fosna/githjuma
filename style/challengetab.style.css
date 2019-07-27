@@ -11,13 +11,9 @@
     margin-bottom: 25px;
     padding: 0px 0px!important;
     float: none;
-    border: 1px solid black;
     color: white;
-    text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+    font-weight: bold!important;
+    border: none!important;
 }
 .card:hover{
     width: 100%!important;
@@ -27,15 +23,22 @@
     cursor: pointer;
 }
 .card-footer{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
   color: white!important;
-  text-shadow:
- -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-   1px 1px 0 #000;
+  border-radius: 25px!important;
 }
 .col-sm-3,.col-sm-4,.col-sm-5{
   padding: 0px 0px!important;
+}
+.card_easy{
+  background-image: linear-gradient(green, yellow);
+}
+.card_medium{
+  background-image: linear-gradient(yellow, yellow);
+}
+.card_hard{
+  background-image: linear-gradient(red, yellow);
 }
 @media only screen and (max-width: 1400px) {
     .card{

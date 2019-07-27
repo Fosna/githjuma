@@ -32,6 +32,7 @@
     error_reporting(0);
     session_start();
     require 'scr/dbh.scr.php';
+    require_once 'vendor/autoload.php';
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>

@@ -10,11 +10,11 @@
             while($row = mysqli_fetch_array($result)){
               $diff = $row['challenge_difficulty'];
               if ($diff == "Easy") {
-                $card_color = "bg-success mb-3";
+                $card_color = "card_easy mb-3";
               }elseif ($diff == "Medium") {
-                $card_color = "bg-warning mb-3";
+                $card_color = "card_medium mb-3";
               }elseif ($diff == "Hard") {
-                $card_color = "bg-danger mb-3";
+                $card_color = "card_hard mb-3";
               }
 ?>
 <!-- Dobivanje challenga iz baze -->
@@ -24,7 +24,7 @@
     <div id="card" class="card text-center <?php echo $card_color; ?>" onclick="this.parentNode.submit()">
 
         <div class="card-body">
-            <h5 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h5>
+            <h4 class="card-title"><?php echo $row['challenge_title']; ?></h4>
             <p class="card-text">
 <?php
             #stavlja tri točke samo ako je broj slova veci od 110
