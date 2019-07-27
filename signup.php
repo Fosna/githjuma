@@ -40,7 +40,7 @@
       <input type="checkbox" class="custom-control-input" id="privacy">
       <label class="custom-control-label" for="privacy">Privacy Policy</label>
     </div>
-    <button type="submit" class="btn btn-success btn-block btn-lg" name="signup-submit">Sign Up</button>
+    <button type="submit" class="btn btn-primary btn-block btn-lg" name="signup-submit">Sign Up</button>
     <a href="login" class="login-link">Log In</a>
 <?php
   if (isset($_GET['error'])) {

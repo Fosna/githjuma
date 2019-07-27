@@ -1,44 +1,50 @@
-.tab_row{
-  text-align:center!important;
-}
 .card{
     width: 90%!important;
     height: 90%!important;
     float: left;
     border-radius: 25px;
-    transition: 150ms;
     margin: 0 auto;
     margin-bottom: 25px;
     padding: 0px 0px!important;
     float: none;
     color: white;
-    font-weight: bold!important;
     border: none!important;
+    transition: 150ms;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card:hover{
     width: 100%!important;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-width: 1px;
     -webkit-filter: brightness(50%);
     cursor: pointer;
 }
-.card-footer{
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-  color: white!important;
-  border-radius: 25px!important;
+.card-body{
+  background-image: linear-gradient(to bottom, rgb(37,167,252,1), rgb(37,167,252,1));
+  margin: 0px!important;
+  border-radius: 25px;
+  width: 100%;
+  padding: 1em;
+  clip-path: circle(110% at 0% 0%);
+  transition: clip-path 0.5s ease-in-out;
+}
+.card-body:hover{
+  clip-path: circle(75%);
 }
 .col-sm-3,.col-sm-4,.col-sm-5{
   padding: 0px 0px!important;
 }
 .card_easy{
-  background-image: linear-gradient(green, yellow);
+  background-color: #55D835;
 }
 .card_medium{
-  background-image: linear-gradient(yellow, yellow);
+  background-color: #D6C713;
 }
 .card_hard{
-  background-image: linear-gradient(red, yellow);
+  background-color: #A21A1A;
+}
+#icon{
+  width: 50px;
+  height: 50px;
 }
 @media only screen and (max-width: 1400px) {
     .card{

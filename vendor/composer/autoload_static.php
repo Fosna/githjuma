@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitc24049acb7f776c6cf5c46f95218a4dc
 {
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'ScssPhp\\ScssPhp\\' => 16,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'ScssPhp\\ScssPhp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'M' => 
         array (
@@ -16,10 +30,23 @@ class ComposerStaticInitc24049acb7f776c6cf5c46f95218a4dc
         ),
     );
 
+    public static $classMap = array (
+        'scss_formatter' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+        'scss_formatter_compressed' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+        'scss_formatter_crunched' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+        'scss_formatter_nested' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+        'scss_parser' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+        'scss_server' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+        'scssc' => __DIR__ . '/..' . '/leafo/scssphp/scss.inc.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc24049acb7f776c6cf5c46f95218a4dc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc24049acb7f776c6cf5c46f95218a4dc::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitc24049acb7f776c6cf5c46f95218a4dc::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc24049acb7f776c6cf5c46f95218a4dc::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -16,8 +16,8 @@
     <div class="form-row">
       <div class="form-group col-md-12 mb-3">
         <label for="username">Title</label>
-        <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="25" required>
-        <small class="form-text text-muted">Max characters are 25</small>
+        <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="15" required>
+        <small class="form-text text-muted">Max characters are 15</small>
         <div class="invalid-feedback">
           This field can't be empty!
         </div>
@@ -95,7 +95,7 @@
       <input type="password" class="form-control" name="challenge_password" placeholder="Password for challenge" required>
       <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
-    <button type="submit" class="btn btn-success btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge</button>
+    <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge</button>
     <?php
       if (isset($_GET['error'])) {
         $error = $_GET['error'];

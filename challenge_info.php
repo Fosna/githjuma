@@ -42,7 +42,7 @@ if (!isset($_GET['c'])) {
           $progLang = $row['challenge_prog_language'];
           $password = $row['challenge_password'];
           if ($progLang == "Python"){
-            $icon = "pics/python.jpeg";
+            $icon = "pics/python.png";
             $link = "https://www.python.org/";
           }elseif($progLang == "PHP"){
             $icon = "pics/php.png";

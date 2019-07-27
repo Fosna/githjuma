@@ -62,7 +62,7 @@ $sql = "SELECT * FROM hjuma_users WHERE id=?;";
   if (empty($challenge_title)){
     header("Location: ../create_challenge?error=empty");
     exit();
-  }elseif ($maxchar > 25) {
+  }elseif ($maxchar > 15) {
     header("Location: ../create_challenge?error=maxchar");
     exit();
   }

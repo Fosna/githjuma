@@ -1,24 +1,6 @@
 {
     "require": {
-        "monolog/monolog": "1.0.*"
-    },
-    "scripts": {
-    "post-update-cmd": "MyVendor\\MyClass::postUpdate",
-    "post-package-install": [
-        "MyVendor\\MyClass::postPackageInstall"
-    ],
-    "post-install-cmd": [
-        "MyVendor\\MyClass::warmCache",
-        "phpunit -c app/",
-        "php artisan clear-compiled",
-        "php artisan optimize",
-        "chmod -R 777 public/"
-    ],
-    "post-autoload-dump": [
-        "MyVendor\\MyClass::postAutoloadDump"
-    ],
-    "post-create-project-cmd": [
-        "php -r \"copy('config/local-example.php', 'config/local.php');\""
-    ]
+        "monolog/monolog": "1.0.*",
+        "leafo/scssphp": "0.0.*"
     }
 }
