@@ -12,6 +12,11 @@
 .my-4{
     background-color: white;
 }
+.pop-challenges{
+  text-align: center;
+  margin: 15px;
+  font-weight: bold;
+}
 @media only screen and (max-width: 650px) {
 .jumbotron{
     background-position: 50% 20%;

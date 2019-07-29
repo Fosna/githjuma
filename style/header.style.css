@@ -113,6 +113,9 @@ select{
 #loginbtn{
     margin-left: 10px;
 }
+#signupbtn{
+    margin-left: 10px;
+}
 .carousel-inner > .carousel-item > img {
   width:1350px;
   height:360px;

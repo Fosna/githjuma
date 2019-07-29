@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/main.style.css">
 <!-- Opis aplikacije -->
 <!-- <div class="jumbotron rounded-0">
-    <h1 class="display-4">Code Your Way</h1>
+    <h1 class="display-3"><b>Code Your Way</b></h1>
     <p class="lead">
         <code>
             $ Challenge your friends
@@ -12,7 +12,6 @@
             $ Create your team
         </code>
     </p>
-    <hr class="my-6">
     <p class="lead">
         <div class="form-check form-check-inline">
            <a class="btn btn-primary btn-lg" id="btn_main" href="create_challenge">Create Challenge</a>
@@ -38,14 +37,13 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="pics/hjuma-background2.png" alt="Third slide">
       <div class="carousel-caption d-none d-md-block">
-          <!-- <h1 class="text-secondary">Create your team</h1> -->
           <a class="btn btn-primary btn-lg btn-block" id="btn_main" href="create_challenge">Create Challenge</a>
       </div>
     </div>
   </div>
 </div>
-<hr>
 <!-- Opis aplikacije -->
+<h1 class="pop-challenges">Popular Challenges</h1>
 <!-- Challenge tabovi -->
 <?php require 'challengetab.php' ?>
 <!-- Challenge tabovi -->

@@ -66,9 +66,9 @@
     }else {
 ?>
         <a href="login" id="loginbtn" class="btn btn-outline-primary ml-auto">Log In</a>
-        <a href="signup" id="loginbtn" class="btn btn-primary">Sign Up</a>
+        <a href="signup" id="signupbtn" class="btn btn-primary">Sign Up</a>
 <?php
-    }
+    } 
 ?>
   </nav>
   <div class="header_space"></div>
