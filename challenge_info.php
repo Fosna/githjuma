@@ -80,7 +80,7 @@ if (!isset($_GET['c'])) {
             <div class="container" style="margin-top:25px;">
               <div class="row">
                 <div class="col-md-9 mb-3" style="margin-bottom: 0px!important;">
-                  <h1 style="margin-bottom: 0px!important;"><?php echo $row['challenge_title'];?></h1>
+                  <h1 style="margin-bottom: 0px!important;"><b><?php echo $row['challenge_title'];?></b></h1>
                 </div>
                 <div class="col-md-2 mb-3 float-right" style="margin-bottom:0px!important;">
                   <p style="margin-bottom:0px!important;float:right!important;">Challenge owner:<br><b><?php echo $challenge_owner_name;?></b></p>

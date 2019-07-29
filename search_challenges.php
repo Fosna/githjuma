@@ -1,6 +1,6 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
-<h1 style="text-align:center;">Your results:</h1>
+<h1 style="text-align:center;"><b>Your results:</b></h1>
 <hr class="my-3">
 <div class="container">
 <div class="row">
@@ -55,7 +55,7 @@ if (!isset($_POST['search_challenge-submit'])) {
             }
 ?>
             </p>
-            <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+            <img src="<?php echo $icon; ?>" id="icon">
         </div>
     </div>
 </form>

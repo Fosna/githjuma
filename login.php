@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/login.style.css">
 <form class="form-signin" action="scr/login.scr.php" method="post">
   <div class="text-center mb-4">
-    <h1 class="h1 font-weight-normal">Log In</h1>
+    <h1 class="h1 font-weight-normal"><b>Log In</b></h1>
   </div>
   <div class="form-label-group">
     <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" value="<?php echo $_SESSION['remember_username']; ?>" required autofocus>

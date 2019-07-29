@@ -50,7 +50,7 @@
             }
 ?>
             </p>
-            <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+            <img src="<?php echo $icon; ?>" id="icon">
         </div>
     </div>
 </form>

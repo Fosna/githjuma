@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/signup.style.css">
 <form class="main-form needs-validation" action="scr/signup.scr.php" method="post" novalidate>
   <div class="container">
-    <h1>Sign Up</h1>
+    <h1><b>Sign Up</b></h1>
     <hr class="my-2">
     <div class="form-group">
       <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" size="30" maxlength="10" autocomplete="off" required/>

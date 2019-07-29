@@ -11,7 +11,7 @@
     header("Location: login");
   }
 ?>
-    <h1>Create Challenge</h1>
+    <h1><b>Create Challenge</b></h1>
     <hr class="my-2">
     <div class="form-row">
       <div class="form-group col-md-12 mb-3">
