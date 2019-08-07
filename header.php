@@ -27,7 +27,7 @@
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
       <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <a class="btn btn-link" id="btn_main" href="create_challenge" style="text-decoration:none;color:gray;">Create Challenge</a>
+    <a class="btn btn-link" id="btn_main" href="challenges" style="text-decoration:none;color:gray;">Challenges</a>
 <?php
     error_reporting(0);
     session_start();
@@ -68,7 +68,7 @@
         <a href="login" id="loginbtn" class="btn btn-outline-primary ml-auto">Log In</a>
         <a href="signup" id="signupbtn" class="btn btn-primary">Sign Up</a>
 <?php
-    } 
+    }
 ?>
   </nav>
   <div class="header_space"></div>

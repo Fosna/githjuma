@@ -141,7 +141,7 @@ if (!isset($_GET['c'])) {
 <?php
                   }else{
 ?>
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -166,22 +166,9 @@ if (!isset($_GET['c'])) {
 <?php
                 }
 ?>
-              <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-decoration:none;">
-                        Challenge explanation
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
-                      <?php echo $row['challenge_explanation'];?>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h5>Challenge </h5>
+              <p><?php echo $row['challenge_explanation'];?></p>
+              <hr>
 <?php
             if($user_id == $challenge_owner){
               if ($challenge_status == "PENDING"){

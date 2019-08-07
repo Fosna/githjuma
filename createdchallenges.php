@@ -1,9 +1,8 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
 <div class="space"></div>
-<h1 style="text-align:center;">Created Challenges</h1>
-<hr class="my-3">
 <div class="container">
+<h1><b>Created Challenges</b></h1>
 <!-- Dobivanje challenga iz baze -->
 <?php
     require 'scr/dbh.scr.php';
@@ -58,6 +57,8 @@
 <!-- Zavrsetak php skripte koja vuce iz sql baze -->
 <?php
             }
+        }else{
+          echo '<div class="alert alert-warning" role="alert">'."You didn't created any challenges!".'</div>';
         }
     }
 ?>

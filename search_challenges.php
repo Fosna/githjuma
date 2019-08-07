@@ -1,8 +1,7 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
-<h1 style="text-align:center;"><b>Your results:</b></h1>
-<hr class="my-3">
 <div class="container">
+<h1><b>Search results:</b></h1>
 <div class="row">
 <?php
 if (!isset($_POST['search_challenge-submit'])) {
