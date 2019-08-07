@@ -23,10 +23,14 @@
   <div class="se-pre-con"></div>
   <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
     <a class="navbar-brand" href="main"><b>hjuma</b></a>
-    <form action="search_challenges" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
+    <!-- <form action="search_challenges" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
       <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
+    <div class="search-box">
+      <input type="text" autocomplete="off" placeholder="Search challenges..." />
+      <div class="result"></div>
+    </div>
     <a class="btn btn-link" id="btn_main" href="challenges" style="text-decoration:none;color:gray;">Challenges</a>
 <?php
     error_reporting(0);
@@ -72,6 +76,7 @@
 ?>
   </nav>
   <div class="header_space"></div>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script type="text/javascript">
     $(function() {
       var header = $(".navbar");
@@ -85,4 +90,27 @@
           }
       });
     });
+    //AJAX search part
+    $(document).ready(function(){
+        $('.search-box input[type="text"]').on("keyup input", function(){
+            /* Get input value on change */
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if(inputVal.length){
+                $.get("scr/search.scr.php", {term: inputVal}).done(function(data){
+                    // Display the returned data in browser
+                    resultDropdown.html(data);
+                });
+            } else{
+                resultDropdown.empty();
+            }
+        });
+
+        // Set search input value on click of result item
+        $(document).on("click", ".result p", function(){
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+        });
+    });
+
   </script>

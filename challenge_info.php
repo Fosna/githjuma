@@ -78,6 +78,12 @@ if (!isset($_GET['c'])) {
             }
 ?>
             <div class="container" style="margin-top:25px;">
+              <?php if (isset($_GET['error'])) {
+                $error = $_GET['error'];
+                if ($error == "pass") {
+                  echo '<div class="alert alert-danger" role="alert">Password is incorrect!</div>';
+                }
+              } ?>
               <div class="row">
                 <div class="col-md-9 mb-3" style="margin-bottom: 0px!important;">
                   <h1 style="margin-bottom: 0px!important;"><b><?php echo $row['challenge_title'];?></b></h1>
@@ -224,10 +230,10 @@ if (!isset($_GET['c'])) {
 ?>
               <button class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#joinModal" style="margin-top:15px;">Join Challenge</button>
               <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog" role="challenge_password_entereddocument">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="joinModalLabel">Join Challenge</h5>
+                      <h5 class="modal-title" id="joinModalLabel"><b>Join Challenge</b></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
