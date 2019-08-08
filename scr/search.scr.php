@@ -24,7 +24,7 @@
 <?php
                 }
             } else{
-                echo "<p><b>No matches found</b></p>";
+                echo "<div class='no-matches'><b>No matches found</b></div>";
             }
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

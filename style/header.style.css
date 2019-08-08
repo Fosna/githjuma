@@ -161,17 +161,24 @@ i{ vertical-align: middle !important; }
         width: 300px;
         position: relative;
         display: inline-block;
-        font-size: 14px;
+        font-size: 16px;
+        background: rgba(0,0,0,0);
+        color: gray;
+        font-weight: bold;
         transition: 150ms;
     }
-    .search-box:focus{
-        width: 400px;
-    }
     .search-box input[type="text"]{
-        height: 32px;
+        height: 34px;
         padding: 5px 10px;
-        border: 1px solid #CCCCCC;
-        font-size: 14px;
+        border: 2px solid gray;
+        font-size: 16px;
+        background: rgba(0,0,0,0);
+        color: gray;
+        font-weight: bold;
+        position: relative;
+    }
+    .search-box:active, .search-box:focus-within{
+        width: 400px!important;
     }
     .result{
         position: absolute;
@@ -208,4 +215,11 @@ i{ vertical-align: middle !important; }
       padding: 7px 10px;
       display: block;
       color: black;
+    }
+    .no-matches{
+      padding: 7px 10px;
+      color:white;
+    }
+    .no-matches:hover{
+      cursor: default;
     }
