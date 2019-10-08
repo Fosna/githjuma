@@ -41,7 +41,7 @@
 ?>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="challenges" style="text-decoration:none;color:gray;">Challenges</a>
+          <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="challenges" style="text-decoration:none;color:black;font-weight: bold!important;">Challenges</a>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My Challenges

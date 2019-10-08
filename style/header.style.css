@@ -10,6 +10,9 @@ body {
 form{
     margin-bottom: 0;
 }
+nav{
+    font-weight: bold!important;
+}
 .btn{
     border-radius: 25px!important;
 }
@@ -42,18 +45,19 @@ select{
     margin-left: 25px;
 }
 .dropdown-toggle {
-    color: grey;
+    color: black;
 }
 .dropdown-toggle:hover {
-    color: grey;
+    color: black;
 }
 .dropdown-toggle:focus {
-    color: grey;
+    color: black;
 }
 .dropdown-item{
     background-color: rgba(255, 255, 255, 0) !important;
     border-radius: 25px !important;
     color: black !important;
+    font-weight: bold!important;
     transition: 150ms;
 }
 .dropdown-item:hover{
@@ -76,17 +80,17 @@ select{
 .more_btn{
     border: none!important;
     background-color: rgba(255, 255, 255, 0)!important;
-    color: grey!important;
+    color: black!important;
 }
 .more_btn:hover{
     border: none!important;
     background-color: rgba(255, 255, 255, 0)!important;
-    color: grey!important;
+    color: black!important;
 }
 .more_btn:focus{
     border: none!important;
     background-color: rgba(255, 255, 255, 0)!important;
-    color: grey!important;
+    color: black!important;
 }
 .modal-content{
     border-radius: 25px!important;
@@ -95,8 +99,8 @@ select{
     outline: none !important;
     box-shadow: none !important;
     background-color: rgba(255, 255, 255, 0)!important;
-    color: grey !important;
-    border: 2px solid grey !important;
+    color: black !important;
+    border: 2px solid black !important;
     border-width: 2px !important;
     /*border-bottom: solid rgb(248, 248, 248)!important;
     border-right: none!important;
@@ -108,7 +112,7 @@ select{
 }
 .search_input:focus{
     width: 400px !important;
-    border: 2px solid grey !important;
+    border: 2px solid black !important;
 }
 #loginbtn{
     margin-left: 10px;
@@ -170,7 +174,7 @@ i{ vertical-align: middle !important; }
     .search-box input[type="text"]{
         height: 34px;
         padding: 5px 10px;
-        border: 2px solid gray;
+        border: 2px solid black;
         font-size: 16px;
         background: rgba(0,0,0,0);
         color: gray;
@@ -194,7 +198,7 @@ i{ vertical-align: middle !important; }
     }
     /* Formatting result items */
     .result p{
-        background: gray;
+        background: black;
         margin: 0;
         padding: 0px 0px;
         border-radius: 15px;
