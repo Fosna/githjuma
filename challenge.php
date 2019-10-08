@@ -93,10 +93,8 @@ if (!isset($_GET['c'])) {
   <h5>Challenge </h5>
   <p><?php echo $row['challenge_explanation'];?></p>
   <hr>
-    <div class="row editor_row">
-      <div class="col-md-10 mb-3">
         <!-- Copyright (c) 2010, Ajax.org B.V. -->
-        <div id="editor"></div>
+        <!-- <div id="editor"></div>
         <script src="plugin/ace.js" charset="utf-8"></script>
         <script src="plugin/ext-language_tools.js"></script>
         <script type="text/javascript">
@@ -126,9 +124,64 @@ if (!isset($_GET['c'])) {
         </form>
         <hr>
         <div id="output"></div>
-        <hr>
-      </div>
-    </div>
+        <hr>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/javascript/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/python/python.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/php/php.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/css/css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/addon/lint/lint.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/addon/lint/css-lint.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/theme/monokai.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.css" rel="stylesheet" />
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 mb-2" style="margin:0!important;">
+              <textarea id="codejs">function challengeFunction () {
+  value = "adawd"
+  return value
+}
+              </textarea>
+            </div>
+            <div class="col-md-3 mb-2">
+              <button style="width:90%" id="run" class="btn btn-primary">Run</button>
+              <div class="console">
+                <code>
+                <p class="pconsole"></p>
+                <p class="pconsole indent">Function out put will go here.</p>
+                <p class="pconsole indent"></p>
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script id="script" type="text/javascript"></script>
+        <script>
+        $(document).ready(function(){
+
+
+
+        var js = CodeMirror.fromTextArea(document.getElementById("codejs"), {
+          mode:  "<?php echo $mode; ?>",
+          lineNumbers: true,
+          theme: "monokai"
+        });
+
+
+
+        $("#run").click(function(){
+        $( "#chalfunction" ).remove();
+        var jsx = js.getValue();
+        var s = document.createElement('script');
+        s.setAttribute("id", "chalfunction");
+        s.textContent = jsx;//inne
+        document.body.appendChild(s);
+        $( ".pconsole" ).remove();
+        $(".console").append("<p class='pconsole indent'>" + challengeFunction() +" </p>");
+
+        });
+        });
+        </script>
 </div>
 <?php
       }

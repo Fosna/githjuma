@@ -20,3 +20,36 @@
   margin-right: 20px;
   float: right;
 }
+/***/
+
+.container {
+  width:100%;
+  padding:0;
+  }
+  .row {
+  padding:0;
+  }
+  .side {
+  padding:0;
+  }
+  .console {
+  padding-top:10px;
+  padding-bottom:10px;
+  width:90%;
+  min-height:100px;
+  background:#1a1a1a;
+  margin:auto;
+  margin-top:20px;
+  border-radius:5px;
+  }
+  .pconsole {
+  margin-left:10px;
+  text-align: left;
+  color:#e6e6e6;
+  }
+  .indent {
+  text-indent: 10px;
+  }
+  body {
+    overflow: hidden;
+  }
