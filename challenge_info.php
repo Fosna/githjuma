@@ -77,7 +77,7 @@ if (!isset($_GET['c'])) {
                   }
             }
 ?>
-            <div class="container" style="margin-top:25px;">
+            <div class="container">
               <?php if (isset($_GET['error'])) {
                 $error = $_GET['error'];
                 if ($error == "pass") {
@@ -91,6 +91,7 @@ if (!isset($_GET['c'])) {
                 <div class="col-md-2 mb-3 float-right" style="margin-bottom:0px!important;">
                   <p style="margin-bottom:0px!important;float:right!important;">Challenge owner:<br><b><?php echo $challenge_owner_name;?></b></p>
                 </div>
+                
                 <div class="col-md-1 mb-3 float-right" style="margin-bottom: 0px!important;">
 <?php
                 if($user_id == $challenge_owner){
@@ -171,11 +172,70 @@ if (!isset($_GET['c'])) {
                 </div>
 <?php
                 }
+                
 ?>
+              <div class="col-sm">
               <h5>Challenge </h5>
+              <div class="col-sm">
+                <button id="btn_users" data-toggle="modal" data-target="#usersModal" class="btn btn-primary float-right">Users</button>
+              <div>
               <p><?php echo $row['challenge_explanation'];?></p>
-              <hr>
-<?php
+              <div>
+         <hr>
+                      <!-- Modal -->
+              <div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Users</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <?php
+                      $sql3 = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ?";
+                      $stmt3 = mysqli_stmt_init($conn);
+                      if (!mysqli_stmt_prepare($stmt3, $sql3)){
+                        echo "SQL error";
+                      }else {
+                        mysqli_stmt_bind_param($stmt3, "s", $challenge_id);
+                        mysqli_stmt_execute($stmt3);
+                        $result3 = mysqli_stmt_get_result($stmt3);
+                            while($row3 = mysqli_fetch_array($result3)){
+                              $sql4 = "SELECT * FROM hjuma_users WHERE id=?";
+                              $stmt4 = mysqli_stmt_init($conn);
+                              if (!mysqli_stmt_prepare($stmt4, $sql4)){
+                                echo "SQL error";
+                              }else {
+                                mysqli_stmt_bind_param($stmt4, "s", $row3['joined_user']);
+                                mysqli_stmt_execute($stmt4);
+                                $result4 = mysqli_stmt_get_result($stmt4);
+                                    while($row4 = mysqli_fetch_array($result4)){
+                                      $joined_user_name = $row4['username'];
+                                    }
+                              }
+                            
+                      ?>
+                     <hr>
+                    <a href="profile" class="btn btn-link"><?php echo $joined_user_name; ?></a>
+                    <?php if($user_id == $challenge_owner){ ?>
+                      <form action="scr/kickuser.scr.php" method="post">     
+                      <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
+                      <input type="hidden" name="kicked_user" value="<?php echo $row3['joined_user']; ?>">                   
+                    <button type="submit" name="kickuser_submit" class="btn btn-danger float-right" id="kickuser_btn">Kick</button>                 
+                    </form>
+                   
+                      <?php            
+                                      }
+                                    } 
+                                  }
+                                  ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ <?php         
             if($user_id == $challenge_owner){
               if ($challenge_status == "PENDING"){
                 $start_challenge_btn_style = "display:block;";
@@ -289,38 +349,17 @@ if (!isset($_GET['c'])) {
 <?php
               }
             }
-              $sql3 = "SELECT * FROM hjuma_joined_challenges WHERE joined_challenge = ?";
-              $stmt3 = mysqli_stmt_init($conn);
-              if (!mysqli_stmt_prepare($stmt3, $sql3)){
-                echo "SQL error";
-              }else {
-                mysqli_stmt_bind_param($stmt3, "s", $challenge_id);
-                mysqli_stmt_execute($stmt3);
-                $result3 = mysqli_stmt_get_result($stmt3);
-                    while($row3 = mysqli_fetch_array($result3)){
-                      $sql4 = "SELECT * FROM hjuma_users WHERE id=?";
-                      $stmt4 = mysqli_stmt_init($conn);
-                      if (!mysqli_stmt_prepare($stmt4, $sql4)){
-                        echo "SQL error";
-                      }else {
-                        mysqli_stmt_bind_param($stmt4, "s", $row3['joined_user']);
-                        mysqli_stmt_execute($stmt4);
-                        $result4 = mysqli_stmt_get_result($stmt4);
-                            while($row4 = mysqli_fetch_array($result4)){
-                              $joined_user_name = $row4['username'];
-                            }
-                      }
+              
 ?>
-                <div class="text-center profile_card">
+                <!-- <div class="text-center profile_card">
                     <img src="pics/icon-profile_3.png" alt="" class="card_profile_img">
                     <div class="card_username">
                         <?php echo $joined_user_name; ?>
                     </div>
                 </div>
-            </div>
+            </div> -->
 <?php
-                  }
-            }
+               
     }
   }
 }

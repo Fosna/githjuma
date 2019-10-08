@@ -5,7 +5,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <form  action="scr/create_challenge.scr.php" method="post" novalidate>
-  <div class="container" style="margin-top:25px!important;">
+  <div class="container">
 <?php
   if(!isset($_SESSION['id'])){
     header("Location: login");

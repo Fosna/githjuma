@@ -19,8 +19,21 @@
     position: relative;
     text-align: center;
 }
+.container{
+    margin-top: 5%;
+}
 .profile_card:hover{
     cursor: pointer;
+}
+.model-profile_btn{
+    border: none;
+    background-color:transparent;
+}
+#kickuser_btn{
+    margin-top: -7%;
+}
+#btn_users{
+    margin-top: -10px;
 }
 .card_profile_img{
     width: 60px;
