@@ -5,3 +5,6 @@
 <a href="creategroup" id="creategroup_btn" class="btn btn-primary">Create group</a>
 
 <div>
+<hr>
+<?php require 'grouptab.php' ?>
+<?php require 'footer.php' ?>
