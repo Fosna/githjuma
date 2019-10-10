@@ -12,7 +12,7 @@
 <!-- Dobivanje challenga iz baze -->
 <!-- Card - prikazivanje challenga -->
 <div class="col-sm-12">
-    <form name="form" action="challenge_info?c=<?php echo $row['group_id'];?>" method="post">
+    <form name="form" action="group_info?g=<?php echo $row['group_id'];?>" method="post">
         <div id="card" class="card <?php echo $card_color;?>" onclick="this.parentNode.submit()">
             <div class="card-body">
                 <h1 class="card-title"><b><?php echo $row['group_name']; ?></b></h1>

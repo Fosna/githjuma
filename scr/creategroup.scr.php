@@ -19,7 +19,7 @@ if (!isset($_POST['creategroup-submit'])) {
       else {
         mysqli_stmt_bind_param($stmt, "sss", $group_id, $group_leader, $name);
         mysqli_stmt_execute($stmt);
-        header("Location: ../main");
+        header("Location: ../groups");
         exit();
       }
 
