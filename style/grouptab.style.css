@@ -1,0 +1,14 @@
+.card{
+    width: 90%!important;
+    height: 90%!important;
+    float: left;
+    border-radius: 25px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 0px 0px!important;
+    float: none;
+    color: white;
+    border: none!important;
+    transition: 150ms;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
