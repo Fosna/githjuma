@@ -14,8 +14,14 @@
       </div>
       <div class="modal-body">
       <form  action="scr/creategroup.scr.php" method="post" novalidate>
-        <input id="title" value="" type="text" class="form-control" name="group_name" aria-describedby="title" placeholder="Name of a group" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="15" required>      
-        <small class="form-text text-muted">More settings after you create the group!</small>
+        <input id="title" value="" type="text" class="form-control" name="group_name" aria-describedby="title" placeholder="Name of a group" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="15" required>
+        <input id="description" value="" type="text" class="form-control" name="group_description" aria-describedby="title" placeholder="Description" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="100" required>           
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Main programming language</label>
+      <select class="custom-select my-1 mr-sm-2" name="main_prog_language" id="inlineFormCustomSelectPref">
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="PHP">PHP</option>
+      </select>
       </div>
       <div class="modal-footer">
       <button  class="btn btn-success center-block" name="creategroup-submit" id="create_groupbtn" type="submit">Create Group</button>
@@ -28,3 +34,9 @@
 <hr>
 <?php require 'grouptab.php' ?>
 <?php require 'footer.php' ?>
+<script>
+// Material Select Initialization
+$(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+</script>
