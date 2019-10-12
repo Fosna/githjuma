@@ -23,7 +23,7 @@
             $group_name = $row['group_name'];
             $group_description = $row['group_description'];
             $main_prog_language = $row['main_prog_language'];
-            $group_leader = $row['group_leader'];
+            $group_leader_id = $row['group_leader'];
             if ($main_prog_language == "Python"){
                 $icon = "pics/python.png";
                 $link = "https://www.python.org/";
@@ -41,7 +41,7 @@
             if (!mysqli_stmt_prepare($stmt2, $sql2)){
               echo "SQL error";
             }else {
-              mysqli_stmt_bind_param($stmt2, "s", $group_leader);
+              mysqli_stmt_bind_param($stmt2, "s", $group_leader_id);
               mysqli_stmt_execute($stmt2);
               $result2 = mysqli_stmt_get_result($stmt2);
                   while($row2 = mysqli_fetch_array($result2)){
@@ -49,6 +49,33 @@
                  }
             }
         }
+        $sql3 = "SELECT * FROM hjuma_requested_groups WHERE group_id=?";
+            $stmt3 = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt3, $sql3)){
+              echo "SQL3 error";
+            }else {
+              mysqli_stmt_bind_param($stmt3, "s", $group_id);
+              mysqli_stmt_execute($stmt3);
+              $result3 = mysqli_stmt_get_result($stmt3);
+                  while($row3 = mysqli_fetch_array($result3)){
+                    $requested_user = $row3['user_id'];
+                    $requested_group = $row3['group_id'];
+                 }
+            }
+            $sql4 = "SELECT * FROM hjuma_users WHERE id=?";
+            $stmt4 = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt4, $sql4)){
+              echo "SQL4 error";
+            }else {
+              mysqli_stmt_bind_param($stmt4, "s", $requested_user);
+              mysqli_stmt_execute($stmt4);
+              $result4 = mysqli_stmt_get_result($stmt4);
+                  while($row4 = mysqli_fetch_array($result4)){
+                    $requested_user_name = $row4['username'];
+                    echo $requested_user_name;
+                 }
+            }
+        
 ?>          
 <div class="container">
   <div class="row">
@@ -69,5 +96,38 @@
     <h5>Description</h5>
     <p><?php echo $group_description;?></p>
   </div>
-  <button class="btn btn-primary btn-lg btn-block">Join Request</button>
+  <?php if($group_leader_id == $_SESSION['id']){?>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestedUsers">
+  Requested Users
+</button>
+<div class="modal fade" id="requestedUsers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <?php
+  }else{ ?>
+  <?php if ($user_id == $requested_user && $group_id == $requested_group){ ?>
+  <button class="btn btn-success btn-lg btn-block">Requested</button>
+  <?php
+  }else{ ?>
+  <form action="scr/requestjoin_group.scr.php" method="post"> 
+  <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
+  <button class="btn btn-primary btn-lg btn-block" name="joinrequest_submit">Join Request</button>
+  </form>
+  <?php }} ?>
 </div>
