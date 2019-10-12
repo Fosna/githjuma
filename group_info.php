@@ -49,24 +49,25 @@
                  }
             }
         }
-?>          <div class="container">
-            <div class="row">
-                <div class="col-md-9 mb-3" style="margin-bottom: 0px!important;">
-                  <h1 style="margin-bottom: 0px!important;"><b><?php echo $group_name;?></b></h1>
-                </div>
-                <div class="col-md-2 mb-3 float-right" style="margin-bottom:0px!important;">
-                  <p style="margin-bottom:0px!important;float:right!important;">Challenge owner:<br><b><?php echo $group_leader?></b></p>
-                </div>
-                <div class="col-md-1 mb-3 float-right" style="margin-bottom: 0px!important;">
-                </div>
-              </div>
-                <hr>
-                <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;">
-                    <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
-                </div>
-                </div>
-    
-                <div class="col-sm">
-              <h5>Description</h5>
-              <p><?php echo $group_description;?></p>
-              <div>
+?>          
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 mb-3" style="margin-bottom: 0px!important;">
+      <h1 style="margin-bottom: 0px!important;"><b><?php echo $group_name;?></b></h1>
+    </div>
+    <div class="col-md-2 mb-3 float-right" style="margin-bottom:0px!important;">
+      <p style="margin-bottom:0px!important;float:right!important;">Group leader:<br><b><?php echo $group_leader?></b></p>
+    </div>
+    <div class="col-md-1 mb-3 float-right" style="margin-bottom: 0px!important;">
+    </div>
+  </div>
+  <hr>
+  <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;">
+      <a class="" href="<?php echo $link; ?>"><img src="<?php echo $icon; ?>" id="icon"></a>
+  </div>
+  <div class="col-sm">
+    <h5>Description</h5>
+    <p><?php echo $group_description;?></p>
+  </div>
+  <button class="btn btn-primary btn-lg btn-block">Join Request</button>
+</div>
