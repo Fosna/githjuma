@@ -14,9 +14,8 @@ if (!isset($_POST['joinrequest_submit'])) {
       else {
         mysqli_stmt_bind_param($stmt, "ss", $user_id, $group_id);
         mysqli_stmt_execute($stmt);
-        header("Location: ../groups");
+        header("Location: ../group_info?g=$group_id");
         exit();
       }
-
 }
 ?>

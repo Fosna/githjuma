@@ -49,33 +49,6 @@
                  }
             }
         }
-        $sql3 = "SELECT * FROM hjuma_requested_groups WHERE group_id=?";
-            $stmt3 = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt3, $sql3)){
-              echo "SQL3 error";
-            }else {
-              mysqli_stmt_bind_param($stmt3, "s", $group_id);
-              mysqli_stmt_execute($stmt3);
-              $result3 = mysqli_stmt_get_result($stmt3);
-                  while($row3 = mysqli_fetch_array($result3)){
-                    $requested_user = $row3['user_id'];
-                    $requested_group = $row3['group_id'];
-                 }
-            }
-            $sql4 = "SELECT * FROM hjuma_users WHERE id=?";
-            $stmt4 = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt4, $sql4)){
-              echo "SQL4 error";
-            }else {
-              mysqli_stmt_bind_param($stmt4, "s", $requested_user);
-              mysqli_stmt_execute($stmt4);
-              $result4 = mysqli_stmt_get_result($stmt4);
-                  while($row4 = mysqli_fetch_array($result4)){
-                    $requested_user_name = $row4['username'];
-                    echo $requested_user_name;
-                 }
-            }
-        
 ?>          
 <div class="container">
   <div class="row">
@@ -96,7 +69,7 @@
     <h5>Description</h5>
     <p><?php echo $group_description;?></p>
   </div>
-  <?php if($group_leader_id == $_SESSION['id']){?>
+  <?php if($group_leader_id == $user_id){?>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestedUsers">
   Requested Users
 </button>
@@ -118,16 +91,10 @@
       </div>
     </div>
   </div>
-</div>
-  <?php
-  }else{ ?>
-  <?php if ($user_id == $requested_user && $group_id == $requested_group){ ?>
-  <button class="btn btn-success btn-lg btn-block">Requested</button>
-  <?php
-  }else{ ?>
+  </div>
+  <?php }else{ ?>
   <form action="scr/requestjoin_group.scr.php" method="post"> 
   <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
   <button class="btn btn-primary btn-lg btn-block" name="joinrequest_submit">Join Request</button>
   </form>
-  <?php }} ?>
-</div>
+  <?php } ?>
