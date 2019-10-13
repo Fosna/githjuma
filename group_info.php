@@ -83,11 +83,44 @@
         </button>
       </div>
       <div class="modal-body">
+        <?php
+          $sql3 = "SELECT * FROM hjuma_requested_groups WHERE group_id = ?";
+          $stmt3 = mysqli_stmt_init($conn);
+          if (!mysqli_stmt_prepare($stmt3, $sql3)){
+            echo "SQL error";
+          }else {
+            mysqli_stmt_bind_param($stmt3, "s", $group_id);
+            mysqli_stmt_execute($stmt3);
+            $result3 = mysqli_stmt_get_result($stmt3);
+                while($row3 = mysqli_fetch_array($result3)){
+                  $sql4 = "SELECT * FROM hjuma_users WHERE id=?";
+                  $stmt4 = mysqli_stmt_init($conn);
+                  if (!mysqli_stmt_prepare($stmt4, $sql4)){
+                    echo "SQL error";
+                  }else {
+                    mysqli_stmt_bind_param($stmt4, "s", $row3['user_id']);
+                    mysqli_stmt_execute($stmt4);
+                    $result4 = mysqli_stmt_get_result($stmt4);
+                        while($row4 = mysqli_fetch_array($result4)){
+                          $user_request_username = $row4['username'];
+                        }
+                  }
+                
+          ?>
+          <hr>
+        <a href="profile" class="btn btn-link"><?php echo $user_request_username; ?></a>
+        <?php if($user_id == $group_leader_id){ ?>
+          <form action="scr/joinaccept_group.scr.php" method="post">     
+          <input type="hidden" name="group_id" value="<?php echo $group_id; ?>">
+          <input type="hidden" name="user_request_user_id" value="<?php echo $row3['user_id']; ?>">                   
+            <button type="submit" name="joinaccept_submit" class="btn btn-success float-right" id="_btn">Accept</button>                 
+          </form>
         
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+          <?php            
+                          }
+                        } 
+                      }
+        ?>
       </div>
     </div>
   </div>
