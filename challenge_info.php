@@ -11,6 +11,7 @@ if (!isset($_GET['c'])) {
     header("Location: login");
   }else{
     $user_id = $_SESSION['id'];
+    
   }
   #ako neko pokusa upisat id a da on ne postoji vraca ga u main
   $sql = "SELECT challenge_id FROM hjuma_challenges WHERE challenge_id=?";
