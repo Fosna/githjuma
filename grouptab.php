@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+  header("Location: hjuma");
+}
+?>
 <link rel="stylesheet" href="style/grouptab.style.css">
 <!-- Dobivanje challenga iz baze -->
 <div class="container">

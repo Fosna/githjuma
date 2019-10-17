@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
  <script type="text/javascript">
   $(window).load(function() {
-      $(".se-pre-con").fadeOut("");;
+      $(".se-pre-con").fadeOut("");
     });
   </script>
 </head>
@@ -71,8 +71,8 @@
 <?php
     }else {
 ?>
-        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-link ml-auto">What is Hjuma?</button>
-        <a href="login" id="loginbtn" class="btn btn-link ">Log In</a>
+        <button id="wih" data-toggle="modal" data-target="#exampleModal" class="btn btn-link ml-auto">What is Hjuma?</button>
+        <a href="login" id="loginbtn" class="btn btn-outline-primary">Log In</a>
 
         
 <?php
@@ -88,9 +88,9 @@
           var scroll = $(window).scrollTop();
 
           if (scroll >= 10) {
-              header.removeClass('bg-transparent').addClass("bg-dark");
+              header.removeClass('bg-transparent').addClass("bg-light");
           } else {
-              header.removeClass("bg-dark").addClass('bg-transparent');
+              header.removeClass("bg-light").addClass('bg-transparent');
           }
       });
     });

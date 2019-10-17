@@ -1,4 +1,10 @@
 <?php require 'header.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+  header("Location: hjuma");
+}
+?>
 <link rel="stylesheet" href="style/challenges.style.css">
 <div class="container">
   <h1><b>Challenges</b></h1>

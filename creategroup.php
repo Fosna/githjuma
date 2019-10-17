@@ -1,5 +1,11 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/creategroup.style.css">
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+  header("Location: hjuma");
+}
+?>
 <form  action="scr/creategroup.scr.php" method="post" novalidate>
   <div class="container">
   <h1 id="name_input" for="username">Name of the group</h1>

@@ -1,5 +1,10 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/main.style.css">
+<?php
+if (!isset($_SESSION['id'])) {
+  header("Location: hjuma");
+}
+?>
 <!-- Opis aplikacije -->
  <div class="jumbotron rounded-0">
     <h1 class="display-3"><b>Code Your Way</b></h1>

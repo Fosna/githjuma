@@ -79,7 +79,12 @@ input{
   font-size: 12px;
   color: #777;
 }
-
+#loginbtn{
+  display: none;
+}
+#wih{
+  display: none;
+}
 /* Fallback for Edge
 -------------------------------------------------- */
 @supports (-ms-ime-align: auto) {

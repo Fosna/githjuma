@@ -2,9 +2,9 @@
     width: 90%!important;
     height: 90%!important;
     float: left;
-    border-radius: 25px;
+    border-radius: 15px;
     margin: 0 auto;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding: 0px 0px!important;
     float: none;
     color: white;
@@ -21,7 +21,7 @@
 .card-body{
   background-image: linear-gradient(to bottom, rgb(37,167,252,1), rgb(37,167,252,1));
   margin: 0px!important;
-  border-radius: 25px;
+  border-radius: 15px;
   width: 100%;
   padding: 1em;
   clip-path: circle(110% at 0% 0%);

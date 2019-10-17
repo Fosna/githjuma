@@ -3,6 +3,7 @@
 body {
     /*font-family: 'DM Sans', sans-serif !important;*/
     font-family: 'Nunito', sans-serif !important;
+    background-color: #EBE9E9;
 }
 .header_space{
     padding: 27px;
@@ -13,21 +14,27 @@ form{
 nav{
     font-weight: bold!important;
 }
+.margin-left{
+    margin-left: 100px;
+}
+.margin-right{
+    margin-right: 100px;
+}
 .btn{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
 }
 input[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
     outline: none !important;
     box-shadow: none !important;
 }
 select{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
     outline: none !important;
     box-shadow: none !important;
 }
 .alert{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
 }
 .btn:focus, .btn:active {
     outline: none !important;
@@ -42,7 +49,7 @@ select{
 }
 .dropdown_username{
     font-weight: bold !important;
-    margin-left: 25px;
+    margin-left: 15px;
 }
 .dropdown-toggle {
     color: black;
@@ -55,15 +62,15 @@ select{
 }
 .dropdown-item{
     background-color: rgba(255, 255, 255, 0) !important;
-    border-radius: 25px !important;
+    border-radius: 15px !important;
     color: black !important;
     font-weight: bold!important;
     transition: 150ms;
 }
 .dropdown-item:hover{
     background-color: #009CFFAD!important;
-    border-bottom-left-radius: 25px !important;
-    border-bottom-right-radius: 25px !important;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
     color: black !important;
 }
 .dropdown-menu{
@@ -72,10 +79,10 @@ select{
 }
 
 .card{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
 }
 .card-header{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
 }
 .more_btn{
     border: none!important;
@@ -93,7 +100,7 @@ select{
     color: black!important;
 }
 .modal-content{
-    border-radius: 25px!important;
+    border-radius: 15px!important;
 }
 .search_input{
     outline: none !important;
@@ -106,7 +113,7 @@ select{
     border-right: none!important;
     border-left: none!important;
     border-top: none!important;*/
-    border-radius: 25px !important;
+    border-radius: 15px !important;
     width: 300px !important;
     transition: 150ms !important;
 }

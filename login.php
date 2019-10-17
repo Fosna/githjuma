@@ -2,8 +2,10 @@
 <link rel="stylesheet" href="style/login.style.css">
 <form class="form-signin" action="scr/login.scr.php" method="post">
   <div class="text-center mb-4">
-    <h1 class="h1 font-weight-normal"><b>Log In</b></h1>
+    <h3 class="h1 font-weight-normal"><b>Log In or Sign Up</b></h3>
   </div>
+  <a href="signup" class="btn btn-lg btn-outline-secondary btn-block">Sign Up</a>
+  <hr>
   <div class="form-label-group">
     <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" value="<?php echo $_SESSION['remember_username']; ?>" required autofocus>
     <label for="inputUsername">Username</label>
@@ -20,7 +22,6 @@
   </div>
 
   <button class="btn btn-lg btn-primary btn-block" name="login-submit" type="submit">Log In</button>
-  <a href="signup" class="signup-link">Sign Up</a>
   <div class="form-label-group">
   <?php
   if (isset($_GET['error'])) {

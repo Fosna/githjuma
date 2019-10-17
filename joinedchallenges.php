@@ -3,6 +3,12 @@
 <div class="space"></div>
 <div class="container">
 <h1><b>Joined Challenges</b></h1>
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+  header("Location: hjuma");
+}
+?>
 <!-- Dobivanje challenga iz baze -->
 <?php
     require 'scr/dbh.scr.php';
