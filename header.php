@@ -27,10 +27,7 @@
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
       <button name="search_challenge-submit" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form> -->
-    <div class="search-box">
-      <input type="text" autocomplete="off" placeholder="Search challenges..." />
-      <div class="result"></div>
-    </div>
+    
 <?php
     error_reporting(0);
     session_start();
@@ -38,7 +35,11 @@
     require_once 'vendor/autoload.php';
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
-?>
+?>    
+      <div class="search-box">
+      <input type="text" autocomplete="off" placeholder="Search challenges..." />
+      <div class="result"></div>
+    </div>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="challenges" style="text-decoration:none;color:black;font-weight: bold!important;">Challenges</a>
@@ -70,8 +71,10 @@
 <?php
     }else {
 ?>
-        <a href="login" id="loginbtn" class="btn btn-outline-primary ml-auto">Log In</a>
-        <a href="signup" id="signupbtn" class="btn btn-primary">Sign Up</a>
+        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-link ml-auto">What is Hjuma?</button>
+        <a href="login" id="loginbtn" class="btn btn-link ">Log In</a>
+
+        
 <?php
     }
 ?>

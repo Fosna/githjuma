@@ -148,22 +148,3 @@
       </form>
     <?php } ?>
   <?php } ?>
-  <?php
-  echo "<br>";
-  echo "<1>";
-  echo "<br>";
-  echo $requested_group;
-  echo "<br>";
-  echo "<2>";
-  echo "<br>";
-  echo $group_id;
-  echo "<br>";
-  echo "<3>";
-  echo "<br>";
-  echo $requested_user;
-  echo "<br>";
-  echo "<4>";
-  echo "<br>";
-  echo $user_id;
-  echo "<br>";
-  ?>
