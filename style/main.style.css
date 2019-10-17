@@ -1,32 +1,11 @@
-
-.header_space {
-    display: none !important;
+body{
+  background-color: #262a2e!important; 
 }
-.jumbotron {
-    background-image: url("../pics/back4.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 100% 50%;
-    border-radius: 0%;
-    color: white;
+.main{
+  margin-top:20px;
+  margin-left: 260px;
 }
-.my-4{
-    background-color: white;
-}
-.pop-challenges{
-  text-align: center;
-  margin: 15px;
-  font-weight: bold;
-}
-.tales {
-  width: 100%;
-}
-.carousel-inner{
-  width:100%;
-  max-height: 600px !important;
-}
-@media only screen and (max-width: 650px) {
-.jumbotron{
-    background-position: 50% 20%;
-}
+#today{
+  color:white;
+  font-size:25px;
 }

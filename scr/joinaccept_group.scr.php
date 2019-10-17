@@ -14,14 +14,14 @@ if (!isset($_POST['joinaccept_submit'])) {
       else {
         mysqli_stmt_bind_param($stmt, "ss", $user_id, $group_id);
         mysqli_stmt_execute($stmt);
-        $sql1 = "DELETE FROM hjuma_requested_groups WHERE user_id = ? AND group_id = ?";
+        $sql1 = "DELETE FROM hjuma_requested_groups WHERE requested_user = ? AND requested_group = ?";
         $stmt1 = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt1, $sql1)){
         }
         else {
             mysqli_stmt_bind_param($stmt1, "ss", $user_id, $group_id);
             mysqli_stmt_execute($stmt1);
-            header("Location: ../group_info?g=$group_id?success=true");
+            header("Location: ../group_info?g=$group_id");
             exit();
         }
       }

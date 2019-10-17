@@ -21,7 +21,7 @@
 </head>
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
-  <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="main"><b>hjuma</b></a>
     <!-- <form action="search_challenges" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
@@ -36,16 +36,16 @@
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>    
-      <div class="search-box">
+      <!-- <div class="search-box">
       <input type="text" autocomplete="off" placeholder="Search challenges..." />
       <div class="result"></div>
-    </div>
+    </div> -->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="challenges" style="text-decoration:none;color:black;font-weight: bold!important;">Challenges</a>
-          <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="groups" style="text-decoration:none;color:black;font-weight: bold!important;">Groups</a>
+          <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="create_challenge" style="text-decoration:none;color:white;font-weight: bold!important;">Create challenge</a>
+          <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="groups" style="text-decoration:none;color:white;font-weight: bold!important;">Groups</a>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" style="text-decoration:none;color:white;font-weight: bold!important;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My Challenges
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style/groups.style.css">
 <div class="container">
 <h1 id="title_groups"><b>Groups</b></h1>
-<button data-toggle="modal" data-target="#creategroupModal" id="creategroup_btn" class="btn btn-primary">Create group</button>
+<button data-toggle="modal" data-target="#creategroupModal" id="creategroup_btn" class="btn btn-dark">Create group</button>
 <div class="modal fade" id="creategroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -24,7 +24,7 @@
       </select>
       </div>
       <div class="modal-footer">
-      <button  class="btn btn-success center-block" name="creategroup-submit" id="create_groupbtn" type="submit">Create Group</button>
+      <button  class="btn btn-dark btn-block btn-lg" name="creategroup-submit" id="create_groupbtn" type="submit">Create Group</button>
       </form>
       </div>
     </div>

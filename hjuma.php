@@ -60,9 +60,45 @@
   </script>
   <h1 class="main-text">Code all day long against <br> your best friends!</h1>
   <div>
-    <img id="img" src="pics/pic.png" class="img-fluid" alt="Responsive image">
+    <img  id="img" src="pics/tabsimg.png" class="img-fluid" alt="Responsive image">
     <div>
-  <div class="container">
-  </div>
+    <div class="hideme">
+    <h1 class="main-text">Create groups and compete with your team!</h1>
+    </div>
+    <div class="hideme">
+    <img  id="img_groups" src="pics/groups.png" class="img-fluid" alt="Responsive image">
+    </div>
+    
+ 
+
 </body>
 </html>
+<script>
+  $(function(){  // $(document).ready shorthand
+  $('.monster').fadeIn('slow');
+});
+
+$(document).ready(function() {
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+            
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+                
+                $(this).animate({'opacity':'1'},1500);
+                    
+            }
+            
+        }); 
+    
+    });
+    
+});
+</script>

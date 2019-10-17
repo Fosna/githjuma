@@ -51,7 +51,7 @@
     <div class="form-row">
       <div class="form-group col-md-4 mb-3">
         <label for="challenge_prog_language">Programming language</label>
-        <select name="challenge_prog_language" class="form-control">
+        <select id="input_select" name="challenge_prog_language" class="form-control">
           <option value="Python">Python</option>
           <option value="PHP">PHP</option>
           <option value="JavaScript">JavaScript</option>
@@ -59,7 +59,7 @@
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="">Duration</label>
-        <select name="challenge_duration" class="form-control">
+        <select id="input_select" name="challenge_duration" class="form-control">
           <option value="5">5min</option>
           <option value="15">15min</option>
           <option value="30">30min</option>
@@ -72,7 +72,7 @@
       </div>
       <div class="form-group col-md-4 mb-3">
         <label for="challenge_difficulty">Difficulty</label>
-        <select name="challenge_difficulty" class="form-control">
+        <select id="input_select" name="challenge_difficulty" class="form-control">
           <option value="Easy">Easy</option>
           <option value="Medium">Medium</option>
           <option value="Hard">Hard</option>
@@ -94,7 +94,7 @@
       <input type="password" class="form-control" name="challenge_password" placeholder="Password for challenge" required>
       <small class="form-text text-muted">Challenge will only be accesible for people with password!</small>
     </div>
-    <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge</button>
+    <button type="submit" class="btn btn-dark btn-block btn-lg" id="btn_createchallenge" name="create_challenge-submit">Create Challenge</button>
     <?php
       if (isset($_GET['error'])) {
         $error = $_GET['error'];

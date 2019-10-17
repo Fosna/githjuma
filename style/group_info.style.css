@@ -1,3 +1,13 @@
+body{
+    background-color: #262a2e!important; 
+    color:white!important;
+}
+.modal-content{
+    background-color: #262a2e!important; 
+}
+#requested_user{
+    color: white!important;
+}
 .jumbotron{
     background-color: white!important;
 }

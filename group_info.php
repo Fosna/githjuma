@@ -70,14 +70,14 @@
     <p><?php echo $group_description;?></p>
   </div>
   <?php if($group_leader_id == $user_id){?>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestedUsers">
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#requestedUsers">
   Requested Users
 </button>
 <div class="modal fade" id="requestedUsers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Requested users</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -98,7 +98,7 @@
                   if (!mysqli_stmt_prepare($stmt4, $sql4)){
                     echo "SQL error";
                   }else {
-                    mysqli_stmt_bind_param($stmt4, "s", $row3['user_id']);
+                    mysqli_stmt_bind_param($stmt4, "s", $row3['requested_user']);
                     mysqli_stmt_execute($stmt4);
                     $result4 = mysqli_stmt_get_result($stmt4);
                         while($row4 = mysqli_fetch_array($result4)){
@@ -107,13 +107,13 @@
                   }
                 
           ?>
-          <hr>
-        <a href="profile" class="btn btn-link"><?php echo $user_request_username; ?></a>
+          <hr>  
+        <a href="profile" id="requested_user" class="btn btn-link"><?php echo $user_request_username; ?></a>
         <?php if($user_id == $group_leader_id){ ?>
           <form action="scr/joinaccept_group.scr.php" method="post">     
           <input type="hidden" name="group_id" value="<?php echo $group_id; ?>">
-          <input type="hidden" name="user_request_user_id" value="<?php echo $row3['user_id']; ?>">                   
-            <button type="submit" name="joinaccept_submit" class="btn btn-success float-right" id="_btn">Accept</button>                 
+          <input type="hidden" name="user_request_user_id" value="<?php echo $row3['requested_user']; ?>">                   
+            <button type="submit" name="joinaccept_submit" class="btn btn-dark float-right" id="_btn">Accept</button>                 
           </form>
         
           <?php            
@@ -140,11 +140,24 @@
             $requested_group = $row5['requested_group'];
           }         
         }
-    if ($requested_user == $user_id) {}else{
+        $sql6 = "SELECT * FROM hjuma_joined_groups WHERE joined_group = ? AND joined_user = ?;";
+    $stmt6 = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt6, $sql6)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt6, "ss", $group_id, $user_id);
+      mysqli_stmt_execute($stmt6);
+      $result6 = mysqli_stmt_get_result($stmt6);
+          while($row6 = mysqli_fetch_array($result6)){
+            $joined_user = $row6['joined_user'];
+           
+          }         
+        }
+    if ($requested_user == $user_id || $joined_user == $user_id ) {}else{
     ?>
       <form action="scr/requestjoin_group.scr.php" method="post"> 
       <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
-      <button class="btn btn-primary btn-lg btn-block" name="joinrequest_submit">Join Request</button>
+      <button class="btn btn-dark btn-lg btn-block" name="joinrequest_submit">Join Request</button>
       </form>
     <?php } ?>
   <?php } ?>

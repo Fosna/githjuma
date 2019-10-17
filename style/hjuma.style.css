@@ -3,14 +3,17 @@
 body {
     /*font-family: 'DM Sans', sans-serif !important;*/
     font-family: 'Nunito', sans-serif !important;
-    background-color: #F1F1F1!important;
+  
 }
 .main-text{
-    margin:30px;
+    margin:50px;
     font-size: 60px;
     font-weight: bold;
     text-align: center;
 }
+html {
+    scroll-behavior: smooth;
+  }
 .wih{
     font-weight: 600!important;
 }
@@ -20,9 +23,51 @@ body {
 .wih:focus{
     text-decoration: none!important;
 }
+.hideme
+{
+    opacity:0;
+}
 #img{
     display: block;
     margin: 70px;
     margin-left:auto;
     margin-right:auto;
+
+    -webkit-animation: fadein 2.5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2.5s; /* Firefox < 16 */
+     -ms-animation: fadein 2.5s; /* Internet Explorer */
+      -o-animation: fadein 2.5s; /* Opera < 12.1 */
+         animation: fadein 2.5s;
+}
+
+#img_groups{
+    display:block;
+    margin:50px;
+    margin-left:auto;
+    margin-right:auto;
+    -webkit-transform:rotate(2deg);
+   
+  
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }

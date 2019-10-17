@@ -112,7 +112,7 @@ if (!isset($_GET['c'])) {
               <hr>
               <div class="row">
                 <div class="col-md-10 mb-3" style="margin-bottom: 0px!important;">
-                  <h1 class="<?php if ($challenge_difficulty == "Easy"){echo "text-success";}elseif ($challenge_difficulty == "Medium") {echo "text-warning";}elseif ($challenge_difficulty == "Hard") {echo "text-danger";}?>">                    <?php echo $row['challenge_difficulty'];?>
+                  <h1 id="difficulty_txt" class="<?php if ($challenge_difficulty == "Easy"){echo "text-success";}elseif ($challenge_difficulty == "Medium") {echo "text-warning";}elseif ($challenge_difficulty == "Hard") {echo "text-danger";}?>">                    <?php echo $row['challenge_difficulty'];?>
                   </h1>
                 </div>
                 <div class="col-md-2 mb-3 float-right" style="margin-bottom: 0px!important;">
@@ -178,7 +178,7 @@ if (!isset($_GET['c'])) {
               <div class="col-sm">
               <h5>Challenge </h5>
               <div class="col-sm">
-                <button id="btn_users" data-toggle="modal" data-target="#usersModal" class="btn btn-primary float-right">Users</button>
+                <button id="btn_users" data-toggle="modal" data-target="#usersModal" class="btn btn-dark float-right">Users</button>
               <div>
               <p><?php echo $row['challenge_explanation'];?></p>
               <div>
@@ -255,11 +255,11 @@ if (!isset($_GET['c'])) {
               <form action="scr/status.scr.php" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
                 <input type="hidden" name="challenge_status" value="ACTIVE">
-                <button type="submit" name="status-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $start_challenge_btn_style; ?>">Start Challenge</button>
+                <button type="submit" name="status-submit" class="btn btn-dark btn-block btn-lg" style="margin-top:15px; <?php echo $start_challenge_btn_style; ?>">Start Challenge</button>
               </form>
               <form action="challenge?c=<?php echo $challenge_id; ?>" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-                <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" style="margin-top:15px; <?php echo $enter_editor_btn_style; ?>">Enter Editor</button>
+                <button type="submit" name="challenge-submit" class="btn btn-dark btn-block btn-lg" style="margin-top:15px; <?php echo $enter_editor_btn_style; ?>">Enter Editor</button>
               </form>
               <h1 style="<?php echo $ended; ?>">Challenge Ended!</h1>
 <?php
@@ -344,7 +344,7 @@ if (!isset($_GET['c'])) {
 ?>
               <form action="challenge?c=<?php echo $challenge_id; ?>" method="post">
                 <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-                <button type="submit" name="challenge-submit" class="btn btn-primary btn-block btn-lg" id="thebtn" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
+                <button type="submit" name="challenge-submit" class="btn btn-dark btn-block btn-lg" id="thebtn" style="margin-top:15px; <?php echo $challenge_submit_btn_style;?>" <?php echo $challenge_submit_btn_status;?>>Enter Editor</button>
                 <small class="form-text text-muted"><?php echo $challenge_submit_btn_label;?></small>
               </form>
 <?php

@@ -1,0 +1,25 @@
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+#text{
+    font-weight: bold;
+     font-size:20px;
+     margin-top:50px;
+     text-align:center;
+     color:white;
+ }
+ #joined_groups{
+     color: white;
+     display:block;
+     margin-left:auto;
+     margin-right:auto;
+ }
+ 
