@@ -84,7 +84,7 @@
       </div>
       <div class="modal-body">
         <?php
-          $sql3 = "SELECT * FROM hjuma_requested_groups WHERE group_id = ?";
+          $sql3 = "SELECT * FROM hjuma_requested_groups WHERE requested_group = ?";
           $stmt3 = mysqli_stmt_init($conn);
           if (!mysqli_stmt_prepare($stmt3, $sql3)){
             echo "SQL error";
@@ -126,8 +126,44 @@
   </div>
   </div>
   <?php }else{ ?>
-  <form action="scr/requestjoin_group.scr.php" method="post"> 
-  <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
-  <button class="btn btn-primary btn-lg btn-block" name="joinrequest_submit">Join Request</button>
-  </form>
+    <?php
+    $sql5 = "SELECT * FROM hjuma_requested_groups WHERE requested_group = ? AND requested_user = ?;";
+    $stmt5 = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt5, $sql5)){
+      echo "SQL error";
+    }else {
+      mysqli_stmt_bind_param($stmt5, "ss", $group_id, $user_id);
+      mysqli_stmt_execute($stmt5);
+      $result5 = mysqli_stmt_get_result($stmt5);
+          while($row5 = mysqli_fetch_array($result5)){
+            $requested_user = $row5['requested_user'];
+            $requested_group = $row5['requested_group'];
+          }         
+        }
+    if ($requested_user == $user_id) {}else{
+    ?>
+      <form action="scr/requestjoin_group.scr.php" method="post"> 
+      <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
+      <button class="btn btn-primary btn-lg btn-block" name="joinrequest_submit">Join Request</button>
+      </form>
+    <?php } ?>
   <?php } ?>
+  <?php
+  echo "<br>";
+  echo "<1>";
+  echo "<br>";
+  echo $requested_group;
+  echo "<br>";
+  echo "<2>";
+  echo "<br>";
+  echo $group_id;
+  echo "<br>";
+  echo "<3>";
+  echo "<br>";
+  echo $requested_user;
+  echo "<br>";
+  echo "<4>";
+  echo "<br>";
+  echo $user_id;
+  echo "<br>";
+  ?>
