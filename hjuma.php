@@ -59,7 +59,9 @@
     });
   </script>
   <h1 class="main-text">Code all day long against <br> your best friends!</h1>
-
+  <div>
+    <img id="img" src="pics/pic.png" class="img-fluid" alt="Responsive image">
+    <div>
   <div class="container">
   </div>
 </body>

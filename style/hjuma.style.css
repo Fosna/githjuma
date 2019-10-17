@@ -20,3 +20,9 @@ body {
 .wih:focus{
     text-decoration: none!important;
 }
+#img{
+    display: block;
+    margin: 70px;
+    margin-left:auto;
+    margin-right:auto;
+}
