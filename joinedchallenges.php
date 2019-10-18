@@ -1,5 +1,11 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
+<style>
+  body{
+    background-color: #262a2e!important; 
+    color:white;
+}
+  </style>
 <div class="space"></div>
 <div class="container">
 <h1><b>Joined Challenges</b></h1>

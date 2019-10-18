@@ -219,13 +219,13 @@ if (!isset($_GET['c'])) {
                             
                       ?>
                     <a href="profile" id="user_name" class="btn btn-link"><?php echo $joined_user_name; ?></a>
-                    <?php if($user_id == $challenge_owner){ ?>
+                    <br>
+                    <?php if($user_id == $challenge_owner){ ?>  
                       <form action="scr/kickuser.scr.php" method="post">     
                       <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">
-                      <input type="hidden" name="kicked_user" value="<?php echo $row3['joined_user']; ?>">                   
-                    <button type="submit" name="kickuser_submit" class="btn btn-danger float-right" id="kickuser_btn">Kick</button>                 
+                      <input type="hidden" name="kicked_user" value="<?php echo $row3['joined_user']; ?>">  
+                    <button type="submit" name="kickuser_submit" class="btn btn-danger float-right" id="kickuser_btn">Kick</button>          
                     </form>
-                   
                       <?php            
                                       }
                                     } 

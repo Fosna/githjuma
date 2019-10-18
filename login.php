@@ -1,6 +1,7 @@
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/login.style.css">
 <form class="form-signin" action="scr/login.scr.php" method="post">
+<div class="login_body">
   <div class="text-center mb-4">
     <h3 class="h1 font-weight-normal"><b>Log In or Sign Up</b></h3>
   </div>
@@ -47,6 +48,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
+  </div>
   </div>
 </form>
 </body>

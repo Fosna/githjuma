@@ -15,6 +15,9 @@ input[type=text], [type=password] {
     border: none!important;
 
   }
+  .search-box{
+    display:none;
+  }
 #creategroup_btn{
     float: right;
     margin-top: -5%;

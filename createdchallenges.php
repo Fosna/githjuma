@@ -1,3 +1,4 @@
+
 <?php require 'header.php'; ?>
 <?php
 session_start();
@@ -6,6 +7,12 @@ if (!isset($_SESSION['id'])) {
 }
 ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
+<style>
+  body{
+    background-color: #262a2e!important; 
+    color:white;
+}
+  </style>
 <div class="space"></div>
 <div class="container">
 <h1><b>Created Challenges</b></h1>

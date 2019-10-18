@@ -21,8 +21,17 @@ if (!isset($_POST['creategroup-submit'])) {
       else {
         mysqli_stmt_bind_param($stmt, "sssss", $group_id, $group_leader, $name, $description, $prog_language);
         mysqli_stmt_execute($stmt);
+        $sql2 = "INSERT INTO hjuma_joined_groups (joined_user, joined_group) VALUES (?, ?)";
+      $stmt2 = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt2, $sql2)){
+        die("sql error2");
+      }
+      else {
+        mysqli_stmt_bind_param($stmt2, "ss", $group_leader, $group_id );
+        mysqli_stmt_execute($stmt2);
         header("Location: ../groups");
         exit();
+      }      
       }
 
 }
