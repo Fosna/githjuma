@@ -9,17 +9,46 @@
     overflow-x: hidden;
     padding-top: 20px;
   }
-#text{
-    font-weight: bold;
-     font-size:20px;
-     margin-top:50px;
-     text-align:center;
-     color:white;
- }
- #joined_groups{
-     color: white;
-     display:block;
-     margin-left:auto;
-     margin-right:auto;
- }
- 
+h1{
+    font-weight: 700;
+    font-size:15px;
+    margin-top:50px;
+    margin-left: 15px;
+    color:white;
+}
+.hjuma_btn{
+    /*margin-left: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 16, 16, 0);
+    width: 90%;
+    height: 20px;
+    padding: 20px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 150ms;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: left;*/
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.267);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 90%;
+    margin-left: 15px;
+    font-weight: 500;
+    transition: 150ms;
+}
+.hjuma_btn:hover{
+    background-color: rgb(37, 37, 37);
+    text-decoration: none;
+    color: white;
+}

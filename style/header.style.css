@@ -20,7 +20,7 @@ nav{
     margin-right: 100px;
 }
 .btn{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
 }
 input[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
     border-radius: 15px!important;
@@ -168,22 +168,24 @@ i{ vertical-align: middle !important; }
 /*search*/
 /* Formatting search box */
     .search-box{
+        border: none;
         width: 300px;
         position: relative;
         display: inline-block;
         font-size: 16px;
-        background: rgba(0,0,0,0);
-        color: gray;
+        background: #1A1A1A;
+        color: #636363;
         font-weight: bold;
         transition: 150ms;
+        border-radius: 10px;
     }
     .search-box input[type="text"]{
         height: 34px;
         padding: 5px 10px;
-        border: 2px solid black;
+        border: none;
         font-size: 16px;
         background: rgba(0,0,0,0);
-        color: gray;
+        color: #636363;
         font-weight: bold;
         position: relative;
     }
@@ -195,8 +197,8 @@ i{ vertical-align: middle !important; }
         z-index: 999;
         top: 100%;
         left: 0;
-        border-radius: 15px;
-        background-color: gray;
+        border-radius: 10px;
+        background-color: #1A1A1A;
     }
     .search-box input[type="text"], .result{
         width: 100%;
@@ -204,7 +206,7 @@ i{ vertical-align: middle !important; }
     }
     /* Formatting result items */
     .result p{
-        background: black;
+        background: #1A1A1A;
         margin: 0;
         padding: 0px 0px;
         border-radius: 15px;
@@ -212,23 +214,23 @@ i{ vertical-align: middle !important; }
         transition: 150ms;
     }
     .result p:hover{
-        background: #f2f2f2;
+        background: #1A1A1A;
     }
     .result a{
       text-decoration: none;
       padding: 7px 10px;
       display: block;
-      color: white;
+      color: #636363;
     }
     .result a:hover{
       text-decoration: none;
       padding: 7px 10px;
       display: block;
-      color: black;
+      color: #636363;
     }
     .no-matches{
       padding: 7px 10px;
-      color:white;
+      color:#636363;
     }
     .no-matches:hover{
       cursor: default;

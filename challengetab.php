@@ -35,17 +35,6 @@
 
         <div class="card-body">
             <h4 class="card-title"><b><?php echo $row['challenge_title']; ?></b></h4>
-            <p class="card-text">
-<?php
-            #stavlja tri točke samo ako je broj slova veci od 110
-            $char_number = strlen($row['challenge_explanation']);
-            if ($char_number > 110) {
-                echo substr($row['challenge_explanation'],0,110), "...";
-            }else{
-                echo substr($row['challenge_explanation'],0,110);
-            }
-?>
-            </p>
             <img src="<?php echo $icon; ?>" id="icon">
         </div>
     </div>

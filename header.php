@@ -36,10 +36,10 @@
     if (isset($_SESSION['id'])) {
       $username = $_SESSION["username"];
 ?>    
-      <!-- <div class="search-box">
+      <div class="search-box">
       <input type="text" autocomplete="off" placeholder="Search challenges..." />
       <div class="result"></div>
-    </div> -->
+    </div>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <a class="btn btn-link my-2 my-sm-0" id="btn_main" href="create_challenge" style="text-decoration:none;color:white;font-weight: bold!important;">Create challenge</a>

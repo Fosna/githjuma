@@ -5,13 +5,13 @@
   <link rel="stylesheet" href="style/main.style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hjuma</title>
+  <title>hjuma</title>
 </head>
 <?php require 'header.php'; ?>
 <?php require 'sidebar.php'; ?>
 <body>
   <div class="main">
-    <!-- <h2 id="mostpopular_today">Most popular challenges today!</h2> -->
+    <h2 class="text">Popular</h2>
     <?php require 'challengetab.php'; ?>
 
   <div>

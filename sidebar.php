@@ -45,11 +45,11 @@
     
 ?>
                 <div class="sidenav">
-                    <h1 id="text">Joined groups</h1>
-                    <a id="joined_groups" class="btn btn-link" href="group_info?g=<?php echo $group_id;?>"><?php echo $group_name; ?></a>
+                    <h1 class="text-left">My groups</h1>
+                    <a class="hjuma_btn" href="group_info?g=<?php echo $group_id;?>"><?php echo $group_name; ?></a>
                     <br>
                     <hr>
-                    <h1 id="text">Joined Challenges</h1> 
+                    <h1>My Challenges</h1> 
                 </div>
                 <div class="sidebar_space"></div>
 

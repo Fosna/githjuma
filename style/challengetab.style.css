@@ -24,7 +24,7 @@
   border-radius: 15px;
   width: 100%;
   padding: 1em;
-  clip-path: circle(110% at 0% 0%);
+  clip-path: circle(120% at 0% 0%);
   transition: clip-path 0.5s ease-in-out;
 }
 .card-body:hover{
@@ -33,14 +33,10 @@
 .col-sm-3,.col-sm-4,.col-sm-5{
   padding: 0px 0px!important;
 }
-.card_easy{
-  background-color: #55D835;
-}
-.card_medium{
-  background-color: #D6C713;
-}
-.card_hard{
-  background-color: #A21A1A;
+.text{
+  color:white;
+  font-weight: 700;
+  margin: 17px;
 }
 #icon{
   width: 50px;
