@@ -11,7 +11,9 @@
 <?php require 'sidebar.php'; ?>
 <body>
   <div class="main">
-  <h1 id="today">Most popular challenges today!</h1>
+    <!-- <h2 id="mostpopular_today">Most popular challenges today!</h2> -->
+    <?php require 'challengetab.php'; ?>
+
   <div>
 </body>
 </html>

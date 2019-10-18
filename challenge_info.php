@@ -218,8 +218,7 @@ if (!isset($_GET['c'])) {
                               }
                             
                       ?>
-                     <hr>
-                    <a href="profile" class="btn btn-link"><?php echo $joined_user_name; ?></a>
+                    <a href="profile" id="user_name" class="btn btn-link"><?php echo $joined_user_name; ?></a>
                     <?php if($user_id == $challenge_owner){ ?>
                       <form action="scr/kickuser.scr.php" method="post">     
                       <input type="hidden" name="challenge_id" value="<?php echo $challenge_id; ?>">

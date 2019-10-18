@@ -2,6 +2,19 @@ body{
     background-color: #262a2e!important; 
     color:white;
 }
+input[type=text], [type=password] {
+    background-color: #343a40!important; 
+    color:white;
+    border:none!important;
+
+  }input, select, textarea{
+    color: white!important;
+}
+  #input_select{
+    background-color: #343a40!important; 
+    border: none!important;
+
+  }
 #creategroup_btn{
     float: right;
     margin-top: -5%;
@@ -15,7 +28,8 @@ body{
 .modal-content{
     background-color: #262a2e!important;
     display:block;
-    margin-top:100px; 
+    margin-top:50%;
+
     
 
 }

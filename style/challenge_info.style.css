@@ -12,6 +12,21 @@ body{
 .jumbotron.greenback.right {
     float: right;
 }
+.modal-content{
+    margin-top:50%;
+    background-color: #262a2e!important; 
+}
+input[type=text], [type=password] {
+    background-color: #343a40!important; 
+    color:white;
+    border:none!important;
+
+  }input, select, textarea{
+    color: white!important;
+}
+#user_name{
+    color:white;
+}
 .col-8, .col-4{
     padding: 0!important;
 }
