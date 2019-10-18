@@ -23,7 +23,6 @@
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                 $group_id = $row['joined_group'];
-                echo $row['']
                 $sql2 = "SELECT * FROM hjuma_groups WHERE group_id = ?;";
                 $stmt2 = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt2, $sql2)){
@@ -48,6 +47,7 @@
                 <div class="sidenav">
                     <h1 id="text">Joined groups</h1>
                     <a id="joined_groups" class="btn btn-link" href="group_info?g=<?php echo $group_id;?>"><?php echo $group_name; ?></a>
+                    <br>
                     <hr>
                     <h1 id="text">Joined Challenges</h1> 
                 </div>
