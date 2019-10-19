@@ -1,4 +1,7 @@
-
+nav{
+  background-color: white!important;
+  box-shadow: none !important;
+}
 input{
   /*border-radius: 30px!important;*/
 }

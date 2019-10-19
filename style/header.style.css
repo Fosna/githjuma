@@ -11,6 +11,8 @@ form{
     margin-bottom: 0;
 }
 nav{
+    background-color: #353a40;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold!important;
 }
 .margin-left{
@@ -41,10 +43,6 @@ select{
 }
 .bg-transparent{
     transition: 150ms;
-}
-.bg-dark{
-    transition: 150ms;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .dropdown_username{
     font-weight: bold !important;

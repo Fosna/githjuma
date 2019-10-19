@@ -21,7 +21,7 @@
 </head>
 <body onload="show1();hideExplanation();">
   <div class="se-pre-con"></div>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar fixed-top navbar-expand-lg">
     <a class="navbar-brand" href="main"><b>hjuma</b></a>
     <!-- <form action="search_challenges" class="form-inline my-2 my-lg-0" style="margin-left: 15px;" method="post">
       <input name="search_challenge" class="form-control mr-sm-2 search_input" type="search" placeholder="Search challenges..." aria-label="Search" autocomplete="off">
@@ -74,18 +74,18 @@
   <div class="header_space"></div>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script type="text/javascript">
-    $(function() {
-      var header = $(".navbar");
-      $(window).scroll(function() {
-          var scroll = $(window).scrollTop();
+    // $(function() {
+    //   var header = $(".navbar");
+    //   $(window).scroll(function() {
+    //       var scroll = $(window).scrollTop();
 
-          if (scroll >= 10) {
-              header.removeClass('bg-transparent').addClass("bg-light");
-          } else {
-              header.removeClass("bg-light").addClass('bg-transparent');
-          }
-      });
-    });
+    //       if (scroll >= 10) {
+    //           header.removeClass('bg-transparent').addClass("bg-light");
+    //       } else {
+    //           header.removeClass("bg-light").addClass('bg-transparent');
+    //       }
+    //   });
+    // });
     //AJAX search part
     $(document).ready(function(){
         $('.search-box input[type="text"]').on("keyup input", function(){
