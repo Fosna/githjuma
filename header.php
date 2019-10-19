@@ -54,7 +54,7 @@
             </div>
           </li>
           <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#myModal">
-              <img src="pics/tools.png" alt="" style="width:30px;height:30px;">
+              <img src="pics/tools.png" alt="" style="width:28px;height:28px;">
     </button>
     
         </ul>
