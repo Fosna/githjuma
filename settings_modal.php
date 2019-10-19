@@ -12,6 +12,7 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
               $result5 = mysqli_stmt_get_result($stmt5);
                   while($row5 = mysqli_fetch_array($result5)){
                       $email = $row5['email'];
+                      $creation_date = $row5['creation_date'];
                       
                   }
             }
@@ -37,7 +38,7 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                                     <h1 class="profile_settings_txt">Profile settings</h1>
                                 </div>
                                 <div class="col-md-2 mb-2 float-right">
-                                    <button id="settings_edit_icon" class="btn float-right" onclick="editAcc();"><p style="margin-top:5px;color:white;">Edit</p><img src="pics/edit.png" alt="" style="width:24px;height:24px;margin-top:30px;">
+                                    <button id="settings_edit_icon" class="btn btn-dark float-right" onclick="editAcc();">Edit<span id="edit_badge" class="badge badge-dark"><img src="pics/edit.png" alt="" style="width:17px;height:17px;margin-top:-3.5px;"></span></button>
                                 </div>
                             </div>
                             <div class="container_username">
@@ -61,7 +62,9 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                             </div>
                             <h3 class="details_txt_in_modal">Details</h3>
                             <h6 class="account_id_modal_txt">Account ID: <?php echo $user_id; ?></h6>
+                            <h6 class="account_creation_modal_txt">Creation date: <?php echo $creation_date; ?></h6>
                             <a href="scr/logout.scr.php" id="logout_btn_in_modal" class="btn btn-danger float-right">Log out</a>
+                            <a href="scr/delete_acc.scr.php" id="delete_acc_btn_modal" class="btn btn-danger">Delete account</a>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="settingsTab">
                             <h1 class="theme">Theme</h1>

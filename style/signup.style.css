@@ -1,3 +1,7 @@
+nav{
+    background-color: white!important;
+    box-shadow: none !important;
+  }
 .container{
     margin-top: 50px;
 }
