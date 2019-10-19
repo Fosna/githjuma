@@ -35,7 +35,7 @@
     transition: 150ms;
 }
 .hjuma_btn:hover{
-    background-color: rgb(37, 37, 37);
+    background-color: #1A1A1A;
     text-decoration: none;
     color: white;
 }

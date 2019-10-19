@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 </head>
 <?php require 'header.php'; ?>
 <?php require 'sidebar.php'; ?>
-<body>
+<body onload="dontshow_email_change_input();">
   <div class="main">
     <h2 class="text">Popular</h2>
     <?php require 'challengetab.php'; ?>

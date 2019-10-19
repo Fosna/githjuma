@@ -1,7 +1,7 @@
 .card{
     width: 90%!important;
     height: 90%!important;
-    border-radius: 25px!important;
+    border-radius: 15px!important;
     margin: 0 auto;
     margin-bottom: 25px;
     padding: 0px 0px!important;
@@ -20,7 +20,7 @@
 .card-body{
   background-image: linear-gradient(to bottom, rgb(37,167,252,1), rgb(37,167,252,1));
   margin: 0px!important;
-  border-radius: 25px;
+  border-radius: 15px;
   width: 100%;
   padding: 1em;
   clip-path: circle(110% at 0% 0%);

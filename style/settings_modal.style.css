@@ -1,5 +1,5 @@
 .modal-content{
-    background-color: #262a2e!important; 
+    background-color: #262A2E!important; 
     margin-top: 13%;
     width:900px;
     margin-left:-150px;
@@ -20,38 +20,71 @@
     border-bottom-left-radius: 0px 0px!important;
     border-bottom-right-radius: 0px 0px!important;
 }
-#profile_settings_txt{
+.profile_settings_txt{
     color: white;
     font-weight: bold;
     margin: 25px;
 }
-#email_username_in_modal_txt{
+.email_username_in_modal_txt{
     margin-left:25px;
     color:white;
     opacity: 0.3;
 }
-#users_email_username_modal{
+.users_email_username_modal{
     margin-left: 25px;
     color:white;
     opacity: 0.7;
 }
-#change_email_btn_in_modal{
+.change_email_btn_in_modal{
     margin-top:-4.5%;
 }
-#change_password_button_in_modal{
+.change_password_button_in_modal{
     margin-left:25px;
 }
-#details_txt_in_modal{
+.details_txt_in_modal{
     opacity: 0.5;
     margin-left:25px;
     margin-top:60px;
     color:white;
 }
-#account_id_modal_txt{
+.account_id_modal_txt{
     margin: 25px;
     color:white;
     opacity: 0.3;
 }
-#logout_btn_in_modal{
+.logout_btn_in_modal{
     margin-top: -6%;
+}
+.email_change_input{
+    margin-left: 5px;
+    background-color: #262A2E;
+    border: none;
+    color:white;
+}
+.theme{
+    display: none;
+}
+.save_changes_btn{
+    margin-left: 10px;
+}
+.edit_input{
+
+}
+input[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
+    border: none;
+    border-radius: 10px!important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #343A40;
+    outline: none;
+    color: white;
+}
+input:focus[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
+    border: none;
+    border-radius: 10px!important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #343A40;
+    outline: none;
+    color: white;
 }

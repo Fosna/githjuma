@@ -24,18 +24,23 @@ nav{
 .btn{
     border-radius: 10px!important;
 }
+.form-control{
+    border-radius: 10px!important;
+    outline: none !important;
+    box-shadow: none !important;
+}
 input[type="text"], [type="password"], [type="date"], [type="email"], [type="datetime-local"], [type="datetime"]{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
     outline: none !important;
     box-shadow: none !important;
 }
 select{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
     outline: none !important;
     box-shadow: none !important;
 }
 .alert{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
 }
 .btn:focus, .btn:active {
     outline: none !important;
@@ -46,7 +51,7 @@ select{
 }
 .dropdown_username{
     font-weight: bold !important;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 .dropdown-toggle {
     color: black;
@@ -59,27 +64,27 @@ select{
 }
 .dropdown-item{
     background-color: rgba(255, 255, 255, 0) !important;
-    border-radius: 15px !important;
+    border-radius: 10px !important;
     color: black !important;
     font-weight: bold!important;
     transition: 150ms;
 }
 .dropdown-item:hover{
     background-color: #009CFFAD!important;
-    border-bottom-left-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
     color: black !important;
 }
 .dropdown-menu{
-    border-radius:15px !important;
+    border-radius:10px !important;
     padding: 0 !important;
 }
 
 .card{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
 }
 .card-header{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
 }
 .more_btn{
     border: none!important;
@@ -97,7 +102,7 @@ select{
     color: black!important;
 }
 .modal-content{
-    border-radius: 15px!important;
+    border-radius: 10px!important;
 }
 .search_input{
     outline: none !important;
@@ -110,7 +115,7 @@ select{
     border-right: none!important;
     border-left: none!important;
     border-top: none!important;*/
-    border-radius: 15px !important;
+    border-radius: 10px !important;
     width: 300px !important;
     transition: 150ms !important;
 }

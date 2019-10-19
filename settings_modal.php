@@ -32,26 +32,39 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="profileTab">
-                            <h1 id="profile_settings_txt">Profile settings</h1>
-                            <div id="container_username">
-                            <h6 id="email_username_in_modal_txt">USERNAME</h6>
-                            <h5 id="users_email_username_modal"><?php echo $username; ?></h5>
+                            <div class="row">
+                                <div class="col-md-10 mb-2">
+                                    <h1 class="profile_settings_txt">Profile settings</h1>
+                                </div>
+                                <div class="col-md-2 mb-2 float-right">
+                                    <button id="settings_edit_icon" class="btn float-right" onclick="editAcc();"><p style="margin-top:5px;color:white;">Edit</p><img src="pics/edit.png" alt="" style="width:24px;height:24px;margin-top:30px;">
+                                </div>
+                            </div>
+                            <div class="container_username">
+                                <h6 class="email_username_in_modal_txt">USERNAME</h6>
+                                <h5 id="settings_username" class="users_email_username_modal"><?php echo $username; ?></h5>
+                                <div class="container edit_input">
+                                    <input id="settings_edit_username" class="form-control" type="text" placeholder="Type new username here...">
+                                </div>
                             </div>
                             <hr>
-                            <div id="container_email">
-                            <h6 id="email_username_in_modal_txt">EMAIL</h6>
-                            <h5 id="users_email_username_modal"><?php echo $email; ?></h5>
-                            <button id="change_email_btn_in_modal" class="btn btn-primary float-right">Change email</button>
+                            <div class="container_email">
+                                <h6 class="email_username_in_modal_txt">EMAIL</h6>
+                                <h5 id="settings_email" class="users_email_username_modal"><?php echo $email; ?></h5>
+                                <div class="container edit_input">
+                                    <input id="settings_edit_email" class="form-control" type="text" placeholder="Type new email here...">
+                                </div>
                             </div>
-                            <hr>
-                            <button id="change_password_button_in_modal" class="btn btn-primary">Change password</button>
-                            <h3 id="details_txt_in_modal">Details</h3>
-                            <h6 id="account_id_modal_txt">Account ID: <?php echo $user_id; ?></h6>
+                            <div class="container" style="margin-top: 10px;">
+                                <button id="settings_cancel_btn" class="btn btn-primary float-right save_changes_btn">Save Changes</button>
+                                <button id="settings_save_btn" class="btn btn-outline-secondary float-right" onclick="canceleditAcc();">Cancel</button>
+                            </div>
+                            <h3 class="details_txt_in_modal">Details</h3>
+                            <h6 class="account_id_modal_txt">Account ID: <?php echo $user_id; ?></h6>
                             <a href="scr/logout.scr.php" id="logout_btn_in_modal" class="btn btn-danger float-right">Log out</a>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="settingsTab">
-                        <h1 id="theme">Theme</h1>
-                      
+                            <h1 class="theme">Theme</h1>
                         </div>
                     </div>
                 </div>
@@ -59,3 +72,27 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
         </div>
     </div>
 </div>
+<script>
+document.getElementById('settings_edit_username').style.display = 'none';
+document.getElementById('settings_edit_email').style.display = 'none';
+document.getElementById('settings_cancel_btn').style.display = 'none';
+document.getElementById('settings_save_btn').style.display = 'none';
+function editAcc(){
+    document.getElementById('settings_edit_icon').style.display = 'none';
+    document.getElementById('settings_username').style.display = 'none';
+    document.getElementById('settings_email').style.display = 'none';
+    document.getElementById('settings_edit_username').style.display = 'block';
+    document.getElementById('settings_edit_email').style.display = 'block';
+    document.getElementById('settings_cancel_btn').style.display = 'block';
+    document.getElementById('settings_save_btn').style.display = 'block';
+}
+function canceleditAcc(){
+    document.getElementById('settings_edit_icon').style.display = 'block';
+    document.getElementById('settings_username').style.display = 'block';
+    document.getElementById('settings_email').style.display = 'block';
+    document.getElementById('settings_edit_username').style.display = 'none';
+    document.getElementById('settings_edit_email').style.display = 'none';
+    document.getElementById('settings_cancel_btn').style.display = 'none';
+    document.getElementById('settings_save_btn').style.display = 'none';
+}
+</script>
