@@ -51,7 +51,7 @@
           exit();
         }
         else {
-          $sql = "INSERT INTO hjuma_users (id, username, email, password, theme) VALUES (?, ?, ?, ?, ?)";
+          $sql = "INSERT INTO hjuma_users (id, username, email, password) VALUES (?, ?, ?, ?)";
           $stmt = mysqli_stmt_init($conn);
           if (!mysqli_stmt_prepare($stmt, $sql)){
             header("Location: ../signup?sqlerror");
@@ -59,7 +59,7 @@
           else {
             $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-            mysqli_stmt_bind_param($stmt, "sssss", $user_id, $username, $email, $hashedPwd, $theme);
+            mysqli_stmt_bind_param($stmt, "ssss", $user_id, $username, $email, $hashedPwd);
             mysqli_stmt_execute($stmt);
             header("Location: ../login?signup=success");
             exit();
