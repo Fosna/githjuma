@@ -47,7 +47,7 @@
         }
     }?>
     <hr>
-                    <h1>My Challenges</h1>
+                    <h1 class="text-left">My Challenges</h1>
                     <?php
     $sql3 = "SELECT * FROM hjuma_joined_challenges WHERE joined_user = ?";
                       $stmt3 = mysqli_stmt_init($conn);

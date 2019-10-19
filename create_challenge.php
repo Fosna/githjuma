@@ -12,7 +12,7 @@
   }
 ?>
     <h1><b>Create Challenge</b></h1>
-    <div class="form-row">
+     <div class="form-row">
       <div class="form-group col-md-12 mb-3">
         <label for="username">Title</label>
         <input id="title" value="" type="text" class="form-control" name="challenge_title" aria-describedby="title" placeholder="Title of a challenge" autocomplete="off" onkeyup="javascript:capitalize(this.id, this.value);" maxlength="15" required>

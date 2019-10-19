@@ -53,18 +53,10 @@
               <a class="dropdown-item" href="joinedchallenges">Joined Challenges</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="pics/icon-profile_3.png" alt="" style="width:25px;height:25px;">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown_username"><?php echo $username ?></a>
-              <a class="dropdown-item" href="#"><i class="material-icons" style="font-size:20px">account_circle</i> Account</a>
-              <a class="dropdown-item" href="#"><i class="material-icons" style="font-size:20px">settings</i> Settings</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item btn-danger btn_logout" href="scr/logout.scr.php"><i class="material-icons" style="font-size:20px">exit_to_app</i> Log out</a>
-            </div>
-          </li>
+          <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#myModal">
+              <img src="pics/tools.png" alt="" style="width:30px;height:30px;">
+    </button>
+    
         </ul>
       </div>
 

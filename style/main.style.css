@@ -1,5 +1,10 @@
+
 body{
   background-color: #262a2e!important; 
+  color:white;
+}
+h1{
+  color:black;
 }
 .main{
   margin-top:20px;

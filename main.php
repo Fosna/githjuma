@@ -13,7 +13,7 @@
   <div class="main">
     <h2 class="text">Popular</h2>
     <?php require 'challengetab.php'; ?>
-
+    <?php require 'settings_modal.php'; ?>
   <div>
 </body>
 </html>
