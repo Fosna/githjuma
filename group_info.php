@@ -1,3 +1,4 @@
+<?php require 'settings_modal.php'; ?>
 <link rel="stylesheet" href="style/group_info.style.css">
 <?php
  require 'header.php'; 
@@ -69,8 +70,36 @@
     <h5>Description</h5>
     <p><?php echo $group_description;?></p>
   </div>
-  <?php if($group_leader_id == $user_id){?>
-    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#requestedUsers">
+  <?php if($group_leader_id == $user_id){?>  
+      <button class="btn btn-dark float-right" id="invite_users_btn" data-toggle="modal" data-target="#inviteUsersModal">Invite users</button>
+      <div class="modal fade" id="inviteUsersModal" tabindex="-1" role="dialog" aria-labelledby="inviteUsersModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Invite users</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php
+         $sql7 = "SELECT * FROM hjuma_users WHERE NOT (id = '$user_id' )";
+         if($result7 = mysqli_query($conn, $sql7)){
+          if(mysqli_num_rows($result7) > 0){
+              while($row7 = mysqli_fetch_array($result7)){
+                 ?>
+                
+<?php
+              }
+         }
+        }
+         ?>
+         search
+      </div>
+    </div>
+  </div>
+</div>
+    <button type="button" id="requested_users_btn" class="btn btn-dark" data-toggle="modal" data-target="#requestedUsers">
   Requested Users
 </button>
 <div class="modal fade" id="requestedUsers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -159,5 +188,6 @@
       <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
       <button class="btn btn-dark btn-lg btn-block" name="joinrequest_submit">Join Request</button>
       </form>
+    
     <?php } ?>
   <?php } ?>

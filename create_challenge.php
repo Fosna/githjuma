@@ -1,3 +1,4 @@
+<?php require 'settings_modal.php'; ?>
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/create_challenge.style.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>

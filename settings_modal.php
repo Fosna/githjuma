@@ -11,6 +11,7 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
               mysqli_stmt_execute($stmt5);
               $result5 = mysqli_stmt_get_result($stmt5);
                   while($row5 = mysqli_fetch_array($result5)){
+                      $username = $row5['username'];
                       $email = $row5['email'];
                       $creation_date = $row5['creation_date'];
                       
@@ -20,7 +21,7 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
 <link rel="stylesheet" href="style/settings_modal.style.css">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div id="modal-width" class="modal-content">
             <div class="modal-body">
                 <div role="tabpanel">
                     <!-- Nav tabs -->

@@ -12,9 +12,19 @@ body{
 .jumbotron{
     background-color: white!important;
 }
+#invite_users_btn{
+    margin-right: 7%;
+    margin-top:2%;
+}
+#requested_users_btn{
+    margin-top:2%;
+}
 .jumbotron.greenback {
     height: 100%;
     padding: 0;
+}
+#invite_btn_modal{
+    margin-top: -8.5%;
 }
 .jumbotron.greenback.right {
     float: right;

@@ -1,3 +1,4 @@
+<?php require 'settings_modal.php'; ?>
 <?php require 'header.php'; ?>
 <link rel="stylesheet" href="style/challengetab.style.css">
 <style>

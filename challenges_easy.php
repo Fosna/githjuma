@@ -1,3 +1,4 @@
+<?php require 'settings_modal.php'; ?>
 <?php require 'header.php'; ?>
 <?php
 session_start();
