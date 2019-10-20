@@ -44,6 +44,9 @@
                     }
                 }
             }
+        }else{ ?>
+        <a href="groups" class="btn btn-link">Join some groups...</a>      
+      <?php
         }
     }?>
     <hr>
@@ -57,6 +60,7 @@
                         mysqli_stmt_bind_param($stmt3, "s", $user_id);
                         mysqli_stmt_execute($stmt3);
                         $result3 = mysqli_stmt_get_result($stmt3);
+                        if(mysqli_num_rows($result3) > 0){
                             while($row3 = mysqli_fetch_array($result3)){
                             $joined_challenge_id = $row3['joined_challenge'];
                             $sql4 = "SELECT * FROM hjuma_challenges WHERE challenge_id = ?";
@@ -75,7 +79,12 @@
                             }
                         }
                     }
+                }else{ ?>
+                   <a href="challenges" class="btn btn-link">Join some challenges...</a>   
+                <?php
+
                 }
+            }
                     
 ?>                   
                     

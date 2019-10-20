@@ -32,7 +32,9 @@ input[type=text], [type=password] {
     background-color: #262a2e!important;
     display:block;
     margin-top:50%;
-
-    
-
+}
+#max_groups_txt2{
+  text-align: right;
+  margin-top: -3%;
+  font-weight: bold;
 }

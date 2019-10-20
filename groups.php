@@ -1,9 +1,15 @@
 <?php require 'settings_modal.php'; ?>
 <?php require 'header.php'; ?>
+<?php require 'scr/count_joined_groups.scr.php'; ?>
 <link rel="stylesheet" href="style/groups.style.css">
 <div class="container">
 <h1 id="title_groups"><b>Groups</b></h1>
+<?php if($numberOfJoinedGroups == 5){ ?>
+  <h6 id="max_groups_txt2">You can only join/create 5 groups</h6>
+<?php
+}else{ ?>
 <button data-toggle="modal" data-target="#creategroupModal" id="creategroup_btn" class="btn btn-dark">Create group</button>
+<?php } ?>
 <div class="modal fade" id="creategroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

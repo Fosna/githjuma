@@ -76,3 +76,8 @@ body{
     height: 75px;
     margin-top:-5%;
 }
+#max_groups_txt{
+    font-weight: bold;
+    text-align: center;
+    padding: 30px;
+}

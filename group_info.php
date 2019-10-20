@@ -3,6 +3,7 @@
 <?php
  require 'header.php'; 
  require 'scr/dbh.scr.php';
+ require 'scr/count_joined_groups.scr.php';
     if (!isset($_GET['g'])) {
     header("Location: main");
     }elseif(isset($_GET['g'])){
@@ -182,12 +183,17 @@
            
           }         
         }
-    if ($requested_user == $user_id || $joined_user == $user_id ) {}else{
+        if($numberOfJoinedGroups == 5){ ?>
+        <h5 id="max_groups_txt">You can only join 5 groups</h5>
+      <?php
+        }else{ 
+    if ($requested_user == $user_id || $joined_user == $user_id) {}else{
     ?>
+    
       <form action="scr/requestjoin_group.scr.php" method="post"> 
       <input type="hidden" name="group_id" value="<?php echo $group_id; ?> ">
       <button class="btn btn-dark btn-lg btn-block" name="joinrequest_submit">Join Request</button>
       </form>
     
-    <?php } ?>
+    <?php } }?>
   <?php } ?>
