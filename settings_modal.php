@@ -79,7 +79,8 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                                 </div>                       
                             </form>
                                 <button id="settings_save_btn" class="btn btn-outline-secondary float-right" onclick="canceleditAcc();">Cancel</button>
-                            <h5 class="details_txt_in_modal">Info</h5>
+                                <hr>
+                            <h5 class="details_txt_in_modal">Details</h5>
                             <h6 class="account_id_modal_txt text-muted">Account ID: <?php echo $user_id; ?></h6>
                             <h6 class="account_creation_modal_txt text-muted">Creation date: <?php echo $creation_date; ?></h6>
                             <a href="scr/logout.scr.php" id="logout_btn_in_modal" class="btn btn-secondary float-right">Log out</a>
