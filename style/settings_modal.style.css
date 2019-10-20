@@ -57,12 +57,10 @@
 .account_id_modal_txt{
     margin: 25px;
     color:white;
-    opacity: 0.3;
 }
 .account_creation_modal_txt{
     margin-left: 25px;
     color:white;
-    opacity: 0.3;
 }
 #logout_btn_in_modal{
     margin-top: 1.8%;
