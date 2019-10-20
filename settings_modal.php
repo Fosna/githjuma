@@ -41,25 +41,27 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                                     <button id="settings_edit_icon" class="btn btn-dark float-right" onclick="editAcc();" style="margin-top: 25px;">Edit<span id="edit_badge" class="badge badge-dark"><img src="pics/edit.png" alt="" style="width:17px;height:17px;margin-top:-3.5px;"></span></button>
                                 </div>
                             </div>
-                            <div class="container_username">
-                                <h6 class="email_username_in_modal_txt">Username</h6>
-                                <h6 id="settings_username" class="users_email_username_modal"><?php echo $username; ?></h6>
-                                <div class="container edit_input">
-                                    <input id="settings_edit_username" class="form-control" type="text" placeholder="Type new username here..." value="<?php echo $username; ?>">
+                            <form action="scr/edit.scr.php" method="post">
+                                <div class="container_username">
+                                    <h6 class="email_username_in_modal_txt">Username</h6>
+                                    <h6 id="settings_username" class="users_email_username_modal"><?php echo $username; ?></h6>
+                                    <div class="container edit_input">
+                                        <input name="edit_username" id="settings_edit_username" class="form-control" type="text" placeholder="Type new username here..." value="<?php echo $username; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="container_email">
-                                <h6 class="email_username_in_modal_txt">E-mail</h6>
-                                <h6 id="settings_email" class="users_email_username_modal"><?php echo $email; ?></h6>
-                                <div class="container edit_input">
-                                    <input id="settings_edit_email" class="form-control" type="text" placeholder="Type new e-mail here..." value="<?php echo $email; ?>">
+                                <hr>
+                                <div class="container_email">
+                                    <h6 class="email_username_in_modal_txt">E-mail</h6>
+                                    <h6 id="settings_email" class="users_email_username_modal"><?php echo $email; ?></h6>
+                                    <div class="container edit_input">
+                                        <input name="edit_email" id="settings_edit_email" class="form-control" type="text" placeholder="Type new e-mail here..." value="<?php echo $email; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="container" style="margin-top: 10px;">
-                                <button id="settings_cancel_btn" class="btn btn-primary float-right save_changes_btn">Save Changes</button>
+                                <div class="container" style="margin-top: 10px;">
+                                    <button type="submit" name="edit_submit" id="settings_cancel_btn" class="btn btn-primary float-right save_changes_btn">Save Changes</button>
+                                </div>                          
+                            </form>
                                 <button id="settings_save_btn" class="btn btn-outline-secondary float-right" onclick="canceleditAcc();">Cancel</button>
-                            </div>
                             <h5 class="details_txt_in_modal">Info</h5>
                             <h6 class="account_id_modal_txt text-muted">Account ID: <?php echo $user_id; ?></h6>
                             <h6 class="account_creation_modal_txt text-muted">Creation date: <?php echo $creation_date; ?></h6>
