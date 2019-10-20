@@ -4,6 +4,12 @@
     width:900px;
     margin-left:-150px;
   }
+  #confrim_password_modal{
+      margin-top: 50%;
+      background-color: #262A2E!important; 
+      color:white;
+
+  }
 .btn-dark{
     margin-left:10px;
 }

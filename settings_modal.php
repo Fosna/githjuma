@@ -59,8 +59,28 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                                     </div>
                                 </div>
                                 <div class="container" style="margin-top: 10px;">
-                                    <button type="submit" name="edit_submit" id="settings_cancel_btn" class="btn btn-primary float-right save_changes_btn">Save Changes</button>
-                                </div>                          
+                                    <button type="button" id="settings_cancel_btn" data-toggle="modal" data-target="#confirmPassword" class="btn btn-primary float-right save_changes_btn">Save Changes</button>
+                                </div>   
+                                <div class="modal fade" id="confirmPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- confrim password modal     -->
+                                    <div class="modal-dialog" role="document">
+                                        <div id="confrim_password_modal" class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Confirm password</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <input class="form-control" type="text" placeholder="Type your password here..."></input>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Confrim</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </div>                       
                             </form>
                                 <button id="settings_save_btn" class="btn btn-outline-secondary float-right" onclick="canceleditAcc();">Cancel</button>
                             <h5 class="details_txt_in_modal">Info</h5>
@@ -78,6 +98,9 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
         </div>
     </div>
 </div>
+
+
+
 <script>
 document.getElementById('settings_edit_username').style.display = 'none';
 document.getElementById('settings_edit_email').style.display = 'none';
