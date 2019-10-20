@@ -42,7 +42,7 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                                     <button id="settings_edit_icon" class="btn btn-dark float-right" onclick="editAcc();" style="margin-top: 25px;">Edit<span id="edit_badge" class="badge badge-dark"><img src="pics/edit.png" alt="" style="width:17px;height:17px;margin-top:-3.5px;"></span></button>
                                 </div>
                             </div>
-                            <form action="scr/edit.scr.php" method="post">
+                            <form name="editForm" action="scr/edit.scr.php" method="post" onsubmit="return passwordCheckEmpty()">
                                 <div class="container_username">
                                     <h6 class="email_username_in_modal_txt">Username</h6>
                                     <h6 id="settings_username" class="users_email_username_modal"><?php echo $username; ?></h6>
@@ -66,21 +66,17 @@ $sql5 = "SELECT * FROM hjuma_users WHERE id = ?;";
                                     <div class="modal-dialog" role="document">
                                         <div id="confrim_password_modal" class="modal-content">
                                             <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Confirm password</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                                                <h5 class="modal-title" id="exampleModalLabel">Confirm Password</h5>
                                             </div>
                                             <div class="modal-body">
-                                            <input class="form-control" type="text" placeholder="Type your password here..."></input>
+                                                <input id="pass_input" class="form-control" type="password" name="password_check" placeholder="Type your password here..."></input>
                                             </div>
                                             <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Confrim</button>
+                                                <button type="submit" name="edit_submit" class="btn btn-primary">Confirm</button>
                                             </div>
                                         </div>
-                                        </div>
-                                        </div>                       
+                                    </div>
+                                </div>                       
                             </form>
                                 <button id="settings_save_btn" class="btn btn-outline-secondary float-right" onclick="canceleditAcc();">Cancel</button>
                             <h5 class="details_txt_in_modal">Info</h5>
@@ -123,5 +119,12 @@ function canceleditAcc(){
     document.getElementById('settings_edit_email').style.display = 'none';
     document.getElementById('settings_cancel_btn').style.display = 'none';
     document.getElementById('settings_save_btn').style.display = 'none';
+}
+function passwordCheckEmpty() {
+  var password = document.forms["editForm"]["password_check"].value;
+  if (password == "") {
+    alert("You must type your password");
+    return false;
+  }
 }
 </script>

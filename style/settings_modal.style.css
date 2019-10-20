@@ -107,3 +107,12 @@ input:focus[type="text"], [type="password"], [type="date"], [type="email"], [typ
     outline: none;
     color: white;
 }
+#pass_input:focus{
+    border: none;
+    border-radius: 10px!important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #343A40;
+    outline: none;
+    color: white;
+}
