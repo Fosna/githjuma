@@ -95,7 +95,9 @@
          }
         }
          ?>
-         search
+        <div class="user-search-box">
+          <input type="text" autocomplete="off" placeholder="Search users..." />
+        <div class="user-result"></div>
       </div>
     </div>
   </div>
@@ -197,3 +199,26 @@
     
     <?php } }?>
   <?php } ?>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.user-search-box input[type="text"]').on("keyup input", function(){
+            /* Get input value on change */
+            var user_inputVal = $(this).val();
+            var user_resultDropdown = $(this).siblings(".user-result");
+            if(user_inputVal.length){
+                $.get("scr/user-search.scr.php", {term: user_inputVal}).done(function(data){
+                    // Display the returned data in browser
+                    user_resultDropdown.html(data);
+                });
+            } else{
+              user_resultDropdown.empty();
+            }
+        });
+
+        // Set search input value on click of result item
+        $(document).on("click", ".user-result p", function(){
+            $(this).parents(".user-search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".user-result").empty();
+        });
+    });
+</script>
